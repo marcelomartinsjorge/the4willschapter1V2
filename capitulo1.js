@@ -136,8 +136,8 @@ window.LIVRO = {
       escolha: { id: 'passo', opcoes: [
         { eixo: 'perto', id: 'correr', txt: 'Correr atrás dele.',
           resultado: ['Mantive o passo, meio correndo, meio escorregando, a respiração virando fumaça na frente do rosto.'] }, // NOVO
-        { eixo: 'longe', id: 'ritmo', txt: 'Andar no meu ritmo e segui-lo pelo cheiro.', luz: 3, flag: 'passoPerdido',
-          resultado: ['Perdi as costas dele duas vezes nas curvas do túnel e o encontrei pelo cheiro. Nuuk não diminuiu o passo por mim. Os Aug não diminuem.', 'Andando sozinho entre paredes que brilham, é difícil não pensar. Pensei um pouco.'] }, // NOVO
+        { eixo: 'longe', id: 'ritmo', txt: 'Andar no meu ritmo e seguir as pegadas dele.', luz: 3, flag: 'passoPerdido',
+          resultado: ['Perdi as costas dele duas vezes nas curvas do túnel, mas as pegadas eram do tamanho de Nuuk e de mais ninguém. Ele não diminuiu o passo por mim. Os Aug não diminuem.', 'Andando sozinho entre paredes que brilham, é difícil não pensar. Pensei um pouco.'] }, // NOVO
       ] } },
 
     { id: 'p11', zona: 'tunel', fundo: { img: 'assets/images/dois-aug.jpg', kb: 'in', dim: .42, foco: '70% 55%', clima: 'cristais' },
@@ -306,9 +306,12 @@ window.LIVRO = {
       musica: 'assets/audio/hino.mp3',
       louvor: { src: 'assets/audio/hino/louvor.mp3', marcas: [0, 3.6, 6.8, 9.9, 13.8, 17.1] },
       vozes: ['assets/audio/hino/verso1.mp3', 'assets/audio/hino/verso2.mp3', 'assets/audio/hino/verso3.mp3', 'assets/audio/hino/verso4.mp3', 'assets/audio/hino/verso5.mp3', 'assets/audio/hino/verso6.mp3'],
+      cantarSob: 'next', // NOVO: só começa a cantar quando o leitor clicar em Próxima
+      letraSe: (st) => st.escolhas.hino === 'frestas', // NOVO: as estrofes só existem pra quem canta alto
       texto: [
         'Cantei baixo, na língua que ninguém mais no mundo fala, a língua que morreu na boca dos que a falavam comigo. Um louvor a um homem que viu mais longe do que qualquer um do seu povo jamais vira, que olhou para onde não se deve olhar e voltou inteiro, e ensinou os outros a olhar.',
-        'A melodia subia e o meu peito subia com ela, e a luz subiu também, e dessa vez eu deixei. Deixei brilhar, uma noite, porque não há ninguém em cem léguas para farejar um velho a cantar a si mesmo.',
+        { se: (st) => st.escolhas.hino === 'frestas', t: 'A melodia subia e o meu peito subia com ela, e a luz subiu também, e dessa vez eu deixei. Deixei brilhar, uma noite, porque não há ninguém em cem léguas para farejar um velho a cantar a si mesmo.' }, // NOVO
+        { se: (st) => st.escolhas.hino !== 'frestas', t: 'A melodia subia, mas eu a mantive baixa, do jeito que mantenho tudo. A luz não passou dos pulsos. Foi o hino inteiro, cantado do jeito que se pensa uma coisa proibida: por dentro, sem som.' }, // NOVO
       ],
       letra: [
         ['Sæl’orin vethas, dumael corvethune', 'luz que caminha, sob o peso do silêncio'],

@@ -337,7 +337,11 @@ function render(dir = 1) {
     }, q.espera * 1000));
   }
   let livre = !contando;
-  if (p.letra) { livre = false; setNext(false); hino(p); }
+  const cantaAqui = p.letra && (!p.letraSe || p.letraSe(st));
+  if (cantaAqui) {
+    if (p.cantarSob === 'next' && !p._cantado) { /* espera o clique de Próxima; ver irProxima() */ }
+    else { livre = false; setNext(false); hino(p); }
+  }
   if (p.escolha) livre = renderEscolha(p);
   if (p.dialogo) livre = renderDialogo(p);
   if (p.minijogo) livre = renderMinijogo(p);
@@ -596,6 +600,8 @@ function atualizaTexto(g) {
 // ---------------------------------------------------------------- navegação
 function irProxima() {
   const p = P[st.i];
+  const cantaAqui = p && p.letra && (!p.letraSe || p.letraSe(st));
+  if (cantaAqui && p.cantarSob === 'next' && !p._cantado) { p._cantado = true; setNext(false); hino(p); return; }
   if (p && p.quieto && !st.escolhas[p.quieto.id]) { st.escolhas[p.quieto.id] = 'cala'; aplicar({ eixo: 'longe' }); registrar(p.quieto.id, 'cala'); salvar(); }
   if (p && p.fim) return resumo();
   const j = idxVis(st.i, 1); if (j >= P.length) return resumo();

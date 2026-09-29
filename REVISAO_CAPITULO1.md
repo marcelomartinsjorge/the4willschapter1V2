@@ -1,4 +1,11 @@
-# Capítulo I — versão 9
+# Capítulo I — versão 10
+
+## Correções da versão 10
+- **O hino agora só começa depois do "I sang low..."** O texto some de imediato antes; agora o leitor lê os dois parágrafos com calma, e só quando clica em Próxima é que o Aheryn começa a cantar de verdade (o Próxima fica bloqueado enquanto ele canta). Vale só para quem escolheu cantar alto.
+- **Quem canta pra dentro não tem mais a parte de cantar alto.** O segundo parágrafo e as seis estrofes do hino só existem para quem escolheu "Deixar a luz vazar pelas frestas". Quem canta pra dentro lê um parágrafo diferente, sobre segurar a luz nos pulsos, sem nenhuma estrofe.
+- **"Pelo cheiro" tirado de vez.** Achei o resto que faltava: a opção de seguir no próprio ritmo pelos túneis. Agora ele segue as pegadas de Nuuk no gelo.
+
+# Versão 9
 
 ## Novidades da versão 9
 - **Pinguins:** quem mata todos os três não tem mais nenhum eco depois — ficava sem sentido um pinguim reaparecer no caminho se não sobrou nenhum. A opção "deixar o frio" foi reescrita: os pinguins estão feridos da queda, não morrendo de frio (pinguim não morre de frio). Agora é "Deixar que morram sozinhos" — omissão, não frio.
