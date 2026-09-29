@@ -81,13 +81,13 @@ window.LIVRO = {
     { id: 'c-armadilha', zona: 'borda', fundo: { img: 'assets/images/cova.jpg', kb: 'in', dim: .4, foco: '65% 40%', clima: 'neve' },
       texto: [
         'Cheguei ao lado do poço, uma nova colônia tinha caído lá. Infelizmente ainda tinham alguns vivos, é estranho ainda sentir algum tipo de sentimento vendo os animais morrendo, mas são essas pequenas coisas que ainda me fazem me sentir vivo. Ou pelo menos com sentimentos.',
-        'Três ainda se mexiam no fundo da cova. Um deles tinha parado de tentar subir e me olhava.', // NOVO
+        'Três ainda se mexiam no fundo da cova, machucados demais da queda para subir sozinhos. Um deles tinha parado de tentar e me olhava.', // NOVO
       ],
       escolha: { id: 'armadilha', opcoes: [
         { eixo: 'perto', id: 'rapido', txt: 'Descer e acabar com eles, rápido.', luz: 4,
           resultado: ['Desci pela borda de gelo. Três vezes a mesma torção, a mesma pressa. Quando subi, a ponta dos meus dedos ainda estava acesa. Fechei as mãos dentro das mangas até apagar.'] }, // NOVO
-        { eixo: 'longe', id: 'frio', txt: 'Deixar que o frio termine o serviço.', luz: -4,
-          resultado: ['Deixei. O frio faz isso melhor do que eu e não guarda o rosto de ninguém. Fiquei de costas para a cova, contando a respiração, até o fundo ficar quieto.'] }, // NOVO
+        { eixo: 'longe', id: 'frio', txt: 'Deixar que morram sozinhos.', luz: -4,
+          resultado: ['Não desci. Não é rápido, morrer de queda por dentro, mas também não guarda o rosto de ninguém. Fiquei de costas para a cova, contando a respiração, até o fundo ficar quieto.'] }, // NOVO
         { eixo: 'perto', id: 'salvar', txt: 'Tirar da cova o que me olhava.', luz: 8, fundo: { img: 'assets/images/pinguim-salvo.jpg', kb: 'in', dim: .35, foco: '70% 60%', clima: 'neve' },
           resultado: ['Desci, peguei o que me olhava pelo meio do corpo e o pus na neve, longe da borda. Ele ficou parado um tempo, depois foi embora sem pressa, como se a ideia tivesse sido dele. Os outros dois deixei como estavam.'] }, // NOVO
       ] } },
@@ -172,11 +172,11 @@ window.LIVRO = {
           { eixo: 'perto', id: 'ver', txt: 'Posso ver ele?', canon: true },
           { eixo: 'longe', id: 'deixar', txt: 'Tudo bem. Não é da minha conta.', aug: -1, luz: -2 }, // NOVO
           { eixo: 'longe', id: 'silencio', txt: '…', silencio: true, luz: -2 },
-        ], resposta: 'GROMM TAR MAL.' },
+        ], resposta: 'GROMM NUM CONSEGUIR FICAR DE PÉ.' },
         { id: 'nuuk3', opcoes: [
           { eixo: 'perto', id: 'ajudar', txt: 'Às vezes consigo ajudá-lo.', canon: true, aug: 1, aviso: 'Nuuk vai lembrar disso.' },
           { eixo: 'longe', id: 'exigir', txt: 'Me leve até ele, Nuuk.', aug: -1, luz: 3 }, // NOVO
-        ], resposta: 'GROMM TAR MAL.' },
+        ], resposta: 'GROMM TAR MAL. NUUK LEVAR UCÊ.' },
       ] },
       depois: [
         { se: (st) => st.escolhas.nuuk1 === 'morrendo' || st.escolhas.nuuk2 === 'deixar', t: 'Nuuk não respondeu à última pergunta. Só caminhou um pouco mais rígido depois dela, os ombros mais altos do que antes.' }, // NOVO
@@ -258,7 +258,7 @@ window.LIVRO = {
         'Colocam o liquido dentro de um osso oco de baleia, tampam e aquecem no vapor do gêiser. O vapor do álcool sobe, passa por um tubo de tripa de algum animal grande — que na ocasião não procurei identificar nem perguntar — e pinga do outro lado, pronto. Aí chega a parte mais nojenta: eles esvaziam a bexiga de outro animal gigante marinho, lavam com neve e costuram a abertura com tendões. Despejam o líquido lá dentro e dão um nó na entrada.',
         'Abri a minha mochila e retirei meus frascos — o suficiente para um ano inteiro de bebida — e os enchi. Aquela noite fiquei satisfeito porque não senti ânsia.',
       ],
-      quieto: { id: 'destilaria', espera: 3.5, eixo: 'perto', fala: 'Nuuk. Gromm vai ficar bem?', resposta: 'GROMM TAR MAL.',
+      quieto: { id: 'destilaria', espera: 3.5, eixo: 'perto', fala: 'Nuuk. Gromm vai ficar bem?', resposta: 'GROMM AINDA TAR MAL.',
         depois: ['Enchi o último frasco. Ele esperou eu terminar.'] }, // NOVO
       fimDeParte: true },
 
@@ -290,7 +290,9 @@ window.LIVRO = {
 
     { id: 'c-hino', zona: 'cabana-dentro', fundo: { img: 'assets/images/cabana-noite-luz.jpg', kb: 'in', dim: .38, foco: '50% 35%', desloca: .16, clima: 'brasas' },
       texto: [
-        'Ao quinto gole, ou ao sexto, apenas sobrava um único pensamento. O Título. Título que me deram quando eu era o orgulho de um povo inteiro, quando a minha gente se reunia para me ouvir, quando ser eu era uma coisa boa de ser. Fizeram de mim uma canção. Uma criatura, no auge, recebe canções, e eu recebi a minha, e ela era bonita.',
+        { se: (st) => !st.guardados || st.guardados.length === 0, t: 'Ao quinto gole, ou ao sexto, apenas sobrava um único pensamento. O Título. Título que me deram quando eu era o orgulho de um povo inteiro, quando a minha gente se reunia para me ouvir, quando ser eu era uma coisa boa de ser. Fizeram de mim uma canção. Uma criatura, no auge, recebe canções, e eu recebi a minha, e ela era bonita.' }, // NOVO
+        { se: (st) => st.guardados && st.guardados.length === 1, t: 'Ao quinto gole, ou ao sexto, quase tudo tinha ido embora. Sobrou o Título, e sobrou mais uma coisa, que não bebi até apagar. Título que me deram quando eu era o orgulho de um povo inteiro, quando a minha gente se reunia para me ouvir, quando ser eu era uma coisa boa de ser. Fizeram de mim uma canção. Uma criatura, no auge, recebe canções, e eu recebi a minha, e ela era bonita.' }, // NOVO
+        { se: (st) => st.guardados && st.guardados.length >= 2, t: 'Parei antes do fim. Ficaram o Título e mais algumas coisas que não tive coragem de afogar. Título que me deram quando eu era o orgulho de um povo inteiro, quando a minha gente se reunia para me ouvir, quando ser eu era uma coisa boa de ser. Fizeram de mim uma canção. Uma criatura, no auge, recebe canções, e eu recebi a minha, e ela era bonita.' }, // NOVO
         'E eu, bêbado, sozinho, na companhia espiritual da Mãe do Inverno, fiz a única coisa que faço quando a luz dentro de mim se recusa em apagar: cantei.',
       ],
       escolha: { id: 'hino', opcoes: [

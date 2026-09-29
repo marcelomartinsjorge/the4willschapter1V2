@@ -1,4 +1,13 @@
-# Capítulo I — versão 8
+# Capítulo I — versão 9
+
+## Novidades da versão 9
+- **Pinguins:** quem mata todos os três não tem mais nenhum eco depois — ficava sem sentido um pinguim reaparecer no caminho se não sobrou nenhum. A opção "deixar o frio" foi reescrita: os pinguins estão feridos da queda, não morrendo de frio (pinguim não morre de frio). Agora é "Deixar que morram sozinhos" — omissão, não frio.
+- **Nuuk varia.** As quatro respostas dele (3 rodadas de diálogo + a da destilaria) não são mais idênticas. Mantive o vocabulário quebrado que você já tinha estabelecido — a segunda resposta ("GROMM NUM CONSEGUIR FICAR DE PÉ") é literalmente uma fala que os outros Aug já tinham dito, ouvida de longe, no capítulo. Isso é canônico — não inventei vocabulário novo, só reaproveitei o que você já tinha escrito em outro lugar.
+- **A caminhada pelos túneis:** troquei "encontrei pelo cheiro" — sem sentido para um humano — por ele seguir as pegadas do Nuuk no gelo, batendo com a escolha de atenção que você já tem nos túneis (ele repara nas marcas onde o Nuuk sempre pisa).
+- **O final da bebida agora reage de verdade** a quantos pensamentos sobraram — três variações, não mais uma frase fixa que ignorava a escolha do jogador.
+- **O hino começa sozinho.** Tirei o botão "Let Aheryn sing". Ele começa a cantar assim que a página abre, e o "Próxima" fica bloqueado até a última estrofe soar — nas duas versões da escolha (cantar pra dentro ou cantar alto). Se você quiser que só valha para quem canta alto, me avisa que eu solto o bloqueio no outro caso.
+
+# Versão 8
 
 ## Novidades da versão 8 (textos novos para revisar)
 - **O silêncio como escolha** (destilaria): não aparece botão nenhum. Se o leitor esperar alguns segundos, surge um "…" discreto. Quem toca, faz o Aheryn falar: *— Nuuk. Gromm vai ficar bem? / — GROMM TAR MAL. / Enchi o último frasco. Ele esperou eu terminar.* Quem simplesmente segue, escolheu o silêncio, e isso volta na cabana: *Não tinha dito uma palavra a Nuuk desde os túneis. Alguns anos passam assim.*

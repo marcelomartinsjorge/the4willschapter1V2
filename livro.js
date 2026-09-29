@@ -304,10 +304,6 @@ function render(dir = 1) {
     if (A.ctx && A.on && dir >= 0) timers.push(setTimeout(() => { const b = $('#narr'); if (b && P[st.i] === p && !A.narr) b.click(); }, 700));
   }
   if (p.cena) $('#cena').onclick = () => verCena(p.cena);
-  if (p.letra) {
-    extras.insertAdjacentHTML('beforeend', `<button class="chip destaque" id="cantar">${U('cantar')}</button>`);
-    $('#cantar').onclick = (e) => { e.currentTarget.remove(); hino(p); };
-  }
   if (p.tutorialLuz && !st.feitos.tutLuz) { st.feitos.tutLuz = 1; timers.push(setTimeout(() => toast(U('tutLuz')), 2200)); }
   if (p.efeito && !st.feitos['ef:' + p.id]) { st.feitos['ef:' + p.id] = 1; if (p.efeito.flag) st.f[p.efeito.flag] = true; if (p.efeito.luz) timers.push(setTimeout(() => mudaLuz(p.efeito.luz), 1200)); }
   if (p.passosGigante && A.ctx) { let k = 0; const passo = () => { A.passo(); k++; timers.push(setTimeout(passo, 950)); }; timers.push(setTimeout(passo, 600)); }
@@ -341,6 +337,7 @@ function render(dir = 1) {
     }, q.espera * 1000));
   }
   let livre = !contando;
+  if (p.letra) { livre = false; setNext(false); hino(p); }
   if (p.escolha) livre = renderEscolha(p);
   if (p.dialogo) livre = renderDialogo(p);
   if (p.minijogo) livre = renderMinijogo(p);
@@ -423,6 +420,7 @@ function renderDialogo(p) {
 // ----- o hino: a voz do Aheryn verso a verso (se os arquivos existirem); senão, a trilha
 async function hino(p) {
   const el = document.createElement('div'); el.className = 'letra'; txt.appendChild(el);
+  const liberar = () => { if (P[st.i] === p) setNext(true); };
   const verso = (k) => { const [l, g] = p.letra[k]; el.insertAdjacentHTML('beforeend', `<p><span>${esc(l)}</span><em>${esc(tr(g))}</em></p>`); };
   let tocou = false;
   if (A.ctx && p.louvor) {
@@ -432,6 +430,7 @@ async function hino(p) {
       const s0 = A.ctx.createBufferSource(); s0.buffer = b; s0.connect(A.master); s0.start(A.ctx.currentTime + ini); A.vozes = [s0];
       p.louvor.marcas.forEach((m, k) => timers.push(setTimeout(() => verso(k), (ini + m) * 1000)));
       timers.push(setTimeout(() => A.duck(false), (ini + b.duration + .5) * 1000));
+      timers.push(setTimeout(liberar, (ini + b.duration + .5) * 1000));
     }
   }
   if (!tocou && A.ctx && p.vozes) {
@@ -445,11 +444,13 @@ async function hino(p) {
         t += b.duration + 0.9;
       });
       timers.push(setTimeout(() => A.duck(false), (1.2 + t) * 1000));
+      timers.push(setTimeout(liberar, (1.2 + t) * 1000));
     }
   }
   if (!tocou) {
     if (A.ctx && p.musica) A.music(p.musica);
     p.letra.forEach((_, k) => timers.push(setTimeout(() => verso(k), 2500 + k * 6500)));
+    timers.push(setTimeout(liberar, 2500 + p.letra.length * 6500));
   }
 }
 A.stopVozes = () => { (A.vozes || []).forEach((s) => { try { s.stop(); } catch (e) {} }); A.vozes = []; };
