@@ -1,4 +1,30 @@
-# Capítulo I — versão 6 (diálogo com mais peso, timer sob demanda)
+# Capítulo I — versão 8
+
+## Novidades da versão 8 (textos novos para revisar)
+- **O silêncio como escolha** (destilaria): não aparece botão nenhum. Se o leitor esperar alguns segundos, surge um "…" discreto. Quem toca, faz o Aheryn falar: *— Nuuk. Gromm vai ficar bem? / — GROMM TAR MAL. / Enchi o último frasco. Ele esperou eu terminar.* Quem simplesmente segue, escolheu o silêncio, e isso volta na cabana: *Não tinha dito uma palavra a Nuuk desde os túneis. Alguns anos passam assim.*
+- **Os três passos contados**: na página em que o Aheryn para e conta, o texto "Três. Vinham três." só aparece depois que o leitor ouve os três passos de bronze.
+- **Despedida que não acontece**: quem deixou o mundo chegar perto durante o capítulo lê, na soleira: *Pensei em descer até o Glaciar e dizer a Nuuk que ia embora. Os Aug não entenderiam para que serve isso. Não fui.*
+- **Revisão de voz**: tirei dois travessões narrativos que eu tinha escrito (regra do Guia de Vozes) e uma frase com cara de videogame ("Ganhei a tempo" virou "O gelo obedeceu a tempo. Mas a luz tinha subido alto demais, e o que sobe alto demais se vê de longe.").
+
+# Versão 7
+
+## Novidades da versão 7 (textos novos para revisar)
+- **Perfil invisível** (perto × longe): cada escolha empurra o Aheryn para deixar o mundo chegar perto ou manter distância. Nada disso aparece na tela; muda como ele narra a volta pelos túneis:
+  - perto: *No meio do túnel, quase chamei Nuuk pelo nome. Não chamei.*
+  - longe: *Nuuk caminhava à minha frente. Não havia nada a dizer, e eu não disse.*
+  - meio: *Pensei em perguntar de novo sobre Gromm. Deixei a pergunta onde estava.*
+- **Escolha de atenção** nos túneis — *O que Aheryn percebe?* Nuuk (as marcas no gelo onde ele sempre pisa), o gelo (camadas de invernos, tão antigo quanto Gelunah), o cheiro (a raiz doce do destilado).
+- **Ritual antes de beber** — janela para o norte, lenha de Frígia no fogo, ou o frasco antes das luvas. Cada um volta mais tarde: o fogo virado brasa, o frasco vazio sem lembrança, o olhar para o norte na manhã dos Tacets.
+- **Memória que se fragmenta com a Luz** (texto novo, confirmar cânone):
+  - Luz baixa: *Quando os Lúmae ainda se reuniam para… Não. Não pensar nisso.*
+  - Luz média: *…eu contava o que tinha visto. Parei aí.*
+  - Luz alta: *…eu contava o que tinha visto do outro lado do que se vê, e eles vinham ver também. Vinham todos.* — insinua que o que ele ensinou levou os Lúmae a olhar; confirme se isso bate com a Bíblia.
+- **Pinguins** agora ecoam no meio do capítulo, a caminho do Glaciar, em vez do epílogo.
+- **Caco de bronze** batendo na coxa no caminho de volta.
+- **A Luz muda a interface**: com Luz alta a página ganha bordas douradas pulsando; com Luz baixa as cores apagam.
+- **A voz do Aheryn toca sozinha** ao abrir as 5 páginas com narração; o hino só começa quando o leitor toca em *Deixar Aheryn cantar*.
+
+## Versão 6
 
 ## Novidades desta versão
 - **A magia proibida** agora fica escondida atrás de um botão "Decidir". Só depois do clique é que as opções aparecem, com um som de tensão e uma barra fina esvaziando — sem relógio visível, sem pressa em cima da leitura.

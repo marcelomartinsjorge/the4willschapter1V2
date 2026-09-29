@@ -20,7 +20,7 @@ let LANG = 'en'; try { LANG = localStorage.getItem('livro_lang') || 'en'; } catc
 const EN = window.LIVRO_EN || {};
 const tr = (t) => (LANG === 'en' && t != null ? (EN[t] != null ? EN[t] : t) : t);
 const UI = {
-  pt: { parte: 'Parte', prox: 'Próxima', fim: 'Encerrar o capítulo', voltar: '← Voltar', ouvir: 'Ouvir Aheryn', cena: '▶ Ver a cena', oque: 'O que Aheryn faz?', decida: 'Decida', decidir: 'Decidir', escolheu: 'Você escolheu:', resp: 'Responder a', silencio: 'ficar em silêncio', momento: 'Momento de jogo',
+  pt: { cantar: '▶ Deixar Aheryn cantar', parte: 'Parte', prox: 'Próxima', fim: 'Encerrar o capítulo', voltar: '← Voltar', ouvir: 'Ouvir Aheryn', cena: '▶ Ver a cena', oque: 'O que Aheryn faz?', decida: 'Decida', decidir: 'Decidir', escolheu: 'Você escolheu:', resp: 'Responder a', silencio: 'ficar em silêncio', momento: 'Momento de jogo',
     tutLuz: 'Essa é a Luz, no canto da tela. Cada escolha acende ou apaga o Aheryn.',
     mg: { passo: 'Acompanhar Nuuk', pedra: 'A pedra', goles: 'Um pensamento a menos', 'hino-do-gelo': 'O gelo obedece' },
     dica: { passo: 'Toque nas pegadas de Nuuk quando elas aparecem, alternando os pés. Pisar fora do rastro escorrega.', pedraT: 'Quando a seta aparecer, toque o lado para onde desviar. Só existe uma chance.', pedraK: 'Quando a seta aparecer, aperte ← ou → para desviar. Só existe uma chance.', goles: 'Cada gole apaga um pensamento. Você escolhe quais afogar e quando parar de beber. O que ficar aceso vira Luz.', jogo: (l) => `A Luz que você acumulou (${l}) já começa acesa no gelo, mas faz os Tacets chegarem mais rápido.` },
@@ -34,7 +34,7 @@ const UI = {
     pedraSub: 'Gromm levanta alguma coisa…', pedraOk: 'Desviou por pouco.', pedraHit: 'A pedra acertou.',
     golesT: 'Um pensamento a menos', golesSub: 'Toque um pensamento para afogá-lo com um gole.', parar: 'Parar de beber', sobrou: 'O que ficou aceso se juntou ao Título.', unico: 'Sobrou um único pensamento.', guardados: 'Pensamentos que Aheryn guardou', afogados: 'afogou tudo',
   },
-  en: { parte: 'Part', prox: 'Next', fim: 'Close the chapter', voltar: '← Back', ouvir: 'Listen to Aheryn', cena: '▶ Watch the scene', oque: 'What does Aheryn do?', decida: 'Decide', decidir: 'Decide', escolheu: 'You chose:', resp: 'Answer', silencio: 'stay silent', momento: 'Moment of play',
+  en: { cantar: '▶ Let Aheryn sing', parte: 'Part', prox: 'Next', fim: 'Close the chapter', voltar: '← Back', ouvir: 'Listen to Aheryn', cena: '▶ Watch the scene', oque: 'What does Aheryn do?', decida: 'Decide', decidir: 'Decide', escolheu: 'You chose:', resp: 'Answer', silencio: 'stay silent', momento: 'Moment of play',
     tutLuz: 'This is the Light, in the corner of the screen. Every choice lights Aheryn up or puts him out.',
     mg: { passo: 'Keep up with Nuuk', pedra: 'The rock', goles: 'One thought less', 'hino-do-gelo': 'The ice obeys' },
     dica: { passo: 'Tap Nuuk’s footprints as they appear, alternating feet. Stepping off the track makes you slip.', pedraT: 'When the arrow appears, tap the side to dodge toward. There is only one chance.', pedraK: 'When the arrow appears, press ← or → to dodge. There is only one chance.', goles: 'Each swallow drowns one thought. You choose which to drown and when to stop drinking. Whatever stays lit becomes Light.', jogo: (l) => `The Light you gathered (${l}) starts already lit in the ice, but it brings the Tacets faster.` },
@@ -53,7 +53,7 @@ const U = (k) => UI[LANG][k];
 
 
 // ---------------------------------------------------------------- estado
-const novoEstado = () => ({ i: 0, luz: L.luzInicial, aug: 0, gelunah: 0, f: {}, escolhas: {}, rotulos: {}, dialogo: {}, feitos: {}, jogo: null, sessao: (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random()) });
+const novoEstado = () => ({ i: 0, luz: L.luzInicial, aug: 0, gelunah: 0, perfil: {}, f: {}, escolhas: {}, rotulos: {}, dialogo: {}, feitos: {}, jogo: null, sessao: (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random()) });
 let st = novoEstado();
 const salvar = () => { try { localStorage.setItem(SAVE_KEY, JSON.stringify(st)); } catch (e) {} };
 const carregar = () => { try { const j = JSON.parse(localStorage.getItem(SAVE_KEY)); return j && j.sessao ? j : null; } catch (e) { return null; } };
@@ -239,6 +239,8 @@ function drawLuz() {
   luzShown += (st.luz - luzShown) * .08;
   document.documentElement.style.setProperty('--luz', (luzShown / 100).toFixed(3));
   $('#luzV').textContent = Math.round(luzShown);
+  const cl = document.body.classList;
+  cl.toggle('luz-alta', luzShown >= 60); cl.toggle('luz-baixa', luzShown <= 25);
   requestAnimationFrame(drawLuz);
 }
 function toast(t) { const el = document.createElement('div'); el.className = 'toast'; el.textContent = t; $('#toasts').appendChild(el); A.aviso(); setTimeout(() => el.classList.add('out'), 3600); setTimeout(() => el.remove(), 4400); }
@@ -297,13 +299,48 @@ function render(dir = 1) {
   const narrTag = p.narracaoLang && p.narracaoLang !== LANG ? ` (${p.narracaoLang.toUpperCase()})` : '';
   if (narracaoOk) extras.insertAdjacentHTML('beforeend', `<button class="chip" id="narr"><i class="eq"></i>${U('ouvir')}${narrTag}</button>`);
   if (p.cena) extras.insertAdjacentHTML('beforeend', `<button class="chip" id="cena">${U('cena')}</button>`);
-  if (narracaoOk) ligaNarr(p);
+  if (narracaoOk) {
+    ligaNarr(p);
+    if (A.ctx && A.on && dir >= 0) timers.push(setTimeout(() => { const b = $('#narr'); if (b && P[st.i] === p && !A.narr) b.click(); }, 700));
+  }
   if (p.cena) $('#cena').onclick = () => verCena(p.cena);
-  if (p.letra) hino(p);
+  if (p.letra) {
+    extras.insertAdjacentHTML('beforeend', `<button class="chip destaque" id="cantar">${U('cantar')}</button>`);
+    $('#cantar').onclick = (e) => { e.currentTarget.remove(); hino(p); };
+  }
   if (p.tutorialLuz && !st.feitos.tutLuz) { st.feitos.tutLuz = 1; timers.push(setTimeout(() => toast(U('tutLuz')), 2200)); }
   if (p.efeito && !st.feitos['ef:' + p.id]) { st.feitos['ef:' + p.id] = 1; if (p.efeito.flag) st.f[p.efeito.flag] = true; if (p.efeito.luz) timers.push(setTimeout(() => mudaLuz(p.efeito.luz), 1200)); }
   if (p.passosGigante && A.ctx) { let k = 0; const passo = () => { A.passo(); k++; timers.push(setTimeout(passo, 950)); }; timers.push(setTimeout(passo, 600)); }
-  let livre = true;
+  // contagem: parte do texto espera os passos soarem antes de aparecer
+  let contando = false;
+  if (p.contagem && !st.feitos['ct:' + p.id]) {
+    contando = true;
+    const ps = [...txt.children]; ps.slice(p.contagem.mostra).forEach((el) => { el.style.display = 'none'; });
+    for (let k = 0; k < p.contagem.passos; k++) timers.push(setTimeout(() => A.passo(), 1400 + k * 950));
+    timers.push(setTimeout(() => {
+      st.feitos['ct:' + p.id] = 1; salvar();
+      ps.slice(p.contagem.mostra).forEach((el, k) => { el.style.display = ''; el.classList.add('novo'); el.style.animationDelay = (k * .4) + 's'; });
+      setNext(true);
+    }, 1400 + p.contagem.passos * 950 + 500));
+  }
+  // quieto: nenhum botão; se o leitor esperar, surge um "…" que ele pode ou não tocar
+  if (p.quieto) {
+    const q = p.quieto, ja = st.escolhas[q.id];
+    const fala = () => {
+      txt.insertAdjacentHTML('beforeend', `<p class="dlg eu novo">— ${esc(tr(q.fala))}</p>`);
+      timers.push(setTimeout(() => { txt.insertAdjacentHTML('beforeend', `<p class="dlg ele novo">— ${esc(tr(q.resposta))}</p>`); A.tone(110, .5, 'sawtooth', .05, 0, .8); }, 900));
+      timers.push(setTimeout(() => appendParas(q.depois), 1800));
+    };
+    if (ja === 'fala') { txt.insertAdjacentHTML('beforeend', `<p class="dlg eu">— ${esc(tr(q.fala))}</p><p class="dlg ele">— ${esc(tr(q.resposta))}</p>`); appendParas(q.depois); }
+    else if (!ja) timers.push(setTimeout(() => {
+      if (P[st.i] !== p || st.escolhas[q.id]) return;
+      txt.insertAdjacentHTML('beforeend', '<button class="quieto" aria-label="…">…</button>');
+      txt.querySelector('.quieto').onclick = (e) => {
+        e.currentTarget.remove(); st.escolhas[q.id] = 'fala'; aplicar({ eixo: q.eixo }); registrar(q.id, 'fala'); salvar(); fala();
+      };
+    }, q.espera * 1000));
+  }
+  let livre = !contando;
   if (p.escolha) livre = renderEscolha(p);
   if (p.dialogo) livre = renderDialogo(p);
   if (p.minijogo) livre = renderMinijogo(p);
@@ -335,7 +372,7 @@ function renderEscolha(p) {
 }
 function abreEscolha(p) {
   const e = p.escolha;
-  box.innerHTML = `<p class="eyebrow">${e.urgente ? U('decida') : U('oque')}</p>` + e.opcoes.map(optHTML).join('') + (e.janela ? '<div class="tenso"></div>' : '');
+  box.innerHTML = `<p class="eyebrow">${e.urgente ? U('decida') : (e.pergunta ? esc(tr(e.pergunta)) : U('oque'))}</p>` + e.opcoes.map(optHTML).join('') + (e.janela ? '<div class="tenso"></div>' : '');
   box.classList.toggle('urgente', !!e.urgente);
   box.querySelectorAll('.opt').forEach((b) => b.onclick = () => escolher(p, b.dataset.id));
   if (e.janela) {
@@ -345,6 +382,7 @@ function abreEscolha(p) {
   }
 }
 function aplicar(o) {
+  if (o.eixo) { st.perfil = st.perfil || {}; st.perfil[o.eixo] = (st.perfil[o.eixo] || 0) + 1; }
   if (o.luz) mudaLuz(o.luz);
   if (o.aug) st.aug += o.aug; if (o.gelunah) st.gelunah += o.gelunah; if (o.flag) st.f[o.flag] = true;
   if (o.aviso) timers.push(setTimeout(() => toast(tr(o.aviso)), 500));
@@ -557,6 +595,7 @@ function atualizaTexto(g) {
 // ---------------------------------------------------------------- navegação
 function irProxima() {
   const p = P[st.i];
+  if (p && p.quieto && !st.escolhas[p.quieto.id]) { st.escolhas[p.quieto.id] = 'cala'; aplicar({ eixo: 'longe' }); registrar(p.quieto.id, 'cala'); salvar(); }
   if (p && p.fim) return resumo();
   const j = idxVis(st.i, 1); if (j >= P.length) return resumo();
   st.i = j; A.ctx && A.virar(); render(1);
@@ -591,6 +630,7 @@ async function resumo() {
   const nomeOpcao = (id) => {
     const v = st.escolhas[id];
     if (id === 'jogo') return v === 'venceu' ? U('venceu') : U('perdeu');
+    for (const pg of P) if (pg.quieto && pg.quieto.id === id) return v === 'fala' ? '— ' + tr(pg.quieto.fala) : U('silencioR');
     for (const pg of P) {
       if (pg.escolha && pg.escolha.id === id) { const o = pg.escolha.opcoes.find((x) => x.id === v); if (o) return rotulo(o); }
       if (pg.dialogo) for (const r of pg.dialogo.rodadas) if (r.id === id) { const o = r.opcoes.find((x) => x.id === v); if (o) return rotulo(o); }
