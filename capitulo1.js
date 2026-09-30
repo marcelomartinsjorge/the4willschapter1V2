@@ -118,8 +118,6 @@ window.LIVRO = {
       texto: [
         'Caminhava em direção ao Glaciar Oco, uma espécie de vilarejo da sociedade dos Aug: uma geleira gigante, cheia de fendas e túneis naturais formados pelo degelo e recongelamento milenar. Deve ser tão antiga quanto Gelunah. O gelo que a forma é diferente — ficou azul-turquesa, duro como pedra. É bonito, mas fedido.',
         { se: (st) => st.escolhas.armadilha === 'salvar', t: 'No caminho, um pinguim atravessou a neve, longe demais para eu saber se era o mesmo.' }, // NOVO
-        { se: (st) => st.escolhas.armadilha === 'rapido', t: 'Vi um pinguim no caminho. Não parei.' }, // NOVO
-        { se: (st) => st.escolhas.armadilha === 'frio', t: 'Ao passar pela cova, não olhei para dentro. Estava quieta.' }, // NOVO
       ] },
 
     { id: 'p09', zona: 'tunel', fundo: { img: 'assets/images/nuuk.jpg', kb: 'in', dim: .38, foco: '62% 8%', clima: 'cristais' },
@@ -239,7 +237,7 @@ window.LIVRO = {
         { se: (st) => perfil(st) >= 2, t: 'No meio do túnel, quase chamei Nuuk pelo nome. Não chamei.' }, // NOVO
         { se: (st) => perfil(st) <= -2, t: 'Nuuk caminhava à minha frente. Não havia nada a dizer, e eu não disse.' }, // NOVO
         { se: (st) => perfil(st) > -2 && perfil(st) < 2, t: 'Pensei em perguntar de novo sobre Gromm. Deixei a pergunta onde estava.' }, // NOVO
-        { se: (st) => st.f.bronze, t: 'O caco no bolso batia contra a minha coxa a cada passo. Não o tirei dali.' }, // NOVO
+        { se: (st) => st.f.bronze, t: 'O caco no bolso batia contra a minha coxa a cada passo.' }, // NOVO
       ], fimDeParte: true },
 
     // ===================================================== III · O DESTILADO
@@ -352,7 +350,7 @@ window.LIVRO = {
 
     { id: 'c-proibido', zona: 'tacets', fundo: { img: 'assets/images/tacets-perto.jpg', kb: 'in', dim: .4, foco: '55% 30%', clima: 'neve' }, passos: true,
       texto: [
-        'Exceto e eu sei que vinham me buscar.',
+        'Exceto que eu sabia que vinham me buscar.',
         'O primeiro me viu.',
         'A cabeça lisa virou-se, sem olhos, e os pontos de luz na face acenderam-se um tom acima, e o compasso quebrou, quebrou pela primeira vez, de três para quatro, mais rápido, porque a coisa tinha um alvo agora e o alvo era eu. Os outros dois viraram-se juntos. E aqui é onde um homem corajoso teria agido, feito o que eu sei fazer, o que me valeu uma canção: tocar o que é proibido e desfazer aqueles três num gesto, como quem apaga três contas de um ábaco.',
       ],

@@ -1,4 +1,13 @@
-# Capítulo I — versão 10
+# Capítulo I — versão 11
+
+## Correções da versão 11
+- **Tirado o eco que não fazia sentido** ("Ao passar pela cova, não olhei para dentro"): ele está indo para o Glaciar Oco, não voltando pela cova dos pinguins. Agora só existe eco nesse trecho pra quem salvou o pinguim (ele reaparece de longe no caminho); quem matou todos ou deixou morrer não tem nenhuma linha aqui.
+- **"Não o tirei dali." removido** do eco do caco de bronze — ficou só "O caco no bolso batia contra a minha coxa a cada passo."
+- **Frase quebrada dos Tacets corrigida:** "Exceto e eu sei que vinham me buscar." virou "Exceto que eu sabia que vinham me buscar." — provavelmente um erro que já vinha do texto original.
+- **Tela final do jogo cortada no PC, corrigida.** O painel de fim de jogo tinha um problema de CSS (centralização vertical que corta o topo quando o conteúdo é mais alto que a tela, sem jeito de rolar pra cima). Agora o painel sempre começa do topo e rola normalmente.
+- **Jogar de novo depois de vencer.** No livro, ganhar só oferecia "Continuar a história". Agora tem "Jogar de novo" do lado, igual já existia pra quem perde.
+
+# Versão 10
 
 ## Correções da versão 10
 - **O hino agora só começa depois do "I sang low..."** O texto some de imediato antes; agora o leitor lê os dois parágrafos com calma, e só quando clica em Próxima é que o Aheryn começa a cantar de verdade (o Próxima fica bloqueado enquanto ele canta). Vale só para quem escolheu cantar alto.

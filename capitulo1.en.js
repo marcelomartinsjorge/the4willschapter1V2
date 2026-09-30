@@ -103,7 +103,6 @@ window.LIVRO_EN = {
  "Três. Vinham três.": "Three. Three of them were coming.",
  "E eu soube o que eram antes de subir ao alto e os ver recortados contra a neve, porque o compasso daquilo estava gravado em mim mais fundo do que a língua morta, mais fundo que a canção. Eram obra da minha gente. Criamos os Tacets séculos atrás, construídos a base de bronze e magia para nos ajudar nos serviços braçais. Hoje eles vivem por conta própria porque nenhum Lúmae existe mais.": "And I knew what they were before I climbed up to see them outlined against the snow, because that rhythm was carved into me deeper than the dead language, deeper than the song. They were my people's work. We built the Tacets centuries ago, made of bronze and magic, to help with heavy labor. Today they live on their own, because no Lúmae remains.",
  "No bolso, o caco que eu trouxe do Glaciar esquentou contra a minha coxa.": "In my pocket, the shard I brought from the Glacier grew warm against my thigh.",
- "Exceto e eu sei que vinham me buscar.": "Except I knew they were coming for me.",
  "O primeiro me viu.": "The first one saw me.",
  "A cabeça lisa virou-se, sem olhos, e os pontos de luz na face acenderam-se um tom acima, e o compasso quebrou, quebrou pela primeira vez, de três para quatro, mais rápido, porque a coisa tinha um alvo agora e o alvo era eu. Os outros dois viraram-se juntos. E aqui é onde um homem corajoso teria agido, feito o que eu sei fazer, o que me valeu uma canção: tocar o que é proibido e desfazer aqueles três num gesto, como quem apaga três contas de um ábaco.": "The smooth head turned, eyeless, and the points of light on its face brightened a shade, and the rhythm broke — broke for the first time, from three counts to four, faster, because the thing had a target now, and the target was me. The other two turned together. And this is where a brave man would have acted, done what I know how to do, what earned me a song: touch what is forbidden and undo the three of them in a single gesture, the way one clears three beads off an abacus.",
  "Tocar o que é proibido.": "Touch what is forbidden.",
@@ -186,8 +185,6 @@ window.LIVRO_EN = {
  "Não sobrou nenhuma outra memória acesa além do Título. Achei que doeria mais.": "No other memory stayed lit besides the Title. I thought it would hurt more.",
  "Alguma coisa, além do Título, continuava acesa em mim. Não tentei apagar.": "Something, besides the Title, was still lit in me. I didn't try to put it out.",
  "No caminho, um pinguim atravessou a neve, longe demais para eu saber se era o mesmo.": "On the way, a penguin crossed the snow, too far off for me to know if it was the same one.",
- "Vi um pinguim no caminho. Não parei.": "I saw a penguin on the way. I didn't stop.",
- "Ao passar pela cova, não olhei para dentro. Estava quieta.": "Passing the pit, I didn't look in. It was quiet.",
  "O que Aheryn percebe?": "What does Aheryn notice?",
  "Nuuk.": "Nuuk.",
  "O gelo.": "The ice.",
@@ -198,7 +195,6 @@ window.LIVRO_EN = {
  "No meio do túnel, quase chamei Nuuk pelo nome. Não chamei.": "Halfway through the tunnel, I almost called Nuuk by name. I didn't.",
  "Nuuk caminhava à minha frente. Não havia nada a dizer, e eu não disse.": "Nuuk walked ahead of me. There was nothing to say, and I didn't say it.",
  "Pensei em perguntar de novo sobre Gromm. Deixei a pergunta onde estava.": "I thought of asking about Gromm again. I left the question where it was.",
- "O caco no bolso batia contra a minha coxa a cada passo. Não o tirei dali.": "The shard in my pocket knocked against my thigh with every step. I didn't take it out.",
  "Quando os Lúmae ainda se reuniam para… Não. Não pensar nisso.": "When the Lúmae still gathered to… No. Don't think about it.",
  "Quando os Lúmae ainda se reuniam para me ouvir, eu contava o que tinha visto. Parei aí.": "When the Lúmae still gathered to hear me, I told them what I had seen. I stopped there.",
  "Quando os Lúmae ainda se reuniam para me ouvir, eu contava o que tinha visto do outro lado do que se vê, e eles vinham ver também. Vinham todos.": "When the Lúmae still gathered to hear me, I told them what I had seen on the other side of what can be seen, and they came to see it too. All of them came.",
@@ -235,5 +231,7 @@ window.LIVRO_EN = {
  "Andar no meu ritmo e seguir as pegadas dele.": "Walk at my own pace and follow his footprints.",
  "Perdi as costas dele duas vezes nas curvas do túnel, mas as pegadas eram do tamanho de Nuuk e de mais ninguém. Ele não diminuiu o passo por mim. Os Aug não diminuem.": "Twice I lost sight of his back in the bends of the tunnel, but the footprints were Nuuk's size and no one else's. He didn't slow down for me. The Aug don't slow down.",
  "A melodia subia, mas eu a mantive baixa, do jeito que mantenho tudo. A luz não passou dos pulsos. Foi o hino inteiro, cantado do jeito que se pensa uma coisa proibida: por dentro, sem som.": "The melody rose, but I kept it low, the way I keep everything. The light never passed my wrists. It was the whole hymn, sung the way one thinks a forbidden thing: inward, without sound.",
- "A melodia subia e o meu peito subia com ela, e a luz subiu também, e dessa vez eu deixei. Deixei brilhar, uma noite, porque não há ninguém em cem léguas para farejar um velho a cantar a si mesmo.": "The melody rose and my chest rose with it, and the light rose too, and this time I let it. I let myself glow, one night, because there's no one for a hundred leagues to catch the scent of an old man singing to himself."
+ "A melodia subia e o meu peito subia com ela, e a luz subiu também, e dessa vez eu deixei. Deixei brilhar, uma noite, porque não há ninguém em cem léguas para farejar um velho a cantar a si mesmo.": "The melody rose and my chest rose with it, and the light rose too, and this time I let it. I let myself glow, one night, because there's no one for a hundred leagues to catch the scent of an old man singing to himself.",
+ "O caco no bolso batia contra a minha coxa a cada passo.": "The shard in my pocket knocked against my thigh with every step.",
+ "Exceto que eu sabia que vinham me buscar.": "Except I knew they were coming for me."
 };
