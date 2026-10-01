@@ -241,26 +241,26 @@ window.LIVRO = {
 
     { id: 'd-nuuk', zona: 'tunel', fundo: { img: 'assets/images/nuuk.jpg', kb: 'out', dim: .4, foco: '62% 8%', clima: 'cristais' },
       texto: [
-        'Questionei Nuuk sobre o mal-estar de Gromm. Os Augs, assim como os Grakh, possuem dois estômagos e uma capacidade incrível de digestão.',
+        'Quis perguntar a Nuuk o que se passava com Gromm. Os Augs, assim como os Grakh, possuem dois estômagos e uma capacidade incrível de digestão.', // ALTERADO
       ],
       dialogo: { interlocutor: 'Nuuk', rodadas: [
-        { id: 'nuuk1', opcoes: [
+        { id: 'nuuk1', pergunta: 'O que Aheryn pergunta a Nuuk?', opcoes: [
           { eixo: 'perto', id: 'contou', txt: 'Nuuk, o que exatamente Gromm te contou? Como ele está?', canon: true },
           { eixo: 'longe', id: 'morrendo', txt: 'Ele está morrendo, Nuuk?', aug: -1, aviso: 'Nuuk vai lembrar disso.' }, // NOVO
           { eixo: 'longe', id: 'silencio', txt: '…', silencio: true, luz: -2 },
         ], resposta: 'GROMM TAR MAL.' },
-        { id: 'nuuk2', opcoes: [
+        { id: 'nuuk2', pergunta: 'O que Aheryn diz?', opcoes: [
           { eixo: 'perto', id: 'ver', txt: 'Posso ver ele?', canon: true },
           { eixo: 'longe', id: 'deixar', txt: 'Tudo bem. Não é da minha conta.', aug: -1, luz: -2 }, // NOVO
           { eixo: 'longe', id: 'silencio', txt: '…', silencio: true, luz: -2 },
         ], resposta: 'GROMM NUM CONSEGUIR FICAR DE PÉ.' },
-        { id: 'nuuk3', opcoes: [
+        { id: 'nuuk3', pergunta: 'O que Aheryn diz?', opcoes: [
           { eixo: 'perto', id: 'ajudar', txt: 'Às vezes consigo ajudá-lo.', canon: true, aug: 1, aviso: 'Nuuk vai lembrar disso.' },
           { eixo: 'longe', id: 'exigir', txt: 'Me leve até ele, Nuuk.', aug: -1, luz: 3 }, // NOVO
         ], resposta: 'GROMM TAR MAL. NUUK LEVAR UCÊ.' },
       ] },
       depois: [
-        { se: (st) => st.escolhas.nuuk1 === 'morrendo' || st.escolhas.nuuk2 === 'deixar', t: 'Nuuk não respondeu à última pergunta. Só caminhou um pouco mais rígido depois dela, os ombros mais altos do que antes.' }, // NOVO
+        { se: (st) => st.escolhas.nuuk1 === 'morrendo' || st.escolhas.nuuk2 === 'deixar', t: 'Nuuk caminhou um pouco mais rígido depois da conversa, os ombros mais altos do que antes.' }, // ALTERADO
         { se: (st) => st.escolhas.nuuk1 !== 'morrendo' && st.escolhas.nuuk2 !== 'deixar', t: 'Segui Nuuk sem mais perguntas. Conheço aquele tipo de silêncio. É o meu.' }, // NOVO
         'Não sei se realmente queria ajudá-lo, mas é importante entender o que causou esse mal-estar no maior dos Augs. Entendi que Nuuk me levaria até Gromm quando seu passo hesitou e lentamente mudou a direção do seu corpo.',
       ] },
@@ -527,7 +527,7 @@ window.LIVRO = {
         { se: (st) => perfil(st) >= 2, t: 'Pensei em descer até o Glaciar e dizer a Nuuk que ia embora. Os Aug não entenderiam para que serve isso. Não fui.' }, // NOVO
       ] },
 
-    { id: 'olho-norte', zona: 'borda', se: (st) => st.escolhas.joia === 'gelunah' && st.f.viu_pedra, fundo: { img: 'assets/images/soleira.jpg', kb: 'out', dim: .4, foco: '72% 45%', clima: 'neve' },
+    { id: 'olho-norte', zona: 'borda', se: (st) => st.escolhas.joia === 'gelunah', fundo: { img: 'assets/images/soleira.jpg', kb: 'out', dim: .4, foco: '72% 45%', clima: 'neve' },
       narracao: 'assets/audio/voz/ergui-olho.mp3', narracaoLang: 'en',
       texto: ['Ergui o Olho de Gelunah contra o norte, talvez à procura dela. Não vi ela para poder me despedir, mas me senti vigiado. Eu agradeci.'] }, // NOVO
 

@@ -1,3 +1,13 @@
+# Capítulo I, versão 15
+
+- **Tela final:** a linha do resultado do jogo voltou ("O gelo obedeceu em 1:35, com 54.321 pontos." ou "O primeiro Tacet chegou antes do gelo. Aheryn carrega a marca de bronze no braço."). O resto do v14 continua.
+
+# Capítulo I, versão 14
+
+- **Diálogo com Nuuk:** a página abria com "Questionei Nuuk" e depois oferecia "ficar em silêncio" e "Responder a Nuuk", quando Nuuk ainda não tinha dito nada. Agora abre com "Quis perguntar a Nuuk o que se passava com Gromm", e a pergunta de cada rodada é "O que Aheryn pergunta a Nuuk?" (primeira) e "O que Aheryn diz?" (as outras duas). Também corrigi a frase "Nuuk não respondeu à última pergunta", que contradizia o diálogo (ele sempre responde).
+- **O Olho de Gelunah ao norte:** aparece para todo mundo que levou a pedra e a batizou assim, tenha visto a pedra de manhã ou não.
+- **Tela final enxuta:** Luz, relação com Nuuk, relação com Gelunah, a pedra (com o nome que ganhou) e o diário. A comparação "X% dos leitores fizeram o mesmo" continua, só para a pedra e o diário.
+
 # Capítulo I, versão 13: as novas falas do Aheryn
 
 - 19 falas gravadas, ligadas aos momentos certos (pasta `assets/audio/voz/`):

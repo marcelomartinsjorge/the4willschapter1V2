@@ -43,7 +43,6 @@ window.LIVRO_EN = {
  "— GROMM TAR MAL.": "— GROMM BE BAD.",
  "— NUM CONSEGUIR FICAR DE PÉ.": "— CAN NOT STAND.",
  "— NUNCA VER GROMM ASSIM.": "— NEVER SEE GROMM LIKE THIS.",
- "Questionei Nuuk sobre o mal-estar de Gromm. Os Augs, assim como os Grakh, possuem dois estômagos e uma capacidade incrível de digestão.": "I asked Nuuk about Gromm's condition. The Aug, like the Grakh, have two stomachs and a remarkable capacity for digestion.",
  "Nuuk, o que exatamente Gromm te contou? Como ele está?": "Nuuk, what exactly did Gromm tell you? How is he?",
  "Ele está morrendo, Nuuk?": "Is he dying, Nuuk?",
  "Nuuk vai lembrar disso.": "Nuuk will remember that.",
@@ -178,7 +177,6 @@ window.LIVRO_EN = {
  "Fiquei com as mãos abertas mais tempo do que precisava, sentindo o resto do calor que quase tinha virado luz.": "I kept my hands open longer than I needed to, feeling the last of the warmth that had almost become light.",
  "No caminho, ele manteve mais distância entre nós dois do que na ida, do jeito que se anda ao lado de algo que ainda não se decidiu se é perigoso.": "On the way back, he kept more distance between us than on the way there, the way one walks beside something one hasn't decided yet is dangerous.",
  "Por um instante, tive certeza de que não era só o meu pedido que o gelo estava atendendo.": "For an instant, I was certain it wasn't only my request the ice was answering.",
- "Nuuk não respondeu à última pergunta. Só caminhou um pouco mais rígido depois dela, os ombros mais altos do que antes.": "Nuuk didn't answer that last question. He just walked a little stiffer afterward, his shoulders a bit higher than before.",
  "Ainda senti, por um instante, a ponta dos dedos quente demais, do jeito que ficaram na beira da cova.": "For an instant I could still feel my fingertips too warm, the way they'd been at the edge of the pit.",
  "Passei outras coves como aquela, no caminho, sem olhar para dentro de nenhuma. Não era vergonha. Era só não precisar.": "I passed other pits like it, along the way, without looking into any of them. It wasn't shame. It was just not needing to.",
  "Se ainda houvesse pinguins por perto, eu teria gostado de ver um deles de longe, seguindo vivo.": "If there had been penguins nearby still, I would have liked to see one from a distance, going on alive.",
@@ -309,5 +307,9 @@ window.LIVRO_EN = {
  "Passei a mão no bolso duas vezes antes do meio-dia, para ver se a Pedra da Borda ainda estava lá. Estava.": "Twice before noon I put my hand in my pocket to check the Edge Stone was still there. It was.",
  "Passei a mão no bolso duas vezes antes do meio-dia, para ver se o Olho de Gelunah ainda estava lá. Estava.": "Twice before noon I put my hand in my pocket to check Gelunah's Eye was still there. It was.",
  "O diário pesava no fundo da mochila, como se as páginas carregassem o peso das histórias centenárias.": "The diary weighed at the bottom of the pack, as if its pages carried the weight of centuries of stories.",
- "Da estrada dá para ver a chaminé até certa curva. Depois da curva, a cabana, o diário e a Borda do Mundo ficavam pra trás.": "From the road you can see the chimney until a certain bend. After the bend, the cabin, the diary and the Edge of the World fell behind."
+ "Da estrada dá para ver a chaminé até certa curva. Depois da curva, a cabana, o diário e a Borda do Mundo ficavam pra trás.": "From the road you can see the chimney until a certain bend. After the bend, the cabin, the diary and the Edge of the World fell behind.",
+ "Quis perguntar a Nuuk o que se passava com Gromm. Os Augs, assim como os Grakh, possuem dois estômagos e uma capacidade incrível de digestão.": "I wanted to ask Nuuk what was going on with Gromm. The Aug, like the Grakh, have two stomachs and a remarkable capacity for digestion.",
+ "O que Aheryn pergunta a Nuuk?": "What does Aheryn ask Nuuk?",
+ "O que Aheryn diz?": "What does Aheryn say?",
+ "Nuuk caminhou um pouco mais rígido depois da conversa, os ombros mais altos do que antes.": "Nuuk walked a little stiffer after the talk, his shoulders higher than before."
 };

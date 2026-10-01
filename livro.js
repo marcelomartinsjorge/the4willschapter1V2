@@ -27,7 +27,7 @@ const UI = {
     dica: { cabana: 'Toque em cada coisa da cabana antes de sair.', despedida: 'Escolha o que vai na mochila.', passo: 'Toque nas pegadas de Nuuk quando elas aparecem, alternando os pés. Pisar fora do rastro escorrega.', pedraT: 'Quando a seta aparecer, toque o lado para onde desviar. Só existe uma chance.', pedraK: 'Quando a seta aparecer, aperte ← ou → para desviar. Só existe uma chance.', goles: 'Cada gole apaga um pensamento. Você escolhe quais afogar e quando parar de beber. O que ficar aceso vira Luz.', jogo: (l) => `A Luz que você acumulou (${l}) já começa acesa no gelo, mas faz os Tacets chegarem mais rápido.` },
     coverEye: 'As Quatro Vontades · Livro I · Capítulo I', coverLede: 'Leia. Decida pelo Aheryn. E, quando o gelo pedir, jogue.', coverGo: 'Entrar no mundo gelado', coverCont: 'Continuar de onde parei', coverRestart: 'Começar do início', coverHint: 'Use fones. Avance com o botão, com a seta → ou deslizando para o lado.',
     luzTitle: 'A Luz do Aheryn: sobe quando ele sente, lembra e canta; desce quando ele se cala',
-    confirm: 'Recomeçar o capítulo? Suas escolhas serão apagadas.', capI: 'Capítulo I', fimCap: 'Fim do Capítulo I', ficou: 'O que ficou de você no gelo', luz: 'Luz', suas: 'Suas escolhas', reler: 'Reler e escolher diferente', mesmo: (p) => `${p}% dos leitores fizeram o mesmo`,
+    confirm: 'Recomeçar o capítulo? Suas escolhas serão apagadas.', capI: 'Capítulo I', fimCap: 'Fim do Capítulo I', ficou: 'O que ficou de você no gelo', luz: 'Luz', suas: 'O que você levou', pedraQ: 'A pedra', diarioQ: 'O diário', levouPedra: 'Levou a pedra', deixouPedra: 'Deixou a pedra onde estava', nuncaPedra: 'Nunca a encontrou', levouDiario: 'Levou o diário', deixouDiario: 'Deixou o diário', reler: 'Reler e escolher diferente', mesmo: (p) => `${p}% dos leitores fizeram o mesmo`,
     fraseAlta: 'Aheryn deixou a luz subir mais do que devia. Alguém, em algum lugar, pode ter visto.', fraseBaixa: 'Aheryn quase não acendeu. Ninguém em cem léguas saberia que ele esteve ali.', fraseMeio: 'Aheryn acendeu e apagou na medida de quem sobrevive há um século.',
     augMais: 'Os Aug: Nuuk vai lembrar de você com algum respeito.', augMenos: 'Os Aug: Nuuk vai lembrar de você com desconfiança.', augZero: 'Os Aug: nada mudou entre vocês.', gelMais: 'Gelunah: algo entre vocês ficou mais perto.', gelZero: 'Gelunah: a distância de sempre.',
     jogoVenceu: (t, s) => `O gelo obedeceu em ${t}, com ${s} pontos.`, jogoSeguiu: 'O primeiro Tacet chegou antes do gelo. Aheryn carrega a marca de bronze no braço.', venceu: 'Venceu', perdeu: 'Os Tacets chegaram primeiro', silencioR: 'Silêncio', desviou: 'Desviou', atingido: 'Foi atingido',
@@ -42,7 +42,7 @@ const UI = {
     dica: { cabana: 'Touch each thing in the cabin before leaving.', despedida: 'Choose what goes in the pack.', passo: 'Tap Nuuk’s footprints as they appear, alternating feet. Stepping off the track makes you slip.', pedraT: 'When the arrow appears, tap the side to dodge toward. There is only one chance.', pedraK: 'When the arrow appears, press ← or → to dodge. There is only one chance.', goles: 'Each swallow drowns one thought. You choose which to drown and when to stop drinking. Whatever stays lit becomes Light.', jogo: (l) => `The Light you gathered (${l}) starts already lit in the ice, but it brings the Tacets faster.` },
     coverEye: 'The Four Wills · Book I · Chapter I', coverLede: 'Read. Decide for Aheryn. And when the ice asks, play.', coverGo: 'Enter the frozen world', coverCont: 'Continue where I left off', coverRestart: 'Start from the beginning', coverHint: 'Wear headphones. Move on with the button, the → key, or a swipe.',
     luzTitle: 'Aheryn’s Light: it rises when he feels, remembers and sings; it falls when he goes silent',
-    confirm: 'Restart the chapter? Your choices will be erased.', capI: 'Chapter I', fimCap: 'End of Chapter I', ficou: 'What of you remained in the ice', luz: 'Light', suas: 'Your choices', reler: 'Read again and choose differently', mesmo: (p) => `${p}% of readers did the same`,
+    confirm: 'Restart the chapter? Your choices will be erased.', capI: 'Chapter I', fimCap: 'End of Chapter I', ficou: 'What of you remained in the ice', luz: 'Light', suas: 'What you carried', pedraQ: 'The stone', diarioQ: 'The diary', levouPedra: 'Took the stone', deixouPedra: 'Left the stone where it was', nuncaPedra: 'Never found it', levouDiario: 'Took the diary', deixouDiario: 'Left the diary', reler: 'Read again and choose differently', mesmo: (p) => `${p}% of readers did the same`,
     fraseAlta: 'Aheryn let the light rise more than he should have. Someone, somewhere, may have seen it.', fraseBaixa: 'Aheryn barely lit at all. No one for a hundred leagues would know he had been there.', fraseMeio: 'Aheryn lit and dimmed in the measure of someone who has survived for a century.',
     augMais: 'The Aug: Nuuk will remember you with some respect.', augMenos: 'The Aug: Nuuk will remember you with suspicion.', augZero: 'The Aug: nothing changed between you.', gelMais: 'Gelunah: something between you drew closer.', gelZero: 'Gelunah: the usual distance.',
     jogoVenceu: (t, s) => `The ice obeyed in ${t}, with ${s} points.`, jogoSeguiu: 'The first Tacet reached him before the ice. Aheryn carries the bronze mark on his arm.', venceu: 'Won', perdeu: 'The Tacets arrived first', silencioR: 'Silence', desviou: 'Dodged', atingido: 'Was hit',
@@ -422,7 +422,7 @@ function renderDialogo(p) {
     const k = (st.dialogo[p.id] || []).length;
     if (k >= d.rodadas.length) { box.innerHTML = ''; appendParas(p.depois); setNext(true); return; }
     const r = d.rodadas[k];
-    box.innerHTML = `<p class="eyebrow">${U('resp')} ${d.interlocutor}</p>` + r.opcoes.map(optHTML).join('');
+    box.innerHTML = `<p class="eyebrow">${r.pergunta ? esc(tr(r.pergunta)) : U('resp') + ' ' + d.interlocutor}</p>` + r.opcoes.map(optHTML).join('');
     box.querySelectorAll('.opt').forEach((b) => b.onclick = () => {
       const o = r.opcoes.find((x) => x.id === b.dataset.id);
       (st.dialogo[p.id] = st.dialogo[p.id] || []).push([r.id, o.id]); st.escolhas[r.id] = o.id;
@@ -826,29 +826,23 @@ async function resumo() {
   const rel = [st.aug >= 1 ? U('augMais') : st.aug <= -1 ? U('augMenos') : U('augZero'), st.gelunah >= 1 ? U('gelMais') : U('gelZero')];
   if (st.jogo) rel.push(st.jogo.won ? U('jogoVenceu')(`${Math.floor(st.jogo.time / 60)}:${String(st.jogo.time % 60).padStart(2, '0')}`, Number(st.jogo.score).toLocaleString(loc)) : U('jogoSeguiu'));
   $('#rsRel').innerHTML = rel.map((r) => `<li>${esc(r)}</li>`).join('');
-  const ids = Object.keys(L.escolhas);
-  const nomeOpcao = (id) => {
-    const v = st.escolhas[id];
-    if (id === 'jogo') return v === 'venceu' ? U('venceu') : U('perdeu');
-    if (id === 'diario') return v === 'levar' ? U('ex').levar : U('ex').deixar;
-    if (id === 'joia') { if (v === 'deixar') return U('ex').deixar; const r = L.pedra.razoes.find((x) => x.id === v); return r ? U('ex').levar + ': ' + tr(r.txt) : v; }
-    for (const pg of P) if (pg.quieto && pg.quieto.id === id) return v === 'fala' ? '— ' + tr(pg.quieto.fala) : U('silencioR');
-    for (const pg of P) {
-      if (pg.escolha && pg.escolha.id === id) { const o = pg.escolha.opcoes.find((x) => x.id === v); if (o) return rotulo(o); }
-      if (pg.dialogo) for (const r of pg.dialogo.rodadas) if (r.id === id) { const o = r.opcoes.find((x) => x.id === v); if (o) return rotulo(o); }
-    }
-    return v;
-  };
+  // só o que mais pesa: a pedra (e o nome que ganhou) e o diário
+  const joia = st.escolhas.joia, razao = L.pedra.razoes.find((x) => x.id === joia);
+  const linhas = [
+    { id: 'joia', q: U('pedraQ'), a: joia === 'deixar' ? U('deixouPedra') : razao ? U('levouPedra') + ': ' + tr(razao.nome) : U('nuncaPedra') },
+    { id: 'diario', q: U('diarioQ'), a: st.escolhas.diario === 'levar' ? U('levouDiario') : U('deixouDiario') },
+  ];
   const desenha = (stats) => {
-    $('#rsEsc').innerHTML = ids.filter((id) => st.escolhas[id]).map((id) => {
-      const tot = stats.filter((x) => x.escolha === id).reduce((a, b) => a + Number(b.total), 0);
-      const mine = stats.find((x) => x.escolha === id && x.opcao === st.escolhas[id]);
-      const pct = tot ? Math.round((Number(mine ? mine.total : 0) / tot) * 100) : null;
-      return `<li><span class="q">${esc(tr(L.escolhas[id]))}</span><span class="a">${esc(nomeOpcao(id))}</span>${pct != null ? `<span class="pct"><i style="width:${pct}%"></i><b>${U('mesmo')(pct)}</b></span>` : ''}</li>`;
+    $('#rsEsc').innerHTML = linhas.map((l) => {
+      const tot = stats.filter((x) => x.escolha === l.id).reduce((a, b) => a + Number(b.total), 0);
+      const mine = stats.find((x) => x.escolha === l.id && x.opcao === (l.id === 'joia' ? joia : st.escolhas.diario));
+      const pct = tot && mine ? Math.round((Number(mine.total) / tot) * 100) : null;
+      return `<li><span class="q">${esc(l.q)}</span><span class="a">${esc(l.a)}</span>${pct != null ? `<span class="pct"><i style="width:${pct}%"></i><b>${U('mesmo')(pct)}</b></span>` : ''}</li>`;
     }).join('');
   };
   desenha([]); desenha(await estatisticas());
 }
+
 const reiniciar = () => { st = novoEstado(); salvar(); luzShown = st.luz; $('#resumo').classList.remove('show'); render(1); };
 $('#rsReler').onclick = () => { if (confirm(U('confirm'))) reiniciar(); };
 $('#menuReset').onclick = () => { if (confirm(U('confirm'))) reiniciar(); };
