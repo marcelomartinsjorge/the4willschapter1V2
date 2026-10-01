@@ -402,3 +402,57 @@ body .bgl.apagada .img { filter: saturate(.35) brightness(.72) !important; }
 @keyframes quietoPulse { 50% { opacity: .35; } }
 #ptext > p.dlg.eu { color: #f6e7c8; }
 #ptext > p.dlg.ele { color: #9fd8d2; font-family: var(--serif-d); letter-spacing: .04em; }
+
+/* =================== cabana: point-and-click =================== */
+#mg.explorar { background: #05090c; display: flex; flex-direction: column; align-items: stretch; }
+#mg.explorar .ex-rolo { flex: 1 1 auto; min-height: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; padding-top: calc(54px + env(safe-area-inset-top, 0px)); }
+#mg.explorar .ex-caixa { position: relative; flex: 0 0 auto; width: min(100vw, calc((100vh - 215px) * var(--r))); aspect-ratio: var(--r); background-size: cover; background-position: center; box-shadow: 0 0 80px rgba(0,0,0,.6); }
+#mg.explorar .ex-instr { position: absolute; top: calc(14px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%); margin: 0; padding: 7px 16px; border: 1px solid rgba(241,182,80,.35); background: rgba(8,15,20,.72); font-family: var(--sans); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-hot); white-space: nowrap; }
+#mg.explorar .ex-instr:empty { display: none; }
+#mg.explorar .ex-texto { flex: 0 0 auto; width: min(820px, 92vw); margin: 0 auto; padding: 14px 0 calc(18px + env(safe-area-inset-bottom, 0px)); display: flex; gap: 20px; align-items: flex-end; min-height: 150px; }
+#mg.explorar .ex-corpo { flex: 1; max-height: 26vh; overflow-y: auto; }
+#mg.explorar .ex-corpo p { margin: 0 0 8px; font-family: var(--serif); font-size: clamp(16px, 1.25vw, 18.5px); line-height: 1.6; color: var(--frost); }
+#mg.explorar .ex-corpo.novo p { animation: surge .6s ease both; }
+#mg.explorar .ex-acoes .cta { white-space: nowrap; }
+.ex-pt { position: absolute; padding: 0; margin: 0; border: 0; background: none; cursor: pointer; }
+.ex-pt i { position: absolute; left: 50%; top: 50%; width: 20px; height: 20px; margin: -10px 0 0 -10px; border-radius: 50%; border: 1.5px solid rgba(241,182,80,.95); box-shadow: 0 0 14px rgba(241,182,80,.7), inset 0 0 8px rgba(241,182,80,.4); animation: exPulso 2.4s ease-in-out infinite; }
+.ex-pt span { position: absolute; left: 50%; top: calc(50% + 16px); transform: translateX(-50%); white-space: nowrap; font-family: var(--sans); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #f6e7c8; background: rgba(8,15,20,.78); padding: 3px 8px; opacity: 0; transition: opacity .25s; pointer-events: none; }
+.ex-pt:hover span, .ex-pt:focus-visible span { opacity: 1; }
+.ex-pt.visto i { border-color: rgba(221,231,235,.35); box-shadow: none; animation: none; opacity: .55; }
+.ex-pt.oculto i, .ex-pt.oculto span { display: none; }
+.ex-pt.gema i { border-color: rgba(176,150,255,.95); box-shadow: 0 0 16px rgba(150,120,255,.85); }
+@keyframes exPulso { 50% { transform: scale(1.25); opacity: .65; } }
+.ex-modal { position: absolute; inset: 0; z-index: 5; display: flex; align-items: center; justify-content: center; gap: 34px; padding: 6vh 5vw; background: rgba(4,8,11,.86); opacity: 0; transition: opacity .35s; }
+.ex-modal.on { opacity: 1; }
+.ex-modal .dz { flex: 0 0 auto; width: min(46vw, 640px); aspect-ratio: 1672 / 941; background-size: cover; background-position: center; box-shadow: 0 20px 60px rgba(0,0,0,.6); transition: background-image .3s; }
+.ex-modal .pz { flex: 0 0 auto; width: min(36vw, 440px); aspect-ratio: 1; object-fit: cover; border-radius: 50%; box-shadow: 0 0 60px rgba(120,100,220,.25); }
+.ex-modal .dz-texto { width: min(440px, 88vw); max-height: 80vh; overflow-y: auto; }
+.ex-modal .dz-texto h3 { font-family: var(--serif-d); font-weight: 400; font-size: 22px; color: var(--gold-hot); margin: 0 0 14px; letter-spacing: .03em; }
+.ex-modal .dz-texto p { font-family: var(--serif); font-size: 17.5px; line-height: 1.65; color: var(--frost); margin: 0 0 12px; }
+.ex-modal .dz-img { display: block; width: 100%; max-height: 34vh; object-fit: cover; margin: 0 0 14px; opacity: .92; }
+.ex-modal .dz-lista { list-style: none; padding: 0; margin: 0 0 14px; }
+.ex-modal .dz-lista button { width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px solid rgba(241,182,80,.18); color: var(--frost); font-family: var(--serif); font-size: 17px; padding: 12px 4px; cursor: pointer; }
+.ex-modal .dz-lista button:hover { color: var(--gold-hot); }
+.ex-modal .dz-acoes { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+.ex-modal .dz-razoes { display: flex; flex-direction: column; gap: 8px; }
+/* o olho de Gelunah */
+#mg.olho { background: #000; opacity: 0; transition: opacity .9s; }
+#mg.olho.on { opacity: 1; }
+#mg.olho video { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 820px), (orientation: portrait) {
+  #mg.explorar .ex-rolo { justify-content: flex-start; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; }
+  #mg.explorar .ex-caixa { height: 54vh; width: auto; }
+  #mg.explorar .ex-texto { flex-direction: column; align-items: stretch; gap: 10px; min-height: 0; }
+  #mg.explorar .ex-corpo { max-height: 22vh; }
+  .ex-pt i { width: 26px; height: 26px; margin: -13px 0 0 -13px; }
+  .ex-modal { flex-direction: column; gap: 16px; padding: calc(60px + env(safe-area-inset-top,0px)) 6vw 24px; justify-content: flex-start; overflow-y: auto; }
+  .ex-modal .dz { width: 88vw; }
+  .ex-modal .pz { width: 52vw; }
+}
+
+#mg.explorar .ex-acoes { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; max-width: 300px; }
+#mg.explorar .ex-fecho { margin: 0; font-family: var(--serif); font-style: italic; font-size: 15px; line-height: 1.5; color: var(--gold-hot); text-align: right; }
+@media (max-width: 820px), (orientation: portrait) { #mg.explorar .ex-acoes { align-items: stretch; max-width: none; } #mg.explorar .ex-fecho { text-align: left; } }
+
+.ex-deslize { position: absolute; left: 50%; top: calc(54px + 54vh - 34px + env(safe-area-inset-top,0px)); transform: translateX(-50%); margin: 0; padding: 6px 14px; background: rgba(8,15,20,.78); border: 1px solid rgba(241,182,80,.3); font-family: var(--sans); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-hot); white-space: nowrap; pointer-events: none; transition: opacity .6s; animation: npulse 2.4s ease-in-out infinite; }
+.ex-deslize.some { opacity: 0; }

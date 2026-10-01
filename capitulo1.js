@@ -27,6 +27,43 @@ window.LIVRO = {
   zonas: {
     tunel: { src: 'assets/audio/tunel-loop.mp3', volume: .45 },
     'cabana-dentro': { src: 'assets/audio/cabana-dentro-loop.mp3', volume: .55 },
+    'cabana-dia': { src: 'assets/audio/cabana-dia-loop.mp3', volume: .5 },
+    'cabana-amanhecer': { src: 'assets/audio/cabana-amanhecer-loop.mp3', volume: .5 },
+  },
+
+  // o diário de Aheryn (cabana, de manhã)
+  diario: {
+    capa: 'Um caderno de couro, mais novo do que o que guarda. Na capa, na língua que só eu leio: Lembranças do Velho Mundo. Algumas anotações de como era a vida nas Cidades-Espelho, feitas quando eu achava que a memória precisava de ajuda. Descobri depois que ela só precisava de descanso.', // NOVO
+    entradas: [
+      { id: 'noite', titulo: 'I. A Noite Luminosa', voz: 'noite-luminosa', texto: 'Na primeira noite de cada estação, nos reuníamos ao pôr do sol em conjunto e iluminávamos nossos pensamentos, em conjunto e em silêncio, uma comunhão, uma grande reunião sem palavras. Noite virava dia.' }, // NOVO
+      { id: 'estrelas', titulo: 'II. Estrelas', texto: 'Os pontos luminosos no céu e nossos heróis na terra. Uma vez por ano, uma grande festividade para honrar nossos heróis, vivos ou mortos. Seja por avanços na filosofia, matemática, arquitetura, magia, biologia e outros conhecimentos importantes.' }, // NOVO
+      { id: 'ajudantes', titulo: 'III. Ajudantes', flag: 'leu_tacets', voz: 'diario-ajudantes', img: 'assets/images/diario-tacet.jpg', texto: 'Os Tacets chegaram numa manhã, de bronze e de magia, para carregar o que não queríamos carregar. Uma invenção que nos elevou como raça dominante. O primeiro que vi na vida varria a praça toda manhã, e eu nunca a vi suja. Hoje, me procuram para me matar com a mesma disciplina que varriam a praça.' }, // NOVO
+      { id: 'outras', titulo: 'IV. Outras anotações', texto: 'Não é o momento de visitar todo o passado agora.' }, // NOVO
+    ],
+  },
+
+  // a pedra debaixo da tábua
+  pedra: {
+    lembranca: [
+      'Uma tábua solta ao lado do catre, que eu nunca preguei. Debaixo dela, embrulhada num pano, a pedra.',
+      'Achei-a numa viagem, meio enterrada no cascalho de um rio seco, entre pedras que não eram da mesma família. Azul, e violeta quando a girei contra a luz, e depois cinza, como o gelo faz. Apesar de me considerar um grande conhecedor de gemologia, não sei que tipo de mineral é.',
+    ], // NOVO
+    recolocar: 'Recoloquei a tábua. Melhor deixá-la guardada.', // NOVO
+    curta: 'Uma tábua solta ao lado do catre. Debaixo dela, embrulhada num pano, uma pedra que achei numa viagem e nunca soube o que era.', // NOVO
+    levantar: 'Levantei a tábua. A pedra estava no pano, do jeito que eu a deixei.', // NOVO
+    deixar: 'Recoloquei a tábua e pisei nela até assentar. A pedra ficou onde estava, sem ninguém para lhe dar nome.', // NOVO
+    pergunta: 'Por que ele a leva?',
+    razoes: [
+      { id: 'valer', voz: 'pedra-valer', txt: 'Porque parece valer alguma coisa.', nome: 'a Pedra da Borda', resultado: 'Levei porque uma pedra assim paga um inverno, ou serve para convencer algumas bocas que eu não existo.' }, // NOVO
+      { id: 'gelunah', voz: 'pedra-gelunah', txt: 'Porque me lembra Gelunah.', nome: 'o Olho de Gelunah', resultado: 'Levei porque tem a cor do olho dela. A Mãe do Inverno que me fez companhia, mesmo que solitária, por todos esses anos na Borda do Mundo.' }, // NOVO
+      { id: 'misterio', voz: 'pedra-misterio', txt: 'Parece mágica, misteriosa.', nome: 'a pedra', resultado: 'Levei porque não sei o que é, de que material é feita. É um mistério que preciso solucionar.' }, // NOVO
+    ],
+  },
+  diarioDespedida: {
+    pergunta: 'O diário, na mesa.',
+    vozLevar: 'diario-levar', vozDeixar: 'diario-deixar',
+    levar: 'Coloquei o diário no fundo da mochila, embaixo do resto, como uma memória que não se quer lembrar, mas que também não se pode esquecer.', // NOVO
+    deixar: 'Deixei o diário na mesa, fechado. As luzes já são provas suficientes contra mim.', // NOVO
   },
 
   // nomes que aparecem no resumo final
@@ -35,7 +72,9 @@ window.LIVRO = {
     gelunah: 'Quando Gelunah passou',
     nuuk1: 'A primeira pergunta a Nuuk',
     nuuk3: 'O pedido a Nuuk',
-    bronze: 'Os cacos de bronze',
+    bronze: 'O bronze do Glaciar',
+    diario: 'O diário',
+    joia: 'A pedra debaixo da tábua',
     passo: 'Nos túneis com Nuuk',
     atencao: 'O que Aheryn percebeu nos túneis',
     pedra: 'A pedra de Gromm',
@@ -92,11 +131,55 @@ window.LIVRO = {
           resultado: ['Desci, peguei o que me olhava pelo meio do corpo e o pus na neve, longe da borda. Ele ficou parado um tempo, depois foi embora sem pressa, como se a ideia tivesse sido dele. Os outros dois deixei como estavam.'] }, // NOVO
       ] } },
 
+    { id: 'ponte', zona: 'borda', fundo: { img: 'assets/images/encosta.jpg', kb: 'in', dim: .45, foco: '30% 50%', lado: 'dir', clima: 'neve' },
+      narracao: 'assets/audio/voz/ponte.mp3', narracaoLang: 'en',
+      texto: [
+        'Contei os pinguins, era o suficiente. Cem, contando os da cova.', // NOVO
+        'Amarrei os pinguins no trenó e voltei à cabana buscar os frascos, que eu levava vazios e trazia cheios. Às vezes, parece que minha vida sempre foi sobre isso.', // NOVO
+      ] },
+
+    { id: 'cabana-manha', zona: 'cabana-dia', fundo: { img: 'assets/images/cabana-dia.jpg', kb: 'in', dim: .4, foco: '50% 45%', lado: 'dir' },
+      narracao: 'assets/audio/narration/line4.mp3', narracaoDepois: 'assets/audio/voz/cabana-manha-2.mp3', narracaoLang: 'en', capitular: true,
+      texto: [
+        'A cabana em que moro é pequena de propósito. Uma mesa. Um catre que não uso para dormir, porque não durmo. Fico quieto, de olhos abertos, que é o mais perto do sono que a minha espécie alcança, e deixo a noite passar por mim como a água passa pelo gelo.',
+        'De manhã ela parece ainda menor, prefiro assim. Antes de sair, confiro tudo, não é paranoia.', // NOVO
+      ],
+      minijogo: 'cabana',
+      depois: ['Estava tudo onde eu tinha deixado. Peguei os frascos e abri a porta.'], // NOVO
+      explorar: {
+        img: 'assets/images/cabana-dia.jpg', proporcao: 1672 / 941,
+        instrucao: 'Conferir a casa', porta: 'Abrir a porta',
+        fecho: 'Estava tudo onde eu tinha deixado. Peguei os frascos e abri a porta.', // NOVO
+        pontos: [
+          { id: 'viga', rotulo: 'A viga', x: 76, y: 8, w: 24, h: 11, som: 'viga-riscos', voz: 'viga',
+            texto: ['Um risco por inverno, na viga sobre a porta. Comecei a contar no primeiro e parei de conferir no vigésimo. Hoje a viga diz cinquenta e seis e a minha memória diz cinquenta e sete. Tanto faz.'] }, // NOVO
+          { id: 'catre', rotulo: 'O catre', x: 13, y: 63, w: 25, h: 24, voz: 'catre',
+            texto: ['O catre está feito como no primeiro dia, a pele esticada, o canto dobrado. Nunca deitei nele. Uma cabana sem catre parece de outra pessoa, e ela precisa parecer minha, para o caso de alguém me visitar. Ninguém me visita. Eu faço a cama do mesmo jeito.'] }, // NOVO
+          { id: 'mesa', rotulo: 'A mesa', x: 41, y: 52, w: 15, h: 10, som: 'frascos', voz: 'mesa',
+            texto: ['Os frascos em fila sobre a mesa, vazios, virados para a janela como uma plateia que já conhece o final. Doze, um por mês, se eu me comportar. Ou melhor, se eu não pensar muito.'] }, // NOVO
+          { id: 'peles', rotulo: 'As peles', x: 88.5, y: 57, w: 9, h: 30,
+            texto: ['Pele de urso das neves em rolos, madeira de Frígia empilhada até a altura do joelho, tudo o que os Aug aceitam em troca de pinguim. Eles não regateiam, e por isso me obrigo a ser justo.'] }, // NOVO
+          { id: 'bacia', rotulo: 'A bacia', x: 79, y: 55, w: 9.5, h: 12, som: 'bacia-gelo',
+            texto: [
+              'A água do degelo na bacia tem uma película de gelo que eu quebro com o dedo toda manhã.', // NOVO
+              { se: (st) => st.escolhas.armadilha === 'rapido', t: 'Lavei as mãos duas vezes. A segunda foi por causa do cheiro, que não era da água.' }, // NOVO
+              { se: (st) => st.escolhas.armadilha === 'frio', t: 'Lavei as mãos, que não tinham tocado em nada. Lavei por hábito, alguém como eu precisa ter hábitos e não questioná-los.' }, // NOVO
+              { se: (st) => st.escolhas.armadilha === 'salvar', t: 'Lavei as mãos. Havia uma pena de pinguim presa na manga, e eu a deixei onde estava.' }, // NOVO
+            ] },
+          { id: 'janela', rotulo: 'A janela', x: 44.5, y: 29, w: 16, h: 25, som: 'vidraca-geada',
+            texto: ['O vidro é a única coisa da cabana que não fabriquei. A geada nele começa a desenhar formas se eu olho por tempo demais. Passei a manga e as formas viraram água.'] }, // NOVO
+          { id: 'diario', rotulo: 'O diário', x: 53, y: 53.5, w: 7.5, h: 7, tipo: 'diario' },
+          { id: 'tabua', x: 25.5, y: 73.5, w: 6, h: 7, tipo: 'pedra', oculto: true, opcional: true },
+        ],
+      } },
+
     { id: 'c-gelunah', zona: 'borda', fundo: { video: 'assets/video/gelunah-flight.mp4', kb: 'none', clima: 'neve-leve' }, cena: 'assets/video/gelunah-flight.mp4',
       texto: [
-        'Mas dessa vez eu senti algo a mais — o frio mudou, e alguma coisa se apertou no peito.',
+        'Na soleira, com a mão ainda na porta, o frio mudou, e alguma coisa se apertou no peito.', // ALTERADO
         'Ela passou a oeste, longe, sobre a montanha mais distante. Linda, escamas níveas, refletindo o sol fraco, voando de maneira majestosa, como se um Dragão fosse capaz de dançar no ar. Olhos brilhantes, de cor azul-violeta, parecendo pedras preciosas. Mas ao mesmo tempo melancólicos, tristes… e isso que me deu um nó na barriga. Como se ela me avisasse sobre algo.',
+        { se: (st) => st.f.viu_pedra, t: 'O olho dela deslizou um instante na direção da cabana. Azul, depois violeta, a cor que eu tinha girado contra a luz de manhã. Eu não me mexi. Ela seguiu.' }, // NOVO
       ],
+      olhoSe: (st) => st.f.viu_pedra,
       escolha: { id: 'gelunah', opcoes: [
         { eixo: 'perto', id: 'sentir', txt: 'Deixar o aperto no peito ficar.', luz: 10, gelunah: 1, aviso: 'Algo no frio mudou de lado.',
           resultado: ['Deixei. Por um momento não fiz nada contra ele, e as veias dos pulsos esquentaram sob a pele, visíveis até através das luvas. Ela não virou a cabeça. Não precisava.'] }, // NOVO
@@ -106,7 +189,7 @@ window.LIVRO = {
 
     { id: 'p07', zona: 'borda', fundo: { img: 'assets/images/codex-gelunah.webp', kb: 'in', dim: .5, foco: '40% 40%', lado: 'dir', clima: 'neve' },
       texto: [
-        'Foi só um instante, fiquei a vê-la sumir rumo ao norte branco. Quando me recompus, voltei à armadilha. Contei os pinguins, era o suficiente.',
+        'Foi só um instante, fiquei a vê-la sumir rumo ao norte branco. Quando me recompus, atrelei o trenó e comecei a andar.', // ALTERADO
       ], fimDeParte: true },
 
     // ===================================================== II · GLACIAR OCO
@@ -192,10 +275,17 @@ window.LIVRO = {
         'Foi a primeira vez que pisei ali, e não foi a “arquitetura” que me chamou a atenção, mas sim dezenas ou centenas de pedaços de bronze espalhados por todo o local, como se uma enorme jazida de bronze tivesse sido estilhaçada. Mas como uma jazida de bronze não existe, e como os Augs não sabem fundir nem unir cobre e estanho, aquilo era muito estranho.',
       ],
       escolha: { id: 'bronze', opcoes: [
-        { eixo: 'perto', id: 'pegar', txt: 'Guardar um caco no bolso.', luz: 3, flag: 'bronze', aviso: 'Você guardou um caco de bronze.',
-          resultado: ['Abaixei como quem ajeita a bota e guardei um caco do tamanho de uma unha. Estava morno. Bronze não fica morno no Glaciar Oco.'] }, // NOVO
+        { eixo: 'perto', id: 'examinar', txt: 'Abaixar e examinar um caco.', flag: 'examinou_bronze', som: 'bronze-caco',
+          voz: (st) => (st.f.leu_tacets ? 'bronze-2' : 'bronze-1'), vozAtraso: 3400,
+          fundo: { img: 'assets/images/bronze-caco.jpg', kb: 'in', dim: .38, foco: '35% 55%', lado: 'dir', clima: 'cristais' },
+          resultado: [
+            'Peguei um caco. Frio, pesado para o tamanho, com as bordas ainda vivas, de quem quebrou há pouco.',
+            'Bronze aqui?',
+            { se: (st) => st.f.leu_tacets, t: 'Nada bom.' },
+            'Larguei o caco onde estava. Depois disso fiquei de sobreaviso, com o peso nos calcanhares e um ouvido no chão.',
+          ] }, // NOVO
         { eixo: 'longe', id: 'deixar', txt: 'Não tocar em nada.',
-          resultado: ['Não toquei em nada. Na casa dos outros não se mexe no lixo, mesmo quando o lixo não faz sentido.'] }, // NOVO
+          resultado: ['Não toquei em nada. Na casa dos outros não se mexe no que não é seu.'] }, // ALTERADO
       ] } },
 
     { id: 'p15', zona: 'glaciar', fundo: { img: 'assets/images/gromm.jpg', kb: 'in', dim: .4, foco: '72% 35%', clima: 'cristais' },
@@ -237,8 +327,11 @@ window.LIVRO = {
         { se: (st) => perfil(st) >= 2, t: 'No meio do túnel, quase chamei Nuuk pelo nome. Não chamei.' }, // NOVO
         { se: (st) => perfil(st) <= -2, t: 'Nuuk caminhava à minha frente. Não havia nada a dizer, e eu não disse.' }, // NOVO
         { se: (st) => perfil(st) > -2 && perfil(st) < 2, t: 'Pensei em perguntar de novo sobre Gromm. Deixei a pergunta onde estava.' }, // NOVO
-        { se: (st) => st.f.bronze, t: 'O caco no bolso batia contra a minha coxa a cada passo.' }, // NOVO
       ], fimDeParte: true },
+
+    { id: 'volta-tuneis', zona: 'tunel', se: (st) => st.f.examinou_bronze, fundo: { clip: 'assets/clip/tunel.mp4', img: 'assets/images/seguindo-nuuk.jpg', dim: .45, clima: 'cristais' },
+      narracao: 'assets/audio/voz/tuneis.mp3', narracaoLang: 'en',
+      texto: ['Na volta pelos túneis ouvi cada passo de Nuuk e cada pingo de água, sinto que há algo errado. Não é paranoia.'] }, // NOVO
 
     // ===================================================== III · O DESTILADO
     { id: 'parte-III', parte: 'III', zona: 'glaciar', fundo: { img: 'assets/images/destilaria.jpg', kb: 'in', dim: .62, clima: 'cristais' },
@@ -265,9 +358,9 @@ window.LIVRO = {
       cartao: { num: 'IV', nome: 'A Cabana', epigrafe: 'Sæl’orin vethas, dumael corvethune.', fonte: 'louvor Lúmae, primeiro verso' } }, // NOVO (epígrafe)
 
     { id: 'p21', zona: 'cabana-dentro', fundo: { img: 'assets/images/cabana-noite.jpg', kb: 'in', dim: .38, foco: '50% 35%', desloca: .16, clima: 'brasas' },
-      narracao: 'assets/audio/narration/line4.mp3', narracaoLang: 'en', capitular: true,
+      capitular: true,
       texto: [
-        'A cabana em que moro é pequena de propósito. Uma mesa. Um catre que não uso para dormir — porque não durmo. Fico quieto, de olhos abertos, que é o mais perto do sono que a minha espécie alcança, e deixo a noite passar por mim como a água passa pelo gelo.',
+        'Voltei à cabana com os frascos cheios e a noite inteira por cima do telhado.', // ALTERADO
         { se: (st) => st.escolhas.destilaria === 'cala', t: 'Não tinha dito uma palavra a Nuuk desde os túneis. Alguns anos passam assim.' }, // NOVO
         { se: (st) => st.luz <= 30, t: 'Quando os Lúmae ainda se reuniam para… Não. Não pensar nisso.' }, // NOVO
         { se: (st) => st.luz > 30 && st.luz < 60, t: 'Quando os Lúmae ainda se reuniam para me ouvir, eu contava o que tinha visto. Parei aí.' }, // NOVO
@@ -345,7 +438,14 @@ window.LIVRO = {
         'Pousei a concha. Fiquei muito quieto, com a planta dos pés colada à terra, a contar. Tacets.',
         'Três. Vinham três.',
         'E eu soube o que eram antes de subir ao alto e os ver recortados contra a neve, porque o compasso daquilo estava gravado em mim mais fundo do que a língua morta, mais fundo que a canção. Eram obra da minha gente. Criamos os Tacets séculos atrás, construídos a base de bronze e magia para nos ajudar nos serviços braçais. Hoje eles vivem por conta própria porque nenhum Lúmae existe mais.',
-        { se: (st) => st.f.bronze, t: 'No bolso, o caco que eu trouxe do Glaciar esquentou contra a minha coxa.' }, // NOVO
+        { se: (st) => st.f.examinou_bronze && !st.f.leu_tacets, t: 'Bronze. Outra vez.' }, // NOVO
+      ] },
+
+    { id: 'tacets-eco', zona: 'tacets', se: (st) => st.f.leu_tacets, fundo: { img: 'assets/images/tacets-neve.jpg', kb: 'in', dim: .4, foco: '60% 50%', clima: 'neve' }, passos: true,
+      narracao: (st) => 'assets/audio/voz/' + (st.f.examinou_bronze ? 'tres-tempos-glaciar' : 'tres-tempos') + '.mp3', narracaoLang: 'en',
+      texto: [
+        { se: (st) => !st.f.examinou_bronze, t: 'Compasso de três, em repouso. Estão me procurando.' }, // NOVO
+        { se: (st) => st.f.examinou_bronze, t: 'Compasso de três, em repouso. Estão me procurando desde o Glaciar Oco…' }, // NOVO
       ] },
 
     { id: 'c-proibido', zona: 'tacets', fundo: { img: 'assets/images/tacets-perto.jpg', kb: 'in', dim: .4, foco: '55% 30%', clima: 'neve' }, passos: true,
@@ -403,16 +503,33 @@ window.LIVRO = {
         { se: (st) => st.aug >= 1, t: 'Talvez fosse por isso que Nuuk empurrara a pedra do meu caminho, na noite anterior. Talvez soubesse, do jeito que os Aug sabem as coisas, que eu ainda teria um caminho pela frente.' }, // NOVO
         { se: (st) => st.f.ferido, t: 'O ombro que ele acertou doeu quando me levantei do gelo. Achei justo.' }, // NOVO
         { se: (st) => st.f.magiaGromm, t: 'E Gromm tinha visto a luz. Os Aug não contam nada a ninguém. Esperei que continuasse assim.' }, // NOVO
-        { se: (st) => st.f.bronze, t: 'Tirei o caco do bolso. Tinha esfriado.' }, // NOVO
+        { se: (st) => st.f.examinou_bronze, t: 'Eu tivera um daqueles cacos na mão, e a única coisa que me ocorrera foi perguntar o que fazia bronze num lugar sem forja. Ligar as coisas é sempre a parte tardia…' }, // NOVO
       ] },
+
+    { id: 'despedida', zona: 'cabana-amanhecer', fundo: { img: 'assets/images/cabana-amanhecer.jpg', kb: 'in', dim: .4, foco: '50% 45%', lado: 'dir' },
+      texto: [
+        'Entrei. Como sempre, a luz do amanhecer fazia da cabana uma coisa menor. Pus na mochila o que cabe numa mochila quando se faz isto há um século: pouco. O álcool. Sobrava decidir o resto.', // ALTERADO
+      ],
+      minijogo: 'despedida',
+      explorar: {
+        img: 'assets/images/cabana-amanhecer.jpg', proporcao: 1672 / 941, porta: 'Partir',
+        pontos: [
+          { id: 'diario', rotulo: 'O diário', x: 53, y: 53.5, w: 8, h: 7.5, tipo: 'diario-despedida' },
+          { id: 'tabua', x: 25.5, y: 73, w: 6, h: 7, tipo: 'pedra-despedida', oculto: (st) => !st.f.viu_pedra, opcional: true },
+        ],
+      } },
 
     { id: 'p34', zona: 'borda', fundo: { img: 'assets/images/soleira.jpg', kb: 'out', dim: .4, foco: '72% 45%', clima: 'neve' },
       texto: [
-        'Entrei. Pus numa mochila o que cabe numa mochila quando se faz isto há um século: pouco. O álcool. Voltei à soleira uma última vez.',
+        'Voltei à soleira uma última vez.',
         'A oeste, sob o gelo, o frio tinha um peso conhecido. Ela estava perto, ou estivera, ou estaria. Com ela os tempos do verbo nunca foram firmes. Não disse adeus. Não se diz adeus a uma vizinha que vai durar mil anos depois de a nossa estrada ter virado pó; seria pretensão minha. Apenas olhei o norte branco uma vez, demoradamente, do jeito que se olha uma paisagem que no momento não se sente saudade, mas que sabe que sentirá nos anos à frente.',
         { se: (st) => st.gelunah >= 1, t: 'Por um instante, o vento virou de norte para oeste e voltou.' }, // NOVO
         { se: (st) => perfil(st) >= 2, t: 'Pensei em descer até o Glaciar e dizer a Nuuk que ia embora. Os Aug não entenderiam para que serve isso. Não fui.' }, // NOVO
       ] },
+
+    { id: 'olho-norte', zona: 'borda', se: (st) => st.escolhas.joia === 'gelunah' && st.f.viu_pedra, fundo: { img: 'assets/images/soleira.jpg', kb: 'out', dim: .4, foco: '72% 45%', clima: 'neve' },
+      narracao: 'assets/audio/voz/ergui-olho.mp3', narracaoLang: 'en',
+      texto: ['Ergui o Olho de Gelunah contra o norte, talvez à procura dela. Não vi ela para poder me despedir, mas me senti vigiado. Eu agradeci.'] }, // NOVO
 
     { id: 'p35', zona: 'borda', fundo: { img: 'assets/images/estrada-sul.jpg', kb: 'in', dim: .35, foco: '48% 45%', lado: 'dir', clima: 'neve-leve' },
       texto: [
@@ -424,6 +541,11 @@ window.LIVRO = {
         { se: (st) => st.luz > 30 && st.luz < 70, t: 'Levou o tempo de sempre.' }, // NOVO
         { se: (st) => st.guardados && st.guardados.length === 0, t: 'Não sobrou nenhuma outra memória acesa além do Título. Achei que doeria mais.' }, // NOVO
         { se: (st) => st.guardados && st.guardados.length > 0, t: 'Alguma coisa, além do Título, continuava acesa em mim. Não tentei apagar.' }, // NOVO
+        { se: (st) => st.escolhas.joia === 'misterio', t: 'Passei a mão no bolso duas vezes antes do meio-dia, para ver se a pedra ainda estava lá. Estava.' }, // NOVO
+        { se: (st) => st.escolhas.joia === 'valer', t: 'Passei a mão no bolso duas vezes antes do meio-dia, para ver se a Pedra da Borda ainda estava lá. Estava.' }, // NOVO
+        { se: (st) => st.escolhas.joia === 'gelunah', t: 'Passei a mão no bolso duas vezes antes do meio-dia, para ver se o Olho de Gelunah ainda estava lá. Estava.' }, // NOVO
+        { se: (st) => st.escolhas.diario === 'levar', t: 'O diário pesava no fundo da mochila, como se as páginas carregassem o peso das histórias centenárias.' }, // NOVO
+        { se: (st) => st.escolhas.diario === 'deixar', t: 'Da estrada dá para ver a chaminé até certa curva. Depois da curva, a cabana, o diário e a Borda do Mundo ficavam pra trás.' }, // NOVO
       ],
       fim: true },
   ],

@@ -1,3 +1,15 @@
+# Capítulo I, versão 13: as novas falas do Aheryn
+
+- 19 falas gravadas, ligadas aos momentos certos (pasta `assets/audio/voz/`):
+  - Tocam sozinhas ao abrir: a ponte dos pinguins, a manhã na cabana (logo depois da gravação antiga), a volta pelos túneis, o compasso dos Tacets, e o olhar ao norte com o Olho de Gelunah.
+  - Tocam ao tocar o ponto: a viga, a mesa, o catre, e as entradas I e III do diário.
+  - Tocam ao decidir: o bronze no aposento de Gromm ("Bronze, here?" ou "Bronze, here? Not good."), os três motivos da pedra, e levar ou deixar o diário.
+  - A cena do olho de Gelunah dura agora o tempo da voz e fecha sozinha.
+- Três linhas viraram páginas curtas, só para quem tem o estado certo, para a voz tocar na hora de ler: a volta pelos túneis (examinou o bronze), o compasso dos Tacets (leu o diário) e o Olho de Gelunah ao norte (levou a pedra por esse motivo).
+- As quatro falas sussurradas foram amplificadas um pouco para não sumirem sob o ambiente.
+- O inglês da tela agora é igual ao que foi dublado (a última frase da entrada dos Tacets, e "Three counts, at rest").
+- Removida a procura por arquivos `narracao/<idioma>/<página>.mp3`, que gerava dezenas de erros 404 inofensivos.
+
 # Capítulo I — versão 11
 
 ## Correções da versão 11

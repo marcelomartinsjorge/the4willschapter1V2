@@ -22,8 +22,9 @@ const tr = (t) => (LANG === 'en' && t != null ? (EN[t] != null ? EN[t] : t) : t)
 const UI = {
   pt: { cantar: '▶ Deixar Aheryn cantar', parte: 'Parte', prox: 'Próxima', fim: 'Encerrar o capítulo', voltar: '← Voltar', ouvir: 'Ouvir Aheryn', cena: '▶ Ver a cena', oque: 'O que Aheryn faz?', decida: 'Decida', decidir: 'Decidir', escolheu: 'Você escolheu:', resp: 'Responder a', silencio: 'ficar em silêncio', momento: 'Momento de jogo',
     tutLuz: 'Essa é a Luz, no canto da tela. Cada escolha acende ou apaga o Aheryn.',
-    mg: { passo: 'Acompanhar Nuuk', pedra: 'A pedra', goles: 'Um pensamento a menos', 'hino-do-gelo': 'O gelo obedece' },
-    dica: { passo: 'Toque nas pegadas de Nuuk quando elas aparecem, alternando os pés. Pisar fora do rastro escorrega.', pedraT: 'Quando a seta aparecer, toque o lado para onde desviar. Só existe uma chance.', pedraK: 'Quando a seta aparecer, aperte ← ou → para desviar. Só existe uma chance.', goles: 'Cada gole apaga um pensamento. Você escolhe quais afogar e quando parar de beber. O que ficar aceso vira Luz.', jogo: (l) => `A Luz que você acumulou (${l}) já começa acesa no gelo, mas faz os Tacets chegarem mais rápido.` },
+    mg: { passo: 'Acompanhar Nuuk', pedra: 'A pedra', goles: 'Um pensamento a menos', 'hino-do-gelo': 'O gelo obedece', cabana: 'Conferir a casa', despedida: 'O que levar' },
+    ex: { abrir: 'Abrir', fechar: 'Fechar', voltar: '← Voltar', levar: 'Levar', deixar: 'Deixar', recolocar: 'Recolocar a tábua', falta: 'Escolha o que fazer com o diário antes de partir.', diarioCab: 'Lembranças do Velho Mundo', deslize: 'Deslize para ver a cabana inteira' },
+    dica: { cabana: 'Toque em cada coisa da cabana antes de sair.', despedida: 'Escolha o que vai na mochila.', passo: 'Toque nas pegadas de Nuuk quando elas aparecem, alternando os pés. Pisar fora do rastro escorrega.', pedraT: 'Quando a seta aparecer, toque o lado para onde desviar. Só existe uma chance.', pedraK: 'Quando a seta aparecer, aperte ← ou → para desviar. Só existe uma chance.', goles: 'Cada gole apaga um pensamento. Você escolhe quais afogar e quando parar de beber. O que ficar aceso vira Luz.', jogo: (l) => `A Luz que você acumulou (${l}) já começa acesa no gelo, mas faz os Tacets chegarem mais rápido.` },
     coverEye: 'As Quatro Vontades · Livro I · Capítulo I', coverLede: 'Leia. Decida pelo Aheryn. E, quando o gelo pedir, jogue.', coverGo: 'Entrar no mundo gelado', coverCont: 'Continuar de onde parei', coverRestart: 'Começar do início', coverHint: 'Use fones. Avance com o botão, com a seta → ou deslizando para o lado.',
     luzTitle: 'A Luz do Aheryn: sobe quando ele sente, lembra e canta; desce quando ele se cala',
     confirm: 'Recomeçar o capítulo? Suas escolhas serão apagadas.', capI: 'Capítulo I', fimCap: 'Fim do Capítulo I', ficou: 'O que ficou de você no gelo', luz: 'Luz', suas: 'Suas escolhas', reler: 'Reler e escolher diferente', mesmo: (p) => `${p}% dos leitores fizeram o mesmo`,
@@ -36,8 +37,9 @@ const UI = {
   },
   en: { cantar: '▶ Let Aheryn sing', parte: 'Part', prox: 'Next', fim: 'Close the chapter', voltar: '← Back', ouvir: 'Listen to Aheryn', cena: '▶ Watch the scene', oque: 'What does Aheryn do?', decida: 'Decide', decidir: 'Decide', escolheu: 'You chose:', resp: 'Answer', silencio: 'stay silent', momento: 'Moment of play',
     tutLuz: 'This is the Light, in the corner of the screen. Every choice lights Aheryn up or puts him out.',
-    mg: { passo: 'Keep up with Nuuk', pedra: 'The rock', goles: 'One thought less', 'hino-do-gelo': 'The ice obeys' },
-    dica: { passo: 'Tap Nuuk’s footprints as they appear, alternating feet. Stepping off the track makes you slip.', pedraT: 'When the arrow appears, tap the side to dodge toward. There is only one chance.', pedraK: 'When the arrow appears, press ← or → to dodge. There is only one chance.', goles: 'Each swallow drowns one thought. You choose which to drown and when to stop drinking. Whatever stays lit becomes Light.', jogo: (l) => `The Light you gathered (${l}) starts already lit in the ice, but it brings the Tacets faster.` },
+    mg: { passo: 'Keep up with Nuuk', pedra: 'The rock', goles: 'One thought less', 'hino-do-gelo': 'The ice obeys', cabana: 'Check the house', despedida: 'What to take' },
+    ex: { abrir: 'Open', fechar: 'Close', voltar: '← Back', levar: 'Take it', deixar: 'Leave it', recolocar: 'Put the board back', falta: 'Decide what to do with the diary before leaving.', diarioCab: 'Memories of the Old World', deslize: 'Swipe to see the whole cabin' },
+    dica: { cabana: 'Touch each thing in the cabin before leaving.', despedida: 'Choose what goes in the pack.', passo: 'Tap Nuuk’s footprints as they appear, alternating feet. Stepping off the track makes you slip.', pedraT: 'When the arrow appears, tap the side to dodge toward. There is only one chance.', pedraK: 'When the arrow appears, press ← or → to dodge. There is only one chance.', goles: 'Each swallow drowns one thought. You choose which to drown and when to stop drinking. Whatever stays lit becomes Light.', jogo: (l) => `The Light you gathered (${l}) starts already lit in the ice, but it brings the Tacets faster.` },
     coverEye: 'The Four Wills · Book I · Chapter I', coverLede: 'Read. Decide for Aheryn. And when the ice asks, play.', coverGo: 'Enter the frozen world', coverCont: 'Continue where I left off', coverRestart: 'Start from the beginning', coverHint: 'Wear headphones. Move on with the button, the → key, or a swipe.',
     luzTitle: 'Aheryn’s Light: it rises when he feels, remembers and sings; it falls when he goes silent',
     confirm: 'Restart the chapter? Your choices will be erased.', capI: 'Chapter I', fimCap: 'End of Chapter I', ficou: 'What of you remained in the ice', luz: 'Light', suas: 'Your choices', reler: 'Read again and choose differently', mesmo: (p) => `${p}% of readers did the same`,
@@ -59,6 +61,9 @@ const salvar = () => { try { localStorage.setItem(SAVE_KEY, JSON.stringify(st));
 const carregar = () => { try { const j = JSON.parse(localStorage.getItem(SAVE_KEY)); return j && j.sessao ? j : null; } catch (e) { return null; } };
 const P = L.paginas;
 const visivel = (p) => !p.se || p.se(st);
+const vozUrl = (n) => 'assets/audio/voz/' + n + '.mp3';
+const narrOf = (p) => (typeof p.narracao === 'function' ? p.narracao(st) : p.narracao);
+const fala = (nome, depois) => { if (A.ctx && nome) A.narrate(vozUrl(nome), depois); };
 const idxVis = (from, dir) => { let i = from + dir; while (i >= 0 && i < P.length && !visivel(P[i])) i += dir; return i; };
 
 // ---------------------------------------------------------------- áudio (Web Audio: funciona igual no celular)
@@ -96,9 +101,10 @@ const A = {
   },
   async once(url, vol = .7) { const b = await this.buf(url); if (!b) return 0; const s = this.ctx.createBufferSource(); s.buffer = b; const g = this.ctx.createGain(); g.gain.value = vol; s.connect(g); g.connect(this.fx); s.start(); return b.duration; },
   async narrate(url, onEnd) {
-    this.stopNarr(); const b = await this.buf(url); if (!b) return;
+    this.stopNarr(); const b = await this.buf(url); if (!b) return false;
     const s = this.ctx.createBufferSource(); s.buffer = b; s.connect(this.master); s.start();
     this.duck(true); this.narr = s; s.onended = () => { if (this.narr === s) { this.narr = null; this.duck(false); onEnd && onEnd(); } };
+    return true;
   },
   stopNarr() { if (this.narr) { const s = this.narr; this.narr = null; try { s.stop(); } catch (e) {} this.duck(false); } },
   duck(on) { const t = this.ctx.currentTime; this.bed.gain.cancelScheduledValues(t); this.bed.gain.setTargetAtTime(on ? .25 : 1, t, .25); },
@@ -291,11 +297,8 @@ function render(dir = 1) {
   box.innerHTML = ''; box.classList.remove('urgente');
   [...txt.children].forEach((el, k) => { el.style.animationDelay = (k * .35) + 's'; });
   const extras = $('#extras'); extras.innerHTML = '';
-  // narração por página: assets/audio/narracao/<en|pt>/<id da página>.mp3 (se existir); senão, as faixas antigas
-  const narrUrl = `assets/audio/narracao/${LANG}/${p.id}.mp3`;
-  fetch(narrUrl, { method: 'HEAD' }).then((r) => { if (r.ok && P[st.i] === p && !$('#narr')) { p._narr = narrUrl; extras.insertAdjacentHTML('afterbegin', `<button class="chip" id="narr"><i class="eq"></i>${U('ouvir')}</button>`); ligaNarr(p); } }).catch(() => {});
   // a gravação antiga (5 páginas) só existe em inglês; mostra pra todo mundo, só avisando quando é noutra língua da leitura
-  const narracaoOk = !!p.narracao;
+  const narracaoOk = !!narrOf(p);
   const narrTag = p.narracaoLang && p.narracaoLang !== LANG ? ` (${p.narracaoLang.toUpperCase()})` : '';
   if (narracaoOk) extras.insertAdjacentHTML('beforeend', `<button class="chip" id="narr"><i class="eq"></i>${U('ouvir')}${narrTag}</button>`);
   if (p.cena) extras.insertAdjacentHTML('beforeend', `<button class="chip" id="cena">${U('cena')}</button>`);
@@ -306,6 +309,7 @@ function render(dir = 1) {
   if (p.cena) $('#cena').onclick = () => verCena(p.cena);
   if (p.tutorialLuz && !st.feitos.tutLuz) { st.feitos.tutLuz = 1; timers.push(setTimeout(() => toast(U('tutLuz')), 2200)); }
   if (p.efeito && !st.feitos['ef:' + p.id]) { st.feitos['ef:' + p.id] = 1; if (p.efeito.flag) st.f[p.efeito.flag] = true; if (p.efeito.luz) timers.push(setTimeout(() => mudaLuz(p.efeito.luz), 1200)); }
+  if (p.olhoSe && p.olhoSe(st) && !st.feitos.olho && dir > 0) timers.push(setTimeout(() => { if (P[st.i] === p) { st.feitos.olho = 1; salvar(); CINEMA.olho(); } }, 2800));
   if (p.passosGigante && A.ctx) { let k = 0; const passo = () => { A.passo(); k++; timers.push(setTimeout(passo, 950)); }; timers.push(setTimeout(passo, 600)); }
   // contagem: parte do texto espera os passos soarem antes de aparecer
   let contando = false;
@@ -351,7 +355,16 @@ function render(dir = 1) {
   st.feitos[p.id] = st.feitos[p.id] || 1; salvar();
   panel.scrollTop = 0;
 }
-function ligaNarr(p) { const b = $('#narr'); if (!b) return; b.onclick = () => { if (A.narr) { A.stopNarr(); b.classList.remove('on'); } else { b.classList.add('on'); A.narrate(p._narr || p.narracao, () => b.classList.remove('on')); } }; }
+function ligaNarr(p) {
+  const b = $('#narr'); if (!b) return;
+  b.onclick = () => {
+    if (A.narr) { A.stopNarr(); b.classList.remove('on'); return; }
+    b.classList.add('on');
+    A.narrate(p._narr || narrOf(p), () => {
+      if (p.narracaoDepois) A.narrate(p.narracaoDepois, () => b.classList.remove('on')); else b.classList.remove('on');
+    });
+  };
+}
 function setNext(on) { btnNext.disabled = !on; btnNext.classList.toggle('pulse', on); }
 function appendParas(list, cls = '') { paras(list).forEach((t, k) => { txt.insertAdjacentHTML('beforeend', pHTML(t, 'novo ' + cls)); txt.lastElementChild.style.animationDelay = (k * .35) + 's'; }); }
 const optHTML = (o, k) => `<button class="opt ${o.silencio ? 'sil' : ''}" data-id="${o.id}"><span class="k">${k + 1}</span>${o.silencio ? `<em>${U('silencio')}</em>` : esc(tr(o.txt))}</button>`;
@@ -393,7 +406,9 @@ function escolher(p, id) {
   const o = e.opcoes.find((x) => x.id === id); st.escolhas[e.id] = id;
   if (o.fundo) { (st.fundoPag = st.fundoPag || {})[p.id] = o.fundo; setFundo(o.fundo); }
   box.querySelectorAll('.opt').forEach((b) => { b.disabled = true; b.classList.toggle('sel', b.dataset.id === id); });
-  const segue = () => { aplicar(o); A.escolha(); registrar(e.id, id); salvar(); setTimeout(() => { appendParas(o.resultado); setNext(true); }, 450); };
+  if (o.som) A.sfx(o.som, .7);
+  const segue = () => { aplicar(o); A.escolha(); registrar(e.id, id); salvar(); setTimeout(() => { appendParas(o.resultado); setNext(true); }, 450);
+    if (o.voz) timers.push(setTimeout(() => fala(typeof o.voz === 'function' ? o.voz(st) : o.voz), o.vozAtraso || 1500)); };
   if (e.cinema && CINEMA[e.cinema]) CINEMA[e.cinema](id).then(segue); else segue();
 }
 
@@ -468,6 +483,26 @@ function verCena(src) {
 
 // ---------------------------------------------------------------- cinemáticas curtas depois de uma escolha
 const CINEMA = {
+  olho() {
+    return new Promise((resolve) => {
+      const o = abreOverlay('olho');
+      o.innerHTML = `<video src="${vsrc('assets/clip/olho-gelunah.mp4')}" poster="assets/images/olho-gelunah.jpg" muted playsinline autoplay></video>`;
+      const v = o.querySelector('video'); v.play().catch(() => {}); A.sfx('pedra-brilha', .5);
+      requestAnimationFrame(() => o.classList.add('on'));
+      let fechado = false;
+      const fim = () => {
+        if (fechado) return; fechado = true; A.stopNarr(); o.classList.remove('on');
+        setTimeout(() => { if (o.classList.contains('olho')) fechaOverlay(); resolve(); }, 900);
+      };
+      o.onclick = fim;
+      setTimeout(() => {
+        if (fechado) return;
+        if (!A.ctx || !A.on) return setTimeout(fim, 6000);
+        A.narrate(vozUrl('olho-gelunah'), () => setTimeout(fim, 1000)).then((ok) => { if (!ok) setTimeout(fim, 6000); });
+      }, 900);
+      setTimeout(fim, 16000);
+    });
+  },
   pedra(modo) {
     return new Promise((resolve) => {
       const o = abreOverlay('pedra cine');
@@ -491,7 +526,7 @@ function renderMinijogo(p) {
   const done = st.feitos['mg:' + p.id];
   if (p.minijogo === 'goles') txt.innerHTML = golesTexto(done ? 99 : 0).map((t) => pHTML(t)).join('');
   if (done) { appendParas(p.depois); if (p.minijogo === 'goles' && st.guardados) mostraGuardados(); return true; }
-  const dicas = { passo: U('dica').passo, pedra: IS_TOUCH ? U('dica').pedraT : U('dica').pedraK, goles: U('dica').goles, 'hino-do-gelo': U('dica').jogo(Math.round(st.luz)) };
+  const dicas = { cabana: U('dica').cabana, despedida: U('dica').despedida, passo: U('dica').passo, pedra: IS_TOUCH ? U('dica').pedraT : U('dica').pedraK, goles: U('dica').goles, 'hino-do-gelo': U('dica').jogo(Math.round(st.luz)) };
   box.innerHTML = `<p class="eyebrow">${U('momento')}</p><button class="opt jogar" id="mgGo"><span class="k">▶</span>${U('mg')[p.minijogo]}</button><p class="dica">${dicas[p.minijogo]}</p>`;
   $('#mgGo').onclick = () => { box.innerHTML = ''; MG[p.minijogo](p).then((res) => { st.feitos['mg:' + p.id] = 1; salvar(); if (res !== 'nav') { if (p.minijogo === 'goles') { txt.innerHTML = golesTexto(99).map((t) => pHTML(t)).join(''); mostraGuardados(); } appendParas(p.depois); setNext(true); } }); };
   return false;
@@ -504,7 +539,148 @@ const overlay = $('#mg');
 function abreOverlay(cls) { overlay.className = 'show ' + cls; overlay.innerHTML = ''; document.body.classList.add('mg-on'); return overlay; }
 function fechaOverlay() { overlay.className = ''; overlay.innerHTML = ''; document.body.classList.remove('mg-on'); }
 
+// ---------------------------------------------------------------- explorar: a cabana em point-and-click
+function explorar(p, modo) {
+  return new Promise((resolve) => {
+    const ex = p.explorar, o = abreOverlay('explorar ' + modo);
+    st.explorar = st.explorar || {};
+    const reg = st.explorar[p.id] = st.explorar[p.id] || { vistos: [] };
+    const oculto = (pt) => (typeof pt.oculto === 'function' ? pt.oculto(st) : !!pt.oculto);
+    const obrig = ex.pontos.filter((pt) => !pt.opcional);
+    if (A.ctx) { ex.pontos.forEach((pt) => pt.voz && A.buf(vozUrl(pt.voz))); if (modo === 'cabana') L.diario.entradas.forEach((e) => e.voz && A.buf(vozUrl(e.voz))); else ['diario-levar', 'diario-deixar'].concat(L.pedra.razoes.map((r) => r.voz)).forEach((n) => A.buf(vozUrl(n))); }
+    o.innerHTML = `<div class="ex-rolo"><div class="ex-caixa" style="--r:${ex.proporcao};background-image:url('${ex.img}')"></div></div>
+      <p class="ex-instr"></p>
+      <div class="ex-texto"><div class="ex-corpo"></div><div class="ex-acoes"></div></div>`;
+    const caixa = o.querySelector('.ex-caixa'), corpo = o.querySelector('.ex-corpo'), acoes = o.querySelector('.ex-acoes'), instr = o.querySelector('.ex-instr'), rolo = o.querySelector('.ex-rolo');
+    let ocupado = false;
+    const mostra = (lista) => { corpo.innerHTML = paras(lista).map((t) => `<p>${linkify(t)}</p>`).join(''); corpo.scrollTop = 0; corpo.classList.remove('novo'); void corpo.offsetWidth; corpo.classList.add('novo'); };
+    const marca = (pt, b) => { if (!reg.vistos.includes(pt.id)) reg.vistos.push(pt.id); b.classList.add('visto'); salvar(); atualiza(); };
+    const porta = () => {
+      if (acoes.querySelector('.porta')) return;
+      acoes.innerHTML = (modo === 'cabana' && ex.fecho ? `<p class="ex-fecho">${esc(tr(ex.fecho))}</p>` : '') + `<button class="cta porta">${esc(tr(ex.porta))}</button>`;
+      acoes.querySelector('.porta').onclick = () => {
+        if (modo === 'despedida' && !st.escolhas.diario) { mostra([U('ex').falta]); return; }
+        if (modo === 'despedida') { A.sfx('mochila', .7); setTimeout(() => A.sfx('porta-frio', .6), 700); } else A.sfx('porta-frio', .7);
+        st.feitos['mg:' + p.id] = 1; salvar(); fechaOverlay(); resolve('nav'); irProxima();
+      };
+    };
+    const atualiza = () => {
+      if (modo === 'cabana') {
+        const n = obrig.filter((pt) => reg.vistos.includes(pt.id)).length;
+        instr.textContent = `${tr(ex.instrucao)} · ${n}/${obrig.length}`;
+        if (n >= obrig.length && !ocupado && !acoes.querySelector('.porta')) porta();
+      } else { instr.textContent = ''; porta(); }
+    };
+    const modal = (html, cls) => {
+      const m = document.createElement('div'); m.className = 'ex-modal ' + cls; m.innerHTML = html; o.appendChild(m); ocupado = true;
+      requestAnimationFrame(() => m.classList.add('on')); return m;
+    };
+    const fechaModal = (m) => { m.classList.remove('on'); setTimeout(() => m.remove(), 380); ocupado = false; atualiza(); };
+    const botoes = (lista) => `<div class="dz-acoes">${lista.map(([cls, t]) => `<button class="${cls}">${esc(t)}</button>`).join('')}</div>`;
+
+    // ---- o diário, de manhã: capa, abrir, entradas
+    const diario = (pt, b) => {
+      const D = L.diario; A.sfx('diario-abre', .6);
+      const m = modal(`<div class="dz" style="background-image:url('assets/images/diario-fechado.jpg')"></div><div class="dz-texto"></div>`, 'diario');
+      const tx = m.querySelector('.dz-texto'), img = m.querySelector('.dz');
+      const fechar = () => { A.stopNarr(); A.sfx('diario-fecha', .6); fechaModal(m); };
+      const capa = () => {
+        tx.innerHTML = `<h3>${esc(U('ex').diarioCab)}</h3><p>${esc(tr(D.capa))}</p>` + botoes([['cta dz-abrir', U('ex').abrir], ['ghost dz-fechar', U('ex').fechar]]);
+        tx.querySelector('.dz-abrir').onclick = () => { A.sfx('diario-pagina', .6); img.style.backgroundImage = "url('assets/images/diario-aberto.jpg')"; marca(pt, b); lista(); };
+        tx.querySelector('.dz-fechar').onclick = fechar;
+      };
+      const lista = () => {
+        A.stopNarr();
+        tx.innerHTML = `<h3>${esc(U('ex').diarioCab)}</h3><ol class="dz-lista">${D.entradas.map((e, i) => `<li><button data-i="${i}">${esc(tr(e.titulo))}</button></li>`).join('')}</ol>` + botoes([['ghost dz-fechar', U('ex').fechar]]);
+        tx.querySelectorAll('.dz-lista button').forEach((bt) => bt.onclick = () => entrada(D.entradas[+bt.dataset.i]));
+        tx.querySelector('.dz-fechar').onclick = fechar;
+      };
+      const entrada = (e) => {
+        A.sfx('diario-pagina', .6);
+        if (e.flag) { st.f[e.flag] = true; salvar(); }
+        if (e.voz) fala(e.voz);
+        tx.innerHTML = `<h3>${esc(tr(e.titulo))}</h3>${e.img ? `<img class="dz-img" src="${e.img}" alt="">` : ''}<p>${esc(tr(e.texto))}</p>` + botoes([['ghost dz-voltar', U('ex').voltar], ['ghost dz-fechar', U('ex').fechar]]);
+        tx.querySelector('.dz-voltar').onclick = lista; tx.querySelector('.dz-fechar').onclick = fechar;
+      };
+      if (reg.vistos.includes(pt.id)) { img.style.backgroundImage = "url('assets/images/diario-aberto.jpg')"; lista(); } else capa();
+    };
+
+    // ---- a pedra debaixo da tábua
+    const pedraModal = () => modal(`<video class="pz" src="${vsrc('assets/clip/pedra-gira.mp4')}" poster="assets/images/pedra-a.jpg" muted loop playsinline autoplay></video><div class="dz-texto"></div>`, 'pedra');
+    const pedraCabana = (pt, b) => {
+      A.sfx('tabua-solta', .7); setTimeout(() => A.sfx('pedra-brilha', .5), 700);
+      st.f.viu_pedra = true; salvar();
+      const m = pedraModal(), tx = m.querySelector('.dz-texto'); m.querySelector('video').play().catch(() => {});
+      tx.innerHTML = L.pedra.lembranca.map((t) => `<p>${esc(tr(t))}</p>`).join('') + botoes([['cta dz-ok', U('ex').recolocar]]);
+      tx.querySelector('.dz-ok').onclick = () => { A.sfx('pedra-mesa', .5); marca(pt, b); fechaModal(m); mostra([L.pedra.recolocar]); };
+    };
+    const pedraDespedida = (pt, b) => {
+      A.sfx('tabua-solta', .7); setTimeout(() => A.sfx('pedra-brilha', .5), 700);
+      const m = pedraModal(), tx = m.querySelector('.dz-texto'); m.querySelector('video').play().catch(() => {});
+      const fim = (texto) => { tx.innerHTML = `<p>${esc(tr(texto))}</p>` + botoes([['ghost dz-ok', U('ex').fechar]]); tx.querySelector('.dz-ok').onclick = () => { marca(pt, b); fechaModal(m); mostra([texto]); }; };
+      const ja = st.escolhas.joia;
+      if (ja) { const r = L.pedra.razoes.find((x) => x.id === ja); return fim(r ? r.resultado : L.pedra.deixar); }
+      const abertura = st.f.viu_pedra ? L.pedra.levantar : L.pedra.curta;
+      if (!st.f.viu_pedra) st.f.achou_tarde = true;
+      tx.innerHTML = `<p>${esc(tr(abertura))}</p>` + botoes([['cta dz-levar', U('ex').levar], ['ghost dz-deixar', U('ex').deixar]]);
+      tx.querySelector('.dz-deixar').onclick = () => { st.escolhas.joia = 'deixar'; registrar('joia', 'deixar'); salvar(); A.sfx('pedra-mesa', .5); fim(L.pedra.deixar); };
+      tx.querySelector('.dz-levar').onclick = () => {
+        tx.innerHTML = `<p class="eyebrow">${esc(tr(L.pedra.pergunta))}</p>` + `<div class="dz-razoes">${L.pedra.razoes.map((r) => `<button class="opt" data-id="${r.id}">${esc(tr(r.txt))}</button>`).join('')}</div>`;
+        tx.querySelectorAll('.dz-razoes button').forEach((bt) => bt.onclick = () => {
+          const r = L.pedra.razoes.find((x) => x.id === bt.dataset.id);
+          st.escolhas.joia = r.id; registrar('joia', r.id); salvar(); A.sfx('pedra-brilha', .5); A.escolha(); fim(r.resultado); fala(r.voz);
+        });
+      };
+    };
+
+    // ---- o diário, na despedida: levar ou deixar
+    const diarioDespedida = (pt, b) => {
+      const DD = L.diarioDespedida; A.sfx('diario-fecha', .5);
+      const m = modal(`<div class="dz" style="background-image:url('assets/images/diario-fechado.jpg')"></div><div class="dz-texto"></div>`, 'diario');
+      const tx = m.querySelector('.dz-texto');
+      const fim = (v) => { const t = DD[v]; tx.innerHTML = `<p>${esc(tr(t))}</p>` + botoes([['ghost dz-ok', U('ex').fechar]]); tx.querySelector('.dz-ok').onclick = () => { marca(pt, b); fechaModal(m); mostra([t]); }; };
+      if (st.escolhas.diario) return fim(st.escolhas.diario);
+      tx.innerHTML = `<p class="eyebrow">${esc(tr(DD.pergunta))}</p>` + botoes([['cta dz-levar', U('ex').levar], ['ghost dz-deixar', U('ex').deixar]]);
+      const decide = (v) => { st.escolhas.diario = v; registrar('diario', v); salvar(); A.escolha(); if (v === 'levar') A.sfx('mochila', .5); fim(v); fala(v === 'levar' ? DD.vozLevar : DD.vozDeixar); };
+      tx.querySelector('.dz-levar').onclick = () => decide('levar');
+      tx.querySelector('.dz-deixar').onclick = () => decide('deixar');
+    };
+
+    const toca = (pt, b) => {
+      if (ocupado) return;
+      if (pt.tipo === 'diario') return diario(pt, b);
+      if (pt.tipo === 'pedra') return pedraCabana(pt, b);
+      if (pt.tipo === 'diario-despedida') return diarioDespedida(pt, b);
+      if (pt.tipo === 'pedra-despedida') return pedraDespedida(pt, b);
+      if (pt.som) A.sfx(pt.som, .6);
+      mostra(pt.texto); marca(pt, b); if (pt.voz) fala(pt.voz);
+    };
+    ex.pontos.forEach((pt) => {
+      const b = document.createElement('button');
+      const esc_ = oculto(pt);
+      b.className = 'ex-pt' + (esc_ ? ' oculto' : '') + (pt.tipo === 'pedra-despedida' && !esc_ ? ' gema' : '') + (reg.vistos.includes(pt.id) ? ' visto' : '');
+      Object.assign(b.style, { left: (pt.x - pt.w / 2) + '%', top: (pt.y - pt.h / 2) + '%', width: pt.w + '%', height: pt.h + '%' });
+      b.setAttribute('aria-label', pt.rotulo ? tr(pt.rotulo) : '…');
+      b.innerHTML = '<i></i>' + (pt.rotulo ? `<span>${esc(tr(pt.rotulo))}</span>` : '');
+      b.onclick = (e) => { e.stopPropagation(); toca(pt, b); };
+      caixa.appendChild(b);
+    });
+    // na tela vertical a imagem rola de lado; começa no centro, com uma dica que some ao rolar
+    requestAnimationFrame(() => {
+      rolo.scrollLeft = (rolo.scrollWidth - rolo.clientWidth) / 2;
+      if (rolo.scrollWidth > rolo.clientWidth + 20) {
+        const d = document.createElement('p'); d.className = 'ex-deslize'; d.textContent = '‹  ' + U('ex').deslize + '  ›'; o.appendChild(d);
+        rolo.addEventListener('scroll', () => d.classList.add('some'), { once: true });
+      }
+    });
+    mostra(paras(p.texto).slice(-1));
+    atualiza();
+  });
+}
+
 const MG = {
+  cabana(p) { return explorar(p, 'cabana'); },
+  despedida(p) { return explorar(p, 'despedida'); },
   // ---------- acompanhar Nuuk: o túnel corre, Nuuk vai à frente; pise nas pegadas dele alternando os pés
   goles() {
     return new Promise((resolve) => {
@@ -514,7 +690,6 @@ const MG = {
         { t: 'Todas as magias que sei lançar.' }, { t: st.gelunah >= 1 ? 'O olhar dela, hoje, sobre a montanha.' : 'Um dragão triste, a oeste.' },
         { t: st.f.ferido ? 'O ombro que ainda dói.' : 'O sangue de Gromm no chão.' },
       ];
-      if (st.f.bronze) pens.push({ t: 'O caco de bronze, morno, no bolso.' });
       o.innerHTML = `<p class="mgt">${U('golesT')}</p><div class="campo"></div><p class="mgsub">${U('golesSub')}</p><button class="parar" disabled>${U('parar')}</button>`;
       const campo = o.querySelector('.campo'), parar = o.querySelector('.parar'); let goles = 0, fim = false;
       pens.forEach((p, k) => {
@@ -567,7 +742,7 @@ const MG = {
     return new Promise((resolve) => {
       const o = abreOverlay('jogo');
       A.setOn(false);
-      const q = new URLSearchParams({ livro: '1', luz: String(Math.round(st.luz)), bronze: st.f.bronze ? '1' : '0', ferido: st.f.ferido ? '1' : '0', hesitou: st.f.hesitou ? '1' : '0', lang: LANG });
+      const q = new URLSearchParams({ livro: '1', luz: String(Math.round(st.luz)), bronze: st.f.examinou_bronze ? '1' : '0', tacets: st.f.leu_tacets ? '1' : '0', ferido: st.f.ferido ? '1' : '0', hesitou: st.f.hesitou ? '1' : '0', lang: LANG });
       o.innerHTML = `<iframe src="jogo/index.html?${q}" allow="autoplay; fullscreen" title="${U('mg')['hino-do-gelo']}"></iframe>`;
       const onMsg = (e) => {
         if (!e.data || e.data.type !== 'aheryn:fim') return;
@@ -625,7 +800,25 @@ panel.addEventListener('touchend', (e) => {
 });
 
 // ---------------------------------------------------------------- resumo final (estilo Telltale)
+function guardaEstado() {
+  // o que este capítulo deixa para os próximos (mesmo endereço = mesmo navegador)
+  try {
+    const todos = JSON.parse(localStorage.getItem('aqv_estado') || '{}');
+    const joia = st.escolhas.joia;
+    todos.v = 1;
+    todos.cap1 = {
+      luz: Math.round(st.luz), aug: st.aug, gelunah: st.gelunah, perfil: st.perfil || {},
+      marcado: !!st.f.marcado, ferido: !!st.f.ferido, magiaGromm: !!st.f.magiaGromm, hesitou: !!st.f.hesitou,
+      leu_tacets: !!st.f.leu_tacets, examinou_bronze: !!st.f.examinou_bronze,
+      diario: st.escolhas.diario === 'levar',
+      pedra: joia && joia !== 'deixar' ? { motivo: joia, nome: (L.pedra.razoes.find((r) => r.id === joia) || {}).nome } : null,
+      venceu: st.jogo ? !!st.jogo.won : null, escolhas: st.escolhas, quando: new Date().toISOString(),
+    };
+    localStorage.setItem('aqv_estado', JSON.stringify(todos));
+  } catch (e) {}
+}
 async function resumo() {
+  guardaEstado();
   A.stepsOff(); A.musicOut();
   $('#resumo').classList.add('show');
   const luz = Math.round(st.luz), loc = LANG === 'pt' ? 'pt-BR' : 'en-US';
@@ -637,6 +830,8 @@ async function resumo() {
   const nomeOpcao = (id) => {
     const v = st.escolhas[id];
     if (id === 'jogo') return v === 'venceu' ? U('venceu') : U('perdeu');
+    if (id === 'diario') return v === 'levar' ? U('ex').levar : U('ex').deixar;
+    if (id === 'joia') { if (v === 'deixar') return U('ex').deixar; const r = L.pedra.razoes.find((x) => x.id === v); return r ? U('ex').levar + ': ' + tr(r.txt) : v; }
     for (const pg of P) if (pg.quieto && pg.quieto.id === id) return v === 'fala' ? '— ' + tr(pg.quieto.fala) : U('silencioR');
     for (const pg of P) {
       if (pg.escolha && pg.escolha.id === id) { const o = pg.escolha.opcoes.find((x) => x.id === v); if (o) return rotulo(o); }
@@ -692,5 +887,5 @@ $('#cvGo').onclick = () => comecar(false);
 $('#cvCont').onclick = () => comecar(true);
 $('#som').onclick = () => { A.init(); A.setOn(!A.on); $('#som').classList.toggle('off', !A.on); };
 drawLuz();
-window.__LIVRO = { get st() { return st; }, render, irProxima, MG };
+window.__LIVRO = { get st() { return st; }, render, irProxima, MG, A };
 })();
