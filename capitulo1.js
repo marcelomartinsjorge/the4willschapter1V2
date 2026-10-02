@@ -251,8 +251,8 @@ window.LIVRO = {
         ], resposta: 'GROMM TAR MAL.' },
         { id: 'nuuk2', pergunta: 'O que Aheryn diz?', opcoes: [
           { eixo: 'perto', id: 'ver', txt: 'Posso ver ele?', canon: true },
-          { eixo: 'longe', id: 'deixar', txt: 'Tudo bem. Não é da minha conta.', aug: -1, luz: -2 }, // NOVO
-          { eixo: 'longe', id: 'silencio', txt: '…', silencio: true, luz: -2 },
+          { eixo: 'longe', id: 'deixar', txt: 'Tudo bem. Não é da minha conta.', aug: -1, luz: -2, fim: true, flag: 'pulou_gromm', resposta: 'NUUK LEVAR UCÊ BEBIDA.' }, // NOVO
+          { eixo: 'longe', id: 'silencio', txt: '…', silencio: true, luz: -2, fim: true, flag: 'pulou_gromm', resposta: 'NUUK LEVAR UCÊ BEBIDA.' },
         ], resposta: 'GROMM NUM CONSEGUIR FICAR DE PÉ.' },
         { id: 'nuuk3', pergunta: 'O que Aheryn diz?', opcoes: [
           { eixo: 'perto', id: 'ajudar', txt: 'Às vezes consigo ajudá-lo.', canon: true, aug: 1, aviso: 'Nuuk vai lembrar disso.' },
@@ -262,15 +262,16 @@ window.LIVRO = {
       depois: [
         { se: (st) => st.escolhas.nuuk1 === 'morrendo' || st.escolhas.nuuk2 === 'deixar', t: 'Nuuk caminhou um pouco mais rígido depois da conversa, os ombros mais altos do que antes.' }, // ALTERADO
         { se: (st) => st.escolhas.nuuk1 !== 'morrendo' && st.escolhas.nuuk2 !== 'deixar', t: 'Segui Nuuk sem mais perguntas. Conheço aquele tipo de silêncio. É o meu.' }, // NOVO
-        'Não sei se realmente queria ajudá-lo, mas é importante entender o que causou esse mal-estar no maior dos Augs. Entendi que Nuuk me levaria até Gromm quando seu passo hesitou e lentamente mudou a direção do seu corpo.',
+        { se: (st) => !st.f.pulou_gromm, t: 'Não sei se realmente queria ajudá-lo, mas é importante entender o que causou esse mal-estar no maior dos Augs. Entendi que Nuuk me levaria até Gromm quando seu passo hesitou e lentamente mudou a direção do seu corpo.' },
+        { se: (st) => st.f.pulou_gromm, t: 'Nuuk não mudou de direção. Seguiu reto, rumo ao destilado, e o mal-estar de Gromm ficou onde estava, sem que eu o visse.' }, // NOVO
       ] },
 
-    { id: 'v-glaciar', zona: 'glaciar', fundo: { img: 'assets/images/aposento.jpg', kb: 'in', dim: .4, foco: '30% 55%', lado: 'dir', clima: 'cristais' },
+    { id: 'v-glaciar', se: (st) => !st.f.pulou_gromm, zona: 'glaciar', fundo: { img: 'assets/images/aposento.jpg', kb: 'in', dim: .4, foco: '30% 55%', lado: 'dir', clima: 'cristais' },
       texto: [
         'O “aposento” de Gromm é um grande amontoado de ossos sobre uma pilha de rochas e ossos menores, formando um platô natural de cerca de 10 metros de altura, um tanto afastado do centro do Glaciar Oco.',
       ] },
 
-    { id: 'c-bronze', zona: 'glaciar', fundo: { img: 'assets/images/aposento.jpg', kb: 'out', dim: .38, foco: '40% 80%', lado: 'dir', clima: 'cristais' },
+    { id: 'c-bronze', se: (st) => !st.f.pulou_gromm, zona: 'glaciar', fundo: { img: 'assets/images/aposento.jpg', kb: 'out', dim: .38, foco: '40% 80%', lado: 'dir', clima: 'cristais' },
       texto: [
         'Foi a primeira vez que pisei ali, e não foi a “arquitetura” que me chamou a atenção, mas sim dezenas ou centenas de pedaços de bronze espalhados por todo o local, como se uma enorme jazida de bronze tivesse sido estilhaçada. Mas como uma jazida de bronze não existe, e como os Augs não sabem fundir nem unir cobre e estanho, aquilo era muito estranho.',
       ],
@@ -288,7 +289,7 @@ window.LIVRO = {
           resultado: ['Não toquei em nada. Na casa dos outros não se mexe no que não é seu.'] }, // ALTERADO
       ] } },
 
-    { id: 'p15', zona: 'glaciar', fundo: { img: 'assets/images/gromm.jpg', kb: 'in', dim: .4, foco: '72% 35%', clima: 'cristais' },
+    { id: 'p15', se: (st) => !st.f.pulou_gromm, zona: 'glaciar', fundo: { img: 'assets/images/gromm.jpg', kb: 'in', dim: .4, foco: '72% 35%', clima: 'cristais' },
       texto: [
         '— O que são esses pedaços de metal espalhados pelo chão, Nuuk?',
         '— SUJEIRA.',
@@ -296,7 +297,7 @@ window.LIVRO = {
         '— O QUE GROMM FALAR, NUUK?! GROMM MAL, NUM QUERER VER NINGUÉM, NEM PEQUENINO.',
       ] },
 
-    { id: 'p16', zona: 'glaciar', fundo: { img: 'assets/images/gromm-ferido.jpg', kb: 'in', dim: .45, tint: 'sangue', foco: '72% 35%' },
+    { id: 'p16', se: (st) => !st.f.pulou_gromm, zona: 'glaciar', fundo: { img: 'assets/images/gromm-ferido.jpg', kb: 'in', dim: .45, tint: 'sangue', foco: '72% 35%' },
       texto: [
         'Não esperei a reação de Nuuk e respondi.',
         '— Vim te ajudar, Gromm. Sei que está mal da barriga.',
@@ -305,7 +306,7 @@ window.LIVRO = {
         '— Você está ferido, Gromm?',
       ] },
 
-    { id: 'c-pedra', zona: 'glaciar', fundo: { img: 'assets/images/gromm-ferido.jpg', kb: 'out', dim: .5, foco: '72% 35%' },
+    { id: 'c-pedra', se: (st) => !st.f.pulou_gromm, zona: 'glaciar', fundo: { img: 'assets/images/gromm-ferido.jpg', kb: 'out', dim: .5, foco: '72% 35%' },
       texto: [ 'Ele não me respondeu, não da maneira que eu esperava. A reação dele foi jogar uma pedra, maior que meu torso, na minha direção.' ],
       escolha: { id: 'pedra', urgente: true, cinema: 'pedra', opcoes: [
         { id: 'desviar', txt: 'Jogar o corpo para o lado.',
@@ -318,12 +319,13 @@ window.LIVRO = {
 
     { id: 'p18', zona: 'tunel', fundo: { clip: 'assets/clip/tunel.mp4', img: 'assets/images/seguindo-nuuk.jpg', dim: .45, clima: 'cristais' },
       texto: [
-        '— IR EMBORA OU GROMM MATAR.',
-        'Foi mais um aviso do que uma ameaça de Nuuk. Percebi na voz dele o medo que sentia de Gromm.',
-        '— Certo, vamos buscar a bebida. Espero que melhore da dor de barriga, Gromm.',
-        'Nuuk não disse mais nada. Só me levou de volta pelos túneis.',
+        { se: (st) => !st.f.pulou_gromm, t: '— IR EMBORA OU GROMM MATAR.' },
+        { se: (st) => !st.f.pulou_gromm, t: 'Foi mais um aviso do que uma ameaça de Nuuk. Percebi na voz dele o medo que sentia de Gromm.' },
+        { se: (st) => !st.f.pulou_gromm, t: '— Certo, vamos buscar a bebida. Espero que melhore da dor de barriga, Gromm.' },
+        { se: (st) => !st.f.pulou_gromm, t: 'Nuuk não disse mais nada. Só me levou de volta pelos túneis.' },
         { se: (st) => st.aug >= 1, t: 'No caminho, sem se virar, ele empurrou com o pé uma pedra solta para fora da minha frente.' }, // NOVO
-        { se: (st) => st.aug <= -1, t: 'No caminho, ele manteve mais distância entre nós dois do que na ida, do jeito que se anda ao lado de algo que ainda não se decidiu se é perigoso.' }, // NOVO
+        { se: (st) => st.aug <= -1 && !st.f.pulou_gromm, t: 'No caminho, ele manteve mais distância entre nós dois do que na ida, do jeito que se anda ao lado de algo que ainda não se decidiu se é perigoso.' }, // NOVO
+        { se: (st) => st.aug <= -1 && st.f.pulou_gromm, t: 'No caminho, ele manteve mais distância entre nós dois do que antes, do jeito que se anda ao lado de algo que ainda não se decidiu se é perigoso.' }, // NOVO
         { se: (st) => perfil(st) >= 2, t: 'No meio do túnel, quase chamei Nuuk pelo nome. Não chamei.' }, // NOVO
         { se: (st) => perfil(st) <= -2, t: 'Nuuk caminhava à minha frente. Não havia nada a dizer, e eu não disse.' }, // NOVO
         { se: (st) => perfil(st) > -2 && perfil(st) < 2, t: 'Pensei em perguntar de novo sobre Gromm. Deixei a pergunta onde estava.' }, // NOVO
@@ -499,7 +501,8 @@ window.LIVRO = {
         { se: (st) => st.jogo && st.jogo.won && st.jogo.time > 75, t: 'Demorou. Quando o gelo cedeu, o primeiro estava perto o bastante para eu ouvir o bronze ranger nas juntas.' }, // NOVO
         'Não os destruí. Bronze daqueles não se afoga; vão andar pelo fundo, cegos, e um dia subir por uma margem qualquer e recomeçar o compasso.',
         { se: (st) => st.jogo && st.jogo.won && st.luz >= 70, t: 'O gelo obedeceu a tempo. Mas a luz tinha subido alto demais, e o que sobe alto demais se vê de longe.' }, // NOVO
-        'Foi então que pensei em Gromm — nos cacos de bronze espalhados pelo chão do seu aposento, no sangue, na pedra que quase me acertou. Três Tacets não fazem tanto estrago. Deviam ser trinta, ou perto disso, e por algum motivo o líder Aug quis destruí-los antes que chegassem a mim. Nunca saberia ao certo. Desejei, sem poder dizer isso a ninguém, que ele estivesse melhor.',
+        { se: (st) => !st.f.pulou_gromm, t: 'Foi então que pensei em Gromm — nos cacos de bronze espalhados pelo chão do seu aposento, no sangue, na pedra que quase me acertou. Três Tacets não fazem tanto estrago. Deviam ser trinta, ou perto disso, e por algum motivo o líder Aug quis destruí-los antes que chegassem a mim. Nunca saberia ao certo. Desejei, sem poder dizer isso a ninguém, que ele estivesse melhor.' },
+        { se: (st) => st.f.pulou_gromm, t: 'Foi então que pensei no Glaciar, que ficava no caminho deles. Pensei em Gromm, que eu não tinha visto, e no mal-estar que Nuuk nunca explicou. Os Aug têm dois estômagos e uma digestão incrível, e preferi acreditar que era só isso. Desejei, sem poder dizer isso a ninguém, que ele estivesse melhor.' }, // NOVO
         { se: (st) => st.aug >= 1, t: 'Talvez fosse por isso que Nuuk empurrara a pedra do meu caminho, na noite anterior. Talvez soubesse, do jeito que os Aug sabem as coisas, que eu ainda teria um caminho pela frente.' }, // NOVO
         { se: (st) => st.f.ferido, t: 'O ombro que ele acertou doeu quando me levantei do gelo. Achei justo.' }, // NOVO
         { se: (st) => st.f.magiaGromm, t: 'E Gromm tinha visto a luz. Os Aug não contam nada a ninguém. Esperei que continuasse assim.' }, // NOVO

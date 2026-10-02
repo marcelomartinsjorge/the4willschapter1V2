@@ -311,5 +311,10 @@ window.LIVRO_EN = {
  "Quis perguntar a Nuuk o que se passava com Gromm. Os Augs, assim como os Grakh, possuem dois estômagos e uma capacidade incrível de digestão.": "I wanted to ask Nuuk what was going on with Gromm. The Aug, like the Grakh, have two stomachs and a remarkable capacity for digestion.",
  "O que Aheryn pergunta a Nuuk?": "What does Aheryn ask Nuuk?",
  "O que Aheryn diz?": "What does Aheryn say?",
- "Nuuk caminhou um pouco mais rígido depois da conversa, os ombros mais altos do que antes.": "Nuuk walked a little stiffer after the talk, his shoulders higher than before."
+ "Nuuk caminhou um pouco mais rígido depois da conversa, os ombros mais altos do que antes.": "Nuuk walked a little stiffer after the talk, his shoulders higher than before.",
+ "NUUK LEVAR UCÊ BEBIDA.": "NUUK TAKE YOU DRINK.",
+ "Nuuk não mudou de direção. Seguiu reto, rumo ao destilado, e o mal-estar de Gromm ficou onde estava, sem que eu o visse.": "Nuuk did not change direction. He went straight on, toward the spirit, and Gromm's ailment stayed where it was, unseen by me.",
+ "No caminho, ele manteve mais distância entre nós dois do que antes, do jeito que se anda ao lado de algo que ainda não se decidiu se é perigoso.": "On the way, he kept more distance between us than before, the way one walks beside something one hasn't yet decided is dangerous.",
+ "Foi então que pensei no Glaciar, que ficava no caminho deles. Pensei em Gromm, que eu não tinha visto, e no mal-estar que Nuuk nunca explicou. Os Aug têm dois estômagos e uma digestão incrível, e preferi acreditar que era só isso. Desejei, sem poder dizer isso a ninguém, que ele estivesse melhor.": "It was then that I thought of the Glacier, which lay in their path. I thought of Gromm, whom I had not seen, and of the ailment Nuuk never explained. The Aug have two stomachs and an incredible digestion, and I preferred to believe that was all it was. I wished, with no one to say it to, that he would get better.",
+ "O gigante que eu não fui ver.": "The giant I did not go to see."
 };

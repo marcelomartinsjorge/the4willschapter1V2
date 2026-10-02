@@ -29,7 +29,7 @@ const UI = {
     luzTitle: 'A Luz do Aheryn: sobe quando ele sente, lembra e canta; desce quando ele se cala',
     confirm: 'Recomeçar o capítulo? Suas escolhas serão apagadas.', capI: 'Capítulo I', fimCap: 'Fim do Capítulo I', ficou: 'O que ficou de você no gelo', luz: 'Luz', suas: 'O que você levou', pedraQ: 'A pedra', diarioQ: 'O diário', levouPedra: 'Levou a pedra', deixouPedra: 'Deixou a pedra onde estava', nuncaPedra: 'Nunca a encontrou', levouDiario: 'Levou o diário', deixouDiario: 'Deixou o diário', reler: 'Reler e escolher diferente', mesmo: (p) => `${p}% dos leitores fizeram o mesmo`,
     fraseAlta: 'Aheryn deixou a luz subir mais do que devia. Alguém, em algum lugar, pode ter visto.', fraseBaixa: 'Aheryn quase não acendeu. Ninguém em cem léguas saberia que ele esteve ali.', fraseMeio: 'Aheryn acendeu e apagou na medida de quem sobrevive há um século.',
-    augMais: 'Os Aug: Nuuk vai lembrar de você com algum respeito.', augMenos: 'Os Aug: Nuuk vai lembrar de você com desconfiança.', augZero: 'Os Aug: nada mudou entre vocês.', gelMais: 'Gelunah: algo entre vocês ficou mais perto.', gelZero: 'Gelunah: a distância de sempre.',
+    augMais: 'Os Aug: Nuuk vai lembrar de você com algum respeito.', augMenos: 'Os Aug: Nuuk vai lembrar de você com desconfiança.', augZero: 'Os Aug: nada mudou entre vocês.', augPulou: 'Os Aug: Nuuk levou você direto à bebida. Gromm ficou sem ser visto.', gelMais: 'Gelunah: algo entre vocês ficou mais perto.', gelZero: 'Gelunah: a distância de sempre.',
     jogoVenceu: (t, s) => `O gelo obedeceu em ${t}, com ${s} pontos.`, jogoSeguiu: 'O primeiro Tacet chegou antes do gelo. Aheryn carrega a marca de bronze no braço.', venceu: 'Venceu', perdeu: 'Os Tacets chegaram primeiro', silencioR: 'Silêncio', desviou: 'Desviou', atingido: 'Foi atingido',
     passoT: 'Acompanhar Nuuk', passoSub: 'Não perca Nuuk de vista.', sumindo: 'Nuuk está sumindo nas curvas…', perdi: 'Perdi Nuuk de vista.', atras: 'Você ficou para trás.', junto: 'Você acompanhou Nuuk.', esq: 'Pé esquerdo', dir: 'Pé direito',
     pedraSub: 'Gromm levanta alguma coisa…', pedraOk: 'Desviou por pouco.', pedraHit: 'A pedra acertou.',
@@ -44,7 +44,7 @@ const UI = {
     luzTitle: 'Aheryn’s Light: it rises when he feels, remembers and sings; it falls when he goes silent',
     confirm: 'Restart the chapter? Your choices will be erased.', capI: 'Chapter I', fimCap: 'End of Chapter I', ficou: 'What of you remained in the ice', luz: 'Light', suas: 'What you carried', pedraQ: 'The stone', diarioQ: 'The diary', levouPedra: 'Took the stone', deixouPedra: 'Left the stone where it was', nuncaPedra: 'Never found it', levouDiario: 'Took the diary', deixouDiario: 'Left the diary', reler: 'Read again and choose differently', mesmo: (p) => `${p}% of readers did the same`,
     fraseAlta: 'Aheryn let the light rise more than he should have. Someone, somewhere, may have seen it.', fraseBaixa: 'Aheryn barely lit at all. No one for a hundred leagues would know he had been there.', fraseMeio: 'Aheryn lit and dimmed in the measure of someone who has survived for a century.',
-    augMais: 'The Aug: Nuuk will remember you with some respect.', augMenos: 'The Aug: Nuuk will remember you with suspicion.', augZero: 'The Aug: nothing changed between you.', gelMais: 'Gelunah: something between you drew closer.', gelZero: 'Gelunah: the usual distance.',
+    augMais: 'The Aug: Nuuk will remember you with some respect.', augMenos: 'The Aug: Nuuk will remember you with suspicion.', augZero: 'The Aug: nothing changed between you.', augPulou: 'The Aug: Nuuk took you straight to the drink. Gromm went unseen.', gelMais: 'Gelunah: something between you drew closer.', gelZero: 'Gelunah: the usual distance.',
     jogoVenceu: (t, s) => `The ice obeyed in ${t}, with ${s} points.`, jogoSeguiu: 'The first Tacet reached him before the ice. Aheryn carries the bronze mark on his arm.', venceu: 'Won', perdeu: 'The Tacets arrived first', silencioR: 'Silence', desviou: 'Dodged', atingido: 'Was hit',
     passoT: 'Keep up with Nuuk', passoSub: 'Don’t lose sight of Nuuk.', sumindo: 'Nuuk is vanishing around the bends…', perdi: 'I lost sight of Nuuk.', atras: 'You fell behind.', junto: 'You kept up with Nuuk.', esq: 'Left foot', dir: 'Right foot',
     pedraSub: 'Gromm lifts something…', pedraOk: 'Dodged by a hair.', pedraHit: 'The rock hit.',
@@ -415,12 +415,13 @@ function escolher(p, id) {
 // ----- diálogo (rodadas, sem relógio)
 function renderDialogo(p) {
   const d = p.dialogo, feito = st.dialogo[p.id] || [];
+  const acabou = () => (st.dialogo[p.id] || []).some(([rid, oid]) => { const rr = d.rodadas.find((x) => x.id === rid); const oo = rr && rr.opcoes.find((x) => x.id === oid); return (oo && oo.fim) || (st.dialogo[p.id] || []).length >= d.rodadas.length; });
   const log = document.createElement('div'); log.className = 'dlog'; txt.appendChild(log);
   const linha = (quem, t) => { log.insertAdjacentHTML('beforeend', `<p class="dlg ${quem}">— ${esc(t)}</p>`); };
-  feito.forEach(([rid, oid]) => { const r = d.rodadas.find((x) => x.id === rid), o = r.opcoes.find((x) => x.id === oid); o.silencio ? log.insertAdjacentHTML('beforeend', '<p class="dlg sil">…</p>') : linha('eu', tr(o.txt)); linha('ele', tr(r.resposta)); });
+  feito.forEach(([rid, oid]) => { const r = d.rodadas.find((x) => x.id === rid), o = r.opcoes.find((x) => x.id === oid); o.silencio ? log.insertAdjacentHTML('beforeend', '<p class="dlg sil">…</p>') : linha('eu', tr(o.txt)); linha('ele', tr(o.resposta || r.resposta)); });
   const next = () => {
     const k = (st.dialogo[p.id] || []).length;
-    if (k >= d.rodadas.length) { box.innerHTML = ''; appendParas(p.depois); setNext(true); return; }
+    if (acabou()) { box.innerHTML = ''; appendParas(p.depois); setNext(true); return; }
     const r = d.rodadas[k];
     box.innerHTML = `<p class="eyebrow">${r.pergunta ? esc(tr(r.pergunta)) : U('resp') + ' ' + d.interlocutor}</p>` + r.opcoes.map(optHTML).join('');
     box.querySelectorAll('.opt').forEach((b) => b.onclick = () => {
@@ -428,12 +429,12 @@ function renderDialogo(p) {
       (st.dialogo[p.id] = st.dialogo[p.id] || []).push([r.id, o.id]); st.escolhas[r.id] = o.id;
       aplicar(o); registrar(r.id, o.id); salvar(); A.escolha(); box.innerHTML = '';
       o.silencio ? log.insertAdjacentHTML('beforeend', '<p class="dlg sil novo">…</p>') : linha('eu', tr(o.txt));
-      timers.push(setTimeout(() => { A.tone(110, .5, 'sawtooth', .05, 0, .8); linha('ele', tr(r.resposta)); log.lastElementChild.classList.add('novo'); }, 900));
+      timers.push(setTimeout(() => { A.tone(110, .5, 'sawtooth', .05, 0, .8); linha('ele', tr(o.resposta || r.resposta)); log.lastElementChild.classList.add('novo'); }, 900));
       timers.push(setTimeout(next, 2000));
     });
   };
   next();
-  return (st.dialogo[p.id] || []).length >= d.rodadas.length;
+  return acabou();
 }
 
 // ----- o hino: a voz do Aheryn verso a verso (se os arquivos existirem); senão, a trilha
@@ -688,7 +689,7 @@ const MG = {
       const pens = [
         { t: 'O século passado.' }, { t: 'Quando os Lúmae existiam.' }, { t: 'Quando eu era o herói do meu povo.', forte: 2 },
         { t: 'Todas as magias que sei lançar.' }, { t: st.gelunah >= 1 ? 'O olhar dela, hoje, sobre a montanha.' : 'Um dragão triste, a oeste.' },
-        { t: st.f.ferido ? 'O ombro que ainda dói.' : 'O sangue de Gromm no chão.' },
+        { t: st.f.ferido ? 'O ombro que ainda dói.' : st.f.pulou_gromm ? 'O gigante que eu não fui ver.' : 'O sangue de Gromm no chão.' },
       ];
       o.innerHTML = `<p class="mgt">${U('golesT')}</p><div class="campo"></div><p class="mgsub">${U('golesSub')}</p><button class="parar" disabled>${U('parar')}</button>`;
       const campo = o.querySelector('.campo'), parar = o.querySelector('.parar'); let goles = 0, fim = false;
@@ -808,7 +809,7 @@ function guardaEstado() {
     todos.v = 1;
     todos.cap1 = {
       luz: Math.round(st.luz), aug: st.aug, gelunah: st.gelunah, perfil: st.perfil || {},
-      marcado: !!st.f.marcado, ferido: !!st.f.ferido, magiaGromm: !!st.f.magiaGromm, hesitou: !!st.f.hesitou,
+      viuGromm: !st.f.pulou_gromm, marcado: !!st.f.marcado, ferido: !!st.f.ferido, magiaGromm: !!st.f.magiaGromm, hesitou: !!st.f.hesitou,
       leu_tacets: !!st.f.leu_tacets, examinou_bronze: !!st.f.examinou_bronze,
       diario: st.escolhas.diario === 'levar',
       pedra: joia && joia !== 'deixar' ? { motivo: joia, nome: (L.pedra.razoes.find((r) => r.id === joia) || {}).nome } : null,
@@ -823,7 +824,7 @@ async function resumo() {
   $('#resumo').classList.add('show');
   const luz = Math.round(st.luz), loc = LANG === 'pt' ? 'pt-BR' : 'en-US';
   $('#rsLuz').textContent = luz; $('#rsFrase').textContent = luz >= 70 ? U('fraseAlta') : luz <= 30 ? U('fraseBaixa') : U('fraseMeio');
-  const rel = [st.aug >= 1 ? U('augMais') : st.aug <= -1 ? U('augMenos') : U('augZero'), st.gelunah >= 1 ? U('gelMais') : U('gelZero')];
+  const rel = [st.aug >= 1 ? U('augMais') : st.aug <= -1 ? U('augMenos') : st.f.pulou_gromm ? U('augPulou') : U('augZero'), st.gelunah >= 1 ? U('gelMais') : U('gelZero')];
   if (st.jogo) rel.push(st.jogo.won ? U('jogoVenceu')(`${Math.floor(st.jogo.time / 60)}:${String(st.jogo.time % 60).padStart(2, '0')}`, Number(st.jogo.score).toLocaleString(loc)) : U('jogoSeguiu'));
   $('#rsRel').innerHTML = rel.map((r) => `<li>${esc(r)}</li>`).join('');
   // só o que mais pesa: a pedra (e o nome que ganhou) e o diário

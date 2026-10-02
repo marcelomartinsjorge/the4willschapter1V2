@@ -1,3 +1,10 @@
+# Capítulo I, versão 17: o leitor pode não ir ver o Gromm
+
+- Na segunda pergunta ao Nuuk, "Tudo bem. Não é da minha conta." ou ficar em silêncio encerram o diálogo (Nuuk responde "NUUK LEVAR UCÊ BEBIDA.") e levam direto ao destilado. Quem pede "Posso ver ele?" segue como antes.
+- Quem não vai perde cinco páginas: o aposento, o bronze, os dois momentos com Gromm e a pedra arremessada. Fica sem ferido, sem magia diante de Gromm e sem exame do bronze, e com a Luz mais baixa (a pedra no ar dava +12).
+- Textos que mudam para quem não foi: o fim do diálogo, a volta pelos túneis (só o eco de distância), o parágrafo do p33 ("Foi então que pensei no Glaciar..."), o pensamento da bebida ("O gigante que eu não fui ver.") e a linha dos Aug na tela final.
+- O estado gravado para o Capítulo 2 ganha `viuGromm`.
+
 # Capítulo I, versão 16
 
 - **O botão da tela final** ("Capítulo II · Laura D'Orrose, Sob a Seda") agora leva para https://marcelomartinsjorge.github.io/the4willschapter2V2/. O estado do capítulo já é gravado ao aparecer a tela final, em `localStorage['aqv_estado']`.
