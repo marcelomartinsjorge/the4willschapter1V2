@@ -1,3 +1,7 @@
+# Capítulo I, versão 16
+
+- **O botão da tela final** ("Capítulo II · Laura D'Orrose, Sob a Seda") agora leva para https://marcelomartinsjorge.github.io/the4willschapter2V2/. O estado do capítulo já é gravado ao aparecer a tela final, em `localStorage['aqv_estado']`.
+
 # Capítulo I, versão 15
 
 - **Tela final:** a linha do resultado do jogo voltou ("O gelo obedeceu em 1:35, com 54.321 pontos." ou "O primeiro Tacet chegou antes do gelo. Aheryn carrega a marca de bronze no braço."). O resto do v14 continua.

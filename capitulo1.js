@@ -21,7 +21,7 @@ window.LIVRO = {
   subtituloEn: 'The Light at the Edge of the World',
   capa: 'assets/images/capa.jpg',
   luzInicial: 20,
-  proximo: { titulo: 'Capítulo II · Laura D’Orrose, Sob a Seda', tituloEn: 'Chapter II · Laura D’Orrose, Beneath the Silk', url: 'https://marcelomartinsjorge.github.io/the4willschapter2/' },
+  proximo: { titulo: 'Capítulo II · Laura D’Orrose, Sob a Seda', tituloEn: 'Chapter II · Laura D’Orrose, Beneath the Silk', url: 'https://marcelomartinsjorge.github.io/the4willschapter2V2/' },
 
   // camas sonoras extras (somam-se às do capítulo antigo)
   zonas: {
