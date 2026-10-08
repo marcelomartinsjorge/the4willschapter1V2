@@ -493,7 +493,7 @@ window.LIVRO = {
         'A mão de bronze fechou no meu antebraço, fria como a coisa que era, e pela primeira vez em cinquenta anos senti a luz ser puxada para fora de mim em vez de subir. Então o chão respondeu.', // NOVO
       ], efeito: { luz: -10, flag: 'marcado' } },
 
-    { id: 'v-fenda', zona: 'tacets', fundo: { video: 'assets/video/tacets-ice.mp4', clima: 'neve' }, cena: 'assets/video/tacets-ice.mp4', som: 'assets/audio/gelo-quebrando.mp3',
+    { id: 'v-fenda', zona: 'tacets', fundo: { video: 'assets/video/tacets-ice-v2.mp4', clima: 'neve' }, cena: 'assets/video/tacets-ice-v2.mp4', som: 'assets/audio/gelo-quebrando.mp3',
       texto: [
         'A crosta sob os três Tacets se abriu.',
         'Não com fúria, com lógica. Uma fenda reta, limpa, geométrica, do jeito que a minha gente gostava das coisas, e os três caíram pelo rasgo na água escura por baixo, o compasso virando estrondo, o bronze engolindo o frio negro que nem o bronze atravessa a nado.',
