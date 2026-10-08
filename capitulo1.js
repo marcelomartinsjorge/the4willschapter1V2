@@ -480,7 +480,7 @@ window.LIVRO = {
         { se: (st) => st.f.hesitou, t: 'Fiquei com as mãos abertas mais tempo do que precisava, sentindo o resto do calor que quase tinha virado luz.' }, // NOVO
       ] },
 
-    { id: 'jogo', zona: 'tacets', fundo: { clip: 'assets/clip/maos-gelo.mp4', img: 'assets/images/maos-gelo.jpg', dim: .35, foco: '62% 55%', clima: 'neve' },
+    { id: 'jogo', zona: 'tacets', fundo: { clip: 'assets/clip/maos-gelo-v2.mp4', img: 'assets/images/maos-gelo.jpg', dim: .35, foco: '62% 55%', clima: 'neve' },
       texto: [
         'Pus a mão no chão, no chão dela, no frio dela. Meu corpo brilhou e pedi ao gelo, e o gelo me fez a cortesia de obedecer.',
       ],
