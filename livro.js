@@ -23,8 +23,8 @@ const UI = {
   pt: { cantar: '▶ Deixar Aheryn cantar', parte: 'Parte', prox: 'Próxima', fim: 'Encerrar o capítulo', voltar: '← Voltar', ouvir: 'Ouvir Aheryn', cena: '▶ Ver a cena', oque: 'O que Aheryn faz?', decida: 'Decida', decidir: 'Decidir', escolheu: 'Você escolheu:', resp: 'Responder a', silencio: 'ficar em silêncio', momento: 'Momento de jogo',
     tutLuz: 'Esta é a Luz de Aheryn.', tutLuz2: 'Quando ele sente, as veias acendem. Quando se cala, apagam.', tutOk: 'Entendi',
     gelo: 'O gelo obedece', geloSub: 'Toque as runas que acendem. Não toque as armadilhas.', geloRuna: 'Runa: toque', geloTrap: 'Armadilha: não toque', geloLuz: (l) => `Sua Luz começa acesa no gelo (${l}). Quanto mais alta, mais rápido os Tacets chegam.`,
-    suasTodas: 'Suas escolhas',
-    rsQ: { armadilha: 'A cova', gelunah: 'Gelunah', passo: 'Atrás de Nuuk', atencao: 'O que Aheryn percebeu', bronze: 'O bronze no chão', pedra: 'A pedra de Gromm', 'pensamento-destilaria': 'Na destilaria', ritual: 'A noite na cabana', hino: 'O hino', proibido: 'O proibido' }, mesmoQue: 'escolheram igual',
+    suasTodas: 'Suas escolhas', regioes: ['nada', 'dedos', 'pulsos', 'pescoço', 'peito', 'rosto'], apagarA: 'Apagar',
+    rsQ: { armadilha: 'A cova', gelunah: 'Gelunah', passo: 'Atrás de Nuuk', atencao: 'O que Aheryn percebeu', bronze: 'O bronze no chão', pedra: 'A pedra de Gromm', culpa: 'O grito de Gromm', sujeira: 'A sujeira', ritual: 'A noite na cabana', hino: 'O hino', proibido: 'O proibido' }, mesmoQue: 'escolheram igual',
     mg: { passo: 'Acompanhar Nuuk', pedra: 'A pedra', goles: 'Um pensamento a menos', 'hino-do-gelo': 'O gelo obedece', cabana: 'Conferir a casa', despedida: 'O que levar' },
     ex: { abrir: 'Abrir', fechar: 'Fechar', voltar: '← Voltar', levar: 'Levar', deixar: 'Deixar', recolocar: 'Recolocar a tábua', falta: 'Escolha o que fazer com o diário antes de partir.', diarioCab: 'Lembranças do Velho Mundo', deslize: 'Deslize para ver a cabana inteira' },
     dica: { cabana: 'Toque em cada coisa da cabana antes de sair.', despedida: 'Escolha o que vai na mochila.', passo: 'Toque nas pegadas de Nuuk quando elas aparecem, alternando os pés. Pisar fora do rastro escorrega.', pedraT: 'Quando a seta aparecer, toque o lado para onde desviar. Só existe uma chance.', pedraK: 'Quando a seta aparecer, aperte ← ou → para desviar. Só existe uma chance.', goles: 'Cada gole apaga um pensamento. Você escolhe quais afogar e quando parar de beber. O que ficar aceso vira Luz.', jogo: (l) => `A Luz que você acumulou (${l}) já começa acesa no gelo, mas faz os Tacets chegarem mais rápido.` },
@@ -41,8 +41,8 @@ const UI = {
   en: { cantar: '▶ Let Aheryn sing', parte: 'Part', prox: 'Next', fim: 'Close the chapter', voltar: '← Back', ouvir: 'Listen to Aheryn', cena: '▶ Watch the scene', oque: 'What does Aheryn do?', decida: 'Decide', decidir: 'Decide', escolheu: 'You chose:', resp: 'Answer', silencio: 'stay silent', momento: 'Moment of play',
     tutLuz: 'This is Aheryn’s Light.', tutLuz2: 'When he feels, his veins light up. When he goes quiet, they go dark.', tutOk: 'Got it',
     gelo: 'The ice obeys', geloSub: 'Tap the runes that light up. Don’t touch the traps.', geloRuna: 'Rune: tap it', geloTrap: 'Trap: don’t touch', geloLuz: (l) => `Your Light starts lit in the ice (${l}). The higher it is, the faster the Tacets come.`,
-    suasTodas: 'Your choices',
-    rsQ: { armadilha: 'The pit', gelunah: 'Gelunah', passo: 'Behind Nuuk', atencao: 'What Aheryn noticed', bronze: 'The bronze on the floor', pedra: 'Gromm’s rock', 'pensamento-destilaria': 'At the distillery', ritual: 'The night in the cabin', hino: 'The hymn', proibido: 'The forbidden' }, mesmoQue: 'chose the same',
+    suasTodas: 'Your choices', regioes: ['nothing', 'fingertips', 'wrists', 'neck', 'chest', 'face'], apagarA: 'Put it out',
+    rsQ: { armadilha: 'The pit', gelunah: 'Gelunah', passo: 'Behind Nuuk', atencao: 'What Aheryn noticed', bronze: 'The bronze on the floor', pedra: 'Gromm’s rock', culpa: 'Gromm’s shout', sujeira: 'The trash', ritual: 'The night in the cabin', hino: 'The hymn', proibido: 'The forbidden' }, mesmoQue: 'chose the same',
     mg: { passo: 'Keep up with Nuuk', pedra: 'The rock', goles: 'One thought less', 'hino-do-gelo': 'The ice obeys', cabana: 'Check the house', despedida: 'What to take' },
     ex: { abrir: 'Open', fechar: 'Close', voltar: '← Back', levar: 'Take it', deixar: 'Leave it', recolocar: 'Put the board back', falta: 'Decide what to do with the diary before leaving.', diarioCab: 'Memories of the Old World', deslize: 'Swipe to see the whole cabin' },
     dica: { cabana: 'Touch each thing in the cabin before leaving.', despedida: 'Choose what goes in the pack.', passo: 'Tap Nuuk’s footprints as they appear, alternating feet. Stepping off the track makes you slip.', pedraT: 'When the arrow appears, tap the side to dodge toward. There is only one chance.', pedraK: 'When the arrow appears, press ← or → to dodge. There is only one chance.', goles: 'Each swallow drowns one thought. You choose which to drown and when to stop drinking. Whatever stays lit becomes Light.', jogo: (l) => `The Light you gathered (${l}) starts already lit in the ice, but it brings the Tacets faster.` },
@@ -58,6 +58,7 @@ const UI = {
   },
 };
 const U = (k) => UI[LANG][k];
+let golesN = 0;
 
 
 // ---------------------------------------------------------------- estado
@@ -78,7 +79,7 @@ const A = {
   ctx: null, bufs: {}, zone: null, zoneSrc: null, zoneGain: null, music: null, steps: null, narr: null, on: true,
   init() {
     if (this.ctx) return; this.ctx = new AC();
-    this.master = this.ctx.createGain(); this.master.connect(this.ctx.destination);
+    this.master = this.ctx.createGain(); this.lp = this.ctx.createBiquadFilter(); this.lp.type = 'lowpass'; this.lp.frequency.value = 20000; this.master.connect(this.lp); this.lp.connect(this.ctx.destination);
     this.bed = this.ctx.createGain(); this.bed.connect(this.master);         // ambiente + música (abaixa na narração)
     this.fx = this.ctx.createGain(); this.fx.gain.value = .8; this.fx.connect(this.master);
     const n = this.ctx.createBuffer(1, this.ctx.sampleRate, this.ctx.sampleRate), d = n.getChannelData(0);
@@ -138,7 +139,17 @@ const A = {
   luzSobe() { this.sfx('luz', .5); },
   luzDesce() { this.tone(330, .7, 'sine', .05, 0, .6); },
   aviso() { this.tone(523, .9, 'triangle', .03); this.tone(784, 1.1, 'sine', .025, .1); },
-  gole() { this.sfx('gole', .8); },
+  gole() { this.sfx('gole', .8); golesN++; document.documentElement.style.setProperty('--goles', Math.min(1, golesN / 6).toFixed(2)); },
+  filtro(f) { if (this.lp) this.lp.frequency.setTargetAtTime(f, this.ctx.currentTime, .8); },
+  // sons da cabeça e do mundo, sintetizados
+  gelo3() { [0, .42, .84].forEach((w) => { this.hiss(.18, 2600, 6, .16, w, 'bandpass'); this.tone(1900 + Math.random() * 300, .12, 'triangle', .02, w); }); },
+  respira() { this.hiss(1.6, 220, .7, .35, 0, 'lowpass'); this.hiss(1.4, 180, .7, .3, 1.9, 'lowpass'); },
+  passosAug() { [0, 1.1].forEach((w) => { this.tone(48, .7, 'sine', .4, w, .6); this.hiss(.5, 140, .8, .3, w, 'lowpass'); }); },
+  prende() { this.hiss(1.1, 900, .6, .12, 0, 'lowpass'); this.tone(150, 1, 'sine', .05, 0, .6); },
+  sobe() { this.tone(330, 1.4, 'sine', .035, 0, 1.6); this.tone(495, 1.6, 'sine', .02, .15, 1.5); },
+  trai() { this.tone(110, 2.2, 'sawtooth', .04, 0, 2); this.hiss(2, 1500, .5, .1, 0); this.sfx('luz', .7); },
+  aug() { this.tone(62, .5, 'sine', .28, 0, .7); },
+  frasco() { this.sfx('frascos', .8); },
   apaga() { this.sfx('apaga', .6); },
   passo() { this.sfx('passo' + (1 + Math.floor(Math.random() * 3)), .7); },
   escorrega() { this.sfx('escorrega', .7); },
@@ -244,17 +255,16 @@ $('#cxClose').onclick = () => $('#codex').classList.remove('show');
 let luzShown = st.luz;
 function mudaLuz(d) {
   if (!d) return; st.luz = clamp(st.luz + d, 0, 100);
-  const f = document.createElement('span'); f.className = 'luzdelta ' + (d > 0 ? 'up' : 'down'); f.textContent = (d > 0 ? '+' : '') + d;
-  $('#luz').appendChild(f); setTimeout(() => f.remove(), 1600);
   d > 0 ? A.luzSobe() : A.luzDesce();
   // as veias reagem no instante da escolha
   const cl = document.body.classList, k = d > 0 ? 'luz-sobe' : 'luz-desce';
   cl.remove('luz-sobe', 'luz-desce'); void document.body.offsetWidth; cl.add(k);
   clearTimeout(mudaLuz.t); mudaLuz.t = setTimeout(() => cl.remove(k), 1700);
-  const c = document.createElement('div'); c.className = 'luzcentro ' + (d > 0 ? 'up' : 'down'); c.innerHTML = `<b>${d > 0 ? '+' : '−'}${Math.abs(d)}</b><span>${U('luz')}</span>`;
-  document.body.appendChild(c); setTimeout(() => c.remove(), 2000);
-  if (!st.feitos.tutLuz) { st.feitos.tutLuz = 1; salvar(); setTimeout(tutorialLuz, 1500); }
+  // quando a luz muda de região do corpo, o nome da região aparece no centro (sem número)
+  const r0 = regiao(st.luz - d), r1 = regiao(st.luz);
+  if (r0 !== r1) { const c = document.createElement('div'); c.className = 'luzcentro ' + (d > 0 ? 'up' : 'down'); c.innerHTML = `<span>${esc(U('regioes')[r1])}</span>`; document.body.appendChild(c); setTimeout(() => c.remove(), 2200); }
 }
+function regiao(l) { return l < 8 ? 0 : l < 30 ? 1 : l < 50 ? 2 : l < 68 ? 3 : l < 85 ? 4 : 5; }
 function tutorialLuz() {
   const t = document.createElement('div'); t.id = 'tutLuz';
   t.innerHTML = `<div class="tlcard"><svg class="tlsig" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 4v52M30 18l-12-10M30 18l12-10M30 32l-16 8M30 32l16 8M30 44l-8 10M30 44l8 10"/></svg>
@@ -268,24 +278,27 @@ function tutorialLuz() {
 (function veias() {
   let seed = 7; const rnd = () => ((seed = (seed * 9301 + 49297) % 233280) / 233280);
   const W = 1000, H = 1000; let d = '';
+  let g = 0;
   const ramo = (x, y, ang, len, prof) => {
     let path = `M${x.toFixed(1)} ${y.toFixed(1)}`; const passos = 8 + Math.floor(rnd() * 4), seg = len / passos;
     for (let i = 0; i < passos; i++) {
       ang += (rnd() - .5) * .45; x += Math.cos(ang) * seg; y += Math.sin(ang) * seg; path += ` L${x.toFixed(1)} ${y.toFixed(1)}`;
       if (prof < 2 && i > 1 && rnd() < .3) ramo(x, y, ang + (rnd() < .5 ? -1 : 1) * (.45 + rnd() * .5), len * .42, prof + 1);
     }
-    d += `<path pathLength="1" class="v${prof}" d="${path}"/>`;
+    d += `<path pathLength="1" class="v${prof}" data-g="${g}" d="${path}"/>`;
   };
   // da borda esquerda e direita para dentro, e dos cantos de baixo para cima
-  for (let i = 0; i < 4; i++) ramo(0, 120 + i * 230 + rnd() * 80, (rnd() - .5) * .7, 170 + rnd() * 90, 0);
-  for (let i = 0; i < 4; i++) ramo(W, 100 + i * 230 + rnd() * 80, Math.PI + (rnd() - .5) * .7, 170 + rnd() * 90, 0);
-  ramo(70, H, -Math.PI / 2 + .35, 200, 0); ramo(W - 70, H, -Math.PI / 2 - .35, 200, 0);
+  // grupos 0–3 e 8: lado esquerdo (o braço marcado); 4–7 e 9: lado direito
+  for (let i = 0; i < 4; i++) { g = i; ramo(0, 120 + i * 230 + rnd() * 80, (rnd() - .5) * .7, 170 + rnd() * 90, 0); }
+  for (let i = 0; i < 4; i++) { g = 4 + i; ramo(W, 100 + i * 230 + rnd() * 80, Math.PI + (rnd() - .5) * .7, 170 + rnd() * 90, 0); }
+  g = 8; ramo(70, H, -Math.PI / 2 + .35, 200, 0); g = 9; ramo(W - 70, H, -Math.PI / 2 - .35, 200, 0);
   $('#veias').innerHTML = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">${d}</svg>`;
+  [0, 1, 2, 3, 8].forEach((k) => $('#veias').querySelectorAll(`path[data-g="${k}"]`).forEach((pp) => pp.classList.add('esq')));
 })();
 function drawLuz() {
   luzShown += (st.luz - luzShown) * .08;
   document.documentElement.style.setProperty('--luz', (luzShown / 100).toFixed(3));
-  $('#luzV').textContent = Math.round(luzShown);
+  { const r = regiao(luzShown); if (r !== drawLuz.r) { drawLuz.r = r; $('#luzV').textContent = U('regioes')[r]; } }
   const cl = document.body.classList;
   cl.toggle('luz-alta', luzShown >= 60); cl.toggle('luz-baixa', luzShown <= 25);
   requestAnimationFrame(drawLuz);
@@ -306,10 +319,149 @@ async function estatisticas() {
   } catch (e) { return []; }
 }
 
+// ---------------------------------------------------------------- a língua de sensação do Aheryn
+// Pensamentos sobem e, se o leitor não faz nada, afundam sozinhos (o Aheryn contém).
+// Segurar um pensamento é segui-lo: ele acende as veias e o texto se abre. O corpo às vezes trai sozinho.
+const camada = document.createElement('div'); camada.id = 'pensa'; document.body.appendChild(camada);
+const ESTADOS = { seco: 20000, companhia: 20000, alerta: 20000, bebendo: 2200, bebado: 3000, ressaca: 1400 };
+function estadoDe(i) { let k = i; while (k > 0 && !P[k].estado) k--; return (P[k] && P[k].estado) || 'seco'; }
+function posPensa(seed) {
+  const r = (n) => { const x = Math.sin(seed * 9301 + n * 49297) * 10000; return x - Math.floor(x); };
+  const retrato = matchMedia('(max-width: 820px), (orientation: portrait)').matches;
+  if (retrato) return document.body.classList.contains('escuro') ? { x: 45 + r(1) * 10, y: 26 + r(2) * 30 } : { x: 45 + r(1) * 10, y: 14 + r(2) * 18 };
+  const dir = document.body.classList.contains('lado-dir');
+  return { x: (dir ? 8 : 54) + r(1) * 26, y: 18 + r(2) * 46 };
+}
+function sensacao(p, dir) {
+  camada.innerHTML = '';
+  const e = estadoDe(st.i); document.body.dataset.estado = e; if (A.ctx) A.filtro(ESTADOS[e] || 20000);
+  const cl = document.body.classList;
+  cl.toggle('escuro', !!p.escuro); cl.toggle('marcado', !!st.f.marcado);
+  if (!p.apagar) { cl.remove('veias-cheias', 'fim-escuro'); document.querySelectorAll('#veias path.off, #veias path.teima').forEach((x) => x.classList.remove('off', 'teima')); }
+  txt.classList.remove('espera');
+  if (p.antes && !st.feitos['an:' + p.id]) {
+    txt.classList.add('espera');
+    timers.push(setTimeout(() => A.ctx && A[p.antes.som] && A[p.antes.som](), p.antes.somEm || 250));
+    timers.push(setTimeout(() => { txt.classList.remove('espera'); st.feitos['an:' + p.id] = 1; salvar(); }, p.antes.ms));
+  }
+  (p.ecos || []).forEach((x) => timers.push(setTimeout(() => A.ctx && A[x.som] && A[x.som](), x.ms)));
+  (p.pensa || []).forEach((th, k) => {
+    const feito = st.feitos['pe:' + th.id];
+    if (feito === 'seguiu') { if (th.mais) timers.push(setTimeout(() => txt.insertAdjacentHTML('beforeend', pHTML(tr(th.mais), 'pensado')), 60)); return; }
+    if (feito) return;
+    timers.push(setTimeout(() => { if (P[st.i] === p) sobePensa(th, k); }, (th.atraso || 2500) + (p.antes && !st.feitos['an:' + p.id] ? p.antes.ms * 0 : 0)));
+  });
+  if (p.trai && dir > 0 && !st.feitos['tr:' + p.id]) timers.push(setTimeout(() => { if (P[st.i] === p) { st.feitos['tr:' + p.id] = 1; salvar(); traicao(p.trai); } }, p.trai.atraso || 2000));
+  if (p.titulo && dir >= 0) timers.push(setTimeout(() => { if (P[st.i] === p) mostraTitulo(p.titulo.nivel); }, p.titulo.atraso || 3000));
+  if (p.conter && !st.feitos['ct2:' + p.id]) timers.push(setTimeout(() => conter(p), 30));
+  else if (p.conter) timers.push(setTimeout(() => { const l = linhaConter(); if (l) txt.children[0] && txt.children[0].insertAdjacentHTML('afterend', pHTML(tr(l))); }, 40));
+}
+function sobePensa(th, k) {
+  const el = document.createElement('button'); el.className = 'pensa'; el.type = 'button';
+  el.innerHTML = `<span>${esc(tr(th.t))}</span>`;
+  const pos = posPensa(k + th.id.length * 7); el.style.left = pos.x + '%'; el.style.top = pos.y + '%';
+  camada.appendChild(el); A.ctx && A.sobe();
+  let raf = 0, t0 = 0, fim = false;
+  const vida = th.vida || 7500;
+  const morre = setTimeout(() => { if (fim) return; fim = true; el.classList.add('contido'); st.feitos['pe:' + th.id] = 'conteve'; salvar(); setTimeout(() => el.remove(), 1600); }, vida);
+  const segue = () => {
+    fim = true; clearTimeout(morre); cancelAnimationFrame(raf); el.classList.add('seguido');
+    st.feitos['pe:' + th.id] = 'seguiu'; registrar('pensa:' + th.id, 'seguiu'); salvar();
+    mudaLuz(th.luz || 4);
+    if (th.mais) setTimeout(() => { txt.insertAdjacentHTML('beforeend', pHTML(tr(th.mais), 'novo pensado')); panel.scrollTop = panel.scrollHeight; }, 700);
+    if (th.prende) setTimeout(() => { document.body.classList.add('prende'); A.ctx && A.prende(); setTimeout(() => document.body.classList.remove('prende'), 2400); }, 1500);
+    setTimeout(() => el.remove(), 1500);
+  };
+  const anda = () => { const q = Math.min(1, (performance.now() - t0) / 1100); el.style.setProperty('--k', q.toFixed(3)); if (q >= 1) return segue(); raf = requestAnimationFrame(anda); };
+  el.addEventListener('pointerdown', (ev) => { if (fim) return; ev.preventDefault(); t0 = performance.now(); el.classList.add('segura'); raf = requestAnimationFrame(anda); });
+  const solta = () => { if (fim) return; cancelAnimationFrame(raf); el.classList.remove('segura'); el.style.setProperty('--k', '0'); };
+  ['pointerup', 'pointerleave', 'pointercancel'].forEach((ev) => el.addEventListener(ev, solta));
+  el.addEventListener('contextmenu', (ev) => ev.preventDefault());
+  el.addEventListener('keydown', (ev) => { if ((ev.key === 'Enter' || ev.key === ' ') && !fim) { ev.preventDefault(); segue(); } });
+}
+// o corpo trai: as veias sobem sem o leitor fazer nada
+function traicao(t) {
+  const cl = document.body.classList; cl.remove('trai'); void document.body.offsetWidth; cl.add('trai');
+  A.ctx && A.trai(); if (t.luz) mudaLuz(t.luz);
+  setTimeout(() => cl.remove('trai'), 2600);
+}
+// o Título: um verso na língua morta, cada vez menos borrado. Nunca traduzido aqui.
+function mostraTitulo(nivel) {
+  const el = document.createElement('div'); el.className = 'titulo-pensa n' + nivel;
+  el.textContent = 'Aeth-vorunda, sæl’aeth mor’ilenne';
+  camada.appendChild(el); A.ctx && A.tone(220, 3, 'sine', .03, 0, 1.01);
+  setTimeout(() => el.classList.add('sai'), 5200); setTimeout(() => el.remove(), 7000);
+}
+// o compasso: os pensamentos que o leitor guardou nos goles voltam enquanto ele conta os passos.
+// Agora é preciso contê-los com um toque, antes que acendam.
+function linhaConter() {
+  const g = st.guardados || [], n = st.f.acesosCompasso || 0;
+  if (!st.feitos['ct2:' + P[st.i].id]) return null;
+  if (!g.length) return 'Nada subiu. Tinha afogado tudo na noite anterior, e a cabeça estava vazia como o frasco.';
+  if (!n) return 'O que eu tinha guardado voltou enquanto eu contava. Apaguei uma lembrança de cada vez, antes que chegasse aos pulsos.';
+  return 'O que eu tinha guardado voltou enquanto eu contava, e nem tudo apagou a tempo. Senti os pulsos quentes. Contei de novo.';
+}
+function conter(p) {
+  const ps = [...txt.children], m = p.conter.mostra || 1;
+  ps.slice(m).forEach((el) => { el.style.display = 'none'; });
+  const g = (st.guardados || []).slice(0, 5); let acesos = 0, k = 0;
+  let passo = 0; const ritmo = () => { if (P[st.i] !== p) return; A.ctx && A.passo(); passo++; timers.push(setTimeout(ritmo, passo % 3 === 0 ? 1250 : 520)); };
+  timers.push(setTimeout(ritmo, 900));
+  const proximo = () => {
+    if (P[st.i] !== p) return;
+    if (k >= g.length) return timers.push(setTimeout(fecha, 1600));
+    const t = g[k++]; const el = document.createElement('button'); el.className = 'pensa sozinho'; el.type = 'button';
+    el.innerHTML = `<span>${esc(tr(t))}</span>`; const pos = posPensa(k * 3 + 1); el.style.left = pos.x + '%'; el.style.top = pos.y + '%';
+    camada.appendChild(el); A.ctx && A.sobe();
+    let fim = false; const t0 = performance.now(), dur = 2300;
+    const cresce = () => { if (fim) return; const q = Math.min(1, (performance.now() - t0) / dur); el.style.setProperty('--k', q.toFixed(3));
+      if (q >= 1) { fim = true; acesos++; el.classList.add('seguido'); mudaLuz(4); traicao({}); setTimeout(() => el.remove(), 1400); timers.push(setTimeout(proximo, 900)); return; }
+      requestAnimationFrame(cresce); };
+    requestAnimationFrame(cresce);
+    el.addEventListener('pointerdown', (ev) => { ev.preventDefault(); if (fim) return; fim = true; el.classList.add('contido'); A.ctx && A.apaga(); setTimeout(() => el.remove(), 1400); timers.push(setTimeout(proximo, 700)); });
+  };
+  const fecha = () => {
+    if (P[st.i] !== p) return;
+    st.f.acesosCompasso = acesos; st.feitos['ct2:' + p.id] = 1; registrar('compasso', String(acesos)); salvar();
+    ps.slice(m).forEach((el, j) => { el.style.display = ''; el.classList.add('novo'); el.style.animationDelay = (j * .4) + 's'; });
+    const l = linhaConter(); if (l && ps[0]) ps[0].insertAdjacentHTML('afterend', pHTML(tr(l), 'novo'));
+    setNext(true);
+  };
+  timers.push(setTimeout(proximo, g.length ? 1800 : 2600));
+}
+// o fim: o leitor apaga a luz do Aheryn, uma linha de cada vez
+function renderApagar(p) {
+  const ps = [...txt.children]; const cl = document.body.classList;
+  if (st.feitos['ap:' + p.id]) { cl.add('fim-escuro'); return true; }
+  cl.add('veias-cheias');
+  ps.slice(1).forEach((el) => { el.style.display = 'none'; });
+  const esq = new Set([0, 1, 2, 3, 8]);
+  let grupos = [9, 4, 5, 6, 7, 8, 0, 1, 2, 3].filter((x) => !(st.f.marcado && esq.has(x)));
+  const teima = (st.guardados || []).length ? grupos[grupos.length - 1] : null;
+  let vis = 1; const total = ps.length;
+  box.innerHTML = `<button class="apagar-btn" aria-label="${esc(U('apagarA'))}"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M30 4v52M30 18l-12-10M30 18l12-10M30 32l-16 8M30 32l16 8M30 44l-8 10M30 44l8 10"/></svg></button>`;
+  const btn = box.querySelector('.apagar-btn');
+  const apagaGrupo = (x) => document.querySelectorAll(`#veias path[data-g="${x}"]`).forEach((pp) => pp.classList.add('off'));
+  btn.onclick = () => {
+    A.ctx && A.apaga();
+    const passos = Math.max(1, total - 1), porVez = Math.ceil(grupos.length / passos);
+    grupos.splice(0, porVez).forEach((x) => { if (x !== teima) apagaGrupo(x); else grupos.push(x); });
+    if (vis < total) { const el = ps[vis++]; el.style.display = ''; el.classList.add('novo'); panel.scrollTop = panel.scrollHeight; }
+    if (vis >= total) {
+      [...grupos].forEach((x) => { if (x !== teima) apagaGrupo(x); });
+      if (teima != null) document.querySelectorAll(`#veias path[data-g="${teima}"]`).forEach((pp) => pp.classList.add('teima'));
+      btn.remove(); st.feitos['ap:' + p.id] = 1; salvar();
+      setTimeout(() => { cl.add('fim-escuro'); setNext(true); }, 1400);
+    }
+  };
+  return false;
+}
+
 // ---------------------------------------------------------------- render de página
 const txt = $('#ptext'), box = $('#choices'), btnNext = $('#next'), btnPrev = $('#prev'), panel = $('#page');
 const paras = (list) => (list || []).map((p) => (typeof p === 'string' ? p : (p.se(st) ? p.t : null))).filter(Boolean).map(tr);
-function pHTML(p, extra = '') { const dlg = p.startsWith('—'); return `<p class="${dlg ? 'dlg' : ''} ${extra}">${linkify(p)}</p>`; }
+const ehAug = (p) => { const f = p.replace(/^—\s*/, ''); return /[A-ZÀ-Ú]{2}/.test(f) && f === f.toUpperCase(); };
+function pHTML(p, extra = '') { const dlg = p.startsWith('—'); return `<p class="${dlg ? 'dlg' : ''}${dlg && ehAug(p) ? ' aug' : ''} ${extra}">${linkify(p)}</p>`; }
 let timers = [];
 const clearTimers = () => { timers.forEach(clearTimeout); timers = []; };
 const rotulo = (o) => (o.silencio ? U('silencioR') : tr(o.txt));
@@ -325,6 +477,7 @@ function render(dir = 1) {
     if (p.passos) A.stepsOn(); else A.stepsOff();
   }
   document.body.dataset.zona = p.zona;
+  sensacao(p, dir);
   { let k = st.i; while (k > 0 && !P[k].parte) k--; $('#parte').textContent = U('parte') + ' ' + (P[k].parte || 'I'); }
   const vis = P.filter(visivel), n = vis.indexOf(p) + 1; $('#pnum').textContent = `${n}`;
   $('#prog').style.setProperty('--p', (n / vis.length).toFixed(3));
@@ -390,6 +543,9 @@ function render(dir = 1) {
   if (p.dialogo) livre = renderDialogo(p);
   if (p.minijogo) livre = renderMinijogo(p);
   if (p.pensamento) livre = renderPensamento(p);
+  if (p.antes && !st.feitos['an:' + p.id]) { const segura = livre; if (segura) { livre = false; timers.push(setTimeout(() => { if (P[st.i] === p) setNext(true); }, p.antes.ms)); } }
+  if (p.apagar) livre = renderApagar(p);
+  if (p.conter && !st.feitos['ct2:' + p.id]) livre = false;
   setNext(livre);
   btnPrev.disabled = idxVis(st.i, -1) < 0; btnPrev.textContent = U('voltar');
   btnNext.textContent = p.fim ? U('fim') : U('prox');
@@ -815,12 +971,13 @@ const MG = {
           <p class="g-luz">${esc(U('geloLuz')(Math.round(st.luz)))}</p><button class="cta" id="gGo" disabled>…</button></div>`;
       const fr = o.querySelector('iframe'), card = o.querySelector('.gcard'), go = o.querySelector('#gGo');
       requestAnimationFrame(() => o.classList.add('in'));
+      document.body.classList.add('veias-cheias'); // a única vez em que ele pensa com tudo
       // o botão só acende quando o gelo terminou de carregar; o toque nele é o mesmo "pôr a mão no chão" do jogo
       const pronto = setInterval(() => {
         try { const b = fr.contentDocument && fr.contentDocument.getElementById('start'); if (b && !b.disabled) { clearInterval(pronto); go.disabled = false; go.textContent = b.textContent; } } catch (e) {}
       }, 200);
       go.onclick = () => {
-        A.setOn(false);
+        A.setOn(false); document.body.classList.remove('veias-cheias');
         try { const w = fr.contentWindow; w.document.getElementById('start').click(); } catch (e) {}
         card.classList.add('sai'); fr.classList.add('on'); setTimeout(() => card.remove(), 900);
       };
@@ -829,7 +986,7 @@ const MG = {
         removeEventListener('message', onMsg);
         st.jogo = { won: e.data.won, score: e.data.score, time: e.data.time, resets: e.data.resets };
         st.escolhas.jogo = e.data.won ? 'venceu' : 'perdeu'; registrar('jogo', st.escolhas.jogo); salvar();
-        clearInterval(pronto); A.setOn(somAntes); fechaOverlay(); resolve('nav');
+        clearInterval(pronto); document.body.classList.remove('veias-cheias'); A.setOn(somAntes); fechaOverlay(); resolve('nav');
         st.feitos['mg:jogo'] = 1; irProxima();
       };
       addEventListener('message', onMsg);
