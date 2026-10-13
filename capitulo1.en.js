@@ -325,5 +325,14 @@ window.LIVRO_EN = {
  "Ele pisou nas mesmas duas marcas da ida.": "He stepped in the same two marks as on the way in.",
  "O cheiro doce dos túneis vinha dali.": "The sweet smell of the tunnels came from here.",
  "Por baixo da crosta, as mesmas camadas que eu tinha contado no Glaciar, escuras até onde a vista ia.": "Beneath the crust, the same layers I had counted at the Glacier, dark as far as the eye could go.",
- "Partir": "Set out"
+ "Partir": "Set out",
+  // v19 · gesto do Pensamento (destilaria)
+  'Um pensamento sobe.': 'A thought rises.',
+  'A última vez que pensei sem medo, havia uma cidade inteira acesa comigo.': 'The last time I thought without fear, a whole city was lit up with me.',
+  'Segure o pensamento para deixá-lo acender.': 'Hold the thought to let it glow.',
+  'Afogar o pensamento.': 'Drown the thought.',
+  'Deixei. As veias do meu pulso acenderam por baixo da manga, e Nuuk olhou para elas.': 'I let it. The veins in my wrist lit up under my sleeve, and Nuuk looked at them.',
+  'Engoli o pensamento antes que ele terminasse. Ainda nem tinha bebido.': 'I swallowed the thought before it finished. I hadn’t even drunk yet.',
+  'Deixou o pensamento acender.': 'Let the thought glow.',
+  'Afogou o pensamento.': 'Drowned the thought.',
 };

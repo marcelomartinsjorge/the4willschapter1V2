@@ -21,7 +21,10 @@ const EN = window.LIVRO_EN || {};
 const tr = (t) => (LANG === 'en' && t != null ? (EN[t] != null ? EN[t] : t) : t);
 const UI = {
   pt: { cantar: '▶ Deixar Aheryn cantar', parte: 'Parte', prox: 'Próxima', fim: 'Encerrar o capítulo', voltar: '← Voltar', ouvir: 'Ouvir Aheryn', cena: '▶ Ver a cena', oque: 'O que Aheryn faz?', decida: 'Decida', decidir: 'Decidir', escolheu: 'Você escolheu:', resp: 'Responder a', silencio: 'ficar em silêncio', momento: 'Momento de jogo',
-    tutLuz: 'Essa é a Luz, no canto da tela. Cada escolha acende ou apaga o Aheryn.',
+    tutLuz: 'Esta é a Luz de Aheryn.', tutLuz2: 'Quando ele sente, as veias acendem. Quando se cala, apagam.', tutOk: 'Entendi',
+    gelo: 'O gelo obedece', geloSub: 'Toque as runas que acendem. Não toque as armadilhas.', geloRuna: 'Runa: toque', geloTrap: 'Armadilha: não toque', geloLuz: (l) => `Sua Luz começa acesa no gelo (${l}). Quanto mais alta, mais rápido os Tacets chegam.`,
+    suasTodas: 'Suas escolhas',
+    rsQ: { armadilha: 'A cova', gelunah: 'Gelunah', passo: 'Atrás de Nuuk', atencao: 'O que Aheryn percebeu', bronze: 'O bronze no chão', pedra: 'A pedra de Gromm', 'pensamento-destilaria': 'Na destilaria', ritual: 'A noite na cabana', hino: 'O hino', proibido: 'O proibido' }, mesmoQue: 'escolheram igual',
     mg: { passo: 'Acompanhar Nuuk', pedra: 'A pedra', goles: 'Um pensamento a menos', 'hino-do-gelo': 'O gelo obedece', cabana: 'Conferir a casa', despedida: 'O que levar' },
     ex: { abrir: 'Abrir', fechar: 'Fechar', voltar: '← Voltar', levar: 'Levar', deixar: 'Deixar', recolocar: 'Recolocar a tábua', falta: 'Escolha o que fazer com o diário antes de partir.', diarioCab: 'Lembranças do Velho Mundo', deslize: 'Deslize para ver a cabana inteira' },
     dica: { cabana: 'Toque em cada coisa da cabana antes de sair.', despedida: 'Escolha o que vai na mochila.', passo: 'Toque nas pegadas de Nuuk quando elas aparecem, alternando os pés. Pisar fora do rastro escorrega.', pedraT: 'Quando a seta aparecer, toque o lado para onde desviar. Só existe uma chance.', pedraK: 'Quando a seta aparecer, aperte ← ou → para desviar. Só existe uma chance.', goles: 'Cada gole apaga um pensamento. Você escolhe quais afogar e quando parar de beber. O que ficar aceso vira Luz.', jogo: (l) => `A Luz que você acumulou (${l}) já começa acesa no gelo, mas faz os Tacets chegarem mais rápido.` },
@@ -36,7 +39,10 @@ const UI = {
     golesT: 'Um pensamento a menos', golesSub: 'Toque um pensamento para afogá-lo com um gole.', parar: 'Parar de beber', sobrou: 'O que ficou aceso se juntou ao Título.', unico: 'Sobrou um único pensamento.', guardados: 'Pensamentos que Aheryn guardou', afogados: 'afogou tudo',
   },
   en: { cantar: '▶ Let Aheryn sing', parte: 'Part', prox: 'Next', fim: 'Close the chapter', voltar: '← Back', ouvir: 'Listen to Aheryn', cena: '▶ Watch the scene', oque: 'What does Aheryn do?', decida: 'Decide', decidir: 'Decide', escolheu: 'You chose:', resp: 'Answer', silencio: 'stay silent', momento: 'Moment of play',
-    tutLuz: 'This is the Light, in the corner of the screen. Every choice lights Aheryn up or puts him out.',
+    tutLuz: 'This is Aheryn’s Light.', tutLuz2: 'When he feels, his veins light up. When he goes quiet, they go dark.', tutOk: 'Got it',
+    gelo: 'The ice obeys', geloSub: 'Tap the runes that light up. Don’t touch the traps.', geloRuna: 'Rune: tap it', geloTrap: 'Trap: don’t touch', geloLuz: (l) => `Your Light starts lit in the ice (${l}). The higher it is, the faster the Tacets come.`,
+    suasTodas: 'Your choices',
+    rsQ: { armadilha: 'The pit', gelunah: 'Gelunah', passo: 'Behind Nuuk', atencao: 'What Aheryn noticed', bronze: 'The bronze on the floor', pedra: 'Gromm’s rock', 'pensamento-destilaria': 'At the distillery', ritual: 'The night in the cabin', hino: 'The hymn', proibido: 'The forbidden' }, mesmoQue: 'chose the same',
     mg: { passo: 'Keep up with Nuuk', pedra: 'The rock', goles: 'One thought less', 'hino-do-gelo': 'The ice obeys', cabana: 'Check the house', despedida: 'What to take' },
     ex: { abrir: 'Open', fechar: 'Close', voltar: '← Back', levar: 'Take it', deixar: 'Leave it', recolocar: 'Put the board back', falta: 'Decide what to do with the diary before leaving.', diarioCab: 'Memories of the Old World', deslize: 'Swipe to see the whole cabin' },
     dica: { cabana: 'Touch each thing in the cabin before leaving.', despedida: 'Choose what goes in the pack.', passo: 'Tap Nuuk’s footprints as they appear, alternating feet. Stepping off the track makes you slip.', pedraT: 'When the arrow appears, tap the side to dodge toward. There is only one chance.', pedraK: 'When the arrow appears, press ← or → to dodge. There is only one chance.', goles: 'Each swallow drowns one thought. You choose which to drown and when to stop drinking. Whatever stays lit becomes Light.', jogo: (l) => `The Light you gathered (${l}) starts already lit in the ice, but it brings the Tacets faster.` },
@@ -160,6 +166,7 @@ function setFundo(f) {
   } else { const im = document.createElement('div'); im.className = 'img'; im.style.backgroundImage = `url("${src}")`; layer.appendChild(im); }
   bgWrap.appendChild(layer);
   document.body.classList.toggle('lado-dir', f.lado === 'dir');
+  document.body.classList.toggle('retrato-on', !!f.retrato);
   Clima.set(f.clima || null);
   requestAnimationFrame(() => requestAnimationFrame(() => layer.classList.add('on')));
   const olds = [...bgWrap.children].filter((c) => c !== layer);
@@ -240,7 +247,41 @@ function mudaLuz(d) {
   const f = document.createElement('span'); f.className = 'luzdelta ' + (d > 0 ? 'up' : 'down'); f.textContent = (d > 0 ? '+' : '') + d;
   $('#luz').appendChild(f); setTimeout(() => f.remove(), 1600);
   d > 0 ? A.luzSobe() : A.luzDesce();
+  // as veias reagem no instante da escolha
+  const cl = document.body.classList, k = d > 0 ? 'luz-sobe' : 'luz-desce';
+  cl.remove('luz-sobe', 'luz-desce'); void document.body.offsetWidth; cl.add(k);
+  clearTimeout(mudaLuz.t); mudaLuz.t = setTimeout(() => cl.remove(k), 1700);
+  const c = document.createElement('div'); c.className = 'luzcentro ' + (d > 0 ? 'up' : 'down'); c.innerHTML = `<b>${d > 0 ? '+' : '−'}${Math.abs(d)}</b><span>${U('luz')}</span>`;
+  document.body.appendChild(c); setTimeout(() => c.remove(), 2000);
+  if (!st.feitos.tutLuz) { st.feitos.tutLuz = 1; salvar(); setTimeout(tutorialLuz, 1500); }
 }
+function tutorialLuz() {
+  const t = document.createElement('div'); t.id = 'tutLuz';
+  t.innerHTML = `<div class="tlcard"><svg class="tlsig" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 4v52M30 18l-12-10M30 18l12-10M30 32l-16 8M30 32l16 8M30 44l-8 10M30 44l8 10"/></svg>
+    <p class="tl1">${esc(U('tutLuz'))}</p><p class="tl2">${esc(U('tutLuz2'))}</p><button class="cta">${esc(U('tutOk'))}</button></div>`;
+  document.body.appendChild(t); document.body.classList.add('tut-luz');
+  requestAnimationFrame(() => t.classList.add('on'));
+  const fecha = () => { t.classList.remove('on'); document.body.classList.remove('tut-luz'); setTimeout(() => t.remove(), 600); };
+  t.onclick = fecha; setTimeout(fecha, 9000);
+}
+// veias douradas nas bordas: crescem com a Luz (stroke-dashoffset ligado a --luz)
+(function veias() {
+  let seed = 7; const rnd = () => ((seed = (seed * 9301 + 49297) % 233280) / 233280);
+  const W = 1000, H = 1000; let d = '';
+  const ramo = (x, y, ang, len, prof) => {
+    let path = `M${x.toFixed(1)} ${y.toFixed(1)}`; const passos = 8 + Math.floor(rnd() * 4), seg = len / passos;
+    for (let i = 0; i < passos; i++) {
+      ang += (rnd() - .5) * .45; x += Math.cos(ang) * seg; y += Math.sin(ang) * seg; path += ` L${x.toFixed(1)} ${y.toFixed(1)}`;
+      if (prof < 2 && i > 1 && rnd() < .3) ramo(x, y, ang + (rnd() < .5 ? -1 : 1) * (.45 + rnd() * .5), len * .42, prof + 1);
+    }
+    d += `<path pathLength="1" class="v${prof}" d="${path}"/>`;
+  };
+  // da borda esquerda e direita para dentro, e dos cantos de baixo para cima
+  for (let i = 0; i < 4; i++) ramo(0, 120 + i * 230 + rnd() * 80, (rnd() - .5) * .7, 170 + rnd() * 90, 0);
+  for (let i = 0; i < 4; i++) ramo(W, 100 + i * 230 + rnd() * 80, Math.PI + (rnd() - .5) * .7, 170 + rnd() * 90, 0);
+  ramo(70, H, -Math.PI / 2 + .35, 200, 0); ramo(W - 70, H, -Math.PI / 2 - .35, 200, 0);
+  $('#veias').innerHTML = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">${d}</svg>`;
+})();
 function drawLuz() {
   luzShown += (st.luz - luzShown) * .08;
   document.documentElement.style.setProperty('--luz', (luzShown / 100).toFixed(3));
@@ -307,7 +348,6 @@ function render(dir = 1) {
     if (A.ctx && A.on && dir >= 0) timers.push(setTimeout(() => { const b = $('#narr'); if (b && P[st.i] === p && !A.narr) b.click(); }, 700));
   }
   if (p.cena) $('#cena').onclick = () => verCena(p.cena);
-  if (p.tutorialLuz && !st.feitos.tutLuz) { st.feitos.tutLuz = 1; timers.push(setTimeout(() => toast(U('tutLuz')), 2200)); }
   if (p.efeito && !st.feitos['ef:' + p.id]) { st.feitos['ef:' + p.id] = 1; if (p.efeito.flag) st.f[p.efeito.flag] = true; if (p.efeito.luz) timers.push(setTimeout(() => mudaLuz(p.efeito.luz), 1200)); }
   if (p.olhoSe && p.olhoSe(st) && !st.feitos.olho && dir > 0) timers.push(setTimeout(() => { if (P[st.i] === p) { st.feitos.olho = 1; salvar(); CINEMA.olho(); } }, 2800));
   if (p.passosGigante && A.ctx) { let k = 0; const passo = () => { A.passo(); k++; timers.push(setTimeout(passo, 950)); }; timers.push(setTimeout(passo, 600)); }
@@ -349,10 +389,11 @@ function render(dir = 1) {
   if (p.escolha) livre = renderEscolha(p);
   if (p.dialogo) livre = renderDialogo(p);
   if (p.minijogo) livre = renderMinijogo(p);
+  if (p.pensamento) livre = renderPensamento(p);
   setNext(livre);
   btnPrev.disabled = idxVis(st.i, -1) < 0; btnPrev.textContent = U('voltar');
   btnNext.textContent = p.fim ? U('fim') : U('prox');
-  st.feitos[p.id] = st.feitos[p.id] || 1; salvar();
+  st.feitos[p.id] = st.feitos[p.id] || 1; st.pid = p.id; salvar();
   panel.scrollTop = 0;
 }
 function ligaNarr(p) {
@@ -410,6 +451,30 @@ function escolher(p, id) {
   const segue = () => { aplicar(o); A.escolha(); registrar(e.id, id); salvar(); setTimeout(() => { appendParas(o.resultado); setNext(true); }, 450);
     if (o.voz) timers.push(setTimeout(() => fala(typeof o.voz === 'function' ? o.voz(st) : o.voz), o.vozAtraso || 1500)); };
   if (e.cinema && CINEMA[e.cinema]) CINEMA[e.cinema](id).then(segue); else segue();
+}
+
+// ----- pensamento: o verbo da Luz. Um pensamento sobe; segurar o dedo nele deixa acender, ou o leitor o afoga
+function renderPensamento(p) {
+  const q = p.pensamento, feito = st.escolhas[q.id];
+  if (feito) { const o = q.opcoes.find((x) => x.id === feito); appendParas(o && o.resultado); return true; }
+  const [ficar, afogar] = q.opcoes;
+  box.innerHTML = `<p class="eyebrow">${esc(tr(q.pergunta))}</p><div class="pens-wrap"><button class="pens-orb" aria-label="${esc(tr(ficar.txt))}"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46"/></svg><span>${esc(tr(q.t))}</span></button>
+    <p class="pens-dica">${esc(tr(ficar.txt))}</p><button class="opt pens-afogar">${esc(tr(afogar.txt))}</button></div>`;
+  const orb = box.querySelector('.pens-orb'), ring = orb.querySelector('circle'); let t0 = 0, raf = 0;
+  const fim = (o) => {
+    cancelAnimationFrame(raf); if (st.escolhas[q.id]) return; st.escolhas[q.id] = o.id; aplicar(o); registrar(q.id, o.id); salvar();
+    box.querySelector('.pens-wrap').classList.add(o === ficar ? 'acende' : 'afoga');
+    if (o === afogar) A.apaga();
+    setTimeout(() => { box.innerHTML = ''; appendParas(o.resultado); setNext(true); }, 1100);
+  };
+  const anda = () => { const k = Math.min(1, (performance.now() - t0) / 1200); ring.style.strokeDashoffset = String(1 - k); orb.style.setProperty('--k', k.toFixed(3));
+    if (k >= 1) return fim(ficar); raf = requestAnimationFrame(anda); };
+  const solta = () => { if (st.escolhas[q.id]) return; cancelAnimationFrame(raf); ring.style.strokeDashoffset = '1'; orb.style.setProperty('--k', '0'); };
+  orb.addEventListener('pointerdown', (e) => { e.preventDefault(); t0 = performance.now(); A.ctx && A.tone(440, 1.2, 'sine', .03, 0, 1.5); raf = requestAnimationFrame(anda); });
+  ['pointerup', 'pointerleave', 'pointercancel'].forEach((ev) => orb.addEventListener(ev, solta));
+  orb.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fim(ficar); } });
+  box.querySelector('.pens-afogar').onclick = () => fim(afogar);
+  return false;
 }
 
 // ----- diálogo (rodadas, sem relógio)
@@ -742,15 +807,29 @@ const MG = {
   'hino-do-gelo'() {
     return new Promise((resolve) => {
       const o = abreOverlay('jogo');
-      A.setOn(false);
-      const q = new URLSearchParams({ livro: '1', luz: String(Math.round(st.luz)), bronze: st.f.examinou_bronze ? '1' : '0', tacets: st.f.leu_tacets ? '1' : '0', ferido: st.f.ferido ? '1' : '0', hesitou: st.f.hesitou ? '1' : '0', lang: LANG });
-      o.innerHTML = `<iframe src="jogo/index.html?${q}" allow="autoplay; fullscreen" title="${U('mg')['hino-do-gelo']}"></iframe>`;
+      const q = new URLSearchParams({ livro: '1', auto: '1', luz: String(Math.round(st.luz)), bronze: st.f.examinou_bronze ? '1' : '0', tacets: st.f.leu_tacets ? '1' : '0', ferido: st.f.ferido ? '1' : '0', hesitou: st.f.hesitou ? '1' : '0', lang: LANG });
+      const somAntes = A.on;
+      o.innerHTML = `<iframe src="jogo/index.html?${q}" allow="autoplay; fullscreen" title="${U('mg')['hino-do-gelo']}"></iframe>
+        <div class="gcard"><p class="g-eye">${U('momento')}</p><h2>${esc(U('gelo'))}</h2><span class="ct-orn">✦</span>
+          <div class="g-leg"><span class="g-runa"><b>W</b></span><span>${esc(U('geloRuna'))}</span><svg viewBox="0 0 100 100" class="g-trap"><path d="M50 4 L66 26 L92 30 L78 52 L90 76 L62 78 L50 96 L36 78 L10 76 L22 52 L8 30 L34 26 Z"/><rect x="38" y="47" width="24" height="5" rx="2"/></svg><span>${esc(U('geloTrap'))}</span></div>
+          <p class="g-luz">${esc(U('geloLuz')(Math.round(st.luz)))}</p><button class="cta" id="gGo" disabled>…</button></div>`;
+      const fr = o.querySelector('iframe'), card = o.querySelector('.gcard'), go = o.querySelector('#gGo');
+      requestAnimationFrame(() => o.classList.add('in'));
+      // o botão só acende quando o gelo terminou de carregar; o toque nele é o mesmo "pôr a mão no chão" do jogo
+      const pronto = setInterval(() => {
+        try { const b = fr.contentDocument && fr.contentDocument.getElementById('start'); if (b && !b.disabled) { clearInterval(pronto); go.disabled = false; go.textContent = b.textContent; } } catch (e) {}
+      }, 200);
+      go.onclick = () => {
+        A.setOn(false);
+        try { const w = fr.contentWindow; w.document.getElementById('start').click(); } catch (e) {}
+        card.classList.add('sai'); fr.classList.add('on'); setTimeout(() => card.remove(), 900);
+      };
       const onMsg = (e) => {
         if (!e.data || e.data.type !== 'aheryn:fim') return;
         removeEventListener('message', onMsg);
         st.jogo = { won: e.data.won, score: e.data.score, time: e.data.time, resets: e.data.resets };
         st.escolhas.jogo = e.data.won ? 'venceu' : 'perdeu'; registrar('jogo', st.escolhas.jogo); salvar();
-        A.setOn(true); fechaOverlay(); resolve('nav');
+        clearInterval(pronto); A.setOn(somAntes); fechaOverlay(); resolve('nav');
         st.feitos['mg:jogo'] = 1; irProxima();
       };
       addEventListener('message', onMsg);
@@ -829,14 +908,17 @@ async function resumo() {
   $('#rsRel').innerHTML = rel.map((r) => `<li>${esc(r)}</li>`).join('');
   // só o que mais pesa: a pedra (e o nome que ganhou) e o diário
   const joia = st.escolhas.joia, razao = L.pedra.razoes.find((x) => x.id === joia);
-  const linhas = [
-    { id: 'joia', q: U('pedraQ'), a: joia === 'deixar' ? U('deixouPedra') : razao ? U('levouPedra') + ': ' + tr(razao.nome) : U('nuncaPedra') },
-    { id: 'diario', q: U('diarioQ'), a: st.escolhas.diario === 'levar' ? U('levouDiario') : U('deixouDiario') },
-  ];
+  // todas as escolhas do capítulo, na ordem da história, cada uma com a porcentagem de quem escolheu igual
+  const linhas = [];
+  P.forEach((pg) => { const e = pg.escolha || pg.pensamento; if (!e || !st.escolhas[e.id]) return;
+    const o = e.opcoes.find((x) => x.id === st.escolhas[e.id]); if (!o) return;
+    linhas.push({ id: e.id, op: o.id, q: (U('rsQ') || {})[e.id] || U('oque'), a: tr(o.rs || o.txt) }); });
+  linhas.push({ id: 'joia', op: joia, q: U('pedraQ'), a: joia === 'deixar' ? U('deixouPedra') : razao ? U('levouPedra') + ': ' + tr(razao.nome) : U('nuncaPedra') });
+  linhas.push({ id: 'diario', op: st.escolhas.diario, q: U('diarioQ'), a: st.escolhas.diario === 'levar' ? U('levouDiario') : U('deixouDiario') });
   const desenha = (stats) => {
     $('#rsEsc').innerHTML = linhas.map((l) => {
       const tot = stats.filter((x) => x.escolha === l.id).reduce((a, b) => a + Number(b.total), 0);
-      const mine = stats.find((x) => x.escolha === l.id && x.opcao === (l.id === 'joia' ? joia : st.escolhas.diario));
+      const mine = stats.find((x) => x.escolha === l.id && x.opcao === l.op);
       const pct = tot && mine ? Math.round((Number(mine.total) / tot) * 100) : null;
       return `<li><span class="q">${esc(l.q)}</span><span class="a">${esc(l.a)}</span>${pct != null ? `<span class="pct"><i style="width:${pct}%"></i><b>${U('mesmo')(pct)}</b></span>` : ''}</li>`;
     }).join('');
@@ -855,7 +937,7 @@ function aplicaIdioma() {
   $('#cvEye').textContent = U('coverEye'); $('#cvSub').textContent = LANG === 'en' ? L.subtituloEn : L.subtitulo; $('#cvLede').textContent = U('coverLede');
   $('#cvGo').textContent = salvo && salvo.i > 0 ? U('coverRestart') : U('coverGo'); $('#cvCont').textContent = U('coverCont'); $('#cvHint').textContent = U('coverHint');
   $('.tl .cap').textContent = U('capI'); $('#rhead').textContent = `${L.titulo} · ${LANG === 'en' ? L.subtituloEn : L.subtitulo}`; $('#luz').title = U('luzTitle'); $('#luz .lbl').textContent = U('luz');
-  $('#rsEye').textContent = U('fimCap'); $('#rsH').textContent = U('ficou'); $('#rsLuzL').textContent = U('luz'); $('#rsSuas').textContent = U('suas'); $('#rsReler').textContent = U('reler');
+  $('#rsEye').textContent = U('fimCap'); $('#rsH').textContent = U('ficou'); $('#rsLuzL').textContent = U('luz'); $('#rsSuas').textContent = U('suasTodas'); $('#rsReler').textContent = U('reler');
   $('#rsProx').textContent = (LANG === 'en' ? L.proximo.tituloEn : L.proximo.titulo) + ' →';
   document.title = LANG === 'en' ? 'Aheryn, The Light at the Edge of the World · The Four Wills' : 'Aheryn, A Luz na Borda do Mundo · As Quatro Vontades';
 }
@@ -874,6 +956,7 @@ Clima.set('neve'); document.body.classList.add('na-capa');
 const comecar = (continuar) => {
   A.init(); A.resume();
   st = continuar && salvo ? salvo : novoEstado();
+  if (st.pid) { const k = P.findIndex((x) => x.id === st.pid); if (k >= 0) st.i = k; }
   luzShown = st.luz; salvar();
   ['assets/audio/tacet_passos.mp3', 'assets/audio/hino.mp3', 'assets/audio/hino/louvor.mp3'].forEach((u) => A.buf(u)); A.carregaSfx();
   $('#cover').classList.add('hide'); document.body.classList.remove('na-capa'); A.virar(); render(1);

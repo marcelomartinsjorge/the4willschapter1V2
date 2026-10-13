@@ -98,25 +98,6 @@ window.LIVRO = {
         'Saí da soleira rumo à armadilha de cova que uso para capturar os pinguins. Os Aug adoram o sabor de pinguins, mas por terem quase quatro metros, é muito difícil capturarem um. E eles não sabem fazer armadilhas. O escambo é simples: eu junto centenas de pinguins e troco com eles por outros materiais. Pele de urso das neves, madeiras das árvores de Frígia e, claro, bebida alcoólica. Muita.',
       ] },
 
-    { id: 'p02', zona: 'borda', fundo: { img: 'assets/images/codex-gelunah.webp', kb: 'out', dim: .55, foco: '40% 40%', lado: 'dir', clima: 'neve' },
-      texto: [
-        'No início eu me importava com a severidade do inverno. Claro que por aqui é sempre frio, ou sempre foi frio, mas quando Gelunah se incomodava com algo, geralmente fome, ela tornava o ambiente praticamente inabitável. Exceto para mim… e para os Aug, os gigantes que são os únicos seres minimamente conscientes com quem mantenho contato desde que cheguei.',
-        'Gelunah também é consciente, claro, ou mais do que isso, se for possível de entender. Mas a comunicação com ela é diferente: não diria telepatia, e sim algo espiritual. Algo que eu, como Lúmae, devo evitar sentir. Foi exatamente esse tipo de investigação mais profunda do imaterial que levou à extinção completa dos meus semelhantes, e é o motivo de eu viver na Borda do Mundo há cinco décadas.',
-      ] },
-
-    { id: 'p03', zona: 'borda', fundo: { img: 'assets/images/codex-lumae.webp', kb: 'none', dim: .45, retrato: true, foco: '50% 12%' },
-      texto: [
-        'Às vezes sinto falta de uma conversa mais elaborada. Os Aug não são conhecidos por grande intelecto. Mas a vantagem é essa: não ligam se sou um Lúmae ou não, nem se deveriam se juntar ao resto do mundo, mais rico em conhecimento, para me declarar inimigo mortal da existência. Alguns anos passam sem eu proferir uma única palavra.',
-        'Aprendi como ninguém a silenciar os pensamentos. Praticamente hiberno como um urso. Esse domínio sobre a própria mente me permitiu me acostumar com o frio, ou simplesmente deixar de senti-lo. Aprendi a “não pensar” por sobrevivência. Como Lúmae, meus pensamentos me fazem brilhar: temos veias douradas sob a pele que acendem brilhosas com pensamentos, ainda mais fortes quando os pensamentos são intensos. É uma atenção que não posso ter o luxo de atrair.',
-      ],
-      tutorialLuz: true },
-
-    { id: 'p04', zona: 'borda', fundo: { img: 'assets/images/encosta.jpg', kb: 'in', foco: '30% 50%', lado: 'dir', clima: 'neve' },
-      texto: [
-        'O ciclo é quase sempre o mesmo: me localizam. Querem me matar porque são recompensados por isso, ou porque são justiceiros e protetores do mundo, decididos a acabar com todo praticante de magia. E a magia que me protege deles é a mesma que guia os próximos até aqui. Resta-me mudar de lugar, encontrar um novo esconderijo e esperar que me localizem outra vez.',
-        'Mas já são cinquenta e seis ou cinquenta e sete anos aqui. Sou realmente grato a Gelunah, mas é um sentimento que não devo nutrir, porque me faz brilhar e eu acho que, de algum modo, ela sabe disso.',
-      ] },
-
     { id: 'c-armadilha', zona: 'borda', fundo: { img: 'assets/images/cova.jpg', kb: 'in', dim: .4, foco: '65% 40%', clima: 'neve' },
       texto: [
         'Cheguei à beira da cova. Uma nova colônia tinha caído lá, e infelizmente ainda havia alguns vivos. É estranho ainda sentir alguma coisa vendo os animais morrerem, mas são essas pequenas coisas que ainda me fazem sentir vivo. Ou pelo menos com sentimentos.',
@@ -137,6 +118,25 @@ window.LIVRO = {
         'Contei os pinguins, era o suficiente. Cem, contando os da cova.', // NOVO
         'Amarrei os pinguins no trenó e voltei à cabana buscar os frascos, que eu levava vazios e trazia cheios. Às vezes, parece que minha vida sempre foi sobre isso.', // NOVO
         { se: (st) => st.escolhas.armadilha === 'salvar', t: 'Noventa e nove, na verdade. Para os Aug, cem.' }, // NOVO (sem voz, depois da gravação)
+      ] },
+
+    { id: 'p02', zona: 'borda', fundo: { img: 'assets/images/codex-gelunah.webp', kb: 'out', dim: .55, foco: '40% 40%', lado: 'dir', retrato: true, clima: 'neve' },
+      texto: [
+        'No início eu me importava com a severidade do inverno. Claro que por aqui é sempre frio, ou sempre foi frio, mas quando Gelunah se incomodava com algo, geralmente fome, ela tornava o ambiente praticamente inabitável. Exceto para mim… e para os Aug, os gigantes que são os únicos seres minimamente conscientes com quem mantenho contato desde que cheguei.',
+        'Gelunah também é consciente, claro, ou mais do que isso, se for possível de entender. Mas a comunicação com ela é diferente: não diria telepatia, e sim algo espiritual. Algo que eu, como Lúmae, devo evitar sentir. Foi exatamente esse tipo de investigação mais profunda do imaterial que levou à extinção completa dos meus semelhantes, e é o motivo de eu viver na Borda do Mundo há cinco décadas.',
+      ] },
+
+    { id: 'p03', zona: 'borda', fundo: { img: 'assets/images/codex-lumae.webp', kb: 'none', dim: .45, retrato: true, foco: '50% 12%' },
+      texto: [
+        'Às vezes sinto falta de uma conversa mais elaborada. Os Aug não são conhecidos por grande intelecto. Mas a vantagem é essa: não ligam se sou um Lúmae ou não, nem se deveriam se juntar ao resto do mundo, mais rico em conhecimento, para me declarar inimigo mortal da existência. Alguns anos passam sem eu proferir uma única palavra.',
+        'Aprendi como ninguém a silenciar os pensamentos. Praticamente hiberno como um urso. Esse domínio sobre a própria mente me permitiu me acostumar com o frio, ou simplesmente deixar de senti-lo. Aprendi a “não pensar” por sobrevivência. Como Lúmae, meus pensamentos me fazem brilhar: temos veias douradas sob a pele que acendem brilhosas com pensamentos, ainda mais fortes quando os pensamentos são intensos. É uma atenção que não posso ter o luxo de atrair.',
+      ],
+      },
+
+    { id: 'p04', zona: 'borda', fundo: { img: 'assets/images/encosta.jpg', kb: 'in', foco: '30% 50%', lado: 'dir', clima: 'neve' },
+      texto: [
+        'O ciclo é quase sempre o mesmo: me localizam. Querem me matar porque são recompensados por isso, ou porque são justiceiros e protetores do mundo, decididos a acabar com todo praticante de magia. E a magia que me protege deles é a mesma que guia os próximos até aqui. Resta-me mudar de lugar, encontrar um novo esconderijo e esperar que me localizem outra vez.',
+        'Mas já são cinquenta e seis ou cinquenta e sete anos aqui. Sou realmente grato a Gelunah, mas é um sentimento que não devo nutrir, porque me faz brilhar e eu acho que, de algum modo, ela sabe disso.',
       ] },
 
     { id: 'cabana-manha', zona: 'cabana-dia', fundo: { img: 'assets/images/cabana-dia.jpg', kb: 'in', dim: .4, foco: '50% 45%', lado: 'dir' },
@@ -188,7 +188,7 @@ window.LIVRO = {
           resultado: ['Fiz o que faço há cinquenta anos. Tirei da cabeça o nome dela, depois o da montanha, depois o do frio. O aperto ficou onde estava, sem nome, e o dourado não subiu.'] }, // NOVO
       ] } },
 
-    { id: 'p07', zona: 'borda', fundo: { img: 'assets/images/codex-gelunah.webp', kb: 'in', dim: .5, foco: '40% 40%', lado: 'dir', clima: 'neve' },
+    { id: 'p07', zona: 'borda', fundo: { img: 'assets/images/codex-gelunah.webp', kb: 'in', dim: .5, foco: '40% 40%', lado: 'dir', retrato: true, clima: 'neve' },
       texto: [
         'Foi só um instante, fiquei a vê-la sumir rumo ao norte branco. Quando me recompus, atrelei o trenó e comecei a andar.', // ALTERADO
       ], fimDeParte: true },
@@ -347,7 +347,15 @@ window.LIVRO = {
         'O gigante me levou até onde armazenam o destilado. A vista sempre me faz repensar meu hábito de beber, mas é necessário quando se é alguém que não pode pensar como eu:',
         'Basicamente eles arrancam uma raiz doce do gelo, mastigam até virar pasta e cospem em uma tina de madeira. Em seguida, guardam a tina perto das fendas quentes por uma semana. A mistura borbulha e vira um líquido aguado.',
         { se: (st) => st.escolhas.atencao === 'cheiro', t: 'O cheiro doce dos túneis vinha dali.' }, // NOVO (eco: o que Aheryn percebeu)
-      ] },
+      ],
+      // NOVO v19: gesto do verbo Pensamento (sem voz, depois do trecho dublado)
+      pensamento: { id: 'pensamento-destilaria', pergunta: 'Um pensamento sobe.', t: 'A última vez que pensei sem medo, havia uma cidade inteira acesa comigo.',
+        opcoes: [
+          { id: 'acender', eixo: 'perto', txt: 'Segure o pensamento para deixá-lo acender.', rs: 'Deixou o pensamento acender.', luz: 3,
+            resultado: ['Deixei. As veias do meu pulso acenderam por baixo da manga, e Nuuk olhou para elas.'] },
+          { id: 'afogar', eixo: 'longe', txt: 'Afogar o pensamento.', rs: 'Afogou o pensamento.', luz: -2,
+            resultado: ['Engoli o pensamento antes que ele terminasse. Ainda nem tinha bebido.'] },
+        ] } },
 
     { id: 'p20', zona: 'glaciar', fundo: { img: 'assets/images/destilaria.jpg', kb: 'out', dim: .45, foco: '40% 60%', lado: 'dir', clima: 'cristais' },
       texto: [
