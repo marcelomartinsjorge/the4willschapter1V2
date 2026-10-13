@@ -23,7 +23,8 @@ const UI = {
   pt: { cantar: '▶ Deixar Aheryn cantar', parte: 'Parte', prox: 'Próxima', fim: 'Encerrar o capítulo', voltar: '← Voltar', ouvir: 'Ouvir Aheryn', cena: '▶ Ver a cena', oque: 'O que Aheryn faz?', decida: 'Decida', decidir: 'Decidir', escolheu: 'Você escolheu:', resp: 'Responder a', silencio: 'ficar em silêncio', momento: 'Momento de jogo',
     tutLuz: 'Esta é a Luz de Aheryn.', tutLuz2: 'Quando ele sente, as veias acendem. Quando se cala, apagam.', tutOk: 'Entendi',
     gelo: 'O gelo obedece', geloSub: 'Toque as runas que acendem. Não toque as armadilhas.', geloRuna: 'Runa: toque', geloTrap: 'Armadilha: não toque', geloLuz: (l) => `Sua Luz começa acesa no gelo (${l}). Quanto mais alta, mais rápido os Tacets chegam.`,
-    suasTodas: 'Suas escolhas', regioes: ['nada', 'dedos', 'pulsos', 'pescoço', 'peito', 'rosto'], apagarA: 'Apagar',
+    suasTodas: 'Suas escolhas', travaQuieta: 'A cabeça está quieta demais para isso.', travaAcesa: 'A luz não deixa calar.',
+    persona: { quieto: 'O Aheryn que você fez: quieto. É o Aheryn do cânone, o que sobrevive.', medido: 'O Aheryn que você fez: medido. Pensou só o que podia pagar.', aceso: 'O Aheryn que você fez: aceso. Pensou tudo o que um Lúmae pensa e brilhou por isso. No cânone, ele é quieto.' }, regioes: ['nada', 'dedos', 'pulsos', 'pescoço', 'peito', 'rosto'], apagarA: 'Apagar',
     rsQ: { armadilha: 'A cova', gelunah: 'Gelunah', passo: 'Atrás de Nuuk', atencao: 'O que Aheryn percebeu', bronze: 'O bronze no chão', pedra: 'A pedra de Gromm', culpa: 'O grito de Gromm', sujeira: 'A sujeira', ritual: 'A noite na cabana', hino: 'O hino', proibido: 'O proibido' }, mesmoQue: 'escolheram igual',
     mg: { passo: 'Acompanhar Nuuk', pedra: 'A pedra', goles: 'Um pensamento a menos', 'hino-do-gelo': 'O gelo obedece', cabana: 'Conferir a casa', despedida: 'O que levar' },
     ex: { abrir: 'Abrir', fechar: 'Fechar', voltar: '← Voltar', levar: 'Levar', deixar: 'Deixar', recolocar: 'Recolocar a tábua', falta: 'Escolha o que fazer com o diário antes de partir.', diarioCab: 'Lembranças do Velho Mundo', deslize: 'Deslize para ver a cabana inteira' },
@@ -41,7 +42,8 @@ const UI = {
   en: { cantar: '▶ Let Aheryn sing', parte: 'Part', prox: 'Next', fim: 'Close the chapter', voltar: '← Back', ouvir: 'Listen to Aheryn', cena: '▶ Watch the scene', oque: 'What does Aheryn do?', decida: 'Decide', decidir: 'Decide', escolheu: 'You chose:', resp: 'Answer', silencio: 'stay silent', momento: 'Moment of play',
     tutLuz: 'This is Aheryn’s Light.', tutLuz2: 'When he feels, his veins light up. When he goes quiet, they go dark.', tutOk: 'Got it',
     gelo: 'The ice obeys', geloSub: 'Tap the runes that light up. Don’t touch the traps.', geloRuna: 'Rune: tap it', geloTrap: 'Trap: don’t touch', geloLuz: (l) => `Your Light starts lit in the ice (${l}). The higher it is, the faster the Tacets come.`,
-    suasTodas: 'Your choices', regioes: ['nothing', 'fingertips', 'wrists', 'neck', 'chest', 'face'], apagarA: 'Put it out',
+    suasTodas: 'Your choices', travaQuieta: 'His head is too quiet for that.', travaAcesa: 'The light won’t let him stay silent.',
+    persona: { quieto: 'The Aheryn you made: quiet. This is the canon Aheryn, the one who survives.', medido: 'The Aheryn you made: measured. He thought only what he could pay for.', aceso: 'The Aheryn you made: lit. He thought everything a Lúmae thinks, and shone for it. In canon, he is quiet.' }, regioes: ['nothing', 'fingertips', 'wrists', 'neck', 'chest', 'face'], apagarA: 'Put it out',
     rsQ: { armadilha: 'The pit', gelunah: 'Gelunah', passo: 'Behind Nuuk', atencao: 'What Aheryn noticed', bronze: 'The bronze on the floor', pedra: 'Gromm’s rock', culpa: 'Gromm’s shout', sujeira: 'The trash', ritual: 'The night in the cabin', hino: 'The hymn', proibido: 'The forbidden' }, mesmoQue: 'chose the same',
     mg: { passo: 'Keep up with Nuuk', pedra: 'The rock', goles: 'One thought less', 'hino-do-gelo': 'The ice obeys', cabana: 'Check the house', despedida: 'What to take' },
     ex: { abrir: 'Open', fechar: 'Close', voltar: '← Back', levar: 'Take it', deixar: 'Leave it', recolocar: 'Put the board back', falta: 'Decide what to do with the diary before leaving.', diarioCab: 'Memories of the Old World', deslize: 'Swipe to see the whole cabin' },
@@ -349,6 +351,7 @@ function sensacao(p, dir) {
     const feito = st.feitos['pe:' + th.id];
     if (feito === 'seguiu') { if (th.mais) timers.push(setTimeout(() => txt.insertAdjacentHTML('beforeend', pHTML(tr(th.mais), 'pensado')), 60)); return; }
     if (feito) return;
+    if ((th.luzMin && st.luz < th.luzMin) || (th.luzMax && st.luz > th.luzMax)) return;
     timers.push(setTimeout(() => { if (P[st.i] === p) sobePensa(th, k); }, (th.atraso || 2500) + (p.antes && !st.feitos['an:' + p.id] ? p.antes.ms * 0 : 0)));
   });
   if (p.trai && dir > 0 && !st.feitos['tr:' + p.id]) timers.push(setTimeout(() => { if (P[st.i] === p) { st.feitos['tr:' + p.id] = 1; salvar(); traicao(p.trai); } }, p.trai.atraso || 2000));
@@ -404,7 +407,7 @@ function linhaConter() {
 function conter(p) {
   const ps = [...txt.children], m = p.conter.mostra || 1;
   ps.slice(m).forEach((el) => { el.style.display = 'none'; });
-  const g = (st.guardados || []).slice(0, 5); let acesos = 0, k = 0;
+  const g = (st.guardados || []).slice(0, 4); let acesos = 0, k = 0;
   let passo = 0; const ritmo = () => { if (P[st.i] !== p) return; A.ctx && A.passo(); passo++; timers.push(setTimeout(ritmo, passo % 3 === 0 ? 1250 : 520)); };
   timers.push(setTimeout(ritmo, 900));
   const proximo = () => {
@@ -413,7 +416,7 @@ function conter(p) {
     const t = g[k++]; const el = document.createElement('button'); el.className = 'pensa sozinho'; el.type = 'button';
     el.innerHTML = `<span>${esc(tr(t))}</span>`; const pos = posPensa(k * 3 + 1); el.style.left = pos.x + '%'; el.style.top = pos.y + '%';
     camada.appendChild(el); A.ctx && A.sobe();
-    let fim = false; const t0 = performance.now(), dur = 2300;
+    let fim = false; const t0 = performance.now(), dur = 3400;
     const cresce = () => { if (fim) return; const q = Math.min(1, (performance.now() - t0) / dur); el.style.setProperty('--k', q.toFixed(3));
       if (q >= 1) { fim = true; acesos++; el.classList.add('seguido'); mudaLuz(4); traicao({}); setTimeout(() => el.remove(), 1400); timers.push(setTimeout(proximo, 900)); return; }
       requestAnimationFrame(cresce); };
@@ -564,7 +567,10 @@ function ligaNarr(p) {
 }
 function setNext(on) { btnNext.disabled = !on; btnNext.classList.toggle('pulse', on); }
 function appendParas(list, cls = '') { paras(list).forEach((t, k) => { txt.insertAdjacentHTML('beforeend', pHTML(t, 'novo ' + cls)); txt.lastElementChild.style.animationDelay = (k * .35) + 's'; }); }
-const optHTML = (o, k) => `<button class="opt ${o.silencio ? 'sil' : ''}" data-id="${o.id}"><span class="k">${k + 1}</span>${o.silencio ? `<em>${U('silencio')}</em>` : esc(tr(o.txt))}</button>`;
+const travaDe = (o) => (o.luzMin && st.luz < o.luzMin ? U('travaQuieta') : o.luzMax && st.luz > o.luzMax ? U('travaAcesa') : null);
+const optHTML = (o, k) => { const tv = travaDe(o), rot = o.silencio ? `<em>${U('silencio')}</em>` : esc(tr(o.txt));
+  if (tv) return `<button class="opt travada" disabled data-id="${o.id}"><span class="k">✕</span><span><s>${rot}</s><small>${esc(tv)}</small></span></button>`;
+  return `<button class="opt ${o.silencio ? 'sil' : ''} ${o.luzMin ? 'acesa' : ''}" data-id="${o.id}"><span class="k">${k + 1}</span>${rot}</button>`; };
 
 // ----- escolhas (sem relógio: o leitor decide no tempo dele)
 function renderEscolha(p) {
@@ -963,24 +969,22 @@ const MG = {
   'hino-do-gelo'() {
     return new Promise((resolve) => {
       const o = abreOverlay('jogo');
-      const q = new URLSearchParams({ livro: '1', auto: '1', luz: String(Math.round(st.luz)), bronze: st.f.examinou_bronze ? '1' : '0', tacets: st.f.leu_tacets ? '1' : '0', ferido: st.f.ferido ? '1' : '0', hesitou: st.f.hesitou ? '1' : '0', lang: LANG });
+      const q = new URLSearchParams({ livro: '1',  luz: String(Math.round(st.luz)), bronze: st.f.examinou_bronze ? '1' : '0', tacets: st.f.leu_tacets ? '1' : '0', ferido: st.f.ferido ? '1' : '0', hesitou: st.f.hesitou ? '1' : '0', lang: LANG });
       const somAntes = A.on;
       o.innerHTML = `<iframe src="jogo/index.html?${q}" allow="autoplay; fullscreen" title="${U('mg')['hino-do-gelo']}"></iframe>
         <div class="gcard"><p class="g-eye">${U('momento')}</p><h2>${esc(U('gelo'))}</h2><span class="ct-orn">✦</span>
-          <div class="g-leg"><span class="g-runa"><b>W</b></span><span>${esc(U('geloRuna'))}</span><svg viewBox="0 0 100 100" class="g-trap"><path d="M50 4 L66 26 L92 30 L78 52 L90 76 L62 78 L50 96 L36 78 L10 76 L22 52 L8 30 L34 26 Z"/><rect x="38" y="47" width="24" height="5" rx="2"/></svg><span>${esc(U('geloTrap'))}</span></div>
-          <p class="g-luz">${esc(U('geloLuz')(Math.round(st.luz)))}</p><button class="cta" id="gGo" disabled>…</button></div>`;
-      const fr = o.querySelector('iframe'), card = o.querySelector('.gcard'), go = o.querySelector('#gGo');
+          <p class="g-luz">${esc(U('geloLuz')(Math.round(st.luz)))}</p><p class="g-carrega"><i></i><i></i><i></i></p></div>`;
+      const fr = o.querySelector('iframe'), card = o.querySelector('.gcard'), t0 = Date.now();
       requestAnimationFrame(() => o.classList.add('in'));
       document.body.classList.add('veias-cheias'); // a única vez em que ele pensa com tudo
-      // o botão só acende quando o gelo terminou de carregar; o toque nele é o mesmo "pôr a mão no chão" do jogo
+      // quando o gelo terminou de carregar, o cartão some e fica a tela do próprio jogo:
+      // o toque no botão dele precisa acontecer lá dentro, senão o navegador não libera o som e o hino sai do compasso
       const pronto = setInterval(() => {
-        try { const b = fr.contentDocument && fr.contentDocument.getElementById('start'); if (b && !b.disabled) { clearInterval(pronto); go.disabled = false; go.textContent = b.textContent; } } catch (e) {}
-      }, 200);
-      go.onclick = () => {
-        A.setOn(false); document.body.classList.remove('veias-cheias');
-        try { const w = fr.contentWindow; w.document.getElementById('start').click(); } catch (e) {}
+        try { const b = fr.contentDocument && fr.contentDocument.getElementById('start'); if (!b || b.disabled) return; } catch (e) { return; }
+        if (Date.now() - t0 < 2600) return;
+        clearInterval(pronto); A.setOn(false); document.body.classList.remove('veias-cheias');
         card.classList.add('sai'); fr.classList.add('on'); setTimeout(() => card.remove(), 900);
-      };
+      }, 200);
       const onMsg = (e) => {
         if (!e.data || e.data.type !== 'aheryn:fim') return;
         removeEventListener('message', onMsg);
@@ -1027,7 +1031,7 @@ addEventListener('keydown', (e) => {
   if ($('#codex').classList.contains('show')) { if (e.key === 'Escape') $('#codex').classList.remove('show'); return; }
   if (['ArrowRight', 'Enter', ' '].includes(e.key)) { e.preventDefault(); if (!btnNext.disabled) irProxima(); }
   else if (e.key === 'ArrowLeft') irAnterior();
-  else if (/^[1-4]$/.test(e.key)) { const b = box.querySelectorAll('.opt:not(:disabled)')[+e.key - 1]; b && b.click(); }
+  else if (/^[1-4]$/.test(e.key)) { const b = [...box.querySelectorAll('.opt:not(:disabled)')].find((x) => { const k = x.querySelector('.k'); return k && k.textContent === e.key; }); b && b.click(); }
 });
 let sx = null, sy = null;
 panel.addEventListener('touchstart', (e) => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
@@ -1061,6 +1065,7 @@ async function resumo() {
   const luz = Math.round(st.luz), loc = LANG === 'pt' ? 'pt-BR' : 'en-US';
   $('#rsLuz').textContent = luz; $('#rsFrase').textContent = luz >= 70 ? U('fraseAlta') : luz <= 30 ? U('fraseBaixa') : U('fraseMeio');
   const rel = [st.aug >= 1 ? U('augMais') : st.aug <= -1 ? U('augMenos') : st.f.pulou_gromm ? U('augPulou') : U('augZero'), st.gelunah >= 1 ? U('gelMais') : U('gelZero')];
+  rel.unshift(U('persona')[luz <= 30 ? 'quieto' : luz < 60 ? 'medido' : 'aceso']);
   if (st.jogo) rel.push(st.jogo.won ? U('jogoVenceu')(`${Math.floor(st.jogo.time / 60)}:${String(st.jogo.time % 60).padStart(2, '0')}`, Number(st.jogo.score).toLocaleString(loc)) : U('jogoSeguiu'));
   $('#rsRel').innerHTML = rel.map((r) => `<li>${esc(r)}</li>`).join('');
   // só o que mais pesa: a pedra (e o nome que ganhou) e o diário
