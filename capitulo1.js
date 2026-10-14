@@ -99,6 +99,7 @@ window.LIVRO = {
         { id: 'ab1', t: 'Na primeira noite de cada estação, a cidade inteira acendia junto.', atraso: 700, vida: 5600, luz: 2, prende: true }, // NOVO v20
         { id: 'ab2', t: 'Gelunah passou baixo ontem. Ou anteontem.', atraso: 3400, vida: 4600, luz: 2, prende: true }, // NOVO v20
       ],
+      falas: [{ n: 'abertura-1', ms: 1800 }, { n: 'abertura-2', ms: 5400 }], // v23 voz
       titulo: { nivel: 1, atraso: 5600 },
       texto: ['O último frasco tinha secado havia nove dias.'] }, // NOVO v20
 
@@ -113,7 +114,7 @@ window.LIVRO = {
         'Saí da soleira rumo à armadilha de cova que uso para capturar os pinguins. Os Aug adoram o sabor de pinguins, mas por terem quase quatro metros, é muito difícil capturarem um. E eles não sabem fazer armadilhas. O escambo é simples: eu junto centenas de pinguins e troco com eles por outros materiais. Pele de urso das neves, madeiras das árvores de Frígia e, claro, bebida alcoólica. Muita.',
       ] },
 
-    { id: 'c-armadilha', zona: 'borda', fundo: { img: 'assets/images/cova.jpg', kb: 'in', dim: .4, foco: '65% 40%', clima: 'neve' },
+    { id: 'c-armadilha', falas: [{ n: 'cova-1', ms: 2400 }, { n: 'cova-2', ms: 9000 }], zona: 'borda', fundo: { img: 'assets/images/cova.jpg', kb: 'in', dim: .4, foco: '65% 40%', clima: 'neve' },
       texto: [
         'Cheguei à beira da cova. Uma nova colônia tinha caído lá, e infelizmente ainda havia alguns vivos. É estranho ainda sentir alguma coisa vendo os animais morrerem, mas são essas pequenas coisas que ainda me fazem sentir vivo. Ou pelo menos com sentimentos.',
         'Três ainda se mexiam no fundo da cova, machucados demais da queda para subir sozinhos. Um deles tinha parado de tentar e me olhava.', // NOVO
@@ -143,7 +144,7 @@ window.LIVRO = {
       ] },
 
     { id: 'p03', zona: 'borda', fundo: { img: 'assets/images/codex-lumae.webp', kb: 'none', dim: .45, retrato: true, foco: '50% 12%' },
-      pensa: [{ id: 'luminosa', t: 'Antes, brilhar era bonito.', mais: 'Na Noite Luminosa ninguém escondia nada. A cidade inteira pensava junto, e de longe parecia que o chão tinha pegado fogo.', luz: 4, atraso: 4200 }], // NOVO v20
+      pensa: [{ id: 'luminosa', vozSeguir: 'pens-seguir-1', vozCortar: 'pens-cortar-1', t: 'Antes, brilhar era bonito.', mais: 'Na Noite Luminosa ninguém escondia nada. A cidade inteira pensava junto, e de longe parecia que o chão tinha pegado fogo.', luz: 4, atraso: 4200 }], // NOVO v20
       texto: [
         'Às vezes sinto falta de uma conversa mais elaborada. Os Aug não são conhecidos por grande intelecto. Mas a vantagem é essa: não ligam se sou um Lúmae ou não, nem se deveriam se juntar ao resto do mundo, mais rico em conhecimento, para me declarar inimigo mortal da existência. Alguns anos passam sem eu proferir uma única palavra.',
         'Aprendi como ninguém a silenciar os pensamentos. Praticamente hiberno como um urso. Esse domínio sobre a própria mente me permitiu me acostumar com o frio, ou simplesmente deixar de senti-lo. Aprendi a “não pensar” por sobrevivência. Como Lúmae, meus pensamentos me fazem brilhar: temos veias douradas sob a pele que acendem brilhosas com pensamentos, ainda mais fortes quando os pensamentos são intensos. É uma atenção que não posso ter o luxo de atrair.',
@@ -169,7 +170,7 @@ window.LIVRO = {
         instrucao: 'Conferir a casa', porta: 'Abrir a porta',
         fecho: 'Estava tudo onde eu tinha deixado. Peguei os frascos e abri a porta.', // NOVO
         pontos: [
-          { id: 'viga', rotulo: 'A viga', x: 76, y: 8, w: 24, h: 11, som: 'viga-riscos', voz: 'viga',
+          { id: 'viga', rotulo: 'A viga', x: 76, y: 8, w: 24, h: 11, som: 'viga-riscos', voz: ['viga', 'viga-conta'],
             texto: ['Um risco por inverno, na viga sobre a porta. Comecei a contar no primeiro e parei de conferir no vigésimo. Hoje a viga diz cinquenta e seis e a minha memória diz cinquenta e sete. Tanto faz.'] }, // NOVO
           { id: 'catre', rotulo: 'O catre', x: 13, y: 63, w: 25, h: 24, voz: 'catre',
             texto: ['O catre está feito como no primeiro dia, a pele esticada, o canto dobrado. Nunca deitei nele. Uma cabana sem catre parece de outra pessoa, e ela precisa parecer minha, para o caso de alguém me visitar. Ninguém me visita. Eu faço a cama do mesmo jeito.'] }, // NOVO
@@ -199,9 +200,9 @@ window.LIVRO = {
       ],
       olhoSe: (st) => st.f.viu_pedra,
       escolha: { id: 'gelunah', opcoes: [
-        { eixo: 'perto', id: 'sentir', txt: 'Deixar o aperto no peito ficar.', luz: 10, gelunah: 1, aviso: 'Algo no frio mudou de lado.',
+        { eixo: 'perto', id: 'sentir', voz: 'gelunah-olhar', vozAtraso: 1200, txt: 'Deixar o aperto no peito ficar.', luz: 10, gelunah: 1, aviso: 'Algo no frio mudou de lado.',
           resultado: ['Deixei. Por um momento não fiz nada contra ele, e as veias dos pulsos esquentaram sob a pele, visíveis até através das luvas. Ela não virou a cabeça.'] }, // NOVO
-        { eixo: 'longe', id: 'esvaziar', txt: 'Esvaziar a cabeça, como aprendi.', luz: -6,
+        { eixo: 'longe', id: 'esvaziar', voz: 'gelunah-evitar', vozAtraso: 1200, txt: 'Esvaziar a cabeça, como aprendi.', luz: -6,
           resultado: ['Fiz o que faço há cinquenta anos. Tirei da cabeça o nome dela, depois o da montanha, depois o do frio. O aperto ficou onde estava, sem nome, e o dourado não subiu.'] }, // NOVO
       ] } },
 
@@ -262,7 +263,7 @@ window.LIVRO = {
             '— São do Glaciar. Os gigantes esperam por eles. Quem mexer no trenó vai explicar aos gigantes.',
             'O da besta olhou para o norte, para a sombra azul do Glaciar, e fez as contas que um homem de Frígia faz quando ouve falar dos Aug. Recuaram de costas até a crista.',
           ] },
-        { eixo: 'longe', id: 'lutar', txt: 'Sacar a espada curta.', rs: 'Lutou com a espada curta.', flag: 'feridoBesta',
+        { eixo: 'longe', id: 'lutar', voz: [['cacador-lutar-1', 1000], ['cacador-lutar-ombro', 5200]], txt: 'Sacar a espada curta.', rs: 'Lutou com a espada curta.', flag: 'feridoBesta',
           resultado: [
             'A espada curta saiu da bainha antes que eu terminasse de decidir. Fazia décadas que eu não a usava para nada além de cortar corda.',
             { se: (st) => st.f.olhouBesta, t: 'Eu sabia que ele ia atirar. Saber não bastou.' },
@@ -270,7 +271,7 @@ window.LIVRO = {
             'O de perna ruim e o mais novo o arrastaram para trás da crista. Ninguém mais atirou.',
             'Arranquei a seta sozinho, sentado na neve. O braço ainda respondia, mas cada vez que eu fechava a mão, a dor subia até a nuca e apagava todo o resto.',
           ] }, // NOVO v22
-        { id: 'gelo', txt: 'Abrir o gelo entre nós, para assustá-los.', rs: 'Abriu o gelo para assustá-los.', luz: 10, flag: 'viramLuz', aviso: 'Os caçadores viram a luz.',
+        { id: 'gelo', voz: 'cacador-gelo', vozAtraso: 1200, txt: 'Abrir o gelo entre nós, para assustá-los.', rs: 'Abriu o gelo para assustá-los.', luz: 10, flag: 'viramLuz', aviso: 'Os caçadores viram a luz.',
           resultado: [
             'Pus a mão na neve. A luz subiu dos dedos até o pulso, e o gelo se abriu entre nós numa linha reta, estalando, até a borda da crista.',
             { se: (st) => st.f.olhouBesta, t: 'Eu já sabia para onde ia a seta antes de ela sair. Dei um passo para o lado, e ela se perdeu no rasgo.' },
@@ -278,7 +279,7 @@ window.LIVRO = {
             'Correram sem olhar para trás. Mas olharam para a minha mão antes de correr, e os três a viram acesa.',
             'Em Frígia, alguém ia contar aquilo numa taverna. Alguém ia ouvir.',
           ] },
-        { id: 'matar', txt: 'Abrir o gelo debaixo deles.', rs: 'Abriu o gelo debaixo deles.', luz: 15, flag: 'matouCacadores',
+        { id: 'matar', voz: [['cacador-matar-1', 1000], ['cacador-matar-2', 4200]], txt: 'Abrir o gelo debaixo deles.', rs: 'Abriu o gelo debaixo deles.', luz: 15, flag: 'matouCacadores',
           resultado: [
             'Pus a mão na neve e pedi ao gelo o que nunca peço.',
             'A crosta se abriu debaixo dos três ao mesmo tempo, sem estrondo, como uma boca. O da besta ainda disparou, para o céu. Depois só a água preta, se fechando.',
@@ -476,7 +477,7 @@ window.LIVRO = {
         'Basicamente eles arrancam uma raiz doce do gelo, mastigam até virar pasta e cospem em uma tina de madeira. Em seguida, guardam a tina perto das fendas quentes por uma semana. A mistura borbulha e vira um líquido aguado.',
         { se: (st) => st.escolhas.atencao === 'cheiro', t: 'O cheiro doce dos túneis vinha dali.' }, // NOVO (eco: o que Aheryn percebeu)
       ],
-      pensa: [{ id: 'destilaria', t: 'A última vez que pensei sem medo, havia uma cidade inteira acesa comigo.', mais: 'As veias do meu pulso acenderam por baixo da manga, e Nuuk olhou para elas.', luz: 3, atraso: 6500 }], // NOVO v20
+      pensa: [{ id: 'destilaria', vozSeguir: 'pens-seguir-2', vozCortar: 'pens-cortar-2', t: 'A última vez que pensei sem medo, havia uma cidade inteira acesa comigo.', mais: 'As veias do meu pulso acenderam por baixo da manga, e Nuuk olhou para elas.', luz: 3, atraso: 6500 }], // NOVO v20
       },
 
     { id: 'p20', zona: 'glaciar', fundo: { img: 'assets/images/destilaria.jpg', kb: 'out', dim: .45, foco: '40% 60%', lado: 'dir', clima: 'cristais' },
@@ -602,7 +603,7 @@ window.LIVRO = {
         { se: (st) => st.f.examinou_bronze, t: 'Compasso de três, em repouso. Estão me procurando desde o Glaciar Oco…' }, // NOVO
       ] },
 
-    { id: 'c-proibido', trai: { atraso: 2600 }, zona: 'tacets', fundo: { img: 'assets/images/tacets-perto.jpg', kb: 'in', dim: .4, foco: '55% 30%', clima: 'neve' }, passos: true,
+    { id: 'c-proibido', falas: [{ n: 'trava-magia', ms: 2200, se: (st) => st.f.afogouMagia }], trai: { atraso: 2600 }, zona: 'tacets', fundo: { img: 'assets/images/tacets-perto.jpg', kb: 'in', dim: .4, foco: '55% 30%', clima: 'neve' }, passos: true,
       texto: [
         'O primeiro me viu.',
         'A cabeça lisa se virou, sem olhos, e os pontos de luz na face se acenderam um tom acima, e o compasso quebrou, quebrou pela primeira vez, de três para quatro, mais rápido, porque a coisa tinha um alvo agora e o alvo era eu. Os outros dois se viraram juntos. E aqui é onde um homem corajoso teria agido, feito o que eu sei fazer, o que me valeu uma canção: tocar o que é proibido e desfazer aqueles três num gesto, como quem apaga três contas de um ábaco.',
@@ -645,7 +646,7 @@ window.LIVRO = {
         'A mão de bronze fechou no meu antebraço, fria como a coisa que era, e pela primeira vez em cinquenta anos senti a luz ser puxada para fora de mim em vez de subir. Então o chão respondeu.', // NOVO
       ], efeito: { luz: -10, flag: 'marcado' } },
 
-    { id: 'v-fenda', zona: 'tacets', fundo: { video: 'assets/video/tacets-ice-v2.mp4', clima: 'neve' }, cena: 'assets/video/tacets-ice-v2.mp4', som: 'assets/audio/gelo-quebrando.mp3',
+    { id: 'v-fenda', falas: [{ n: (st) => (st.luz >= 60 ? 'fenda-2' : 'fenda-1'), ms: 2600 }], zona: 'tacets', fundo: { video: 'assets/video/tacets-ice-v2.mp4', clima: 'neve' }, cena: 'assets/video/tacets-ice-v2.mp4', som: 'assets/audio/gelo-quebrando.mp3',
       texto: [
         'A crosta sob os três Tacets se abriu.',
         'Não com fúria, com lógica. Uma fenda reta, limpa, geométrica, do jeito que a minha gente gostava das coisas, e os três caíram pelo rasgo na água escura por baixo, o compasso virando estrondo, o bronze engolindo o frio negro que nem o bronze atravessa a nado.',
@@ -677,7 +678,7 @@ window.LIVRO = {
         { se: (st) => st.f.examinou_bronze, t: 'Eu tivera um daqueles cacos na mão, e a única coisa que me ocorrera foi perguntar o que fazia bronze num lugar sem forja. Ligar as coisas é sempre a parte tardia…' }, // NOVO
       ] },
 
-    { id: 'despedida', zona: 'cabana-amanhecer', fundo: { img: 'assets/images/cabana-amanhecer.jpg', kb: 'in', dim: .4, foco: '50% 45%', lado: 'dir' },
+    { id: 'despedida', falas: [{ n: 'despedida-calar', ms: 2600 }], zona: 'cabana-amanhecer', fundo: { img: 'assets/images/cabana-amanhecer.jpg', kb: 'in', dim: .4, foco: '50% 45%', lado: 'dir' },
       texto: [
         'Entrei. Como sempre, a luz do amanhecer fazia da cabana uma coisa menor. Pus na mochila o que cabe numa mochila quando se faz isto há um século: pouco. O álcool. Sobrava decidir o resto.', // ALTERADO
       ],
