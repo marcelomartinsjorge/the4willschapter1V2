@@ -119,7 +119,7 @@ window.LIVRO = {
         'Cheguei à beira da cova. Uma nova colônia tinha caído lá, e infelizmente ainda havia alguns vivos. É estranho ainda sentir alguma coisa vendo os animais morrerem, mas são essas pequenas coisas que ainda me fazem sentir vivo. Ou pelo menos com sentimentos.',
         'Três ainda se mexiam no fundo da cova, machucados demais da queda para subir sozinhos. Um deles tinha parado de tentar e me olhava.', // NOVO
       ],
-      pensa: [{ id: 'cova', vozSeguir: 'pens-seguir-2', vozCortar: 'pens-cortar-2', t: 'Ele me olhava como eu olho para o norte.', mais: 'Do jeito de quem já desistiu de esperar e continua olhando por costume.', luz: 3, atraso: 3600 }], // NOVO v20
+      pensa: [{ id: 'cova', t: 'Ele me olhava como eu olho para o norte.', mais: 'Do jeito de quem já desistiu de esperar e continua olhando por costume.', luz: 3, atraso: 3600 }], // NOVO v20
       escolha: { id: 'armadilha', opcoes: [
         { eixo: 'perto', id: 'rapido', txt: 'Descer e acabar com eles, rápido.', luz: 4,
           resultado: ['Desci pela borda de gelo. Três vezes a mesma torção, a mesma pressa. Quando subi, a ponta dos meus dedos ainda estava acesa. Fechei as mãos dentro das mangas até apagar.'] }, // NOVO
@@ -144,7 +144,7 @@ window.LIVRO = {
       ] },
 
     { id: 'p03', zona: 'borda', fundo: { img: 'assets/images/codex-lumae.webp', kb: 'none', dim: .45, retrato: true, foco: '50% 12%' },
-      pensa: [{ id: 'luminosa', vozSeguir: 'pens-seguir-1', vozCortar: 'pens-cortar-1', t: 'Antes, brilhar era bonito.', mais: 'Na Noite Luminosa ninguém escondia nada. A cidade inteira pensava junto, e de longe parecia que o chão tinha pegado fogo.', luz: 4, atraso: 4200 }], // NOVO v20
+      pensa: [{ id: 'luminosa', t: 'Antes, brilhar era bonito.', mais: 'Na Noite Luminosa ninguém escondia nada. A cidade inteira pensava junto, e de longe parecia que o chão tinha pegado fogo.', luz: 4, atraso: 4200 }], // NOVO v20
       texto: [
         'Às vezes sinto falta de uma conversa mais elaborada. Os Aug não são conhecidos por grande intelecto. Mas a vantagem é essa: não ligam se sou um Lúmae ou não, nem se deveriam se juntar ao resto do mundo, mais rico em conhecimento, para me declarar inimigo mortal da existência. Alguns anos passam sem eu proferir uma única palavra.',
         'Aprendi como ninguém a silenciar os pensamentos. Praticamente hiberno como um urso. Esse domínio sobre a própria mente me permitiu me acostumar com o frio, ou simplesmente deixar de senti-lo. Aprendi a “não pensar” por sobrevivência. Como Lúmae, meus pensamentos me fazem brilhar: temos veias douradas sob a pele que acendem brilhosas com pensamentos, ainda mais fortes quando os pensamentos são intensos. É uma atenção que não posso ter o luxo de atrair.',
@@ -227,11 +227,48 @@ window.LIVRO = {
         { se: (st) => st.escolhas.armadilha === 'salvar', t: 'No caminho, um pinguim atravessou a neve, longe demais para eu saber se era o mesmo.' }, // NOVO
       ] },
 
+    // NOVO v25: sozinho com o trenó. Quando o corpo para, a cabeça começa a andar; o brilho chama os caçadores.
+    { id: 'treno', estado: 'alerta', zona: 'borda', fundo: { img: 'assets/images/treno.jpg', kb: 'in', dim: .45, foco: '45% 55%', clima: 'neve' },
+      texto: ['Parei numa dobra da neve, onde o vento não alcançava, para descansar o ombro da corda do trenó. Foi um erro. Quando o corpo para, a cabeça começa a andar.'],
+      mente: {
+        inicio: 3600, limite: 3, fim: 26000,
+        alerta: 'As veias estão acendendo.',
+        botao: 'Respirar fundo e silenciar a mente, como aprendi.',
+        fios: [
+          { id: 'g1', ms: 0, t: 'O olho dela, hoje cedo. Azul, depois violeta.', voz: 'mente-gelunah-1' },
+          { id: 'g2', ms: 3500, t: 'Ela não voa. É o céu que abre caminho para ela passar.', voz: 'mente-gelunah-2' },
+          { id: 'h1', ms: 7500, t: 'Cantaram o meu nome uma vez, numa praça cheia de luz.', voz: 'mente-heroi-1' },
+          { id: 'h2', ms: 11000, t: 'Herói de quê? De cem anos escondido, trocando pinguins por esquecimento?', voz: 'mente-heroi-2' },
+          { id: 'pg', ms: 14500, se: (st) => st.escolhas.armadilha !== 'salvar', t: 'O do fundo da cova parou de tentar. Eu parei antes dele.', voz: 'mente-pinguim' },
+          { id: 'pd', ms: 18500, pedra: true, se: (st) => !st.f.viu_pedra, t: 'A tábua solta, perto do catre… eu guardei alguma coisa ali. Uma vez. O quê?', voz: 'mente-pedra' },
+          { id: 'pv', ms: 18500, pedra: true, se: (st) => st.f.viu_pedra, t: 'A pedra debaixo da tábua. Da cor do olho dela.', voz: 'mente-pedra-vista' },
+        ],
+        murmurios: [
+          { t: 'Não pensar.', voz: 'mente-m1' },
+          { t: 'Cinquenta e seis. Cinquenta e sete.', voz: 'mente-m2' },
+          { t: 'Ela sabe.', voz: 'mente-m3' },
+          { t: 'Brilhar era bonito.', voz: 'mente-m4' },
+          { t: 'Apaga. Apaga.', voz: 'mente-m5' },
+        ],
+        cedo: 'Respirei fundo e calei um pensamento de cada vez, como aprendi. As minhas mãos continuaram escuras.',
+        tarde: 'Respirei fundo e calei tudo, como aprendi. Mas tinha demorado. O dourado ainda descia dos meus pulsos, devagar, como água voltando para dentro da terra, e na neve cinzenta da tarde aquilo se via de longe.',
+        nunca: 'Não calei nada. A luz chegou aos pulsos antes de mim, e por um instante a dobra da neve ficou da cor de uma vela.',
+        dica: 'A tábua solta, perto do catre. Fazia anos que eu não olhava debaixo dela.',
+      },
+      resumoEsc: { id: 'mente', opcoes: [
+        { id: 'cedo', rs: 'Silenciou a mente a tempo. Os caçadores passaram sem vê-lo.' },
+        { id: 'tarde', rs: 'Demorou a silenciar a mente. O brilho chamou os caçadores.' },
+        { id: 'nunca', rs: 'Deixou os pensamentos subirem. O brilho chamou os caçadores.' },
+      ] } }, // NOVO v25
+
+    { id: 'cacadores-passam', se: (st) => st.f.naoVisto, estado: 'alerta', zona: 'borda', fundo: { img: 'assets/images/cacadores-passam.jpg', kb: 'in', dim: .45, foco: '50% 40%', clima: 'neve' },
+      texto: ['O vento trouxe o cheiro antes das vozes: óleo de baleia, couro molhado. Homens, na crista acima de mim. Encolhi-me ao lado do trenó, com as mãos enterradas na neve, escuro como uma pedra. Passaram sem olhar para baixo. Esperei até o último som sumir, e mais um pouco.'] }, // NOVO v25
+
     // NOVO v22: caçadores de Frígia. Os primeiros humanos do capítulo; diante deles, brilhar é ser descoberto.
-    { id: 'cacadores', estado: 'alerta', antes: { som: 'passosHumanos', ms: 2000 }, zona: 'borda', fundo: { img: 'assets/images/cacadores-2.jpg', kb: 'in', dim: .42, foco: '50% 50%', clima: 'neve' },
+    { id: 'cacadores', se: (st) => !st.f.naoVisto, estado: 'alerta', zona: 'borda', fundo: { img: 'assets/images/cacadores-2.jpg', kb: 'in', dim: .42, foco: '50% 50%', clima: 'neve' },
       texto: [
-        'Ouvi os homens antes de vê-los. Três, pelo peso dos passos, e um deles arrastava a perna esquerda.',
-        'Saíram de trás de uma crista de gelo, a uns cinquenta passos do trenó. Peles de foca, capuzes de lobo, o cheiro de óleo de baleia. Caçadores de Frígia. O mais alto trazia uma besta armada, apontada para o chão, por enquanto.',
+        'Quando levantei a cabeça, eles já estavam na crista, olhando para baixo. Para mim. Para as minhas mãos.', // v25
+        'Desceram até uns cinquenta passos do trenó. Peles de foca, capuzes de lobo, o cheiro de óleo de baleia. Caçadores de Frígia. O mais alto trazia uma besta armada, apontada para o chão, por enquanto.', // v25
         '— Pinguim. Muito pinguim pra um velho só.',
       ],
       escolha: { id: 'olharCacadores', pergunta: 'O que Aheryn olha?', opcoes: [
@@ -243,7 +280,7 @@ window.LIVRO = {
           resultado: ['O mais novo não devia ter vinte invernos. Olhava os pinguins e engolia em seco, de um jeito que eu conhecia de outros invernos e de outros rostos. Fome de dias.'] },
       ] } },
 
-    { id: 'c-cacadores', estado: 'alerta', zona: 'borda', fundo: { img: 'assets/images/cacadores-besta-2.jpg', kb: 'out', dim: .45, foco: '50% 45%', clima: 'neve' },
+    { id: 'c-cacadores', se: (st) => !st.f.naoVisto, estado: 'alerta', zona: 'borda', fundo: { img: 'assets/images/cacadores-besta-2.jpg', kb: 'out', dim: .45, foco: '50% 45%', clima: 'neve' },
       texto: [
         { se: (st) => quieto(st), t: 'Mantive as mãos dentro das mangas. Nada nelas para ver.' },
         { se: (st) => medido(st), t: 'Senti os pulsos quentes dentro das mangas e torci para que a luz do dia bastasse para esconder.' },
@@ -293,9 +330,25 @@ window.LIVRO = {
           ] },
       ] } },
 
+    // NOVO v25: o resto do caminho até o Glaciar, conforme o que aconteceu com os caçadores
+    { id: 'chegada-glaciar', zona: 'glaciar', fundo: { img: 'assets/images/entrada-glaciar.jpg', kb: 'in', dim: .5, foco: '60% 55%', clima: 'neve' },
+      texto: [
+        { se: (st) => st.f.naoVisto, t: 'Ninguém tinha me visto o dia inteiro. Era assim que eu gostava que os dias fossem.' },
+        { se: (st) => !st.f.naoVisto && st.escolhas.cacadores === 'dar', t: 'Cheguei ao Glaciar com o trenó mais leve: oitenta e poucos pinguins. Os Aug sabem contar até cem quando o assunto é comida, mas têm preguiça, e Gromm confia em mim.' },
+        { se: (st) => !st.f.naoVisto && st.escolhas.cacadores === 'mentir', t: 'Tinha usado o nome dos Aug para assustar homens. Se eles soubessem o medo que metem nos outros, poderiam dominar o mundo… heh.' },
+        { se: (st) => !st.f.naoVisto && st.escolhas.cacadores === 'lutar', t: 'Puxei o trenó com a mão esquerda o caminho inteiro, com o braço direito morto ao lado do corpo e o sangue endurecido na manga. Com sorte, o álcool ia afogar a dor.' },
+        { se: (st) => !st.f.naoVisto && st.escolhas.cacadores === 'gelo', t: 'Olhei para trás o resto do caminho. Ninguém me seguia, e isso não queria dizer nada. Quem viu um homem acender não precisa segui-lo. Precisa só contar a alguém.' },
+        { se: (st) => !st.f.naoVisto && st.escolhas.cacadores === 'fome', t: 'O trenó estava cinco pinguins mais leve. Não senti diferença no peso.' },
+        'A boca do Glaciar Oco me engoliu como sempre: devagar, azul, e com aquele cheiro.',
+      ] }, // NOVO v25
+
     { id: 'p09', estado: 'companhia', antes: { som: 'passosAug', ms: 1900 }, zona: 'tunel', fundo: { img: 'assets/images/nuuk.jpg', kb: 'in', dim: .38, foco: '62% 8%', clima: 'cristais' },
       texto: [
         'Geralmente faço o combinado com o líder deles, Gromm, o Quebra-Marfim, título dado a ele pelos próprios Aug por derrubar um Mamute Colossal com as próprias mãos. Mas naquela noite, quem me recepcionou foi um gigante menor, chamado Nuuk. Disse que Gromm estava com problemas de intestino.',
+        { se: (st) => st.f.feridoBesta, t: 'Nuuk cheirou o ar duas vezes antes de falar.' }, // NOVO v25
+        { se: (st) => st.f.feridoBesta, t: '— UCÊ SANGUE.' }, // NOVO v25
+        { se: (st) => st.f.feridoBesta, t: '— Não é nada.' }, // NOVO v25
+        { se: (st) => st.f.feridoBesta, t: 'Ele olhou para o meu ombro e não acreditou, mas também não perguntou de novo.' }, // NOVO v25
         '— GROMM BARRIGA RUIM, JÁ CAGAR UM URSO. NUUK FALAR COM UCÊ.',
         { se: (st) => !st.f.deuPinguins, t: '— Certo, Nuuk. Vim falar dos pinguins, tenho uma centena deles. Ainda tenho na minha cabana muita madeira e pele. Nessa temporada preciso apenas de banha e o destilado.' },
         { se: (st) => st.f.deuPinguins, t: '— Certo, Nuuk. Vim falar dos pinguins. São menos do que eu queria, oitenta e poucos. Ainda tenho na minha cabana muita madeira e pele. Nessa temporada preciso apenas de banha e o destilado.' }, // NOVO v22
@@ -508,6 +561,9 @@ window.LIVRO = {
       capitular: true,
       texto: [
         'Voltei à cabana com os frascos cheios e a noite inteira por cima do telhado.', // ALTERADO
+        { se: (st) => st.f.matouCacadores, t: 'Na volta passei pelo lugar. A neve já tinha coberto metade dele. Não parei.' }, // NOVO v25
+        { se: (st) => st.escolhas.cacadores === 'gelo', t: 'Na volta, o muro de gelo ainda estava de pé, torto, com a seta partida no pé dele.' }, // NOVO v25
+        { se: (st) => st.f.naoVisto, t: 'Na volta, as pegadas deles cortavam as minhas na crista. Três pares, e nenhum tinha descido.' }, // NOVO v25
         { se: (st) => st.escolhas.destilaria === 'cala', t: 'Não tinha dito uma palavra a Nuuk desde os túneis. Alguns anos passam assim.' }, // NOVO
         { se: (st) => st.f.matouCacadores, t: 'Tentei não pensar no homem da besta, e a noite inteira foi isso.' }, // NOVO v22
         { se: (st) => st.f.feridoBesta, t: 'Tirei a camisa com cuidado. O furo da seta tinha fechado por fora e continuava aberto por dentro.' }, // NOVO v22
@@ -604,7 +660,7 @@ window.LIVRO = {
         { se: (st) => st.f.examinou_bronze, t: 'Compasso de três, em repouso. Estão me procurando desde o Glaciar Oco…' }, // NOVO
       ] },
 
-    { id: 'c-proibido', falas: [{ n: 'trava-magia', ms: 2200, se: (st) => st.f.afogouMagia }], trai: { atraso: 2600 }, zona: 'tacets', fundo: { img: 'assets/images/tacets-perto.jpg', kb: 'in', dim: .4, foco: '55% 30%', clima: 'neve' }, passos: true,
+    { id: 'c-proibido', trai: { atraso: 2600 }, zona: 'tacets', fundo: { img: 'assets/images/tacets-perto.jpg', kb: 'in', dim: .4, foco: '55% 30%', clima: 'neve' }, passos: true,
       texto: [
         'O primeiro me viu.',
         'A cabeça lisa se virou, sem olhos, e os pontos de luz na face se acenderam um tom acima, e o compasso quebrou, quebrou pela primeira vez, de três para quatro, mais rápido, porque a coisa tinha um alvo agora e o alvo era eu. Os outros dois se viraram juntos. E aqui é onde um homem corajoso teria agido, feito o que eu sei fazer, o que me valeu uma canção: tocar o que é proibido e desfazer aqueles três num gesto, como quem apaga três contas de um ábaco.',
@@ -688,7 +744,7 @@ window.LIVRO = {
         img: 'assets/images/cabana-amanhecer.jpg', proporcao: 1672 / 941, porta: 'Partir',
         pontos: [
           { id: 'diario', rotulo: 'O diário', x: 53, y: 53.5, w: 8, h: 7.5, tipo: 'diario-despedida' },
-          { id: 'tabua', x: 25.5, y: 73, w: 6, h: 7, tipo: 'pedra-despedida', oculto: (st) => !st.f.viu_pedra, opcional: true },
+          { id: 'tabua', x: 25.5, y: 73, w: 6, h: 7, tipo: 'pedra-despedida', oculto: (st) => !st.f.viu_pedra && !st.f.dicaPedra, opcional: true },
         ],
       } },
 
@@ -726,6 +782,8 @@ window.LIVRO = {
         { se: (st) => st.f.feridoBesta, t: 'O ombro direito, onde a seta de Frígia entrou, latejava no frio a cada passo.' }, // NOVO v22
         { se: (st) => st.f.matouCacadores, t: 'O homem da besta continuava na neve, em algum lugar atrás de mim. Ninguém de Frígia ia buscá-lo antes da primavera.' }, // v24
         { se: (st) => st.f.viramLuz, t: 'Em algum lugar ao sul, numa taverna de Frígia, três caçadores contavam de um velho que acendia. A estrada que eu ia tomar passava por lá.' }, // NOVO v22
+        { se: (st) => st.f.naoVisto && !(st.jogo && st.jogo.won && st.luz >= 70), t: 'Ninguém de Frígia sabia que eu existia. Por mais um dia, isso ainda era verdade.' }, // NOVO v25
+        { se: (st) => st.f.naoVisto && st.jogo && st.jogo.won && st.luz >= 70, t: 'No caminho do Glaciar, ninguém de Frígia tinha me visto. Mas a luz da fenda subiu alto demais, e alguém, de algum lugar, deve ter visto aquela.' }, // NOVO v25
         { se: (st) => st.f.deuComida, t: 'Pensei no garoto de Frígia segurando os pinguins contra o peito, e torci para que tivesse comido.' }, // NOVO v22
         { se: (st) => st.escolhas.diario === 'levar', t: 'O diário pesava no fundo da mochila, como se as páginas carregassem o peso das histórias centenárias.' }, // NOVO
         { se: (st) => st.escolhas.diario === 'deixar', t: 'Da estrada dava para ver a chaminé até certa curva. Depois dela, ficaram para trás a cabana, o diário e a Borda do Mundo.' }, // NOVO

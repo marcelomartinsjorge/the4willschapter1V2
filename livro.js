@@ -25,7 +25,7 @@ const UI = {
     gelo: 'O gelo obedece', geloSub: 'Toque as runas que acendem. Não toque as armadilhas.', geloRuna: 'Runa: toque', geloTrap: 'Armadilha: não toque', geloLuz: (l) => `Sua Luz começa acesa no gelo (${l}). Quanto mais alta, mais rápido os Tacets chegam.`,
     suasTodas: 'Suas escolhas', travaQuieta: 'A cabeça está quieta demais para isso.', travaAcesa: 'A luz não deixa calar.',
     persona: { quieto: 'O Aheryn que você fez: quieto. É o Aheryn do cânone, o que sobrevive.', medido: 'O Aheryn que você fez: medido. Pensou só o que podia pagar.', aceso: 'O Aheryn que você fez: aceso. Pensou tudo o que um Lúmae pensa e brilhou por isso. No cânone, ele é quieto.' }, regioes: ['nada', 'dedos', 'pulsos', 'pescoço', 'peito', 'rosto'], apagarA: 'Apagar',
-    rsQ: { armadilha: 'A cova', gelunah: 'Gelunah', passo: 'Atrás de Nuuk', atencao: 'O que Aheryn percebeu', bronze: 'O bronze no chão', pedra: 'A pedra de Gromm', cacadores: 'Os caçadores', culpa: 'O grito de Gromm', sujeira: 'A sujeira', ritual: 'A noite na cabana', hino: 'O hino', proibido: 'O proibido' }, mesmoQue: 'escolheram igual',
+    rsQ: { armadilha: 'A cova', gelunah: 'Gelunah', passo: 'Atrás de Nuuk', atencao: 'O que Aheryn percebeu', bronze: 'O bronze no chão', pedra: 'A pedra de Gromm', mente: 'Sozinho com o trenó', cacadores: 'Os caçadores', culpa: 'O grito de Gromm', sujeira: 'A sujeira', ritual: 'A noite na cabana', hino: 'O hino', proibido: 'O proibido' }, mesmoQue: 'escolheram igual',
     mg: { passo: 'Acompanhar Nuuk', pedra: 'A pedra', goles: 'Um pensamento a menos', 'hino-do-gelo': 'O gelo obedece', cabana: 'Conferir a casa', despedida: 'O que levar' },
     ex: { abrir: 'Abrir', fechar: 'Fechar', voltar: '← Voltar', levar: 'Levar', deixar: 'Deixar', recolocar: 'Recolocar a tábua', falta: 'Escolha o que fazer com o diário antes de partir.', diarioCab: 'Lembranças do Velho Mundo', deslize: 'Deslize para ver a cabana inteira' },
     dica: { cabana: 'Toque em cada coisa da cabana antes de sair.', despedida: 'Escolha o que vai na mochila.', passo: 'Toque nas pegadas de Nuuk quando elas aparecem, alternando os pés. Pisar fora do rastro escorrega.', pedraT: 'Quando a seta aparecer, toque o lado para onde desviar. Só existe uma chance.', pedraK: 'Quando a seta aparecer, aperte ← ou → para desviar. Só existe uma chance.', goles: 'Cada gole apaga um pensamento. Você escolhe quais afogar e quando parar de beber. O que ficar aceso vira Luz.', jogo: (l) => `A Luz que você acumulou (${l}) já começa acesa no gelo, mas faz os Tacets chegarem mais rápido.` },
@@ -44,7 +44,7 @@ const UI = {
     gelo: 'The ice obeys', geloSub: 'Tap the runes that light up. Don’t touch the traps.', geloRuna: 'Rune: tap it', geloTrap: 'Trap: don’t touch', geloLuz: (l) => `Your Light starts lit in the ice (${l}). The higher it is, the faster the Tacets come.`,
     suasTodas: 'Your choices', travaQuieta: 'His head is too quiet for that.', travaAcesa: 'The light won’t let him stay silent.',
     persona: { quieto: 'The Aheryn you made: quiet. This is the canon Aheryn, the one who survives.', medido: 'The Aheryn you made: measured. He thought only what he could pay for.', aceso: 'The Aheryn you made: lit. He thought everything a Lúmae thinks, and shone for it. In canon, he is quiet.' }, regioes: ['nothing', 'fingertips', 'wrists', 'neck', 'chest', 'face'], apagarA: 'Put it out',
-    rsQ: { armadilha: 'The pit', gelunah: 'Gelunah', passo: 'Behind Nuuk', atencao: 'What Aheryn noticed', bronze: 'The bronze on the floor', pedra: 'Gromm’s rock', cacadores: 'The hunters', culpa: 'Gromm’s shout', sujeira: 'The trash', ritual: 'The night in the cabin', hino: 'The hymn', proibido: 'The forbidden' }, mesmoQue: 'chose the same',
+    rsQ: { armadilha: 'The pit', gelunah: 'Gelunah', passo: 'Behind Nuuk', atencao: 'What Aheryn noticed', bronze: 'The bronze on the floor', pedra: 'Gromm’s rock', mente: 'Alone with the sled', cacadores: 'The hunters', culpa: 'Gromm’s shout', sujeira: 'The trash', ritual: 'The night in the cabin', hino: 'The hymn', proibido: 'The forbidden' }, mesmoQue: 'chose the same',
     mg: { passo: 'Keep up with Nuuk', pedra: 'The rock', goles: 'One thought less', 'hino-do-gelo': 'The ice obeys', cabana: 'Check the house', despedida: 'What to take' },
     ex: { abrir: 'Open', fechar: 'Close', voltar: '← Back', levar: 'Take it', deixar: 'Leave it', recolocar: 'Put the board back', falta: 'Decide what to do with the diary before leaving.', diarioCab: 'Memories of the Old World', deslize: 'Swipe to see the whole cabin' },
     dica: { cabana: 'Touch each thing in the cabin before leaving.', despedida: 'Choose what goes in the pack.', passo: 'Tap Nuuk’s footprints as they appear, alternating feet. Stepping off the track makes you slip.', pedraT: 'When the arrow appears, tap the side to dodge toward. There is only one chance.', pedraK: 'When the arrow appears, press ← or → to dodge. There is only one chance.', goles: 'Each swallow drowns one thought. You choose which to drown and when to stop drinking. Whatever stays lit becomes Light.', jogo: (l) => `The Light you gathered (${l}) starts already lit in the ice, but it brings the Tacets faster.` },
@@ -74,6 +74,8 @@ const vozUrl = (n) => 'assets/audio/voz/' + n + '.mp3';
 const narrOf = (p) => (typeof p.narracao === 'function' ? p.narracao(st) : p.narracao);
 const fala = (nome, depois) => { if (A.ctx && nome) A.narrate(vozUrl(nome), depois); };
 // uma fala ou uma fila de falas, uma depois da outra
+// fala na fila: se outra voz do Aheryn está tocando, espera ela acabar (nunca corta, nunca sobrepõe); some se a página mudar
+const falaFila = (nome, pg = st.i, t0 = Date.now()) => { if (!A.ctx || !nome || st.i !== pg) return; if (A.narr && Date.now() - t0 < 15000) { timers.push(setTimeout(() => falaFila(nome, pg, t0), 300)); return; } fala(nome); };
 const falaSeq = (v) => { if (!v) return; if (!Array.isArray(v)) return fala(v); if (!v.length) return; fala(v[0], () => setTimeout(() => falaSeq(v.slice(1)), 350)); };
 const idxVis = (from, dir) => { let i = from + dir; while (i >= 0 && i < P.length && !visivel(P[i])) i += dir; return i; };
 
@@ -359,6 +361,8 @@ function sensacao(p, dir) {
   });
   if (p.trai && dir > 0 && !st.feitos['tr:' + p.id]) timers.push(setTimeout(() => { if (P[st.i] === p) { st.feitos['tr:' + p.id] = 1; salvar(); traicao(p.trai); } }, p.trai.atraso || 2000));
   if (p.titulo && dir >= 0) timers.push(setTimeout(() => { if (P[st.i] === p) mostraTitulo(p.titulo.nivel); }, p.titulo.atraso || 3000));
+  if (p.mente && !st.feitos['mt:' + p.id]) timers.push(setTimeout(() => mente(p), 30));
+  else if (p.mente) timers.push(setTimeout(() => menteFim(p, st.escolhas.mente), 40));
   if (p.conter && !st.feitos['ct2:' + p.id]) timers.push(setTimeout(() => conter(p), 30));
   else if (p.conter) timers.push(setTimeout(() => { const l = linhaConter(); if (l) txt.children[0] && txt.children[0].insertAdjacentHTML('afterend', pHTML(tr(l))); }, 40));
 }
@@ -435,6 +439,73 @@ function conter(p) {
   };
   timers.push(setTimeout(proximo, g.length ? 1800 : 2600));
 }
+// a mente agitada (v25): os pensamentos sobem sozinhos, vozes por cima de vozes, e a luz sobe junto.
+// Só um gesto cala tudo: respirar e silenciar, como ele aprendeu. Quanto mais o leitor espera, mais ouve, e mais brilha.
+function mente(p) {
+  const M = p.mente, fios = M.fios.filter((f) => !f.se || f.se(st)), meus = [], fontes = [], frags = [];
+  let n = 0, fim = false, t0 = 0;
+  const later = (fn, ms) => { const h = setTimeout(fn, ms); meus.push(h); timers.push(h); };
+  const toca = async (nome, vol, rate = 1) => {
+    if (!A.ctx || fim) return; const b = await A.buf(vozUrl(nome)); if (!b || fim || P[st.i] !== p) return;
+    const s = A.ctx.createBufferSource(); s.buffer = b; s.playbackRate.value = rate;
+    const g = A.ctx.createGain(); g.gain.value = vol; const pan = A.ctx.createStereoPanner ? A.ctx.createStereoPanner() : null;
+    if (pan) { pan.pan.value = (Math.random() * 1.4) - .7; s.connect(g); g.connect(pan); pan.connect(A.master); } else { s.connect(g); g.connect(A.master); }
+    s.start(); fontes.push({ s, g }); A.vozes = (A.vozes || []).concat(s);
+  };
+  const frag = (t, cls, seed) => {
+    const el = document.createElement('div'); el.className = 'pensa sozinho mente-frag ' + cls;
+    el.innerHTML = `<span>${esc(tr(t))}</span>`;
+    const r = (k) => { const x = Math.sin(seed * 9301 + k * 49297) * 10000; return x - Math.floor(x); };
+    const retrato = matchMedia('(max-width: 820px), (orientation: portrait)').matches;
+    el.style.left = (retrato ? 38 + r(1) * 24 : (document.body.classList.contains('lado-dir') ? 18 + r(1) * 30 : 55 + r(1) * 30)) + '%';
+    el.style.top = (retrato ? 8 + r(2) * 40 : 12 + r(2) * 58) + '%';
+    if (cls === 'principal') frags.forEach((x) => x.classList.contains('principal') && x.classList.add('antigo'));
+    camada.appendChild(el); frags.push(el); return el;
+  };
+  if (A.ctx) M.fios.concat(M.murmurios).forEach((f) => A.buf(vozUrl(f.voz)));
+  txt.insertAdjacentHTML('beforeend', `<div class="mente"><p class="mente-alerta">${esc(tr(M.alerta))}</p><button class="cta mente-btn">${esc(tr(M.botao))}</button></div>`);
+  const box = txt.querySelector('.mente'); box.style.display = 'none';
+  const comeca = () => {
+    if (P[st.i] !== p) return; t0 = performance.now(); box.style.display = ''; panel.scrollTop = panel.scrollHeight;
+    box.querySelector('.mente-btn').onclick = () => acaba('calou');
+    fios.forEach((f, k) => later(() => {
+      n++; mudaLuz(3); A.ctx && A.sobe(); frag(f.t, 'principal', k * 5 + 3);
+      if (f.pedra) st.f.pensouPedra = true;
+      toca(f.voz, .95); document.body.style.setProperty('--agita', Math.min(1, n / fios.length).toFixed(2));
+      if (n === M.limite) traicao({});
+    }, f.ms));
+    let m = 0; const murmura = () => {
+      if (fim || P[st.i] !== p) return; const el = (performance.now() - t0) / 1000;
+      const mu = M.murmurios[m++ % M.murmurios.length];
+      const fr = frag(mu.t, 'murmurio', m * 7 + 11); setTimeout(() => fr.classList.add('some'), 2600); setTimeout(() => fr.remove(), 3800);
+      toca(mu.voz, Math.min(.75, .25 + el * .025), .94 + Math.random() * .12);
+      later(murmura, Math.max(700, 2600 - el * 90));
+    };
+    later(murmura, 2000);
+    later(() => acaba('nunca'), M.fim);
+  };
+  const acaba = (modo) => {
+    if (fim) return; fim = true; meus.forEach(clearTimeout);
+    const agora = A.ctx ? A.ctx.currentTime : 0;
+    fontes.forEach(({ s, g }) => { try { g.gain.setTargetAtTime(0, agora, .25); s.stop(agora + 1.2); } catch (e) {} });
+    document.body.style.removeProperty('--agita');
+    if (modo === 'nunca') traicao({ luz: 4 }); else { A.ctx && A.apaga(); }
+    frags.forEach((el) => { el.classList.add(modo === 'nunca' ? 'seguido' : 'contido'); setTimeout(() => el.remove(), 1500); });
+    const visto = modo === 'nunca' || n >= M.limite;
+    st.f.naoVisto = !visto;
+    if (st.f.pensouPedra && !st.f.viu_pedra) st.f.dicaPedra = true;
+    const res = modo === 'nunca' ? 'nunca' : visto ? 'tarde' : 'cedo';
+    st.escolhas.mente = res; st.feitos['mt:' + p.id] = 1; registrar('mente', res); salvar();
+    box.remove(); menteFim(p, res); setNext(true);
+  };
+  later(comeca, M.inicio);
+}
+function menteFim(p, res) {
+  const M = p.mente; if (!res || txt.querySelector('.mente-res')) return;
+  const l = [M[res]]; if (st.f.dicaPedra && !st.f.viu_pedra) l.push(M.dica);
+  l.forEach((t, k) => { txt.insertAdjacentHTML('beforeend', pHTML(tr(t), 'novo mente-res')); txt.lastElementChild.style.animationDelay = (k * .5) + 's'; });
+  panel.scrollTop = panel.scrollHeight;
+}
 // o fim: o leitor apaga a luz do Aheryn, uma linha de cada vez
 function renderApagar(p) {
   const ps = [...txt.children]; const cl = document.body.classList;
@@ -485,7 +556,7 @@ function render(dir = 1) {
   document.body.dataset.zona = p.zona;
   sensacao(p, dir);
   // falas do Aheryn ligadas à página (uma vez por jogo, a não ser que a página peça de novo)
-  if (p.falas && dir >= 0 && A.ctx) p.falas.forEach((f, k) => { const key = 'fala:' + p.id + ':' + k; if (st.feitos[key] || (f.se && !f.se(st))) return; timers.push(setTimeout(() => { if (P[st.i] !== p) return; st.feitos[key] = 1; fala(typeof f.n === 'function' ? f.n(st) : f.n); }, f.ms || 1500)); });
+  if (p.falas && dir >= 0 && A.ctx) p.falas.forEach((f, k) => { const key = 'fala:' + p.id + ':' + k; if (st.feitos[key] || (f.se && !f.se(st))) return; timers.push(setTimeout(() => { if (P[st.i] !== p) return; st.feitos[key] = 1; falaFila(typeof f.n === 'function' ? f.n(st) : f.n); }, f.ms || 1500)); });
   { let k = st.i; while (k > 0 && !P[k].parte) k--; $('#parte').textContent = U('parte') + ' ' + (P[k].parte || 'I'); }
   const vis = P.filter(visivel), n = vis.indexOf(p) + 1; $('#pnum').textContent = `${n}`;
   $('#prog').style.setProperty('--p', (n / vis.length).toFixed(3));
@@ -554,6 +625,7 @@ function render(dir = 1) {
   if (p.antes && !st.feitos['an:' + p.id]) { const segura = livre; if (segura) { livre = false; timers.push(setTimeout(() => { if (P[st.i] === p) setNext(true); }, p.antes.ms)); } }
   if (p.apagar) livre = renderApagar(p);
   if (p.conter && !st.feitos['ct2:' + p.id]) livre = false;
+  if (p.mente && !st.feitos['mt:' + p.id]) livre = false;
   setNext(livre);
   btnPrev.disabled = idxVis(st.i, -1) < 0; btnPrev.textContent = U('voltar');
   btnNext.textContent = p.fim ? U('fim') : U('prox');
@@ -616,8 +688,8 @@ function escolher(p, id) {
   box.querySelectorAll('.opt').forEach((b) => { b.disabled = true; b.classList.toggle('sel', b.dataset.id === id); });
   if (o.som) A.sfx(o.som, .7);
   const segue = () => { aplicar(o); A.escolha(); registrar(e.id, id); salvar(); setTimeout(() => { appendParas(o.resultado); setNext(true); }, 450);
-    if (Array.isArray(o.voz)) o.voz.forEach(([n, ms]) => timers.push(setTimeout(() => fala(n), ms)));
-    else if (o.voz) timers.push(setTimeout(() => fala(typeof o.voz === 'function' ? o.voz(st) : o.voz), o.vozAtraso || 1500)); };
+    if (Array.isArray(o.voz)) o.voz.forEach(([n, ms]) => timers.push(setTimeout(() => falaFila(n), ms)));
+    else if (o.voz) timers.push(setTimeout(() => falaFila(typeof o.voz === 'function' ? o.voz(st) : o.voz), o.vozAtraso || 1500)); };
   if (e.cinema && CINEMA[e.cinema]) CINEMA[e.cinema](id).then(segue); else segue();
 }
 
@@ -1086,7 +1158,7 @@ async function resumo() {
   const joia = st.escolhas.joia, razao = L.pedra.razoes.find((x) => x.id === joia);
   // todas as escolhas do capítulo, na ordem da história, cada uma com a porcentagem de quem escolheu igual
   const linhas = [];
-  P.forEach((pg) => { const e = pg.escolha || pg.pensamento; if (!e || !st.escolhas[e.id]) return;
+  P.forEach((pg) => { const e = pg.escolha || pg.pensamento || pg.resumoEsc; if (!e || !st.escolhas[e.id]) return;
     const o = e.opcoes.find((x) => x.id === st.escolhas[e.id]); if (!o) return;
     linhas.push({ id: e.id, op: o.id, q: (U('rsQ') || {})[e.id] || U('oque'), a: tr(o.rs || o.txt) }); });
   linhas.push({ id: 'joia', op: joia, q: U('pedraQ'), a: joia === 'deixar' ? U('deixouPedra') : razao ? U('levouPedra') + ': ' + tr(razao.nome) : U('nuncaPedra') });
