@@ -606,7 +606,7 @@ function abreEscolha(p) {
 function aplicar(o) {
   if (o.eixo) { st.perfil = st.perfil || {}; st.perfil[o.eixo] = (st.perfil[o.eixo] || 0) + 1; }
   if (o.luz) mudaLuz(o.luz);
-  if (o.aug) st.aug += o.aug; if (o.gelunah) st.gelunah += o.gelunah; if (o.flag) st.f[o.flag] = true;
+  if (o.aug) st.aug += o.aug; if (o.gelunah) st.gelunah += o.gelunah; if (o.flag) st.f[o.flag] = true; if (o.flags) o.flags.forEach((f) => { st.f[f] = true; });
   if (o.aviso) timers.push(setTimeout(() => toast(tr(o.aviso)), 500));
 }
 function escolher(p, id) {
@@ -923,7 +923,7 @@ const MG = {
         { id: 'seculo', t: 'O século passado.', voz: 'gole-seculo' }, { id: 'lumae', t: 'Quando os Lúmae existiam.', voz: 'gole-lumae' }, { id: 'heroi', t: 'Quando eu era o herói do meu povo.', forte: 2, voz: 'gole-heroi', vozResiste: 'heroi-jovem' },
         { id: 'magia', t: 'Todas as magias que sei lançar.', voz: 'gole-magia' }, { id: 'gelunah', t: st.gelunah >= 1 ? 'O olhar dela, hoje, sobre a montanha.' : 'Um dragão triste, a oeste.', voz: st.gelunah >= 1 ? 'gole-gelunah-vivo' : 'gole-gelunah-fraco' },
         { id: 'gromm', t: st.f.ferido ? 'O ombro que ainda dói.' : st.f.pulou_gromm ? 'O gigante que eu não fui ver.' : 'O sangue de Gromm no chão.', voz: st.f.ferido ? 'gole-gromm-ombro' : st.f.pulou_gromm ? 'gole-gromm-pulou' : 'gole-gromm-sangue' },
-      ].concat(st.f.matouCacadores ? [{ id: 'cacadores', t: 'Os três de Frígia debaixo do gelo.', forte: 2, voz: 'gole-cacadores' }] : []);
+      ].concat(st.f.matouCacadores ? [{ id: 'cacadores', t: 'O homem da besta, caindo de costas.', forte: 2, voz: 'gole-besta' }] : []);
       o.innerHTML = `<p class="mgt">${U('golesT')}</p><div class="campo"></div><p class="mgsub">${U('golesSub')}</p><button class="parar" disabled>${U('parar')}</button>`;
       const campo = o.querySelector('.campo'), parar = o.querySelector('.parar'); let goles = 0, fim = false;
       const limite = st.f.deuPinguins ? 4 : 99; // menos pinguins, menos destilado
@@ -933,7 +933,7 @@ const MG = {
         p.x = .5 + Math.cos(a) * .34; p.y = .5 + Math.sin(a) * .32; p.vx = (Math.random() - .5) * .02; p.vy = (Math.random() - .5) * .02;
         b.onclick = () => {
           if (fim || p.morto) return;
-          if (goles >= limite) { o.querySelector('.mgsub').textContent = tr('O frasco acabou.'); fala('gole-acabou'); setTimeout(encerra, 1400); return; }
+          if (goles >= limite) { o.querySelector('.mgsub').textContent = tr('Quatro goles. Era o combinado comigo mesmo.'); fala('gole-acabou'); setTimeout(encerra, 1400); return; }
           goles++; A.gole(); o.classList.remove('bebe'); void o.offsetWidth; o.classList.add('bebe');
           atualizaTexto(goles); parar.disabled = false;
           if (--p.hp > 0) { if (p.vozResiste) fala(p.vozResiste); b.classList.add('resiste'); setTimeout(() => b.classList.remove('resiste'), 500); return; }
@@ -1076,7 +1076,7 @@ async function resumo() {
   A.stepsOff(); A.musicOut();
   $('#resumo').classList.add('show');
   const luz = Math.round(st.luz), loc = LANG === 'pt' ? 'pt-BR' : 'en-US';
-  if (luz <= 30) setTimeout(() => fala('resumo-quieto'), 1200); else if (luz >= 60) setTimeout(() => fala('resumo-aceso'), 1200);
+  if (luz <= 30) setTimeout(() => fala('resumo-quieto'), 1200); else if (luz >= 60) setTimeout(() => fala('resumo-aceso'), 1200); else setTimeout(() => fala('resumo-medido'), 1200);
   $('#rsLuz').textContent = luz; $('#rsFrase').textContent = luz >= 70 ? U('fraseAlta') : luz <= 30 ? U('fraseBaixa') : U('fraseMeio');
   const rel = [st.aug >= 1 ? U('augMais') : st.aug <= -1 ? U('augMenos') : st.f.pulou_gromm ? U('augPulou') : U('augZero'), st.gelunah >= 1 ? U('gelMais') : U('gelZero')];
   rel.unshift(U('persona')[luz <= 30 ? 'quieto' : luz < 60 ? 'medido' : 'aceso']);
