@@ -24,7 +24,7 @@ const UI = {
     tutLuz: 'Esta é a Luz de Aheryn.', tutLuz2: 'Quando ele sente, as veias acendem. Quando se cala, apagam.', tutOk: 'Entendi',
     gelo: 'O gelo obedece', geloSub: 'Toque as runas que acendem. Não toque as armadilhas.', geloRuna: 'Runa: toque', geloTrap: 'Armadilha: não toque', geloLuz: (l) => `Sua Luz começa acesa no gelo (${l}). Quanto mais alta, mais rápido os Tacets chegam.`,
     suasTodas: 'Suas escolhas', travaQuieta: 'A cabeça está quieta demais para isso.', travaAcesa: 'A luz não deixa calar.',
-    persona: { quieto: 'O Aheryn que você fez: quieto. É o Aheryn do cânone, o que sobrevive.', medido: 'O Aheryn que você fez: medido. Pensou só o que podia pagar.', aceso: 'O Aheryn que você fez: aceso. Pensou tudo o que um Lúmae pensa e brilhou por isso. No cânone, ele é quieto.' }, regioes: ['nada', 'dedos', 'pulsos', 'pescoço', 'peito', 'rosto'], apagarA: 'Apagar',
+    persona: { quieto: 'O Aheryn que você fez: quieto.', medido: 'O Aheryn que você fez: medido. Pensou só o que podia pagar.', aceso: 'O Aheryn que você fez: aceso. Pensou tudo o que um Lúmae pensa e brilhou por isso.' }, regioes: ['nada', 'dedos', 'pulsos', 'pescoço', 'peito', 'rosto'], apagarA: 'Apagar',
     rsQ: { armadilha: 'A cova', gelunah: 'Gelunah', passo: 'Atrás de Nuuk', atencao: 'O que Aheryn percebeu', bronze: 'O bronze no chão', pedra: 'A pedra de Gromm', mente: 'Sozinho com o trenó', cacadores: 'Os caçadores', culpa: 'O grito de Gromm', sujeira: 'A sujeira', ritual: 'A noite na cabana', hino: 'O hino', proibido: 'O proibido' }, mesmoQue: 'escolheram igual',
     mg: { passo: 'Acompanhar Nuuk', pedra: 'A pedra', goles: 'Um pensamento a menos', 'hino-do-gelo': 'O gelo obedece', cabana: 'Conferir a casa', despedida: 'O que levar' },
     ex: { abrir: 'Abrir', fechar: 'Fechar', voltar: '← Voltar', levar: 'Levar', deixar: 'Deixar', recolocar: 'Recolocar a tábua', falta: 'Escolha o que fazer com o diário antes de partir.', diarioCab: 'Lembranças do Velho Mundo', deslize: 'Deslize para ver a cabana inteira' },
@@ -43,7 +43,7 @@ const UI = {
     tutLuz: 'This is Aheryn’s Light.', tutLuz2: 'When he feels, his veins light up. When he goes quiet, they go dark.', tutOk: 'Got it',
     gelo: 'The ice obeys', geloSub: 'Tap the runes that light up. Don’t touch the traps.', geloRuna: 'Rune: tap it', geloTrap: 'Trap: don’t touch', geloLuz: (l) => `Your Light starts lit in the ice (${l}). The higher it is, the faster the Tacets come.`,
     suasTodas: 'Your choices', travaQuieta: 'His head is too quiet for that.', travaAcesa: 'The light won’t let him stay silent.',
-    persona: { quieto: 'The Aheryn you made: quiet. This is the canon Aheryn, the one who survives.', medido: 'The Aheryn you made: measured. He thought only what he could pay for.', aceso: 'The Aheryn you made: lit. He thought everything a Lúmae thinks, and shone for it. In canon, he is quiet.' }, regioes: ['nothing', 'fingertips', 'wrists', 'neck', 'chest', 'face'], apagarA: 'Put it out',
+    persona: { quieto: 'The Aheryn you made: quiet.', medido: 'The Aheryn you made: measured. He thought only what he could pay for.', aceso: 'The Aheryn you made: lit. He thought everything a Lúmae thinks, and shone for it.' }, regioes: ['nothing', 'fingertips', 'wrists', 'neck', 'chest', 'face'], apagarA: 'Put it out',
     rsQ: { armadilha: 'The pit', gelunah: 'Gelunah', passo: 'Behind Nuuk', atencao: 'What Aheryn noticed', bronze: 'The bronze on the floor', pedra: 'Gromm’s rock', mente: 'Alone with the sled', cacadores: 'The hunters', culpa: 'Gromm’s shout', sujeira: 'The trash', ritual: 'The night in the cabin', hino: 'The hymn', proibido: 'The forbidden' }, mesmoQue: 'chose the same',
     mg: { passo: 'Keep up with Nuuk', pedra: 'The rock', goles: 'One thought less', 'hino-do-gelo': 'The ice obeys', cabana: 'Check the house', despedida: 'What to take' },
     ex: { abrir: 'Open', fechar: 'Close', voltar: '← Back', levar: 'Take it', deixar: 'Leave it', recolocar: 'Put the board back', falta: 'Decide what to do with the diary before leaving.', diarioCab: 'Memories of the Old World', deslize: 'Swipe to see the whole cabin' },
@@ -1157,8 +1157,8 @@ async function resumo() {
   // só o que mais pesa: a pedra (e o nome que ganhou) e o diário
   const joia = st.escolhas.joia, razao = L.pedra.razoes.find((x) => x.id === joia);
   // todas as escolhas do capítulo, na ordem da história, cada uma com a porcentagem de quem escolheu igual
-  const linhas = [];
-  P.forEach((pg) => { const e = pg.escolha || pg.pensamento || pg.resumoEsc; if (!e || !st.escolhas[e.id]) return;
+  const linhas = [], COMPARA = ['armadilha', 'mente', 'cacadores', 'proibido'];
+  P.forEach((pg) => { const e = pg.escolha || pg.pensamento || pg.resumoEsc; if (!e || !COMPARA.includes(e.id) || !st.escolhas[e.id]) return;
     const o = e.opcoes.find((x) => x.id === st.escolhas[e.id]); if (!o) return;
     linhas.push({ id: e.id, op: o.id, q: (U('rsQ') || {})[e.id] || U('oque'), a: tr(o.rs || o.txt) }); });
   linhas.push({ id: 'joia', op: joia, q: U('pedraQ'), a: joia === 'deixar' ? U('deixouPedra') : razao ? U('levouPedra') + ': ' + tr(razao.nome) : U('nuncaPedra') });
@@ -1213,5 +1213,5 @@ $('#cvGo').onclick = () => comecar(false);
 $('#cvCont').onclick = () => comecar(true);
 $('#som').onclick = () => { A.init(); A.setOn(!A.on); $('#som').classList.toggle('off', !A.on); };
 drawLuz();
-window.__LIVRO = { get st() { return st; }, render, irProxima, MG, A };
+window.__LIVRO = { get st() { return st; }, render, irProxima, resumo, MG, A };
 })();

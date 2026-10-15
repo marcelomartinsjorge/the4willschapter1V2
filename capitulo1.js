@@ -211,7 +211,7 @@ window.LIVRO = {
         'Foi só um instante, fiquei a vê-la sumir rumo ao norte branco. Quando me recompus, atrelei o trenó e comecei a andar.', // ALTERADO
         { se: (st) => quieto(st), t: 'O trenó pesava o mesmo de sempre.' }, // NOVO v21 (quieto)
         { se: (st) => medido(st), t: 'Andei com o frio dela ainda no peito, e não fiz nada para tirá-lo de lá.' }, // NOVO v21 (medido)
-        { se: (st) => aceso(st), t: 'Os Lúmae diziam que os dragões não envelhecem, só se tornam mais exatos. Vendo Gelunah sumir no branco, pensei que ela já era tão exata que o próprio norte a confundia com uma parte dele.' }, // NOVO v21 (aceso)
+        { se: (st) => aceso(st), t: 'Os Lúmae diziam que os dragões não envelhecem. Vendo Gelunah sumir no branco, quase acreditei: de longe, já não dava para saber onde ela acabava e o norte começava.' }, // NOVO v21 (aceso)
       ],
       pensa: [{ id: 'norte', luzMin: 31, t: 'Ela nunca olhou para trás. Eu também não.', luz: 2, atraso: 4200 }], // NOVO v21
       fimDeParte: true },
@@ -277,7 +277,7 @@ window.LIVRO = {
         { id: 'mao', txt: 'A mão do que se aproxima do trenó.', flag: 'olhouMao', rs: 'Olhou a mão perto do trenó.',
           resultado: ['O de perna ruim já estava a três passos do trenó, a mão aberta, olhando os pinguins como quem conta. Não olhava para mim. Para ele, eu era o que ficava entre ele e a comida.'] },
         { id: 'novo', txt: 'Os olhos do mais novo.', flag: 'olhouNovo', rs: 'Olhou os olhos do mais novo.',
-          resultado: ['O mais novo não devia ter vinte invernos. Olhava os pinguins e engolia em seco, de um jeito que eu conhecia de outros invernos e de outros rostos. Fome de dias.'] },
+          resultado: ['O mais novo não devia ter vinte invernos. Olhava os pinguins e engolia em seco, de um jeito que eu já tinha visto em outros rostos. Fome de dias.'] },
       ] } },
 
     { id: 'c-cacadores', se: (st) => !st.f.naoVisto, estado: 'alerta', zona: 'borda', fundo: { img: 'assets/images/cacadores-besta-2.jpg', kb: 'out', dim: .45, foco: '50% 45%', clima: 'neve' },
@@ -305,7 +305,7 @@ window.LIVRO = {
           resultado: [
             'A espada curta saiu da bainha antes que eu terminasse de decidir. Fazia décadas que eu não a usava para nada além de cortar corda.',
             '— Último aviso. Ou o trenó, ou a estrada.',
-            { se: (st) => st.f.olhouBesta, t: 'Eu sabia que ele ia atirar. Saber não bastou.' },
+            { se: (st) => st.f.olhouBesta, t: 'Eu sabia que ele ia atirar, e mesmo assim não fui rápido o bastante.' },
             'A seta entrou no meu ombro direito e me girou meio corpo. Cheguei nele assim mesmo, torto, antes que armasse a segunda, e a lâmina entrou abaixo das costelas, até o cabo.',
             'Ele caiu de costas na neve, me olhando como quem não entendia a conta. Os outros dois puxaram o mais novo para trás da crista. Não voltaram para buscá-lo.',
             'Fiquei de joelhos ao lado dele até ele parar. Mais de cinquenta anos escondido na Borda do Mundo, e o que eu fiz para continuar vivo foi isso.',
@@ -319,7 +319,7 @@ window.LIVRO = {
             { se: (st) => !st.f.olhouBesta, t: 'O da besta disparou por reflexo. A seta se partiu contra o gelo, a um palmo do meu ombro.' },
             '— Vão. Antes que eu esqueça que estou sendo gentil.',
             'Largaram a besta onde caiu e correram sem olhar para trás. Mas olharam para a minha mão antes de correr, e os três a viram acesa.',
-            'Em Frígia, alguém ia contar aquilo numa taverna. Alguém ia ouvir.',
+            'Talvez contassem aquilo numa taverna de Frígia. Talvez alguém ouvisse.',
           ] }, // v24: muro de gelo, não fenda
         { eixo: 'perto', id: 'fome', txt: 'Dar comida ao mais novo.', rs: 'Deu comida ao mais novo.', flag: 'deuComida', luz: 3, travaSe: (st) => !st.f.olhouNovo, travaTxt: 'Não reparei em nada que me dissesse isso.', voz: 'cacador-fome', vozAtraso: 600,
           resultado: [
@@ -337,7 +337,7 @@ window.LIVRO = {
         { se: (st) => !st.f.naoVisto && st.escolhas.cacadores === 'dar', t: 'Cheguei ao Glaciar com o trenó mais leve: oitenta e poucos pinguins. Os Aug sabem contar até cem quando o assunto é comida, mas têm preguiça, e Gromm confia em mim.' },
         { se: (st) => !st.f.naoVisto && st.escolhas.cacadores === 'mentir', t: 'Tinha usado o nome dos Aug para assustar homens. Se eles soubessem o medo que metem nos outros, poderiam dominar o mundo… heh.' },
         { se: (st) => !st.f.naoVisto && st.escolhas.cacadores === 'lutar', t: 'Puxei o trenó com a mão esquerda o caminho inteiro, com o braço direito morto ao lado do corpo e o sangue endurecido na manga. Com sorte, o álcool ia afogar a dor.' },
-        { se: (st) => !st.f.naoVisto && st.escolhas.cacadores === 'gelo', t: 'Olhei para trás o resto do caminho. Ninguém me seguia, e isso não queria dizer nada. Quem viu um homem acender não precisa segui-lo. Precisa só contar a alguém.' },
+        { se: (st) => !st.f.naoVisto && st.escolhas.cacadores === 'gelo', t: 'Olhei para trás o resto do caminho. Ninguém me seguia, o que não me deixou mais tranquilo. Talvez nem precisassem me seguir. Bastava contarem a alguém.' },
         { se: (st) => !st.f.naoVisto && st.escolhas.cacadores === 'fome', t: 'O trenó estava cinco pinguins mais leve. Não senti diferença no peso.' },
         'A boca do Glaciar Oco me engoliu como sempre: devagar, azul, e com aquele cheiro.',
       ] }, // NOVO v25
@@ -420,7 +420,7 @@ window.LIVRO = {
         'O “aposento” de Gromm é um grande amontoado de ossos sobre uma pilha de rochas e ossos menores, formando um platô natural de cerca de dez metros de altura, um tanto afastado do centro do Glaciar Oco.',
         { se: (st) => quieto(st), t: 'Subi atrás de Nuuk.' }, // NOVO v21 (quieto)
         { se: (st) => medido(st), t: 'Os ossos de baixo eram mais velhos que os de cima. Os Aug constroem como dormem, devagar, uma estação por vez.' }, // NOVO v21 (medido)
-        { se: (st) => aceso(st), t: 'Ossos de baleia na base, de mamute no meio, de urso no alto. Quem soubesse ler aquilo leria a história inteira do Glaciar Oco, uma refeição de cada vez. Os Lúmae teriam escrito um tratado sobre aquilo, e eu subi por cima dele.' }, // NOVO v21 (aceso)
+        { se: (st) => aceso(st), t: 'Ossos de baleia na base, de mamute no meio, de urso no alto. Quem soubesse ler aquilo leria a história inteira do Glaciar Oco em restos de refeição. Os Lúmae teriam passado anos estudando aquilo. Eu só subi por cima.' }, // NOVO v21 (aceso)
       ] },
 
     { id: 'c-bronze', se: (st) => !st.f.pulou_gromm, zona: 'glaciar', fundo: { img: 'assets/images/aposento.jpg', kb: 'out', dim: .38, foco: '40% 80%', lado: 'dir', clima: 'cristais' },
@@ -498,7 +498,7 @@ window.LIVRO = {
         { se: (st) => perfil(st) <= -2, t: 'Nuuk caminhava à minha frente, e eu atrás, contando os passos dele.' }, // NOVO
         { se: (st) => quieto(st), t: 'Na volta não pensei em nada. Era o mais seguro.' }, // NOVO v21 (quieto)
         { se: (st) => medido(st) && !st.f.pulou_gromm, t: 'Na volta, o sangue de Gromm ficou comigo mais tempo do que eu queria.' }, // NOVO v21 (medido)
-        { se: (st) => aceso(st) && !st.f.pulou_gromm, t: 'Um gigante que derruba mamutes não sangra por causa de uma barriga. Alguma coisa tinha entrado no Glaciar Oco e saído em pedaços, e eu não conseguia parar de juntar as peças.' }, // NOVO v21 (aceso)
+        { se: (st) => aceso(st) && !st.f.pulou_gromm, t: 'Um gigante que derruba mamutes não sangra por causa de uma barriga. Alguma coisa tinha entrado no Glaciar Oco e saído em pedaços, e eu não parava de pensar no que podia ser.' }, // NOVO v21 (aceso)
         { se: (st) => perfil(st) > -2 && perfil(st) < 2 && st.f.pulou_gromm, t: 'Pensei em perguntar de novo sobre Gromm, mas Nuuk andava rápido demais para perguntas.' }, // NOVO
       ], fimDeParte: true },
 
@@ -538,8 +538,9 @@ window.LIVRO = {
         'Abri a minha mochila e retirei meus frascos, o suficiente para um ano inteiro de bebida, e os enchi. Aquela noite fiquei satisfeito porque não senti ânsia.',
         { se: (st) => st.f.deuPinguins, t: 'Nuuk encheu menos frascos do que nos outros invernos. Os pinguins que ficaram com os caçadores faltaram para o resto. Cada frasco ia ter de durar mais do que um mês.' }, // NOVO v22
         { se: (st) => quieto(st), t: 'Enchi os frascos. O cheiro subiu e eu não deixei que levasse nada junto.' }, // NOVO v21 (quieto)
-        { se: (st) => medido(st), t: 'Enchi os frascos devagar. Doze, um por lua, como sempre.' }, // NOVO v21 (medido)
-        { se: (st) => aceso(st), t: 'Enchi os frascos pensando que os Lúmae teriam feito disso uma ciência: a raiz certa, o tempo certo, um tratado inteiro sobre a melhor maneira de esquecer. Sempre fomos bons em transformar fraqueza em método.' }, // NOVO v21 (aceso)
+        { se: (st) => medido(st) && !st.f.deuPinguins, t: 'Enchi os frascos devagar. Doze, um por lua, como sempre.' },
+        { se: (st) => medido(st) && st.f.deuPinguins, t: 'Enchi os frascos devagar, contando cada um.' }, // NOVO v21 (medido)
+        { se: (st) => aceso(st), t: 'Enchi os frascos pensando que os Lúmae teriam feito disso uma ciência: a raiz certa, o tempo certo, um tratado inteiro sobre a melhor maneira de esquecer.' }, // NOVO v21 (aceso)
       ],
       quieto: { id: 'destilaria', espera: 2, eixo: 'perto', fala: 'Nuuk. Gromm vai ficar bem?', resposta: 'GROMM AINDA TAR MAL.',
         depois: ['Enchi o último frasco. Ele esperou eu terminar.'] }, // NOVO
@@ -687,7 +688,7 @@ window.LIVRO = {
         { se: (st) => st.f.hesitou, t: 'Fiquei com as mãos abertas mais tempo do que precisava, sentindo o resto do calor que quase tinha virado luz.' }, // NOVO
         { se: (st) => quieto(st), t: 'Fechei as mãos.' }, // NOVO v21 (quieto)
         { se: (st) => medido(st), t: 'Fechei as mãos, e o calor ficou preso dentro delas.' }, // NOVO v21 (medido)
-        { se: (st) => aceso(st), t: 'A magia grande não pede. Oferece, como quem sabe que vai ser aceita mais cedo ou mais tarde. Cem anos recusando, e ela ainda falava comigo como se fosse a primeira vez.' }, // NOVO v21 (aceso)
+        { se: (st) => aceso(st), t: 'A magia grande nunca pediu nada. Só se oferecia, com a paciência de quem sabe que um dia vai ser aceita. Cem anos recusando, e ela ainda falava comigo como se fosse a primeira vez.' }, // NOVO v21 (aceso)
       ] },
 
     { id: 'jogo', zona: 'tacets', fundo: { clip: 'assets/clip/maos-gelo-v2.mp4', img: 'assets/images/maos-gelo.jpg', dim: .35, foco: '62% 55%', clima: 'neve' },
@@ -781,11 +782,11 @@ window.LIVRO = {
         { se: (st) => st.escolhas.joia === 'cor', t: 'Passei a mão no bolso duas vezes antes do meio-dia, para ver se a pedra azul ainda estava lá. Estava. A cor ainda me lembrava de alguma coisa que eu não alcançava.' }, // NOVO v22
         { se: (st) => st.f.feridoBesta, t: 'O ombro direito, onde a seta de Frígia entrou, latejava no frio a cada passo.' }, // NOVO v22
         { se: (st) => st.f.matouCacadores, t: 'O homem da besta continuava na neve, em algum lugar atrás de mim. Ninguém de Frígia ia buscá-lo antes da primavera.' }, // v24
-        { se: (st) => st.f.viramLuz, t: 'Em algum lugar ao sul, numa taverna de Frígia, três caçadores contavam de um velho que acendia. A estrada que eu ia tomar passava por lá.' }, // NOVO v22
+        { se: (st) => st.f.viramLuz, t: 'Em algum lugar ao sul, numa taverna de Frígia, talvez três caçadores já estivessem contando de um velho que acendia. A estrada que eu ia tomar passava por lá.' }, // NOVO v22
         { se: (st) => st.f.naoVisto && !(st.jogo && st.jogo.won && st.luz >= 70), t: 'Ninguém de Frígia sabia que eu existia. Por mais um dia, isso ainda era verdade.' }, // NOVO v25
         { se: (st) => st.f.naoVisto && st.jogo && st.jogo.won && st.luz >= 70, t: 'No caminho do Glaciar, ninguém de Frígia tinha me visto. Mas a luz da fenda subiu alto demais, e alguém, de algum lugar, deve ter visto aquela.' }, // NOVO v25
         { se: (st) => st.f.deuComida, t: 'Pensei no garoto de Frígia segurando os pinguins contra o peito, e torci para que tivesse comido.' }, // NOVO v22
-        { se: (st) => st.escolhas.diario === 'levar', t: 'O diário pesava no fundo da mochila, como se as páginas carregassem o peso das histórias centenárias.' }, // NOVO
+        { se: (st) => st.escolhas.diario === 'levar', t: 'O diário pesava no fundo da mochila mais do que o couro e o papel justificavam.' }, // NOVO
         { se: (st) => st.escolhas.diario === 'deixar', t: 'Da estrada dava para ver a chaminé até certa curva. Depois dela, ficaram para trás a cabana, o diário e a Borda do Mundo.' }, // NOVO
       ],
       fim: true },
