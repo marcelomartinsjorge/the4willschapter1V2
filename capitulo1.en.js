@@ -126,7 +126,7 @@ window.LIVRO_EN = {
  "Levou mais tempo do que das outras vezes. A última linha só apagou quando a Borda já não aparecia atrás de mim.": "It took longer than the other times. The last line only went out when the Edge could no longer be seen behind me.",
  "Não levou tempo nenhum. Quase nada tinha acendido.": "It took no time at all. Almost nothing had lit.",
  "Bebi.": "I drank.",
- "O sabor é o de um beijo de uma lareira apagada. Líquido límpido, quase cristalino e o cheiro do fundo de caça morta e a aspereza de um prego enferrujado.": "The taste is like the kiss of a dead hearth. A clear, almost crystalline liquid, with the smell of spoiled game at the bottom and the roughness of a rusted nail.",
+ "O líquido tinha engrossado dentro da bexiga. Gosto de ferro primeiro, depois uma doçura enjoativa, de coisa que fermentou tempo demais, e por fim um amargo de terra e de carne crua. Uma gordura cobria a língua e deixava atrás um sal de bicho. Bebida de quem vive entre a vida e a podridão. Era repugnante, e eu não conseguia parar.": "The liquor had thickened inside the bladder. Iron first, then a cloying sweetness, something left to ferment too long, and last a bitterness of earth and raw meat. A film of fat coated my tongue and left an animal salt behind. A drink for someone living between life and rot. It was repulsive, and I couldn't stop.",
  "Bebi de novo, e foi um pensamento de menos.": "I drank again, and it was one thought less.",
  "Há noites em que a vontade de pensar é mais forte, de reviver o século passado e reviver memórias boas. Quando os Lúmae existiam, quando eu era o herói do meu povo.": "There are nights when the urge to think is stronger — to relive the past century, to revisit good memories. When the Lúmae still existed. When I was my people's hero.",
  "Bebi de novo, e mais um pensamento se foi.": "I drank again, and another thought was gone.",
@@ -567,4 +567,5 @@ window.LIVRO_EN = {
   "Ninguém de Frígia sabia que eu existia. Por mais um dia, isso ainda era verdade.": "No one in Frígia knew I existed. For one more day, that was still true.",
   "No caminho do Glaciar, ninguém de Frígia tinha me visto. Mas a luz da fenda subiu alto demais, e alguém, de algum lugar, deve ter visto aquela.": "On the way to the Glacier, no one from Frígia had seen me. But the light of the rift rose too high, and someone, somewhere, must have seen that.",
   "Enchi os frascos devagar, contando cada um.": "I filled the flasks slowly, counting each one.",
+  "Me joguei para o lado. A pedra passou tão perto que senti o vento dela no rosto, e se arrebentou contra o gelo atrás de mim.": "I threw myself aside. The rock passed so close I felt its wind on my face, and it burst against the ice behind me.",
 };

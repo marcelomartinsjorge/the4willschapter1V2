@@ -331,7 +331,7 @@ window.LIVRO = {
       ] } },
 
     // NOVO v25: o resto do caminho até o Glaciar, conforme o que aconteceu com os caçadores
-    { id: 'chegada-glaciar', zona: 'glaciar', fundo: { img: 'assets/images/entrada-glaciar.jpg', kb: 'in', dim: .5, foco: '60% 55%', clima: 'neve' },
+    { id: 'chegada-glaciar', checkpoint: true, zona: 'glaciar', fundo: { img: 'assets/images/entrada-glaciar.jpg', kb: 'in', dim: .5, foco: '60% 55%', clima: 'neve' },
       texto: [
         { se: (st) => st.f.naoVisto, t: 'Ninguém tinha me visto o dia inteiro. Era assim que eu gostava que os dias fossem.' },
         { se: (st) => !st.f.naoVisto && st.escolhas.cacadores === 'dar', t: 'Cheguei ao Glaciar com o trenó mais leve: oitenta e poucos pinguins. Os Aug sabem contar até cem quando o assunto é comida, mas têm preguiça, e Gromm confia em mim.' },
@@ -477,10 +477,12 @@ window.LIVRO = {
       texto: [ 'Ele não me respondeu, não da maneira que eu esperava. A reação dele foi se erguer dos ossos, com um urro mais de dor que de raiva, e jogar uma pedra, maior que meu torso, na minha direção.' ],
       escolha: { id: 'pedra', urgente: true, cinema: 'pedra', opcoes: [
         { id: 'desviar', txt: 'Jogar o corpo para o lado.',
-          resultado: ['Desviei por pouco.'] },
-        { eixo: 'perto', id: 'ficar', txt: 'Ficar onde estou, de mãos abertas.', flag: 'ferido', aug: 1, aviso: 'Nuuk vai lembrar disso.',
+          fundo: { img: 'assets/images/gromm-desvia.jpg', kb: 'in', dim: .4, foco: '45% 45%' },
+          resultado: ['Me joguei para o lado. A pedra passou tão perto que senti o vento dela no rosto, e se arrebentou contra o gelo atrás de mim.'] }, // v27
+        { eixo: 'perto', id: 'ficar', txt: 'Ficar onde estou, de mãos abertas.', morte: true, // v27: a pedra mata; game over volta à entrada do Glaciar
           resultado: ['Não desviei. A pedra pegou o meu ombro esquerdo e me jogou contra os ossos. Levantei devagar, as mãos ainda abertas. O braço respondia, mais lento.', 'Gromm parou de bufar por um instante. Nuuk olhava para as minhas mãos.'] }, // NOVO
         { id: 'magia', txt: 'Erguer o gelo entre mim e a pedra.', luz: 12, aug: -1, flag: 'magiaGromm', aviso: 'Gromm viu a luz.',
+          fundo: { img: 'assets/images/gromm-barreira.jpg', kb: 'in', dim: .4, foco: '40% 45%' },
           resultado: ['Não pensei. A luz subiu antes de mim, e o gelo do chão se ergueu numa lâmina entre nós. A pedra se partiu contra ela a um palmo do meu peito, e os pedaços caíram entre os ossos.', 'Gromm parou de bufar. Nuuk deu um passo para trás.'] }, // NOVO
       ] } },
 

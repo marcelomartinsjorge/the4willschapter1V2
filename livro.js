@@ -25,7 +25,7 @@ const UI = {
     gelo: 'O gelo obedece', geloSub: 'Toque as runas que acendem. Não toque as armadilhas.', geloRuna: 'Runa: toque', geloTrap: 'Armadilha: não toque', geloLuz: (l) => `Sua Luz começa acesa no gelo (${l}). Quanto mais alta, mais rápido os Tacets chegam.`,
     suasTodas: 'Suas escolhas', travaQuieta: 'A cabeça está quieta demais para isso.', travaAcesa: 'A luz não deixa calar.',
     persona: { quieto: 'O Aheryn que você fez: quieto.', medido: 'O Aheryn que você fez: medido. Pensou só o que podia pagar.', aceso: 'O Aheryn que você fez: aceso. Pensou tudo o que um Lúmae pensa e brilhou por isso.' }, regioes: ['nada', 'dedos', 'pulsos', 'pescoço', 'peito', 'rosto'], apagarA: 'Apagar',
-    rsQ: { armadilha: 'A cova', gelunah: 'Gelunah', passo: 'Atrás de Nuuk', atencao: 'O que Aheryn percebeu', bronze: 'O bronze no chão', pedra: 'A pedra de Gromm', mente: 'Sozinho com o trenó', cacadores: 'Os caçadores', culpa: 'O grito de Gromm', sujeira: 'A sujeira', ritual: 'A noite na cabana', hino: 'O hino', proibido: 'O proibido' }, mesmoQue: 'escolheram igual',
+    goL1: 'Não desviei.', goL2: 'A pedra de Gromm não errou. Aheryn morreu no Glaciar Oco.', goBtn: 'Voltar à entrada do Glaciar', rsQ: { armadilha: 'A cova', gelunah: 'Gelunah', passo: 'Atrás de Nuuk', atencao: 'O que Aheryn percebeu', bronze: 'O bronze no chão', pedra: 'A pedra de Gromm', mente: 'Sozinho com o trenó', cacadores: 'Os caçadores', culpa: 'O grito de Gromm', sujeira: 'A sujeira', ritual: 'A noite na cabana', hino: 'O hino', proibido: 'O proibido' }, mesmoQue: 'escolheram igual',
     mg: { passo: 'Acompanhar Nuuk', pedra: 'A pedra', goles: 'Um pensamento a menos', 'hino-do-gelo': 'O gelo obedece', cabana: 'Conferir a casa', despedida: 'O que levar' },
     ex: { abrir: 'Abrir', fechar: 'Fechar', voltar: '← Voltar', levar: 'Levar', deixar: 'Deixar', recolocar: 'Recolocar a tábua', falta: 'Escolha o que fazer com o diário antes de partir.', diarioCab: 'Lembranças do Velho Mundo', deslize: 'Deslize para ver a cabana inteira' },
     dica: { cabana: 'Toque em cada coisa da cabana antes de sair.', despedida: 'Escolha o que vai na mochila.', passo: 'Toque nas pegadas de Nuuk quando elas aparecem, alternando os pés. Pisar fora do rastro escorrega.', pedraT: 'Quando a seta aparecer, toque o lado para onde desviar. Só existe uma chance.', pedraK: 'Quando a seta aparecer, aperte ← ou → para desviar. Só existe uma chance.', goles: 'Cada gole apaga um pensamento. Você escolhe quais afogar e quando parar de beber. O que ficar aceso vira Luz.', jogo: (l) => `A Luz que você acumulou (${l}) já começa acesa no gelo, mas faz os Tacets chegarem mais rápido.` },
@@ -44,7 +44,7 @@ const UI = {
     gelo: 'The ice obeys', geloSub: 'Tap the runes that light up. Don’t touch the traps.', geloRuna: 'Rune: tap it', geloTrap: 'Trap: don’t touch', geloLuz: (l) => `Your Light starts lit in the ice (${l}). The higher it is, the faster the Tacets come.`,
     suasTodas: 'Your choices', travaQuieta: 'His head is too quiet for that.', travaAcesa: 'The light won’t let him stay silent.',
     persona: { quieto: 'The Aheryn you made: quiet.', medido: 'The Aheryn you made: measured. He thought only what he could pay for.', aceso: 'The Aheryn you made: lit. He thought everything a Lúmae thinks, and shone for it.' }, regioes: ['nothing', 'fingertips', 'wrists', 'neck', 'chest', 'face'], apagarA: 'Put it out',
-    rsQ: { armadilha: 'The pit', gelunah: 'Gelunah', passo: 'Behind Nuuk', atencao: 'What Aheryn noticed', bronze: 'The bronze on the floor', pedra: 'Gromm’s rock', mente: 'Alone with the sled', cacadores: 'The hunters', culpa: 'Gromm’s shout', sujeira: 'The trash', ritual: 'The night in the cabin', hino: 'The hymn', proibido: 'The forbidden' }, mesmoQue: 'chose the same',
+    goL1: 'I didn\'t move.', goL2: 'Gromm\'s rock didn\'t miss. Aheryn died in the Hollow Glacier.', goBtn: 'Back to the Glacier entrance', rsQ: { armadilha: 'The pit', gelunah: 'Gelunah', passo: 'Behind Nuuk', atencao: 'What Aheryn noticed', bronze: 'The bronze on the floor', pedra: 'Gromm’s rock', mente: 'Alone with the sled', cacadores: 'The hunters', culpa: 'Gromm’s shout', sujeira: 'The trash', ritual: 'The night in the cabin', hino: 'The hymn', proibido: 'The forbidden' }, mesmoQue: 'chose the same',
     mg: { passo: 'Keep up with Nuuk', pedra: 'The rock', goles: 'One thought less', 'hino-do-gelo': 'The ice obeys', cabana: 'Check the house', despedida: 'What to take' },
     ex: { abrir: 'Open', fechar: 'Close', voltar: '← Back', levar: 'Take it', deixar: 'Leave it', recolocar: 'Put the board back', falta: 'Decide what to do with the diary before leaving.', diarioCab: 'Memories of the Old World', deslize: 'Swipe to see the whole cabin' },
     dica: { cabana: 'Touch each thing in the cabin before leaving.', despedida: 'Choose what goes in the pack.', passo: 'Tap Nuuk’s footprints as they appear, alternating feet. Stepping off the track makes you slip.', pedraT: 'When the arrow appears, tap the side to dodge toward. There is only one chance.', pedraK: 'When the arrow appears, press ← or → to dodge. There is only one chance.', goles: 'Each swallow drowns one thought. You choose which to drown and when to stop drinking. Whatever stays lit becomes Light.', jogo: (l) => `The Light you gathered (${l}) starts already lit in the ice, but it brings the Tacets faster.` },
@@ -629,6 +629,7 @@ function render(dir = 1) {
   setNext(livre);
   btnPrev.disabled = idxVis(st.i, -1) < 0; btnPrev.textContent = U('voltar');
   btnNext.textContent = p.fim ? U('fim') : U('prox');
+  if (p.checkpoint && dir >= 0) guardaCheckpoint();
   st.feitos[p.id] = st.feitos[p.id] || 1; st.pid = p.id; salvar();
   panel.scrollTop = 0;
 }
@@ -811,21 +812,36 @@ const CINEMA = {
   },
   pedra(modo) {
     return new Promise((resolve) => {
+      // desviar e barreira: a imagem da opção entra no fundo, com o som; sem vídeo
+      if (modo === 'desviar') { A.ctx && A.zunido(); return setTimeout(resolve, 350); }
+      if (modo === 'magia') { A.ctx && (A.luzSobe(), A.sfx('visao', .4)); return setTimeout(resolve, 350); }
+      // ficar: o vídeo corre até a pedra chegar, e a tela apaga. Aheryn morre.
       const o = abreOverlay('pedra cine');
-      o.innerHTML = `<div class="cam"><video class="pv" src="${vsrc('assets/clip/pedra.mp4')}" playsinline preload="auto"></video></div><div class="brilho"></div>`;
-      const v = o.querySelector('.pv'), cam = o.querySelector('.cam'); v.muted = !A.on;
+      o.innerHTML = `<div class="cam"><video class="pv" src="${vsrc('assets/clip/pedra.mp4')}" playsinline preload="auto"></video></div><div class="morte"></div>`;
+      const v = o.querySelector('.pv'); v.muted = !A.on;
       const t0 = performance.now(), vt = () => (v.currentTime > .05 ? v.currentTime : (performance.now() - t0) / 1000);
       v.play().catch(() => {});
-      const fim = (ms) => setTimeout(() => { v.pause(); o.classList.add('sai'); setTimeout(() => { fechaOverlay(); resolve(); }, 500); }, ms);
       const chk = setInterval(() => {
-        const t = vt();
-        if (modo === 'desviar' && t >= 2.55) { clearInterval(chk); cam.classList.add(Math.random() < .5 ? 'goL' : 'goR'); A.zunido(); fim(1500); }
-        if (modo === 'ficar' && t >= 3.25) { clearInterval(chk); o.classList.add('hit'); A.impacto(); fim(1300); }
-        if (modo === 'magia' && t >= 2.45) { clearInterval(chk); v.pause(); o.classList.add('para'); A.luzSobe(); A.sfx('visao', .4); fim(2200); }
+        if (vt() < 3.2) return; clearInterval(chk);
+        A.ctx && A.impacto(); o.classList.add('apaga'); A.stopNarr();
+        setTimeout(() => { v.pause(); gameOver(o); }, 1600);
       }, 20);
     });
   },
 };
+// game over: volta ao último ponto salvo (a entrada do Glaciar Oco, depois dos caçadores)
+const CP_KEY = SAVE_KEY + ':cp';
+function guardaCheckpoint() { try { localStorage.setItem(CP_KEY, JSON.stringify(st)); } catch (e) {} }
+function gameOver(o) {
+  o.innerHTML = `<div class="gameover"><p class="go-l1">${esc(U('goL1'))}</p><p class="go-l2">${esc(U('goL2'))}</p><button class="cta go-btn">${esc(U('goBtn'))}</button></div>`;
+  o.classList.remove('apaga'); o.classList.add('fim');
+  o.querySelector('.go-btn').onclick = () => {
+    let cp = null; try { cp = JSON.parse(localStorage.getItem(CP_KEY)); } catch (e) {}
+    const i = P.findIndex((x) => x.checkpoint);
+    if (cp) st = cp; else { delete st.escolhas.pedra; }
+    st.i = cp ? cp.i : i; salvar(); fechaOverlay(); render(1);
+  };
+}
 
 // ---------------------------------------------------------------- minijogos
 function renderMinijogo(p) {
@@ -1085,7 +1101,7 @@ const MG = {
 // ----- goles: o texto canônico avança a cada gole
 function golesTexto(g) {
   const seq = ['Bebi.',
-    'O sabor é o de um beijo de uma lareira apagada. Líquido límpido, quase cristalino e o cheiro do fundo de caça morta e a aspereza de um prego enferrujado.',
+    'O líquido tinha engrossado dentro da bexiga. Gosto de ferro primeiro, depois uma doçura enjoativa, de coisa que fermentou tempo demais, e por fim um amargo de terra e de carne crua. Uma gordura cobria a língua e deixava atrás um sal de bicho. Bebida de quem vive entre a vida e a podridão. Era repugnante, e eu não conseguia parar.',
     'Bebi de novo, e foi um pensamento de menos.',
     'Há noites em que a vontade de pensar é mais forte, de reviver o século passado e reviver memórias boas. Quando os Lúmae existiam, quando eu era o herói do meu povo.',
     'Bebi de novo, e mais um pensamento se foi.',
