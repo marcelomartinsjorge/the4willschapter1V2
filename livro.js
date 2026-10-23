@@ -1010,7 +1010,7 @@ const MG = {
       const pens = [
         { id: 'seculo', t: 'O século passado.', voz: 'gole-seculo' }, { id: 'lumae', t: 'Quando os Lúmae existiam.', voz: 'gole-lumae' }, { id: 'heroi', t: 'Quando eu era o herói do meu povo.', forte: 2, voz: 'gole-heroi', vozResiste: 'heroi-jovem' },
         { id: 'magia', t: 'Todas as magias que sei lançar.', voz: 'gole-magia' }, { id: 'gelunah', t: st.gelunah >= 1 ? 'O olhar dela, hoje, sobre a montanha.' : 'Um dragão triste, a oeste.', voz: st.gelunah >= 1 ? 'gole-gelunah-vivo' : 'gole-gelunah-fraco' },
-        { id: 'gromm', t: st.f.ferido ? 'O ombro que ainda dói.' : st.f.pulou_gromm ? 'O gigante que eu não fui ver.' : 'O sangue de Gromm no chão.', voz: st.f.ferido ? 'gole-gromm-ombro' : st.f.pulou_gromm ? 'gole-gromm-pulou' : 'gole-gromm-sangue' },
+        { id: 'gromm', t: st.f.pulou_gromm ? 'O gigante que eu não fui ver.' : 'O sangue de Gromm no chão.', voz: st.f.pulou_gromm ? 'gole-gromm-pulou' : 'gole-gromm-sangue' },
       ].concat(st.f.matouCacadores ? [{ id: 'cacadores', t: 'O homem da besta, caindo de costas.', forte: 2, voz: 'gole-besta' }] : []);
       o.innerHTML = `<p class="mgt">${U('golesT')}</p><div class="campo"></div><p class="mgsub">${U('golesSub')}</p><button class="parar" disabled>${U('parar')}</button>`;
       const campo = o.querySelector('.campo'), parar = o.querySelector('.parar'); let goles = 0, fim = false;
@@ -1101,11 +1101,11 @@ const MG = {
 // ----- goles: o texto canônico avança a cada gole
 function golesTexto(g) {
   const seq = ['Bebi.',
-    'O líquido tinha engrossado dentro da bexiga. Gosto de ferro primeiro, depois uma doçura enjoativa, de coisa que fermentou tempo demais, e por fim um amargo de terra e de carne crua. Uma gordura cobria a língua e deixava atrás um sal de bicho. Bebida de quem vive entre a vida e a podridão. Era repugnante, e eu não conseguia parar.',
+    'O líquido era espesso na boca. Gosto de ferro primeiro, depois uma doçura enjoativa, de coisa que fermentou tempo demais, e por fim um amargo de terra e de carne crua. Uma gordura cobria a língua e deixava atrás um sal de bicho. Bebida de quem vive entre a vida e a podridão. Era repugnante, e eu não conseguia parar.',
     'Bebi de novo, e foi um pensamento de menos.',
-    'Há noites em que a vontade de pensar é mais forte, de reviver o século passado e reviver memórias boas. Quando os Lúmae existiam, quando eu era o herói do meu povo.',
+    'Há noites em que a vontade de pensar é mais forte, de voltar ao século passado e às memórias boas. Quando os Lúmae existiam, quando eu era o herói do meu povo.',
     'Bebi de novo, e mais um pensamento se foi.',
-    'Mas ainda questiono quanto tempo continuarei conseguindo viver assim, se um dia eu não jogarei minhas mãos para o alto e lançarei todas as magias e maldições que sei que sou capaz de lançar.'];
+    'Naquela noite me perguntei de novo quanto tempo eu ia aguentar viver assim, antes de erguer as mãos e lançar todas as magias e maldições que sei lançar.'];
   return seq.slice(0, g + 1).map(tr);
 }
 function atualizaTexto(g) {
