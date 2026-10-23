@@ -22,13 +22,13 @@ const tr = (t) => (LANG === 'en' && t != null ? (EN[t] != null ? EN[t] : t) : t)
 const UI = {
   pt: { cantar: '▶ Deixar Aheryn cantar', parte: 'Parte', prox: 'Próxima', fim: 'Encerrar o capítulo', voltar: '← Voltar', ouvir: 'Ouvir Aheryn', cena: '▶ Ver a cena', oque: 'O que Aheryn faz?', decida: 'Decida', decidir: 'Decidir', escolheu: 'Você escolheu:', resp: 'Responder a', silencio: 'ficar em silêncio', momento: 'Momento de jogo',
     tutLuz: 'Esta é a Luz de Aheryn.', tutLuz2: 'Quando ele sente, as veias acendem. Quando se cala, apagam.', tutOk: 'Entendi',
-    gelo: 'O gelo obedece', geloSub: 'Toque as runas que acendem. Não toque as armadilhas.', geloRuna: 'Runa: toque', geloTrap: 'Armadilha: não toque', geloLuz: (l) => `Sua Luz começa acesa no gelo (${l}). Quanto mais alta, mais rápido os Tacets chegam.`,
+    gelo: 'O gelo obedece', geloSub: 'Toque as runas que acendem. Não toque as armadilhas.', geloRuna: 'Runa: toque', geloTrap: 'Armadilha: não toque', geloLuz: (r) => ['A luz quase não acendeu hoje.', 'A luz está nas pontas dos dedos.', 'A luz está nos pulsos.', 'A luz chegou ao pescoço.', 'A luz chegou ao peito.', 'A luz chegou ao rosto.'][r] + ' Quanto mais acesa, mais rápido os Tacets chegam.',
     suasTodas: 'Suas escolhas', travaQuieta: 'A cabeça está quieta demais para isso.', travaAcesa: 'A luz não deixa calar.',
     persona: { quieto: 'O Aheryn que você fez: quieto.', medido: 'O Aheryn que você fez: medido. Pensou só o que podia pagar.', aceso: 'O Aheryn que você fez: aceso. Pensou tudo o que um Lúmae pensa e brilhou por isso.' }, regioes: ['nada', 'dedos', 'pulsos', 'pescoço', 'peito', 'rosto'], apagarA: 'Apagar',
-    goL1: 'Não desviei.', goL2: 'A pedra de Gromm não errou. Aheryn morreu no Glaciar Oco.', goBtn: 'Voltar à entrada do Glaciar', rsQ: { armadilha: 'A cova', gelunah: 'Gelunah', passo: 'Atrás de Nuuk', atencao: 'O que Aheryn percebeu', bronze: 'O bronze no chão', pedra: 'A pedra de Gromm', mente: 'Sozinho com o trenó', cacadores: 'Os caçadores', culpa: 'O grito de Gromm', sujeira: 'A sujeira', ritual: 'A noite na cabana', hino: 'O hino', proibido: 'O proibido' }, mesmoQue: 'escolheram igual',
-    mg: { passo: 'Acompanhar Nuuk', pedra: 'A pedra', goles: 'Um pensamento a menos', 'hino-do-gelo': 'O gelo obedece', cabana: 'Conferir a casa', despedida: 'O que levar' },
+    goL1: 'Não desviei.', goL2: 'A pedra de Gromm não errou. Aheryn morreu no Glaciar Oco.', goBtn: 'Voltar a Gromm', rsQ: { armadilha: 'A cova', gelunah: 'Gelunah', passo: 'Atrás de Nuuk', atencao: 'O que Aheryn percebeu', bronze: 'O bronze no chão', pedra: 'A pedra de Gromm', mente: 'Sozinho com o trenó', cacadores: 'Os caçadores', culpa: 'O grito de Gromm', sujeira: 'A sujeira', ritual: 'A noite na cabana', hino: 'O hino', proibido: 'O proibido' }, mesmoQue: 'escolheram igual',
+    mg: { goles: 'Um pensamento a menos', 'hino-do-gelo': 'O gelo obedece', cabana: 'Conferir a casa', despedida: 'O que levar' },
     ex: { abrir: 'Abrir', fechar: 'Fechar', voltar: '← Voltar', levar: 'Levar', deixar: 'Deixar', recolocar: 'Recolocar a tábua', falta: 'Escolha o que fazer com o diário antes de partir.', diarioCab: 'Lembranças do Velho Mundo', deslize: 'Deslize para ver a cabana inteira' },
-    dica: { cabana: 'Toque em cada coisa da cabana antes de sair.', despedida: 'Escolha o que vai na mochila.', passo: 'Toque nas pegadas de Nuuk quando elas aparecem, alternando os pés. Pisar fora do rastro escorrega.', pedraT: 'Quando a seta aparecer, toque o lado para onde desviar. Só existe uma chance.', pedraK: 'Quando a seta aparecer, aperte ← ou → para desviar. Só existe uma chance.', goles: 'Cada gole apaga um pensamento. Você escolhe quais afogar e quando parar de beber. O que ficar aceso vira Luz.', jogo: (l) => `A Luz que você acumulou (${l}) já começa acesa no gelo, mas faz os Tacets chegarem mais rápido.` },
+    dica: { cabana: 'Toque em cada coisa da cabana antes de sair.', despedida: 'Escolha o que vai na mochila.', goles: 'Cada gole apaga um pensamento. Você escolhe quais afogar e quando parar de beber. O que ficar aceso vira Luz.', jogo: (r) => `${['A luz quase não acendeu hoje.', 'A luz está nas pontas dos dedos.', 'A luz está nos pulsos.', 'A luz chegou ao pescoço.', 'A luz chegou ao peito.', 'A luz chegou ao rosto.'][r]} O que acendeu começa aceso no gelo, mas faz os Tacets chegarem mais rápido.` }, dicaSegure: 'segure para seguir', dicaApaga: 'toque para apagar',
     coverEye: 'As Quatro Vontades · Livro I · Capítulo I', coverLede: 'Leia. Decida pelo Aheryn. E, quando o gelo pedir, jogue.', coverGo: 'Entrar no mundo gelado', coverCont: 'Continuar de onde parei', coverRestart: 'Começar do início', coverHint: 'Use fones. Avance com o botão, com a seta → ou deslizando para o lado.',
     luzTitle: 'A Luz do Aheryn: sobe quando ele sente, lembra e canta; desce quando ele se cala',
     confirm: 'Recomeçar o capítulo? Suas escolhas serão apagadas.', capI: 'Capítulo I', fimCap: 'Fim do Capítulo I', ficou: 'O que ficou de você no gelo', luz: 'Luz', suas: 'O que você levou', pedraQ: 'A pedra', diarioQ: 'O diário', levouPedra: 'Levou a pedra', deixouPedra: 'Deixou a pedra onde estava', nuncaPedra: 'Nunca a encontrou', levouDiario: 'Levou o diário', deixouDiario: 'Deixou o diário', reler: 'Reler e escolher diferente', mesmo: (p) => `${p}% dos leitores fizeram o mesmo`,
@@ -41,13 +41,13 @@ const UI = {
   },
   en: { cantar: '▶ Let Aheryn sing', parte: 'Part', prox: 'Next', fim: 'Close the chapter', voltar: '← Back', ouvir: 'Listen to Aheryn', cena: '▶ Watch the scene', oque: 'What does Aheryn do?', decida: 'Decide', decidir: 'Decide', escolheu: 'You chose:', resp: 'Answer', silencio: 'stay silent', momento: 'Moment of play',
     tutLuz: 'This is Aheryn’s Light.', tutLuz2: 'When he feels, his veins light up. When he goes quiet, they go dark.', tutOk: 'Got it',
-    gelo: 'The ice obeys', geloSub: 'Tap the runes that light up. Don’t touch the traps.', geloRuna: 'Rune: tap it', geloTrap: 'Trap: don’t touch', geloLuz: (l) => `Your Light starts lit in the ice (${l}). The higher it is, the faster the Tacets come.`,
+    gelo: 'The ice obeys', geloSub: 'Tap the runes that light up. Don’t touch the traps.', geloRuna: 'Rune: tap it', geloTrap: 'Trap: don’t touch', geloLuz: (r) => ['The light barely rose today.', 'The light is at the fingertips.', 'The light is at the wrists.', 'The light has reached the neck.', 'The light has reached the chest.', 'The light has reached the face.'][r] + ' The brighter it is, the faster the Tacets come.',
     suasTodas: 'Your choices', travaQuieta: 'His head is too quiet for that.', travaAcesa: 'The light won’t let him stay silent.',
     persona: { quieto: 'The Aheryn you made: quiet.', medido: 'The Aheryn you made: measured. He thought only what he could pay for.', aceso: 'The Aheryn you made: lit. He thought everything a Lúmae thinks, and shone for it.' }, regioes: ['nothing', 'fingertips', 'wrists', 'neck', 'chest', 'face'], apagarA: 'Put it out',
-    goL1: 'I didn\'t move.', goL2: 'Gromm\'s rock didn\'t miss. Aheryn died in the Hollow Glacier.', goBtn: 'Back to the Glacier entrance', rsQ: { armadilha: 'The pit', gelunah: 'Gelunah', passo: 'Behind Nuuk', atencao: 'What Aheryn noticed', bronze: 'The bronze on the floor', pedra: 'Gromm’s rock', mente: 'Alone with the sled', cacadores: 'The hunters', culpa: 'Gromm’s shout', sujeira: 'The trash', ritual: 'The night in the cabin', hino: 'The hymn', proibido: 'The forbidden' }, mesmoQue: 'chose the same',
-    mg: { passo: 'Keep up with Nuuk', pedra: 'The rock', goles: 'One thought less', 'hino-do-gelo': 'The ice obeys', cabana: 'Check the house', despedida: 'What to take' },
+    goL1: 'I didn\'t move.', goL2: 'Gromm\'s rock didn\'t miss. Aheryn died in the Hollow Glacier.', goBtn: 'Back to Gromm', rsQ: { armadilha: 'The pit', gelunah: 'Gelunah', passo: 'Behind Nuuk', atencao: 'What Aheryn noticed', bronze: 'The bronze on the floor', pedra: 'Gromm’s rock', mente: 'Alone with the sled', cacadores: 'The hunters', culpa: 'Gromm’s shout', sujeira: 'The trash', ritual: 'The night in the cabin', hino: 'The hymn', proibido: 'The forbidden' }, mesmoQue: 'chose the same',
+    mg: { goles: 'One thought less', 'hino-do-gelo': 'The ice obeys', cabana: 'Check the house', despedida: 'What to take' },
     ex: { abrir: 'Open', fechar: 'Close', voltar: '← Back', levar: 'Take it', deixar: 'Leave it', recolocar: 'Put the board back', falta: 'Decide what to do with the diary before leaving.', diarioCab: 'Memories of the Old World', deslize: 'Swipe to see the whole cabin' },
-    dica: { cabana: 'Touch each thing in the cabin before leaving.', despedida: 'Choose what goes in the pack.', passo: 'Tap Nuuk’s footprints as they appear, alternating feet. Stepping off the track makes you slip.', pedraT: 'When the arrow appears, tap the side to dodge toward. There is only one chance.', pedraK: 'When the arrow appears, press ← or → to dodge. There is only one chance.', goles: 'Each swallow drowns one thought. You choose which to drown and when to stop drinking. Whatever stays lit becomes Light.', jogo: (l) => `The Light you gathered (${l}) starts already lit in the ice, but it brings the Tacets faster.` },
+    dica: { cabana: 'Touch each thing in the cabin before leaving.', despedida: 'Choose what goes in the pack.', goles: 'Each swallow drowns one thought. You choose which to drown and when to stop drinking. Whatever stays lit becomes Light.', jogo: (r) => `${['The light barely rose today.', 'The light is at the fingertips.', 'The light is at the wrists.', 'The light has reached the neck.', 'The light has reached the chest.', 'The light has reached the face.'][r]} What is lit starts lit in the ice, but it brings the Tacets faster.` }, dicaSegure: 'hold to follow', dicaApaga: 'tap to put it out',
     coverEye: 'The Four Wills · Book I · Chapter I', coverLede: 'Read. Decide for Aheryn. And when the ice asks, play.', coverGo: 'Enter the frozen world', coverCont: 'Continue where I left off', coverRestart: 'Start from the beginning', coverHint: 'Wear headphones. Move on with the button, the → key, or a swipe.',
     luzTitle: 'Aheryn’s Light: it rises when he feels, remembers and sings; it falls when he goes silent',
     confirm: 'Restart the chapter? Your choices will be erased.', capI: 'Chapter I', fimCap: 'End of Chapter I', ficou: 'What of you remained in the ice', luz: 'Light', suas: 'What you carried', pedraQ: 'The stone', diarioQ: 'The diary', levouPedra: 'Took the stone', deixouPedra: 'Left the stone where it was', nuncaPedra: 'Never found it', levouDiario: 'Took the diary', deixouDiario: 'Left the diary', reler: 'Read again and choose differently', mesmo: (p) => `${p}% of readers did the same`,
@@ -368,7 +368,9 @@ function sensacao(p, dir) {
 }
 function sobePensa(th, k) {
   const el = document.createElement('button'); el.className = 'pensa'; el.type = 'button';
-  el.innerHTML = `<span>${esc(tr(th.t))}</span>`;
+  const ensina = !st.feitos.dicaPensa; // v29: só o primeiro pensamento do capítulo ensina o gesto
+  el.innerHTML = `<span>${esc(tr(th.t))}</span>` + (ensina ? `<small class="pensa-dica">${esc(U('dicaSegure'))}</small>` : '');
+  if (ensina) { st.feitos.dicaPensa = 1; salvar(); }
   const pos = posPensa(k + th.id.length * 7); el.style.left = pos.x + '%'; el.style.top = pos.y + '%';
   camada.appendChild(el); A.ctx && A.sobe();
   let raf = 0, t0 = 0, fim = false;
@@ -384,7 +386,9 @@ function sobePensa(th, k) {
   };
   const anda = () => { const q = Math.min(1, (performance.now() - t0) / 1100); el.style.setProperty('--k', q.toFixed(3)); if (q >= 1) return segue(); raf = requestAnimationFrame(anda); };
   el.addEventListener('pointerdown', (ev) => { if (fim) return; ev.preventDefault(); t0 = performance.now(); el.classList.add('segura'); raf = requestAnimationFrame(anda); });
-  const solta = () => { if (fim) return; cancelAnimationFrame(raf); el.classList.remove('segura'); el.style.setProperty('--k', '0'); };
+  const solta = () => { if (fim) return; cancelAnimationFrame(raf); el.classList.remove('segura');
+    // v29: o toque curto responde (o anel enche um pouco e volta), para o jogador descobrir que segurar faz alguma coisa
+    const k0 = parseFloat(el.style.getPropertyValue('--k')) || 0; el.style.setProperty('--k', Math.max(k0, .33).toFixed(2)); clearTimeout(el._volta); el._volta = setTimeout(() => { if (!fim) el.style.setProperty('--k', '0'); }, 280); };
   ['pointerup', 'pointerleave', 'pointercancel'].forEach((ev) => el.addEventListener(ev, solta));
   el.addEventListener('contextmenu', (ev) => ev.preventDefault());
   el.addEventListener('keydown', (ev) => { if ((ev.key === 'Enter' || ev.key === ' ') && !fim) { ev.preventDefault(); segue(); } });
@@ -421,11 +425,11 @@ function conter(p) {
     if (P[st.i] !== p) return;
     if (k >= g.length) return timers.push(setTimeout(fecha, 1600));
     const t = g[k++]; const el = document.createElement('button'); el.className = 'pensa sozinho'; el.type = 'button';
-    el.innerHTML = `<span>${esc(tr(t))}</span>`; const pos = posPensa(k * 3 + 1); el.style.left = pos.x + '%'; el.style.top = pos.y + '%';
+    el.innerHTML = `<span>${esc(tr(t))}</span>` + (k === 1 ? `<small class="pensa-dica">${esc(U('dicaApaga'))}</small>` : ''); const pos = posPensa(k * 3 + 1); el.style.left = pos.x + '%'; el.style.top = pos.y + '%';
     camada.appendChild(el); A.ctx && A.sobe();
     let fim = false; const t0 = performance.now(), dur = 3400;
     const cresce = () => { if (fim) return; const q = Math.min(1, (performance.now() - t0) / dur); el.style.setProperty('--k', q.toFixed(3));
-      if (q >= 1) { fim = true; acesos++; el.classList.add('seguido'); mudaLuz(4); traicao({}); setTimeout(() => el.remove(), 1400); timers.push(setTimeout(proximo, 900)); return; }
+      if (q >= 1) { fim = true; acesos++; el.classList.add('seguido'); traicao({}); /* v29: o que acende no compasso traz os Tacets mais cedo (tempo do hino), não Luz */ setTimeout(() => el.remove(), 1400); timers.push(setTimeout(proximo, 900)); return; }
       requestAnimationFrame(cresce); };
     requestAnimationFrame(cresce);
     el.addEventListener('pointerdown', (ev) => { ev.preventDefault(); if (fim) return; fim = true; el.classList.add('contido'); A.ctx && A.apaga(); setTimeout(() => el.remove(), 1400); timers.push(setTimeout(proximo, 700)); });
@@ -829,7 +833,7 @@ const CINEMA = {
     });
   },
 };
-// game over: volta ao último ponto salvo (a entrada do Glaciar Oco, depois dos caçadores)
+// game over: volta ao último ponto salvo (v29: a tela logo antes da pedra, com as escolhas já feitas)
 const CP_KEY = SAVE_KEY + ':cp';
 function guardaCheckpoint() { try { localStorage.setItem(CP_KEY, JSON.stringify(st)); } catch (e) {} }
 function gameOver(o) {
@@ -848,7 +852,7 @@ function renderMinijogo(p) {
   const done = st.feitos['mg:' + p.id];
   if (p.minijogo === 'goles') txt.innerHTML = golesTexto(done ? 99 : 0).map((t) => pHTML(t)).join('');
   if (done) { appendParas(p.depois); if (p.minijogo === 'goles' && st.guardados) mostraGuardados(); return true; }
-  const dicas = { cabana: U('dica').cabana, despedida: U('dica').despedida, passo: U('dica').passo, pedra: IS_TOUCH ? U('dica').pedraT : U('dica').pedraK, goles: U('dica').goles, 'hino-do-gelo': U('dica').jogo(Math.round(st.luz)) };
+  const dicas = { cabana: U('dica').cabana, despedida: U('dica').despedida, goles: U('dica').goles, 'hino-do-gelo': U('dica').jogo(regiao(st.luz)) };
   box.innerHTML = `<p class="eyebrow">${U('momento')}</p><button class="opt jogar" id="mgGo"><span class="k">▶</span>${U('mg')[p.minijogo]}</button><p class="dica">${dicas[p.minijogo]}</p>`;
   $('#mgGo').onclick = () => { box.innerHTML = ''; MG[p.minijogo](p).then((res) => { st.feitos['mg:' + p.id] = 1; salvar(); if (res !== 'nav') { if (p.minijogo === 'goles') { txt.innerHTML = golesTexto(99).map((t) => pHTML(t)).join(''); mostraGuardados(); } appendParas(p.depois); setNext(true); } }); };
   return false;
@@ -1069,11 +1073,11 @@ const MG = {
   'hino-do-gelo'() {
     return new Promise((resolve) => {
       const o = abreOverlay('jogo');
-      const q = new URLSearchParams({ livro: '1',  luz: String(Math.round(st.luz)), bronze: st.f.examinou_bronze ? '1' : '0', tacets: st.f.leu_tacets ? '1' : '0', ferido: st.f.ferido ? '1' : '0', besta: st.f.feridoBesta ? '1' : '0', hesitou: st.f.hesitou ? '1' : '0', lang: LANG });
+      const q = new URLSearchParams({ livro: '1',  luz: String(Math.round(st.luz)), bronze: st.f.examinou_bronze ? '1' : '0', tacets: st.f.leu_tacets ? '1' : '0', acesos: String(st.f.acesosCompasso || 0), besta: st.f.feridoBesta ? '1' : '0', hesitou: st.f.hesitou ? '1' : '0', lang: LANG });
       const somAntes = A.on;
       o.innerHTML = `<iframe src="jogo/index.html?${q}" allow="autoplay; fullscreen" title="${U('mg')['hino-do-gelo']}"></iframe>
         <div class="gcard"><p class="g-eye">${U('momento')}</p><h2>${esc(U('gelo'))}</h2><span class="ct-orn">✦</span>
-          <p class="g-luz">${esc(U('geloLuz')(Math.round(st.luz)))}</p><p class="g-carrega"><i></i><i></i><i></i></p></div>`;
+          <p class="g-luz">${esc(U('geloLuz')(regiao(st.luz)))}</p><p class="g-carrega"><i></i><i></i><i></i></p></div>`;
       const fr = o.querySelector('iframe'), card = o.querySelector('.gcard'), t0 = Date.now();
       requestAnimationFrame(() => o.classList.add('in'));
       document.body.classList.add('veias-cheias'); // a única vez em que ele pensa com tudo
@@ -1104,8 +1108,8 @@ function golesTexto(g) {
     'O líquido era espesso na boca. Gosto de ferro primeiro, depois uma doçura enjoativa, de coisa que fermentou tempo demais, e por fim um amargo de terra e de carne crua. Uma gordura cobria a língua e deixava atrás um sal de bicho. Bebida de quem vive entre a vida e a podridão. Era repugnante, e eu não conseguia parar.',
     'Bebi de novo, e foi um pensamento de menos.',
     'Há noites em que a vontade de pensar é mais forte, de voltar ao século passado e às memórias boas. Quando os Lúmae existiam, quando eu era o herói do meu povo.',
-    'Bebi de novo, e mais um pensamento se foi.',
-    'Naquela noite me perguntei de novo quanto tempo eu ia aguentar viver assim, antes de erguer as mãos e lançar todas as magias e maldições que sei lançar.'];
+    'Mais um gole, e mais um pensamento se foi.',
+    'Naquela noite me perguntei outra vez quanto tempo eu ia aguentar viver assim, antes de erguer as mãos e lançar todas as magias e maldições que sei lançar.'];
   return seq.slice(0, g + 1).map(tr);
 }
 function atualizaTexto(g) {
@@ -1149,7 +1153,7 @@ function guardaEstado() {
     todos.v = 1;
     todos.cap1 = {
       luz: Math.round(st.luz), aug: st.aug, gelunah: st.gelunah, perfil: st.perfil || {},
-      viuGromm: !st.f.pulou_gromm, marcado: !!st.f.marcado, ferido: !!st.f.ferido, magiaGromm: !!st.f.magiaGromm, hesitou: !!st.f.hesitou,
+      viuGromm: !st.f.pulou_gromm, marcado: !!st.f.marcado, besta: !!st.f.feridoBesta, magiaGromm: !!st.f.magiaGromm, hesitou: !!st.f.hesitou,
       leu_tacets: !!st.f.leu_tacets, examinou_bronze: !!st.f.examinou_bronze,
       diario: st.escolhas.diario === 'levar',
       pedra: joia && joia !== 'deixar' ? { motivo: joia, nome: (L.pedra.razoes.find((r) => r.id === joia) || {}).nome } : null,

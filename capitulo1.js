@@ -117,15 +117,15 @@ window.LIVRO = {
     { id: 'c-armadilha', falas: [{ n: 'cova-1', ms: 2400 }], zona: 'borda', fundo: { img: 'assets/images/cova.jpg', kb: 'in', dim: .4, foco: '65% 40%', clima: 'neve' },
       texto: [
         'Cheguei à beira da cova. Uma colônia nova tinha caído lá, e alguns estavam vivos. Depois de tanto tempo, ver um bicho morrer no fundo de um buraco ainda me incomoda. Restam poucas coisas que me incomodam.',
-        'Três ainda se mexiam no fundo da cova, machucados demais da queda para subir sozinhos. Um deles tinha parado de tentar e me olhava.', // NOVO
+        'Três se mexiam no fundo da cova, machucados demais da queda para subir sozinhos. Um deles tinha parado de tentar e me olhava.', // NOVO
       ],
       pensa: [{ id: 'cova', t: 'Ele me olhava como eu olho para o norte.', mais: 'Toda manhã, da soleira. Nunca soube o que esperava ver lá.', luz: 3, atraso: 3600 }], // NOVO v20
       escolha: { id: 'armadilha', opcoes: [
-        { eixo: 'perto', id: 'rapido', txt: 'Descer e acabar com eles, rápido.', luz: 4,
+        { eixo: 'perto', id: 'rapido', txt: 'Descer e acabar com eles, rápido.', rs: 'Acabou com eles, rápido.', luz: 4,
           resultado: ['Desci pela borda de gelo. Três vezes a mesma torção, a mesma pressa. Quando subi, a ponta dos meus dedos ainda estava acesa. Fechei as mãos dentro das mangas até apagar.'] }, // NOVO
-        { eixo: 'longe', id: 'frio', txt: 'Deixar que morram sozinhos.', luz: -4,
+        { eixo: 'longe', id: 'frio', txt: 'Deixar que morram sozinhos.', rs: 'Deixou que morressem sozinhos.', luz: -4,
           resultado: ['Não desci. Fiquei de costas para a cova, contando a respiração, até o fundo ficar quieto.'] }, // NOVO
-        { eixo: 'perto', id: 'salvar', voz: 'cova-2', vozAtraso: 2600, txt: 'Tirar da cova o que me olhava.', luz: 8, fundo: { img: 'assets/images/pinguim-salvo.jpg', kb: 'in', dim: .35, foco: '70% 60%', clima: 'neve' },
+        { eixo: 'perto', id: 'salvar', voz: 'cova-2', vozAtraso: 2600, txt: 'Tirar da cova o que me olhava.', rs: 'Tirou da cova o pinguim que olhava para ele.', luz: 8, fundo: { img: 'assets/images/pinguim-salvo.jpg', kb: 'in', dim: .35, foco: '70% 60%', clima: 'neve' },
           resultado: ['Desci, peguei o que me olhava pelo meio do corpo e o pus na neve, longe da borda. Ele ficou parado um tempo, depois foi embora sem pressa, como se a ideia tivesse sido dele. Os outros dois deixei como estavam.'] }, // NOVO
       ] } },
 
@@ -144,7 +144,7 @@ window.LIVRO = {
       ] },
 
     { id: 'p03', zona: 'borda', fundo: { img: 'assets/images/codex-lumae.webp', kb: 'none', dim: .45, retrato: true, foco: '50% 12%' },
-      pensa: [{ id: 'luminosa', t: 'Antes, brilhar era bonito.', mais: 'Na Noite Luminosa ninguém escondia nada, e de longe parecia que o chão tinha pegado fogo.', luz: 4, atraso: 4200 }], // NOVO v20
+      pensa: [{ id: 'luminosa', t: 'Antes, brilhar era bonito.', mais: 'Na Noite Luminosa nada se escondia, e de longe parecia que o chão tinha pegado fogo.', luz: 4, atraso: 4200 }], // NOVO v20
       texto: [
         'Às vezes sinto falta de uma conversa mais elaborada. Os Aug não são conhecidos por grande intelecto. Mas a vantagem é essa: não ligam se sou um Lúmae ou não, nem se deveriam se juntar ao resto do mundo, mais rico em conhecimento, para me declarar inimigo mortal da existência. Alguns anos passam sem eu proferir uma única palavra.',
         'Aprendi como ninguém a silenciar os pensamentos, por sobrevivência. Esse domínio sobre a própria mente me ensinou também a deixar de sentir o frio. Nós, os Lúmae, temos veias douradas sob a pele que acendem quando pensamos, e quanto mais intenso o pensamento, mais forte a luz. É uma atenção que não posso me dar ao luxo de atrair.',
@@ -250,8 +250,8 @@ window.LIVRO = {
           { t: 'Brilhar era bonito.', voz: 'mente-m4' },
           { t: 'Apaga. Apaga.', voz: 'mente-m5' },
         ],
-        cedo: 'Respirei fundo e calei um pensamento de cada vez, como aprendi. As minhas mãos continuaram escuras.',
-        tarde: 'Respirei fundo e calei tudo, como aprendi. Mas tinha demorado. O dourado ainda descia dos meus pulsos, devagar, como água voltando para dentro da terra, e na neve cinzenta da tarde aquilo se via de longe.',
+        cedo: 'Respirei fundo e calei um pensamento de cada vez. As minhas mãos continuaram escuras.',
+        tarde: 'Respirei fundo e calei tudo. Mas tinha demorado. O dourado ainda descia dos meus pulsos, devagar, como água voltando para dentro da terra, e na neve cinzenta da tarde aquilo se via de longe.',
         nunca: 'Não calei nada. A luz chegou aos pulsos antes de mim, e por um instante a dobra da neve ficou da cor de uma vela.',
         dica: 'A tábua solta, perto do catre. Fazia anos que eu não olhava debaixo dela.',
       },
@@ -331,7 +331,7 @@ window.LIVRO = {
       ] } },
 
     // NOVO v25: o resto do caminho até o Glaciar, conforme o que aconteceu com os caçadores
-    { id: 'chegada-glaciar', checkpoint: true, zona: 'glaciar', fundo: { img: 'assets/images/entrada-glaciar.jpg', kb: 'in', dim: .5, foco: '60% 55%', clima: 'neve' },
+    { id: 'chegada-glaciar', zona: 'glaciar', fundo: { img: 'assets/images/entrada-glaciar.jpg', kb: 'in', dim: .5, foco: '60% 55%', clima: 'neve' },
       texto: [
         { se: (st) => st.f.naoVisto, t: 'Ninguém tinha me visto o dia inteiro. Era assim que eu gostava que os dias fossem.' },
         { se: (st) => !st.f.naoVisto && st.escolhas.cacadores === 'dar', t: 'Cheguei ao Glaciar com o trenó mais leve: oitenta e poucos pinguins. Os Aug sabem contar até cem quando o assunto é comida.' },
@@ -345,7 +345,7 @@ window.LIVRO = {
     { id: 'p09', estado: 'companhia', antes: { som: 'passosAug', ms: 1900 }, zona: 'tunel', fundo: { img: 'assets/images/nuuk.jpg', kb: 'in', dim: .38, foco: '62% 8%', clima: 'cristais' },
       texto: [
         'Geralmente faço o combinado com o líder deles, Gromm, o Quebra-Marfim, título dado a ele pelos próprios Aug por derrubar um Mamute Colossal com as próprias mãos. Mas naquela noite, quem me recepcionou foi um gigante menor, chamado Nuuk. Disse que Gromm estava com problemas de intestino.',
-        { se: (st) => st.f.feridoBesta, t: 'Nuuk cheirou o ar duas vezes antes de falar.' }, // NOVO v25
+        { se: (st) => st.f.feridoBesta, t: 'Nuuk farejou o ar antes de falar.' }, // NOVO v25
         { se: (st) => st.f.feridoBesta, t: '— UCÊ SANGUE.' }, // NOVO v25
         { se: (st) => st.f.feridoBesta, t: '— Não é nada.' }, // NOVO v25
         { se: (st) => st.f.feridoBesta, t: 'Ele olhou para o meu ombro um tempo e não perguntou de novo.' }, // NOVO v25
@@ -373,7 +373,7 @@ window.LIVRO = {
       texto: [
         { se: (st) => st.f.passoPerdido, t: 'Quando o alcancei, ele estava parado numa curva, olhando para o outro lado.' }, // NOVO
         'Gromm era mais educado, pensei. Mas melhor assim: quando me contou a história do Mamute, levou algumas horas para dizer o que uma criança humana diria em três frases.',
-        'Segui Nuuk pelos túneis. Os Aug não são numerosos: mesmo ali, na maior concentração da população deles, vi cerca de quatro ou cinco pelo caminho. É muito raro vê-los conversando entre si, mas me peguei ouvindo a conversa entre dois deles, mesmo a muitos metros de distância.',
+        'Segui Nuuk pelos túneis. Os Aug não são numerosos: mesmo ali, na maior concentração da população deles, vi cerca de quatro ou cinco pelo caminho. É muito raro vê-los conversando entre si, mas me peguei ouvindo a conversa entre dois deles, mesmo a muitos passos de distância.',
         '— GROMM TAR MAL.',
         '— NUM CONSEGUIR FICAR DE PÉ.',
         '— NUNCA VER GROMM ASSIM.',
@@ -417,7 +417,7 @@ window.LIVRO = {
 
     { id: 'v-glaciar', se: (st) => !st.f.pulou_gromm, zona: 'glaciar', fundo: { img: 'assets/images/aposento.jpg', kb: 'in', dim: .4, foco: '30% 55%', lado: 'dir', clima: 'cristais' },
       texto: [
-        'O “aposento” de Gromm é um grande amontoado de ossos sobre uma pilha de rochas e ossos menores, formando um platô de cerca de dez metros de altura, um tanto afastado do centro do Glaciar Oco.',
+        'O “aposento” de Gromm é um grande amontoado de ossos sobre uma pilha de rochas e ossos menores, formando um platô da altura de dois Aug, um tanto afastado do centro do Glaciar Oco.',
         { se: (st) => quieto(st), t: 'Subi atrás de Nuuk.' }, // NOVO v21 (quieto)
         { se: (st) => medido(st), t: 'Os ossos de baixo eram mais velhos que os de cima. Os Aug constroem como dormem, devagar, uma estação por vez.' }, // NOVO v21 (medido)
         { se: (st) => aceso(st), t: 'Ossos de baleia na base, de mamute no meio, de urso no alto. Quem soubesse ler aquilo leria a história inteira do Glaciar Oco em restos de refeição. Os Lúmae teriam passado anos estudando aquilo. Eu só subi por cima.' }, // NOVO v21 (aceso)
@@ -463,7 +463,7 @@ window.LIVRO = {
           resultado: ['— Foi Nuuk que me chamou, Gromm.', 'Era mentira, e Nuuk sabia. Não olhou para mim. Gromm rosnou para ele do fundo do peito, e Nuuk recuou até a entrada.'] },
       ] } },
 
-    { id: 'p16', se: (st) => !st.f.pulou_gromm, zona: 'glaciar', fundo: { img: 'assets/images/gromm-ferido.jpg', kb: 'in', dim: .45, tint: 'sangue', foco: '72% 35%' },
+    { id: 'p16', checkpoint: true, se: (st) => !st.f.pulou_gromm, zona: 'glaciar', fundo: { img: 'assets/images/gromm-ferido.jpg', kb: 'in', dim: .45, tint: 'sangue', foco: '72% 35%' },
       texto: [
         { se: (st) => !st.escolhas.culpa || st.escolhas.culpa === 'calar', t: 'Não esperei a reação de Nuuk e respondi.' },
         { se: (st) => st.escolhas.culpa === 'assumir' || st.escolhas.culpa === 'nuuk', t: 'Continuei antes que Gromm respondesse.' }, // NOVO v20
@@ -544,8 +544,12 @@ window.LIVRO = {
         { se: (st) => medido(st) && st.f.deuPinguins, t: 'Enchi os frascos devagar, contando cada um.' }, // NOVO v21 (medido)
         { se: (st) => aceso(st), t: 'Enchi os frascos pensando que os Lúmae teriam feito disso uma ciência: a raiz certa, o tempo certo, um tratado inteiro sobre a melhor maneira de esquecer.' }, // NOVO v21 (aceso)
       ],
-      quieto: { id: 'destilaria', espera: 2, eixo: 'perto', fala: 'Nuuk. Gromm vai ficar bem?', resposta: 'GROMM AINDA TAR MAL.',
-        depois: ['Enchi o último frasco. Ele esperou eu terminar.'] }, // NOVO
+      // v29: a pergunta a Nuuk fica visível desde o início (antes era um "…" que só surgia se o leitor esperasse, e falava em vez de calar)
+      escolha: { id: 'destilaria', pergunta: 'O que Aheryn diz?', opcoes: [
+        { eixo: 'perto', id: 'fala', txt: '“Nuuk. Gromm vai ficar bem?”', rs: 'Perguntou a Nuuk por Gromm.',
+          resultado: ['— Nuuk. Gromm vai ficar bem?', '— GROMM AINDA TAR MAL.', 'Enchi o último frasco. Ele esperou eu terminar.'] },
+        { eixo: 'longe', id: 'cala', txt: '…', silencio: true, rs: 'Ficou em silêncio com Nuuk.' },
+      ] },
       fimDeParte: true },
 
     // NOVO v20: se a relação ficou boa, Nuuk acompanha o Aheryn até a saída
@@ -631,7 +635,7 @@ window.LIVRO = {
         { se: (st) => st.f.fogo, t: 'O fogo tinha virado brasa e ainda esquentava o chão perto da mesa.' }, // NOVO
         { se: (st) => st.f.frasco, t: 'O frasco estava vazio sobre a mesa. Não lembrava de tê-lo terminado.' }, // NOVO
         { se: (st) => quieto(st), t: 'Lavei o rosto na bacia e esperei a luz da pele sumir antes que a do céu chegasse.' }, // NOVO v21 (quieto)
-        { se: (st) => medido(st), t: 'Fiquei sentado até o céu clarear de todo. A garganta ainda guardava a melodia.' }, // NOVO v21 (medido)
+        { se: (st) => medido(st), t: 'Fiquei sentado até o céu clarear de todo. A garganta guardava a melodia.' }, // NOVO v21 (medido)
         { se: (st) => aceso(st), t: 'Nas Cidades-Espelho, cantar o louvor ao amanhecer era costume, e todo mundo acordava ouvindo o que eu tinha feito. Agora acordava só eu, e era a última coisa que eu queria ouvir.' }, // NOVO v21 (aceso)
       ], fimDeParte: true },
 
@@ -669,8 +673,8 @@ window.LIVRO = {
         'A cabeça lisa se virou, sem olhos, e os pontos de luz na face se acenderam um tom acima, e o compasso quebrou, quebrou pela primeira vez, de três para quatro, mais rápido, porque a coisa tinha um alvo agora e o alvo era eu. Os outros dois se viraram juntos. E aqui é onde um homem corajoso teria agido, feito o que eu sei fazer, o que me valeu uma canção: tocar o que é proibido e desfazer aqueles três num gesto, como quem apaga três contas de um ábaco.',
       ],
       escolha: { id: 'proibido', urgente: true, revelar: true, janela: 5.3, som: 'decisao', padrao: 'recusar', opcoes: [
-        { id: 'tocar', txt: 'Tocar o que é proibido.', luz: 15, flag: 'hesitou', travaSe: (st) => st.f.afogouMagia, travaTxt: 'Afoguei isso ontem à noite.' },
-        { id: 'recusar', txt: 'Recusar.', luz: 2 },
+        { id: 'tocar', txt: 'Tocar o que é proibido.', rs: 'Quase tocou o proibido. A visão segurou a mão.', luz: 15, flag: 'hesitou', travaSe: (st) => st.f.afogouMagia, travaTxt: 'Afoguei isso ontem à noite.' },
+        { id: 'recusar', txt: 'Recusar.', rs: 'Recusou o proibido.', luz: 2 },
       ] } },
 
     { id: 'visao', zona: 'tacets', som: 'assets/audio/sfx/visao.mp3', se: (st) => st.escolhas.proibido === 'tocar', fundo: { img: 'assets/images/rosto-veias.jpg', kb: 'in', dim: .35, tint: 'visao', foco: '40% 35%', lado: 'dir' },
@@ -760,7 +764,7 @@ window.LIVRO = {
         { se: (st) => medido(st), t: 'Olhei a cabana uma vez antes de fechar a porta. Pequena de propósito, como sempre.' }, // NOVO v21 (medido)
         { se: (st) => aceso(st), t: 'Cinquenta e seis riscos na viga, cinquenta e sete na memória. Um dos dois estava errado, e eu ia embora sem saber qual.' }, // NOVO v21 (aceso)
       ],
-      pensa: [{ id: 'ficar', luzMin: 60, t: 'E se eu ficasse?', mais: 'Segurei a pergunta um instante, como se fosse uma pedra que valesse alguma coisa. Depois a larguei na neve.', luz: 3, atraso: 3600 }], // NOVO v21
+      pensa: [{ id: 'ficar', luzMin: 60, t: 'E se eu ficasse?', mais: 'Segurei a pergunta como se fosse uma pedra que valesse alguma coisa. Depois a larguei na neve.', luz: 3, atraso: 3600 }], // NOVO v21
       },
 
     { id: 'olho-norte', zona: 'borda', se: (st) => st.escolhas.joia === 'gelunah', fundo: { img: 'assets/images/olho-norte.jpg', kb: 'out', dim: .4, foco: '72% 45%', clima: 'neve' },
@@ -780,7 +784,7 @@ window.LIVRO = {
         { se: (st) => st.escolhas.joia === 'misterio', t: 'Passei a mão no bolso duas vezes antes do meio-dia, para ver se a pedra ainda estava lá. Estava.' }, // NOVO
         { se: (st) => st.escolhas.joia === 'valer', t: 'Passei a mão no bolso duas vezes antes do meio-dia, para ver se a Pedra da Borda ainda estava lá. Estava.' }, // NOVO
         { se: (st) => st.escolhas.joia === 'gelunah', t: 'Passei a mão no bolso duas vezes antes do meio-dia, para ver se o Olho de Gelunah ainda estava lá. Estava.' }, // NOVO
-        { se: (st) => st.escolhas.joia === 'cor', t: 'Passei a mão no bolso duas vezes antes do meio-dia, para ver se a pedra azul ainda estava lá. Estava. A cor ainda me lembrava de alguma coisa que eu não alcançava.' }, // NOVO v22
+        { se: (st) => st.escolhas.joia === 'cor', t: 'Passei a mão no bolso duas vezes antes do meio-dia, para ver se a pedra azul ainda estava lá. Estava. A cor me lembrava de alguma coisa que eu não alcançava.' }, // NOVO v22
         { se: (st) => st.f.feridoBesta, t: 'O ombro direito, onde a seta de Frígia entrou, latejava no frio a cada passo.' }, // NOVO v22
         { se: (st) => st.f.matouCacadores, t: 'O homem da besta continuava na neve, em algum lugar atrás de mim. Ninguém de Frígia ia buscá-lo antes da primavera.' }, // v24
         { se: (st) => st.f.viramLuz, t: 'Em algum lugar ao sul, numa taverna de Frígia, talvez três caçadores já estivessem contando de um velho que acendia. A estrada que eu ia tomar passava por lá.' }, // NOVO v22

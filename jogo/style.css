@@ -239,3 +239,5 @@ body.book .book, body.book #title .sub { display: none; }
 body.book #title h1 { display: none; }
 body.book #title .lede { font-size: clamp(20px, 2.4vw, 26px); color: var(--lumae-hot); font-style: italic; }
 @media (max-height: 460px) { #title.panel { padding-bottom: 20px; } #title .how { margin-bottom: 14px; font-size: 14px; } #title h1 { font-size: 48px; } }
+
+/* v29: dentro do livro não há placar público */
