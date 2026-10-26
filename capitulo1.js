@@ -147,7 +147,7 @@ window.LIVRO = {
       pensa: [{ id: 'luminosa', t: 'Antes, brilhar era bonito.', mais: 'Na Noite Luminosa nada se escondia, e de longe parecia que o chão tinha pegado fogo.', luz: 4, atraso: 4200 }], // NOVO v20
       texto: [
         'Às vezes sinto falta de uma conversa mais elaborada. Os Aug não são conhecidos por grande intelecto. Mas a vantagem é essa: não ligam se sou um Lúmae ou não, nem se deveriam se juntar ao resto do mundo, mais rico em conhecimento, para me declarar inimigo mortal da existência. Alguns anos passam sem eu proferir uma única palavra.',
-        'Aprendi como ninguém a silenciar os pensamentos, por sobrevivência. Esse domínio sobre a própria mente me ensinou também a deixar de sentir o frio. Nós, os Lúmae, temos veias douradas sob a pele que acendem quando pensamos, e quanto mais intenso o pensamento, mais forte a luz. É uma atenção que não posso me dar ao luxo de atrair.',
+        'Aprendi a silenciar os pensamentos, por sobrevivência. Esse domínio sobre a própria mente me ensinou também a deixar de sentir o frio. Nós, os Lúmae, temos veias douradas sob a pele que acendem quando pensamos, e quanto mais intenso o pensamento, mais forte a luz. É uma atenção que não posso me dar ao luxo de atrair.',
       ],
       },
 
@@ -294,7 +294,7 @@ window.LIVRO = {
             '— Levem esses e sigam o caminho de vocês.',
             'O da besta demorou a baixar a arma. Quando baixou, os três recolheram os pinguins sem pressa e sem agradecer, e sumiram atrás da crista. Vinte pinguins a menos. Os Aug iam notar.',
           ] },
-        { eixo: 'longe', id: 'mentir', txt: 'Fingir ser um velho caçador a serviço dos gigantes.', rs: 'Mentiu que os pinguins eram dos gigantes.', flag: 'mentiu', luzMax: 45, travaAcesaTxt: 'As mãos estão acesas demais para mentir.', voz: 'cacador-mentir', vozAtraso: 1700,
+        { eixo: 'longe', id: 'mentir', txt: 'Fingir ser um velho caçador a serviço dos gigantes.', rs: 'Mentiu que os pinguins eram dos gigantes.', luzMax: 45, travaAcesaTxt: 'As mãos estão acesas demais para mentir.', voz: 'cacador-mentir', vozAtraso: 1700,
           resultado: [
             'Puxei o capuz, curvei os ombros e deixei a voz sair rouca.',
             '— São do Glaciar. Os gigantes esperam por eles. Quem mexer no trenó vai explicar aos gigantes.',
@@ -333,10 +333,10 @@ window.LIVRO = {
     // NOVO v25: o resto do caminho até o Glaciar, conforme o que aconteceu com os caçadores
     { id: 'chegada-glaciar', zona: 'glaciar', fundo: { img: 'assets/images/entrada-glaciar.jpg', kb: 'in', dim: .5, foco: '60% 55%', clima: 'neve' },
       texto: [
-        { se: (st) => st.f.naoVisto, t: 'Ninguém tinha me visto o dia inteiro. Era assim que eu gostava que os dias fossem.' },
+        { se: (st) => st.f.naoVisto, t: 'Passei o dia sem ser visto. Era assim que eu gostava que os dias fossem.' },
         { se: (st) => !st.f.naoVisto && st.escolhas.cacadores === 'dar', t: 'Cheguei ao Glaciar com o trenó mais leve: oitenta e poucos pinguins. Os Aug sabem contar até cem quando o assunto é comida.' },
         { se: (st) => !st.f.naoVisto && st.escolhas.cacadores === 'mentir', t: 'Tinha usado o nome dos Aug para assustar homens. Se soubessem o medo que metem nos outros, dominariam o mundo. Ainda bem que só querem pinguim.' },
-        { se: (st) => !st.f.naoVisto && st.escolhas.cacadores === 'lutar', t: 'Puxei o trenó com a mão esquerda o caminho inteiro, com o braço direito morto ao lado do corpo e o sangue endurecido na manga. Com sorte, o álcool ia afogar a dor.' },
+        { se: (st) => !st.f.naoVisto && st.escolhas.cacadores === 'lutar', t: 'Puxei o trenó com a mão esquerda até o Glaciar, com o braço direito morto ao lado do corpo e o sangue endurecido na manga. Com sorte, o álcool ia afogar a dor.' },
         { se: (st) => !st.f.naoVisto && st.escolhas.cacadores === 'gelo', t: 'Olhei para trás o resto do caminho. Ninguém me seguia, o que não me deixou mais tranquilo. Talvez nem precisassem me seguir. Bastava contarem a alguém.' },
         { se: (st) => !st.f.naoVisto && st.escolhas.cacadores === 'fome', t: 'O trenó estava cinco pinguins mais leve. Não senti diferença no peso.' },
         'A boca do Glaciar Oco me engoliu como sempre: devagar, azul, e com aquele cheiro.',
@@ -348,7 +348,7 @@ window.LIVRO = {
         { se: (st) => st.f.feridoBesta, t: 'Nuuk farejou o ar antes de falar.' }, // NOVO v25
         { se: (st) => st.f.feridoBesta, t: '— UCÊ SANGUE.' }, // NOVO v25
         { se: (st) => st.f.feridoBesta, t: '— Não é nada.' }, // NOVO v25
-        { se: (st) => st.f.feridoBesta, t: 'Ele olhou para o meu ombro um tempo e não perguntou de novo.' }, // NOVO v25
+        { se: (st) => st.f.feridoBesta, t: 'Ele olhou para o meu ombro e não perguntou mais.' }, // NOVO v25
         '— GROMM BARRIGA RUIM, JÁ CAGAR UM URSO. NUUK FALAR COM UCÊ.',
         { se: (st) => !st.f.deuPinguins, t: '— Certo, Nuuk. Vim falar dos pinguins, tenho uma centena deles. Ainda tenho na minha cabana muita madeira e pele. Nessa temporada preciso apenas de banha e do destilado.' },
         { se: (st) => st.f.deuPinguins, t: '— Certo, Nuuk. Vim falar dos pinguins. São menos do que eu queria, oitenta e poucos. Ainda tenho na minha cabana muita madeira e pele. Nessa temporada preciso apenas de banha e do destilado.' }, // NOVO v22
@@ -366,7 +366,7 @@ window.LIVRO = {
         { eixo: 'perto', id: 'correr', txt: 'Correr atrás dele.',
           resultado: ['Mantive o passo, meio correndo, meio escorregando, a respiração virando fumaça na frente do rosto.'] }, // NOVO
         { eixo: 'longe', id: 'ritmo', txt: 'Andar no meu ritmo e seguir as pegadas dele.', luz: 3, flag: 'passoPerdido',
-          resultado: ['Perdi as costas dele duas vezes nas curvas do túnel, mas as pegadas eram do tamanho de Nuuk e de mais ninguém. Ele não diminuiu o passo por mim.', 'Andando sozinho entre paredes que brilham, é difícil não pensar, e as veias dos pulsos me lembraram disso.'] }, // NOVO
+          resultado: ['Perdi as costas dele duas vezes nas curvas do túnel, mas pegadas daquele tamanho só podiam ser de Nuuk. Ele não diminuiu o passo por mim.', 'Andando sozinho entre paredes que brilham, é difícil não pensar, e as veias dos pulsos me lembraram disso.'] }, // NOVO
       ] } },
 
     { id: 'p11', zona: 'tunel', fundo: { img: 'assets/images/dois-aug.jpg', kb: 'in', dim: .42, foco: '70% 55%', clima: 'cristais' },
@@ -420,7 +420,7 @@ window.LIVRO = {
         'O “aposento” de Gromm é um grande amontoado de ossos sobre uma pilha de rochas e ossos menores, formando um platô da altura de dois Aug, um tanto afastado do centro do Glaciar Oco.',
         { se: (st) => quieto(st), t: 'Subi atrás de Nuuk.' }, // NOVO v21 (quieto)
         { se: (st) => medido(st), t: 'Os ossos de baixo eram mais velhos que os de cima. Os Aug constroem como dormem, devagar, uma estação por vez.' }, // NOVO v21 (medido)
-        { se: (st) => aceso(st), t: 'Ossos de baleia na base, de mamute no meio, de urso no alto. Quem soubesse ler aquilo leria a história inteira do Glaciar Oco em restos de refeição. Os Lúmae teriam passado anos estudando aquilo. Eu só subi por cima.' }, // NOVO v21 (aceso)
+        { se: (st) => aceso(st), t: 'Ossos de baleia na base, de mamute no meio, de urso no alto. Quem soubesse ler aquilo leria ali a história do Glaciar Oco em restos de refeição. Os Lúmae teriam passado anos estudando aquilo. Eu só subi por cima.' }, // NOVO v21 (aceso)
       ] },
 
     { id: 'c-bronze', se: (st) => !st.f.pulou_gromm, zona: 'glaciar', fundo: { img: 'assets/images/aposento.jpg', kb: 'out', dim: .38, foco: '40% 80%', lado: 'dir', clima: 'cristais' },
@@ -537,12 +537,12 @@ window.LIVRO = {
     { id: 'p20', zona: 'glaciar', fundo: { img: 'assets/images/destilaria-osso.jpg', kb: 'out', dim: .45, foco: '40% 60%', lado: 'dir', clima: 'cristais' },
       texto: [
         'Colocam o líquido dentro de um osso oco de baleia, tampam e aquecem no vapor do gêiser. O vapor do álcool sobe, passa por um tubo de tripa de algum animal grande, que na ocasião não procurei identificar nem perguntar, e pinga do outro lado, pronto. Aí chega a parte mais nojenta: eles esvaziam a bexiga de outro animal gigante marinho, lavam com neve e costuram a abertura com tendões. Despejam o líquido lá dentro e dão um nó na entrada.',
-        'Abri a mochila e tirei os frascos, o suficiente para um ano inteiro de bebida. Daquela vez, a bexiga não me revirou o estômago.',
+        'Abri a mochila e tirei os frascos, o suficiente para um ano de bebida. Daquela vez, a bexiga não me revirou o estômago.',
         { se: (st) => st.f.deuPinguins, t: 'Nuuk me deu menos destilado do que nos outros invernos. Os pinguins que ficaram com os caçadores faltaram para o resto. Cada frasco ia ter de durar mais do que um mês.' }, // NOVO v22
         { se: (st) => quieto(st), t: 'Enchi os frascos. O cheiro subiu e eu não deixei que levasse nada junto.' }, // NOVO v21 (quieto)
         { se: (st) => medido(st) && !st.f.deuPinguins, t: 'Enchi os frascos devagar. Doze, um por lua, como sempre.' },
         { se: (st) => medido(st) && st.f.deuPinguins, t: 'Enchi os frascos devagar, contando cada um.' }, // NOVO v21 (medido)
-        { se: (st) => aceso(st), t: 'Enchi os frascos pensando que os Lúmae teriam feito disso uma ciência: a raiz certa, o tempo certo, um tratado inteiro sobre a melhor maneira de esquecer.' }, // NOVO v21 (aceso)
+        { se: (st) => aceso(st), t: 'Enchi os frascos pensando que os Lúmae teriam feito disso uma ciência: a raiz certa, o tempo certo, um tratado sobre a melhor maneira de esquecer.' }, // NOVO v21 (aceso)
       ],
       // v29: a pergunta a Nuuk fica visível desde o início (antes era um "…" que só surgia se o leitor esperasse, e falava em vez de calar)
       escolha: { id: 'destilaria', pergunta: 'O que Aheryn diz?', opcoes: [
@@ -567,7 +567,7 @@ window.LIVRO = {
     { id: 'p21', pensa: [{ id: 'noites', luzMin: 60, t: 'Quantas noites como esta cabem num século?', mais: 'Fiz a conta sem querer. Trinta e seis mil e quinhentas, mais ou menos. Passei quase todas olhando para um fogo ou outro.', luz: 3, atraso: 3200 }], estado: 'seco', ecos: [{ som: 'gelo3', ms: 5200 }, { som: 'gelo3', ms: 15500 }], zona: 'cabana-dentro', fundo: { img: 'assets/images/cabana-noite.jpg', kb: 'in', dim: .38, foco: '50% 35%', desloca: .16, clima: 'brasas' },
       capitular: true,
       texto: [
-        'Voltei à cabana com os frascos cheios e a noite inteira por cima do telhado.', // ALTERADO
+        'Voltei à cabana com os frascos cheios e a noite em cima do telhado.', // ALTERADO
         { se: (st) => st.f.matouCacadores, t: 'Na volta passei pelo lugar. A neve já tinha coberto metade dele. Não parei.' }, // NOVO v25
         { se: (st) => st.escolhas.cacadores === 'gelo', t: 'Na volta, o muro de gelo ainda estava de pé, torto, com a seta partida no pé dele.' }, // NOVO v25
         { se: (st) => st.f.naoVisto, t: 'Na volta, as pegadas deles cortavam as minhas na crista. Três pares, e nenhum tinha descido.' }, // NOVO v25
@@ -593,11 +593,12 @@ window.LIVRO = {
 
     { id: 'c-hino', estado: 'bebado', trai: { atraso: 1200 }, titulo: { nivel: 3, atraso: 1600 }, zona: 'cabana-dentro', fundo: { img: 'assets/images/cabana-noite-luz.jpg', kb: 'in', dim: .38, foco: '50% 35%', desloca: .16, clima: 'brasas' },
       texto: [
-        { se: (st) => !st.f.deuPinguins && (!st.guardados || st.guardados.length === 0), t: 'Ao quinto gole, ou ao sexto, sobrava um único pensamento. O Título. Título que me deram quando eu era o orgulho de um povo inteiro, quando a minha gente se reunia para me ouvir, quando ser eu era uma coisa boa de ser. Fizeram de mim uma canção. Uma criatura, no auge, recebe canções, e eu recebi a minha, e ela era bonita.' }, // v24
-        { se: (st) => st.f.deuPinguins && (!st.guardados || st.guardados.length === 0), t: 'No quarto gole parei, como tinha prometido a mim mesmo, e sobrava um único pensamento. O Título. Título que me deram quando eu era o orgulho de um povo inteiro, quando a minha gente se reunia para me ouvir, quando ser eu era uma coisa boa de ser. Fizeram de mim uma canção. Uma criatura, no auge, recebe canções, e eu recebi a minha, e ela era bonita.' }, // NOVO
-        { se: (st) => !st.f.deuPinguins && (st.guardados && st.guardados.length === 1), t: 'Ao quinto gole, ou ao sexto, quase tudo tinha ido embora. Sobrou o Título, e sobrou mais uma coisa, que não bebi até apagar. Título que me deram quando eu era o orgulho de um povo inteiro, quando a minha gente se reunia para me ouvir, quando ser eu era uma coisa boa de ser. Fizeram de mim uma canção. Uma criatura, no auge, recebe canções, e eu recebi a minha, e ela era bonita.' }, // v24
-        { se: (st) => st.f.deuPinguins && (st.guardados && st.guardados.length === 1), t: 'No quarto gole parei, como tinha prometido a mim mesmo, e quase tudo tinha ido embora. Sobrou o Título, e sobrou mais uma coisa, que não bebi até apagar. Título que me deram quando eu era o orgulho de um povo inteiro, quando a minha gente se reunia para me ouvir, quando ser eu era uma coisa boa de ser. Fizeram de mim uma canção. Uma criatura, no auge, recebe canções, e eu recebi a minha, e ela era bonita.' }, // NOVO
-        { se: (st) => st.guardados && st.guardados.length >= 2, t: 'Parei antes do fim. Ficaram o Título e mais algumas coisas que não tive coragem de afogar. Título que me deram quando eu era o orgulho de um povo inteiro, quando a minha gente se reunia para me ouvir, quando ser eu era uma coisa boa de ser. Fizeram de mim uma canção. Uma criatura, no auge, recebe canções, e eu recebi a minha, e ela era bonita.' }, // NOVO
+        { se: (st) => !st.f.deuPinguins && (!st.guardados || st.guardados.length === 0), t: 'Ao quinto gole, ou ao sexto, sobrava um único pensamento. O Título.' }, // v24
+        { se: (st) => st.f.deuPinguins && (!st.guardados || st.guardados.length === 0), t: 'No quarto gole parei, como tinha prometido a mim mesmo, e sobrava um único pensamento. O Título.' }, // NOVO
+        { se: (st) => !st.f.deuPinguins && (st.guardados && st.guardados.length === 1), t: 'Ao quinto gole, ou ao sexto, quase tudo tinha ido embora. Sobrou o Título, e sobrou mais uma coisa, que não bebi até apagar.' }, // v24
+        { se: (st) => st.f.deuPinguins && (st.guardados && st.guardados.length === 1), t: 'No quarto gole parei, como tinha prometido a mim mesmo, e quase tudo tinha ido embora. Sobrou o Título, e sobrou mais uma coisa, que não bebi até apagar.' }, // NOVO
+        { se: (st) => st.guardados && st.guardados.length >= 2, t: 'Parei antes do fim. Ficaram o Título e mais algumas coisas que não tive coragem de afogar.' }, // NOVO
+        'Título que me deram quando eu era o orgulho de um povo inteiro, quando a minha gente se reunia para me ouvir, quando ser eu era uma coisa boa de ser. Fizeram de mim uma canção. Uma criatura, no auge, recebe canções, e eu recebi a minha, e ela era bonita.',
         'E eu, bêbado, sozinho, na companhia espiritual da Mãe do Inverno, fiz a única coisa que faço quando a luz dentro de mim se recusa a apagar: cantei.',
       ],
       escolha: { id: 'hino', opcoes: [
@@ -616,8 +617,8 @@ window.LIVRO = {
       texto: [
         { se: (st) => st.escolhas.hino !== 'frestas', t: 'Cantei baixo, na língua que ninguém mais no mundo fala, a língua que morreu na boca dos que a falavam comigo. Um louvor a um homem que viu mais longe do que qualquer um do seu povo jamais vira, que olhou para onde não se deve olhar e voltou inteiro, e ensinou os outros a olhar.' },
         { se: (st) => st.escolhas.hino === 'frestas', t: 'Cantei na língua que ninguém mais no mundo fala, a língua que morreu na boca dos que a falavam comigo. Um louvor a um homem que viu mais longe do que qualquer um do seu povo jamais vira, que olhou para onde não se deve olhar e voltou inteiro, e ensinou os outros a olhar.' }, // ALTERADO (quem cantou alto)
-        { se: (st) => st.escolhas.hino === 'frestas', t: 'A melodia subia e o meu peito subia com ela, e a luz subiu também, e dessa vez eu deixei. Deixei brilhar, uma noite, porque não há ninguém em cem léguas para farejar um velho cantando para si mesmo.' }, // NOVO
-        { se: (st) => st.escolhas.hino !== 'frestas', t: 'A melodia subia, mas eu a mantive baixa. A luz não passou dos pulsos. Foi o hino inteiro, cantado do jeito que se pensa uma coisa proibida: por dentro, quase sem som.' }, // NOVO
+        { se: (st) => st.escolhas.hino === 'frestas', t: 'A melodia subia e o meu peito subia com ela, e a luz subiu também, e dessa vez eu deixei. Deixei brilhar, uma noite, porque em cem léguas não há quem fareje um velho cantando para si mesmo.' }, // NOVO
+        { se: (st) => st.escolhas.hino !== 'frestas', t: 'A melodia subia, mas eu a mantive baixa. A luz não passou dos pulsos. Cantei até o último verso como se pensa uma coisa proibida: por dentro, quase sem som.' }, // NOVO
       ],
       letra: [
         ['Sæl’orin vethas, dumael corvethune', 'luz que caminha, sob o peso do silêncio'],
@@ -630,7 +631,7 @@ window.LIVRO = {
 
     { id: 'p25', zona: 'cabana', fundo: (st) => (st.escolhas.hino === 'frestas' ? { clip: 'assets/clip/frestas.mp4', img: 'assets/images/frestas.jpg', dim: .35, foco: '40% 50%', lado: 'dir', clima: 'neve' } : { img: 'assets/images/noite-frasco.jpg', kb: 'in', dim: .45, foco: '35% 45%', lado: 'dir' }), musicaSai: true,
       texto: [
-        'Cantei o louvor inteiro. Cada verso que me chamava de grande.',
+        'Cantei o louvor até o fim, cada verso que me chamava de grande.',
         'Do lado de fora da cabana, o céu começava a clarear sem entusiasmo, como faz no inverno.',
         { se: (st) => st.f.fogo, t: 'O fogo tinha virado brasa e ainda esquentava o chão perto da mesa.' }, // NOVO
         { se: (st) => st.f.frasco, t: 'O frasco estava vazio sobre a mesa. Não lembrava de tê-lo terminado.' }, // NOVO
@@ -737,7 +738,7 @@ window.LIVRO = {
         { se: (st) => st.f.matouCacadores, t: 'Na véspera, um homem de Frígia tinha morrido na minha espada por causa de pinguins. Os três Tacets, que vinham me matar, estavam inteiros no fundo da água. Não soube dizer qual das duas coisas pesava mais.' }, // NOVO v22
         { se: (st) => st.f.bronzeQuebra, t: 'Bronze não suja, eu tinha dito a Nuuk. Bronze quebra. Quebra quando alguém do tamanho de Gromm decide quebrá-lo.' }, // NOVO v21
         { se: (st) => st.f.deduziu, t: 'Eu mesmo tinha dito a Nuuk que os Aug digerem pedra.' }, // NOVO v21
-        { se: (st) => st.f.magiaGromm, t: 'E Gromm tinha visto a luz. Os Aug não costumam contar nada a ninguém.' }, // NOVO
+        { se: (st) => st.f.magiaGromm, t: 'E Gromm tinha visto a luz. Os Aug não costumam contar o que veem.' }, // NOVO
         { se: (st) => st.f.examinou_bronze, t: 'Eu tivera um daqueles cacos na mão, e tudo o que fiz foi perguntar o que bronze fazia num lugar sem forja.' }, // NOVO
       ] },
 
@@ -786,10 +787,10 @@ window.LIVRO = {
         { se: (st) => st.escolhas.joia === 'gelunah', t: 'Passei a mão no bolso duas vezes antes do meio-dia, para ver se o Olho de Gelunah ainda estava lá. Estava.' }, // NOVO
         { se: (st) => st.escolhas.joia === 'cor', t: 'Passei a mão no bolso duas vezes antes do meio-dia, para ver se a pedra azul ainda estava lá. Estava. A cor me lembrava de alguma coisa que eu não alcançava.' }, // NOVO v22
         { se: (st) => st.f.feridoBesta, t: 'O ombro direito, onde a seta de Frígia entrou, latejava no frio a cada passo.' }, // NOVO v22
-        { se: (st) => st.f.matouCacadores, t: 'O homem da besta continuava na neve, em algum lugar atrás de mim. Ninguém de Frígia ia buscá-lo antes da primavera.' }, // v24
+        { se: (st) => st.f.matouCacadores, t: 'O homem da besta continuava na neve, em algum lugar atrás de mim. Frígia não ia mandar buscá-lo antes da primavera.' }, // v24
         { se: (st) => st.f.viramLuz, t: 'Em algum lugar ao sul, numa taverna de Frígia, talvez três caçadores já estivessem contando de um velho que acendia. A estrada que eu ia tomar passava por lá.' }, // NOVO v22
-        { se: (st) => st.f.naoVisto && !(st.jogo && st.jogo.won && st.luz >= 70), t: 'Ninguém de Frígia sabia que eu existia. Por mais um dia, isso ainda era verdade.' }, // NOVO v25
-        { se: (st) => st.f.naoVisto && st.jogo && st.jogo.won && st.luz >= 70, t: 'No caminho do Glaciar, ninguém de Frígia tinha me visto. Mas a luz da fenda subiu alto demais, e alguém, de algum lugar, deve ter visto aquela.' }, // NOVO v25
+        { se: (st) => st.f.naoVisto && !(st.jogo && st.jogo.won && st.luz >= 70), t: 'Frígia não sabia que eu existia. Por mais um dia, isso ainda era verdade.' }, // NOVO v25
+        { se: (st) => st.f.naoVisto && st.jogo && st.jogo.won && st.luz >= 70, t: 'No caminho do Glaciar, os caçadores de Frígia não tinham me visto. Mas a luz da fenda subiu alto demais, e alguém, de algum lugar, deve ter visto aquela.' }, // NOVO v25
         { se: (st) => st.f.deuComida, t: 'Pensei no garoto de Frígia segurando os pinguins contra o peito, e torci para que tivesse comido.' }, // NOVO v22
         { se: (st) => st.escolhas.diario === 'levar', t: 'O diário pesava no fundo da mochila mais do que o couro e o papel justificavam.' }, // NOVO
         { se: (st) => st.escolhas.diario === 'deixar', t: 'Da estrada dava para ver a chaminé até certa curva. Depois dela, ficaram para trás a cabana, o diário e a Borda do Mundo.' }, // NOVO

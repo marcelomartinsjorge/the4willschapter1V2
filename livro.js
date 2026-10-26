@@ -947,7 +947,6 @@ function explorar(p, modo) {
       const ja = st.escolhas.joia;
       if (ja) { const r = L.pedra.razoes.find((x) => x.id === ja); return fim(r ? r.resultado : L.pedra.deixar); }
       const abertura = st.f.viu_pedra ? L.pedra.levantar : L.pedra.curta;
-      if (!st.f.viu_pedra) st.f.achou_tarde = true;
       tx.innerHTML = `<p>${esc(tr(abertura))}</p>` + botoes([['cta dz-levar', U('ex').levar], ['ghost dz-deixar', U('ex').deixar]]);
       tx.querySelector('.dz-deixar').onclick = () => { st.escolhas.joia = 'deixar'; registrar('joia', 'deixar'); salvar(); A.sfx('pedra-mesa', .5); fim(L.pedra.deixar); };
       tx.querySelector('.dz-levar').onclick = () => {
