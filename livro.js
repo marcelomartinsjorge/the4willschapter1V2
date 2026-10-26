@@ -368,7 +368,7 @@ function sensacao(p, dir) {
 }
 function sobePensa(th, k) {
   const el = document.createElement('button'); el.className = 'pensa'; el.type = 'button';
-  const ensina = !st.feitos.dicaPensa; // v29: só o primeiro pensamento do capítulo ensina o gesto
+  const ensina = !st.feitos.dicaPensa && !th.prende; // v31: a abertura (prende) é só atmosfera; a dica vem no primeiro pensamento fora dela
   el.innerHTML = `<span>${esc(tr(th.t))}</span>` + (ensina ? `<small class="pensa-dica">${esc(U('dicaSegure'))}</small>` : '');
   if (ensina) { st.feitos.dicaPensa = 1; salvar(); }
   const pos = posPensa(k + th.id.length * 7); el.style.left = pos.x + '%'; el.style.top = pos.y + '%';
