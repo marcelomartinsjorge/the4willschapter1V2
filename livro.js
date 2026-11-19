@@ -585,7 +585,7 @@ function render(dir = 1) {
   }
   if (p.cena) $('#cena').onclick = () => verCena(p.cena);
   if (p.efeito && !st.feitos['ef:' + p.id]) { st.feitos['ef:' + p.id] = 1; if (p.efeito.flag) st.f[p.efeito.flag] = true; if (p.efeito.luz) timers.push(setTimeout(() => mudaLuz(p.efeito.luz), 1200)); }
-  if (p.olhoSe && p.olhoSe(st) && !st.feitos.olho && dir > 0) timers.push(setTimeout(() => { if (P[st.i] === p) { st.feitos.olho = 1; salvar(); CINEMA.olho(); } }, 2800));
+  if (p.olhoSe && p.olhoSe(st) && !st.feitos.olho && dir > 0) timers.push(setTimeout(() => { if (P[st.i] === p) { st.feitos.olho = 1; salvar(); CINEMA.olho(); } }, 1200));
   if (p.passosGigante && A.ctx) { let k = 0; const passo = () => { A.passo(); k++; timers.push(setTimeout(passo, 950)); }; timers.push(setTimeout(passo, 600)); }
   // contagem: parte do texto espera os passos soarem antes de aparecer
   let contando = false;
@@ -805,7 +805,7 @@ const CINEMA = {
         if (fechado) return; fechado = true; A.stopNarr(); o.classList.remove('on');
         setTimeout(() => { if (o.classList.contains('olho')) fechaOverlay(); resolve(); }, 900);
       };
-      o.onclick = fim;
+      const t0 = Date.now(); o.onclick = () => { if (Date.now() - t0 > 3000) fim(); }; // v34: um toque apressado nos 3 primeiros segundos não fecha o olho
       setTimeout(() => {
         if (fechado) return;
         if (!A.ctx || !A.on) return setTimeout(fim, 6000);
@@ -1028,7 +1028,7 @@ const MG = {
           goles++; A.gole(); o.classList.remove('bebe'); void o.offsetWidth; o.classList.add('bebe');
           atualizaTexto(goles); parar.disabled = false;
           if (--p.hp > 0) { if (p.vozResiste) fala(p.vozResiste); b.classList.add('resiste'); setTimeout(() => b.classList.remove('resiste'), 500); return; }
-          p.morto = true; b.classList.add('afoga'); A.apaga(); if (p.voz) fala(p.voz);
+          p.morto = true; b.classList.add('afoga'); A.apaga(); mudaLuz(-4); if (p.voz) fala(p.voz); // v34: cada pensamento afogado apaga a luz na hora
           if (pens.every((q) => q.morto)) encerra();
         };
         campo.appendChild(b);
@@ -1038,14 +1038,14 @@ const MG = {
         const vivos = pens.filter((p) => !p.morto), mortos = pens.length - vivos.length;
         // o que ficou aceso se junta ao Título (o cânone: sobra um único pensamento)
         vivos.forEach((p) => { p.el.classList.add('funde'); p.el.style.left = '50%'; p.el.style.top = '45%'; });
-        const ganho = Math.round(vivos.length * 5 - mortos * 1.5);
+        const ganho = vivos.length * 4; // v34: o que sobrou devolve um pouco (o afogado já tirou na hora)
         st.guardados = vivos.map((p) => p.t);
         // o que foi afogado não volta: some das escolhas de depois (a magia diante dos Tacets, Gelunah na pedra)
         const afog = pens.filter((p) => p.morto).map((p) => p.id); st.afogados = afog;
         st.f.afogouMagia = afog.includes('magia'); st.f.afogouGelunah = afog.includes('gelunah'); if (st.f.afogouGelunah) st.gelunah -= 1; st.escolhas.goles = String(vivos.length); registrar('goles', String(vivos.length)); salvar();
         atualizaTexto(99); if (goles < limite && goles > 0) setTimeout(() => fala('ultimo-gole'), 900);
         setTimeout(() => {
-          const tt = document.createElement('div'); tt.className = 'titulo'; tt.textContent = tr('O Título.'); campo.appendChild(tt); A.luzSobe();
+          const tt = document.createElement('div'); tt.className = 'titulo'; tt.textContent = tr('O Título.'); campo.appendChild(tt); if (ganho > 0) A.luzSobe();
           o.querySelector('.mgsub').textContent = vivos.length ? U('sobrou') : U('unico');
           if (ganho) mudaLuz(ganho);
           setTimeout(() => { fechaOverlay(); resolve(); }, 3400);
