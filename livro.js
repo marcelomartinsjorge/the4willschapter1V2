@@ -25,11 +25,11 @@ const UI = {
     gelo: 'O gelo obedece', geloSub: 'Toque as runas que acendem. Não toque as armadilhas.', geloRuna: 'Runa: toque', geloTrap: 'Armadilha: não toque', geloLuz: (r) => ['A luz quase não acendeu hoje.', 'A luz está nas pontas dos dedos.', 'A luz está nos pulsos.', 'A luz chegou ao pescoço.', 'A luz chegou ao peito.', 'A luz chegou ao rosto.'][r] + ' Quanto mais acesa, mais rápido os Tacets chegam.',
     suasTodas: 'Suas escolhas', travaQuieta: 'A cabeça está quieta demais para isso.', travaAcesa: 'A luz não deixa calar.',
     persona: { quieto: 'O Aheryn que você fez: quieto.', medido: 'O Aheryn que você fez: medido. Pensou só o que podia pagar.', aceso: 'O Aheryn que você fez: aceso. Pensou tudo o que um Lúmae pensa e brilhou por isso.' }, regioes: ['nada', 'dedos', 'pulsos', 'pescoço', 'peito', 'rosto'], apagarA: 'Apagar',
-    goL1: 'Não desviei.', goL2: 'A pedra de Gromm não errou. Aheryn morreu no Glaciar Oco.', goBtn: 'Voltar a Gromm', rsQ: { armadilha: 'A cova', gelunah: 'Gelunah', passo: 'Atrás de Nuuk', atencao: 'O que Aheryn percebeu', bronze: 'O bronze no chão', pedra: 'A pedra de Gromm', mente: 'Sozinho com o trenó', cacadores: 'Os caçadores', culpa: 'O grito de Gromm', sujeira: 'A sujeira', ritual: 'A noite na cabana', hino: 'O hino', proibido: 'O proibido' }, mesmoQue: 'escolheram igual',
-    mg: { goles: 'Um pensamento a menos', 'hino-do-gelo': 'O gelo obedece', cabana: 'Conferir a casa', despedida: 'O que levar' },
-    ex: { abrir: 'Abrir', fechar: 'Fechar', voltar: '← Voltar', levar: 'Levar', deixar: 'Deixar', recolocar: 'Recolocar a tábua', falta: 'Escolha o que fazer com o diário antes de partir.', diarioCab: 'Lembranças do Velho Mundo', deslize: 'Deslize para ver a cabana inteira' },
-    dica: { cabana: 'Toque em cada coisa da cabana antes de sair.', despedida: 'Escolha o que vai na mochila.', goles: 'Cada gole apaga um pensamento. Você escolhe quais afogar e quando parar de beber. O que ficar aceso vira Luz.', jogo: (r) => `${['A luz quase não acendeu hoje.', 'A luz está nas pontas dos dedos.', 'A luz está nos pulsos.', 'A luz chegou ao pescoço.', 'A luz chegou ao peito.', 'A luz chegou ao rosto.'][r]} O que acendeu começa aceso no gelo, mas faz os Tacets chegarem mais rápido.` }, dicaSegure: 'segure para seguir', dicaApaga: 'toque para apagar',
-    coverEye: 'As Quatro Vontades · Livro I · Capítulo I', coverLede: 'Leia. Decida pelo Aheryn. E, quando o gelo pedir, jogue.', coverGo: 'Entrar no mundo gelado', coverCont: 'Continuar de onde parei', coverRestart: 'Começar do início', coverHint: 'Use fones. Avance com o botão, com a seta → ou deslizando para o lado.',
+    goL1: 'Não desviei.', goL2: 'A pedra de Gromm não errou. Aheryn morreu no Glaciar Oco.', goBtn: 'Voltar a Gromm', rsQ: { armadilha: 'A cova', gelunah: 'Gelunah', passo: 'Atrás de Nuuk', atencao: 'O que Aheryn percebeu', bronze: 'O bronze no chão', pedra: 'A pedra de Gromm', mente: 'Sozinho com o trenó', cacadores: 'Os caçadores', culpa: 'O grito de Gromm', sujeira: 'A sujeira', ritual: 'A noite na cabana', hino: 'O hino', proibido: 'O proibido', dicaGromm: 'Antes de sair do aposento', adeusNuuk: 'Nuuk' }, mesmoQue: 'escolheram igual',
+    mg: { goles: 'Um pensamento a menos', 'hino-do-gelo': 'O gelo obedece', cabana: 'Conferir a casa', despedida: 'O que levar', olhar: 'Olhar sem ser visto', frascos: 'Encher os frascos' },
+    ex: { abrir: 'Abrir', fechar: 'Fechar', voltar: '← Voltar', levar: 'Levar', deixar: 'Deixar', recolocar: 'Recolocar a tábua', falta: 'Escolha o que fazer com o diário antes de partir.', diarioCab: 'Lembranças do Velho Mundo', deslize: 'Deslize para ver a cabana inteira', deslizeOlhar: 'Deslize para ver o aposento' },
+    dica: { frascos: 'Segure para derramar o destilado e solte na marca. Passou da marca, derrama no chão.', olhar: 'Segure um ponto para olhar. Cabem dois olhares no tempo de uma respiração de Gromm. Cada olhar acende um pouco a luz.', cabana: 'Toque em cada coisa da cabana antes de sair.', despedida: 'Escolha o que vai na mochila.', goles: 'Cada gole apaga um pensamento. Você escolhe quais afogar e quando parar de beber. O que ficar aceso vira Luz.', jogo: (r) => `${['A luz quase não acendeu hoje.', 'A luz está nas pontas dos dedos.', 'A luz está nos pulsos.', 'A luz chegou ao pescoço.', 'A luz chegou ao peito.', 'A luz chegou ao rosto.'][r]} O que acendeu começa aceso no gelo, mas faz os Tacets chegarem mais rápido.` }, dicaSegure: 'segure para seguir', dicaApaga: 'toque para apagar',
+    coverEye: 'As Quatro Vontades · Livro I · Capítulo I', coverLede: 'Cem anos escondido no fim do mundo. Aheryn: o último dos Lúmae.', coverGo: 'Entrar no mundo gelado', coverCont: 'Continuar de onde parei', coverRestart: 'Começar do início', coverHint: 'Use fones. Avance com o botão, com a seta → ou deslizando para o lado.',
     luzTitle: 'A Luz do Aheryn: sobe quando ele sente, lembra e canta; desce quando ele se cala',
     confirm: 'Recomeçar o capítulo? Suas escolhas serão apagadas.', capI: 'Capítulo I', fimCap: 'Fim do Capítulo I', ficou: 'O que ficou de você no gelo', luz: 'Luz', suas: 'O que você levou', pedraQ: 'A pedra', diarioQ: 'O diário', levouPedra: 'Levou a pedra', deixouPedra: 'Deixou a pedra onde estava', nuncaPedra: 'Nunca a encontrou', levouDiario: 'Levou o diário', deixouDiario: 'Deixou o diário', reler: 'Reler e escolher diferente', mesmo: (p) => `${p}% dos leitores fizeram o mesmo`,
     fraseAlta: 'Aheryn deixou a luz subir mais do que devia. Alguém, em algum lugar, pode ter visto.', fraseBaixa: 'Aheryn quase não acendeu. Ninguém em cem léguas saberia que ele esteve ali.', fraseMeio: 'Aheryn acendeu e apagou na medida de quem sobrevive há um século.',
@@ -37,18 +37,18 @@ const UI = {
     jogoVenceu: (t, s) => `O gelo obedeceu em ${t}, com ${s} pontos.`, jogoSeguiu: 'O primeiro Tacet chegou antes do gelo. Aheryn carrega a marca de bronze no braço.', venceu: 'Venceu', perdeu: 'Os Tacets chegaram primeiro', silencioR: 'Silêncio', desviou: 'Desviou', atingido: 'Foi atingido',
     passoT: 'Acompanhar Nuuk', passoSub: 'Não perca Nuuk de vista.', sumindo: 'Nuuk está sumindo nas curvas…', perdi: 'Perdi Nuuk de vista.', atras: 'Você ficou para trás.', junto: 'Você acompanhou Nuuk.', esq: 'Pé esquerdo', dir: 'Pé direito',
     pedraSub: 'Gromm levanta alguma coisa…', pedraOk: 'Desviou por pouco.', pedraHit: 'A pedra acertou.',
-    golesT: 'Um pensamento a menos', golesSub: 'Toque um pensamento para afogá-lo com um gole.', parar: 'Parar de beber', sobrou: 'O que ficou aceso se juntou ao Título.', unico: 'Sobrou um único pensamento.', guardados: 'Pensamentos que Aheryn guardou', afogados: 'afogou tudo',
+    golesT: 'Um pensamento a menos', golesSub: 'Toque um pensamento para afogá-lo com um gole.', frSub: 'Segure para encher. Solte na marca.', parar: 'Parar de beber', sobrou: 'O que ficou aceso se juntou ao Título.', unico: 'Sobrou um único pensamento.', guardados: 'Pensamentos que Aheryn guardou', afogados: 'afogou tudo',
   },
   en: { cantar: '▶ Let Aheryn sing', parte: 'Part', prox: 'Next', fim: 'Close the chapter', voltar: '← Back', ouvir: 'Listen to Aheryn', cena: '▶ Watch the scene', oque: 'What does Aheryn do?', decida: 'Decide', decidir: 'Decide', escolheu: 'You chose:', resp: 'Answer', silencio: 'stay silent', momento: 'Moment of play',
     tutLuz: 'This is Aheryn’s Light.', tutLuz2: 'When he feels, his veins light up. When he goes quiet, they go dark.', tutOk: 'Got it',
     gelo: 'The ice obeys', geloSub: 'Tap the runes that light up. Don’t touch the traps.', geloRuna: 'Rune: tap it', geloTrap: 'Trap: don’t touch', geloLuz: (r) => ['The light barely rose today.', 'The light is at the fingertips.', 'The light is at the wrists.', 'The light has reached the neck.', 'The light has reached the chest.', 'The light has reached the face.'][r] + ' The brighter it is, the faster the Tacets come.',
     suasTodas: 'Your choices', travaQuieta: 'His head is too quiet for that.', travaAcesa: 'The light won’t let him stay silent.',
     persona: { quieto: 'The Aheryn you made: quiet.', medido: 'The Aheryn you made: measured. He thought only what he could pay for.', aceso: 'The Aheryn you made: lit. He thought everything a Lúmae thinks, and shone for it.' }, regioes: ['nothing', 'fingertips', 'wrists', 'neck', 'chest', 'face'], apagarA: 'Put it out',
-    goL1: 'I didn\'t move.', goL2: 'Gromm\'s rock didn\'t miss. Aheryn died in the Hollow Glacier.', goBtn: 'Back to Gromm', rsQ: { armadilha: 'The pit', gelunah: 'Gelunah', passo: 'Behind Nuuk', atencao: 'What Aheryn noticed', bronze: 'The bronze on the floor', pedra: 'Gromm’s rock', mente: 'Alone with the sled', cacadores: 'The hunters', culpa: 'Gromm’s shout', sujeira: 'The trash', ritual: 'The night in the cabin', hino: 'The hymn', proibido: 'The forbidden' }, mesmoQue: 'chose the same',
-    mg: { goles: 'One thought less', 'hino-do-gelo': 'The ice obeys', cabana: 'Check the house', despedida: 'What to take' },
-    ex: { abrir: 'Open', fechar: 'Close', voltar: '← Back', levar: 'Take it', deixar: 'Leave it', recolocar: 'Put the board back', falta: 'Decide what to do with the diary before leaving.', diarioCab: 'Memories of the Old World', deslize: 'Swipe to see the whole cabin' },
-    dica: { cabana: 'Touch each thing in the cabin before leaving.', despedida: 'Choose what goes in the pack.', goles: 'Each swallow drowns one thought. You choose which to drown and when to stop drinking. Whatever stays lit becomes Light.', jogo: (r) => `${['The light barely rose today.', 'The light is at the fingertips.', 'The light is at the wrists.', 'The light has reached the neck.', 'The light has reached the chest.', 'The light has reached the face.'][r]} What is lit starts lit in the ice, but it brings the Tacets faster.` }, dicaSegure: 'hold to follow', dicaApaga: 'tap to put it out',
-    coverEye: 'The Four Wills · Book I · Chapter I', coverLede: 'Read. Decide for Aheryn. And when the ice asks, play.', coverGo: 'Enter the frozen world', coverCont: 'Continue where I left off', coverRestart: 'Start from the beginning', coverHint: 'Wear headphones. Move on with the button, the → key, or a swipe.',
+    goL1: 'I didn\'t move.', goL2: 'Gromm\'s rock didn\'t miss. Aheryn died in the Hollow Glacier.', goBtn: 'Back to Gromm', rsQ: { armadilha: 'The pit', gelunah: 'Gelunah', passo: 'Behind Nuuk', atencao: 'What Aheryn noticed', bronze: 'The bronze on the floor', pedra: 'Gromm’s rock', mente: 'Alone with the sled', cacadores: 'The hunters', culpa: 'Gromm’s shout', sujeira: 'The trash', ritual: 'The night in the cabin', hino: 'The hymn', proibido: 'The forbidden', dicaGromm: 'Before leaving the chamber', adeusNuuk: 'Nuuk' }, mesmoQue: 'chose the same',
+    mg: { goles: 'One thought less', 'hino-do-gelo': 'The ice obeys', cabana: 'Check the house', despedida: 'What to take', olhar: 'Look without being seen', frascos: 'Fill the flasks' },
+    ex: { abrir: 'Open', fechar: 'Close', voltar: '← Back', levar: 'Take it', deixar: 'Leave it', recolocar: 'Put the board back', falta: 'Decide what to do with the diary before leaving.', diarioCab: 'Memories of the Old World', deslize: 'Swipe to see the whole cabin', deslizeOlhar: 'Swipe to see the whole chamber' },
+    dica: { frascos: 'Hold to pour the spirit and let go at the line. Past the line, it spills on the floor.', olhar: 'Hold a spot to look. There is time for two looks in one of Gromm’s breaths. Each look lights you a little.', cabana: 'Touch each thing in the cabin before leaving.', despedida: 'Choose what goes in the pack.', goles: 'Each swallow drowns one thought. You choose which to drown and when to stop drinking. Whatever stays lit becomes Light.', jogo: (r) => `${['The light barely rose today.', 'The light is at the fingertips.', 'The light is at the wrists.', 'The light has reached the neck.', 'The light has reached the chest.', 'The light has reached the face.'][r]} What is lit starts lit in the ice, but it brings the Tacets faster.` }, dicaSegure: 'hold to follow', dicaApaga: 'tap to put it out',
+    coverEye: 'The Four Wills · Book I · Chapter I', coverLede: 'A hundred years hidden at the end of the world. Aheryn: the last of the Lúmae.', coverGo: 'Enter the frozen world', coverCont: 'Continue where I left off', coverRestart: 'Start from the beginning', coverHint: 'Wear headphones. Move on with the button, the → key, or a swipe.',
     luzTitle: 'Aheryn’s Light: it rises when he feels, remembers and sings; it falls when he goes silent',
     confirm: 'Restart the chapter? Your choices will be erased.', capI: 'Chapter I', fimCap: 'End of Chapter I', ficou: 'What of you remained in the ice', luz: 'Light', suas: 'What you carried', pedraQ: 'The stone', diarioQ: 'The diary', levouPedra: 'Took the stone', deixouPedra: 'Left the stone where it was', nuncaPedra: 'Never found it', levouDiario: 'Took the diary', deixouDiario: 'Left the diary', reler: 'Read again and choose differently', mesmo: (p) => `${p}% of readers did the same`,
     fraseAlta: 'Aheryn let the light rise more than he should have. Someone, somewhere, may have seen it.', fraseBaixa: 'Aheryn barely lit at all. No one for a hundred leagues would know he had been there.', fraseMeio: 'Aheryn lit and dimmed in the measure of someone who has survived for a century.',
@@ -56,7 +56,7 @@ const UI = {
     jogoVenceu: (t, s) => `The ice obeyed in ${t}, with ${s} points.`, jogoSeguiu: 'The first Tacet reached him before the ice. Aheryn carries the bronze mark on his arm.', venceu: 'Won', perdeu: 'The Tacets arrived first', silencioR: 'Silence', desviou: 'Dodged', atingido: 'Was hit',
     passoT: 'Keep up with Nuuk', passoSub: 'Don’t lose sight of Nuuk.', sumindo: 'Nuuk is vanishing around the bends…', perdi: 'I lost sight of Nuuk.', atras: 'You fell behind.', junto: 'You kept up with Nuuk.', esq: 'Left foot', dir: 'Right foot',
     pedraSub: 'Gromm lifts something…', pedraOk: 'Dodged by a hair.', pedraHit: 'The rock hit.',
-    golesT: 'One thought less', golesSub: 'Tap a thought to drown it with a swallow.', parar: 'Stop drinking', sobrou: 'Whatever stayed lit joined the Title.', unico: 'A single thought remained.', guardados: 'Thoughts Aheryn kept', afogados: 'drowned them all',
+    golesT: 'One thought less', golesSub: 'Tap a thought to drown it with a swallow.', frSub: 'Hold to pour. Let go at the line.', parar: 'Stop drinking', sobrou: 'Whatever stayed lit joined the Title.', unico: 'A single thought remained.', guardados: 'Thoughts Aheryn kept', afogados: 'drowned them all',
   },
 };
 const U = (k) => UI[LANG][k];
@@ -363,10 +363,11 @@ function sensacao(p, dir) {
   if (p.titulo && dir >= 0) timers.push(setTimeout(() => { if (P[st.i] === p) mostraTitulo(p.titulo.nivel); }, p.titulo.atraso || 3000));
   if (p.mente && !st.feitos['mt:' + p.id]) timers.push(setTimeout(() => mente(p), 30));
   else if (p.mente) timers.push(setTimeout(() => menteFim(p, st.escolhas.mente), 40));
+  if (p.dias && !st.feitos['dias:' + p.id]) timers.push(setTimeout(() => dias(p), 30));
   if (p.conter && !st.feitos['ct2:' + p.id]) timers.push(setTimeout(() => conter(p), 30));
   else if (p.conter) timers.push(setTimeout(() => { const l = linhaConter(); if (l) txt.children[0] && txt.children[0].insertAdjacentHTML('afterend', pHTML(tr(l))); }, 40));
 }
-function sobePensa(th, k) {
+function sobePensa(th, k, cb) {
   const el = document.createElement('button'); el.className = 'pensa'; el.type = 'button';
   const ensina = !st.feitos.dicaPensa && !th.prende; // v31: a abertura (prende) é só atmosfera; a dica vem no primeiro pensamento fora dela
   el.innerHTML = `<span>${esc(tr(th.t))}</span>` + (ensina ? `<small class="pensa-dica">${esc(U('dicaSegure'))}</small>` : '');
@@ -375,14 +376,15 @@ function sobePensa(th, k) {
   camada.appendChild(el); A.ctx && A.sobe();
   let raf = 0, t0 = 0, fim = false;
   const vida = th.vida || 7500;
-  const morre = setTimeout(() => { if (fim) return; fim = true; el.classList.add('contido'); st.feitos['pe:' + th.id] = 'conteve'; salvar(); if (th.vozCortar) fala(th.vozCortar); setTimeout(() => el.remove(), 1600); }, vida);
+  if (th.voz) fala(th.voz);
+  const morre = setTimeout(() => { if (fim) return; fim = true; el.classList.add('contido'); st.feitos['pe:' + th.id] = 'conteve'; salvar(); if (th.luzSolta) { mudaLuz(th.luzSolta); A.ctx && A.apaga(); } if (th.vozCortar) fala(th.vozCortar); setTimeout(() => el.remove(), 1600); cb && cb('conteve'); }, vida);
   const segue = () => {
     fim = true; clearTimeout(morre); cancelAnimationFrame(raf); el.classList.add('seguido');
     st.feitos['pe:' + th.id] = 'seguiu'; registrar('pensa:' + th.id, 'seguiu'); salvar(); if (th.vozSeguir) fala(th.vozSeguir);
     mudaLuz(th.luz || 4);
     if (th.mais) setTimeout(() => { txt.insertAdjacentHTML('beforeend', pHTML(tr(th.mais), 'novo pensado')); panel.scrollTop = panel.scrollHeight; }, 700);
     if (th.prende) setTimeout(() => { document.body.classList.add('prende'); A.ctx && A.prende(); setTimeout(() => document.body.classList.remove('prende'), 2400); }, 1500);
-    setTimeout(() => el.remove(), 1500);
+    setTimeout(() => el.remove(), 1500); cb && cb('seguiu');
   };
   const anda = () => { const q = Math.min(1, (performance.now() - t0) / 1100); el.style.setProperty('--k', q.toFixed(3)); if (q >= 1) return segue(); raf = requestAnimationFrame(anda); };
   el.addEventListener('pointerdown', (ev) => { if (fim) return; ev.preventDefault(); t0 = performance.now(); el.classList.add('segura'); raf = requestAnimationFrame(anda); });
@@ -392,6 +394,32 @@ function sobePensa(th, k) {
   ['pointerup', 'pointerleave', 'pointercancel'].forEach((ev) => el.addEventListener(ev, solta));
   el.addEventListener('contextmenu', (ev) => ev.preventDefault());
   el.addEventListener('keydown', (ev) => { if ((ev.key === 'Enter' || ev.key === ' ') && !fim) { ev.preventDefault(); segue(); } });
+}
+// v35: os nove dias. Um risco por dia no pé da tela, um pensamento por dia; segurar acende, deixar passar contém.
+function dias(p) {
+  const D = p.dias, rs = document.createElement('div'); rs.className = 'riscos';
+  rs.innerHTML = D.lista.map(() => '<i></i>').join(''); camada.appendChild(rs);
+  let k = 0;
+  const proximo = () => {
+    if (P[st.i] !== p) return;
+    if (k >= D.lista.length) return fecha();
+    const th = D.lista[k]; rs.children[k].classList.add('on'); k++;
+    if (A.ctx) A.tone(660, .25, 'sine', .025, 0, .9);
+    if (st.feitos['pe:' + th.id]) return timers.push(setTimeout(proximo, 250));
+    // quem deixou os três primeiros dias passarem está contendo: os outros passam mais depressa
+    const parado = k > 3 && !D.lista.slice(0, k - 1).some((t) => st.feitos['pe:' + t.id] === 'seguiu');
+    const th2 = parado ? Object.assign({}, th, { vida: Math.round((th.vida || 3400) * .55) }) : th;
+    timers.push(setTimeout(() => { if (P[st.i] === p) sobePensa(th2, k * 3, () => timers.push(setTimeout(proximo, parado ? 300 : 500))); }, 350));
+  };
+  const fecha = () => {
+    const contidos = D.lista.filter((t) => st.feitos['pe:' + t.id] === 'conteve').length;
+    st.feitos['dias:' + p.id] = 1; st.f.diasContidos = contidos === D.lista.length; st.f.diasSeguidos = D.lista.length - contidos;
+    registrar('dias', String(D.lista.length - contidos)); salvar();
+    timers.push(setTimeout(() => A.ctx && A.frasco(), 500));
+    timers.push(setTimeout(() => { if (P[st.i] === p) mostraTitulo(1); }, 1500));
+    timers.push(setTimeout(() => { if (P[st.i] !== p) return; rs.classList.add('sai'); appendParas(D.saida); setNext(true); }, 4200));
+  };
+  timers.push(setTimeout(proximo, D.atraso || 2000));
 }
 // o corpo trai: as veias sobem sem o leitor fazer nada
 function traicao(t) {
@@ -629,6 +657,7 @@ function render(dir = 1) {
   if (p.antes && !st.feitos['an:' + p.id]) { const segura = livre; if (segura) { livre = false; timers.push(setTimeout(() => { if (P[st.i] === p) setNext(true); }, p.antes.ms)); } }
   if (p.apagar) livre = renderApagar(p);
   if (p.conter && !st.feitos['ct2:' + p.id]) livre = false;
+  if (p.dias) { if (st.feitos['dias:' + p.id]) { p.dias.lista.forEach((th) => { if (th.mais && st.feitos['pe:' + th.id] === 'seguiu') txt.insertAdjacentHTML('beforeend', pHTML(tr(th.mais), 'pensado')); }); appendParas(p.dias.saida); } else livre = false; }
   if (p.mente && !st.feitos['mt:' + p.id]) livre = false;
   setNext(livre);
   btnPrev.disabled = idxVis(st.i, -1) < 0; btnPrev.textContent = U('voltar');
@@ -671,7 +700,7 @@ function renderEscolha(p) {
 }
 function abreEscolha(p) {
   const e = p.escolha;
-  box.innerHTML = `<p class="eyebrow">${e.urgente ? U('decida') : (e.pergunta ? esc(tr(e.pergunta)) : U('oque'))}</p>` + e.opcoes.map(optHTML).join('') + (e.janela ? '<div class="tenso"></div>' : '');
+  box.innerHTML = `<p class="eyebrow">${e.urgente ? U('decida') : (e.pergunta ? esc(tr(e.pergunta)) : U('oque'))}</p>` + e.opcoes.filter((o) => !o.soSe || o.soSe(st)).map(optHTML).join('') + (e.janela ? '<div class="tenso"></div>' : '');
   box.classList.toggle('urgente', !!e.urgente);
   box.querySelectorAll('.opt').forEach((b) => b.onclick = () => escolher(p, b.dataset.id));
   if (e.janela) {
@@ -852,7 +881,7 @@ function renderMinijogo(p) {
   const done = st.feitos['mg:' + p.id];
   if (p.minijogo === 'goles') txt.innerHTML = golesTexto(done ? 99 : 0).map((t) => pHTML(t)).join('');
   if (done) { appendParas(p.depois); if (p.minijogo === 'goles' && st.guardados) mostraGuardados(); return true; }
-  const dicas = { cabana: U('dica').cabana, despedida: U('dica').despedida, goles: U('dica').goles, 'hino-do-gelo': U('dica').jogo(regiao(st.luz)) };
+  const dicas = { frascos: U('dica').frascos, olhar: U('dica').olhar, cabana: U('dica').cabana, despedida: U('dica').despedida, goles: U('dica').goles, 'hino-do-gelo': U('dica').jogo(regiao(st.luz)) };
   box.innerHTML = `<p class="eyebrow">${U('momento')}</p><button class="opt jogar" id="mgGo"><span class="k">▶</span>${U('mg')[p.minijogo]}</button><p class="dica">${dicas[p.minijogo]}</p>`;
   $('#mgGo').onclick = () => { box.innerHTML = ''; MG[p.minijogo](p).then((res) => { st.feitos['mg:' + p.id] = 1; salvar(); if (res !== 'nav') { if (p.minijogo === 'goles') { txt.innerHTML = golesTexto(99).map((t) => pHTML(t)).join(''); mostraGuardados(); } appendParas(p.depois); setNext(true); } }); };
   return false;
@@ -1004,6 +1033,105 @@ function explorar(p, modo) {
 }
 
 const MG = {
+  // v35 (P2): encher os frascos. Segurar derrama; soltar na marca fecha o frasco e ele conta. Passar da marca derrama no chão.
+  frascos(p) {
+    return new Promise((resolve) => {
+      const F = p.frascos, o = abreOverlay('frascos'), total = F.total, cheio = total + 1.2;
+      let estoque = st.f.deuPinguins ? F.poucos : cheio;
+      o.innerHTML = `<p class="mgt">${esc(tr(F.instrucao))}</p><div class="fr-bex"><i></i></div><p class="fr-num"></p>
+        <div class="fr-fila">${'<b><i></i><s></s></b>'.repeat(total)}</div><p class="mgsub">${esc(U('frSub'))}</p>`;
+      const bs = [...o.querySelectorAll('.fr-fila b')], bex = o.querySelector('.fr-bex i'), num = o.querySelector('.fr-num');
+      const MARCA = .8; let k = 0, nivel = 0, raf = 0, t0 = 0, segurando = false, derramando = false, derramou = 0, fim = false;
+      bs[0].classList.add('vez');
+      const desenha = () => { if (bs[k]) bs[k].style.setProperty('--n', Math.min(1, nivel).toFixed(3)); bex.style.transform = `scaleX(${Math.max(0, estoque / cheio).toFixed(3)})`; };
+      const encerra = (seco) => {
+        if (fim) return; fim = true; segurando = false; cancelAnimationFrame(raf);
+        if (seco) { num.textContent = tr(F.acabou); bs.slice(k).forEach((b) => b.classList.add('vazio')); }
+        st.f.derramou = derramou; st.f.frascosCheios = k; registrar('frascos', String(k)); salvar();
+        setTimeout(() => { fechaOverlay(); resolve(); }, 2000);
+      };
+      const pronto = () => {
+        const b = bs[k]; b.classList.remove('vez', 'enche', 'derrama'); b.classList.add('cheio'); A.sfx('frascos', .45);
+        num.textContent = tr(F.numeros[k]); num.classList.remove('pulsa'); void num.offsetWidth; num.classList.add('pulsa');
+        k++; nivel = 0; if (k >= total) return encerra(false); bs[k].classList.add('vez'); if (estoque <= .05) encerra(true);
+      };
+      const passo = (now) => {
+        if (!segurando || fim) return; const dt = Math.min(.2, (now - t0) / 1000); t0 = now;
+        if (estoque <= 0) return encerra(true);
+        const d = Math.min(estoque, dt * 1.0); estoque -= d; nivel += d;
+        if (nivel > 1.12 && !derramando) { derramando = true; derramou++; bs[k].classList.add('derrama'); }
+        desenha(); raf = requestAnimationFrame(passo);
+      };
+      const segura = (ev) => { if (fim || segurando) return; if (ev) ev.preventDefault(); segurando = true; derramando = false; t0 = performance.now(); bs[k].classList.add('enche'); if (A.ctx) A.hiss(.5, 1300, .6, .04, 0, 'bandpass'); raf = requestAnimationFrame(passo); };
+      const solta = () => { if (!segurando || fim) return; segurando = false; cancelAnimationFrame(raf); bs[k].classList.remove('enche', 'derrama'); if (nivel >= MARCA) pronto(); };
+      o.addEventListener('pointerdown', segura); ['pointerup', 'pointercancel', 'pointerleave'].forEach((e) => o.addEventListener(e, solta));
+      o.addEventListener('contextmenu', (e) => e.preventDefault());
+      const kd = (e) => { if (e.key === ' ' || e.key === 'Enter') { if (!o.classList.contains('frascos')) return removeEventListener('keydown', kd); e.preventDefault(); if (!e.repeat) segura(); } };
+      const ku = (e) => { if (e.key === ' ' || e.key === 'Enter') { if (!o.classList.contains('frascos')) return removeEventListener('keyup', ku); solta(); } };
+      addEventListener('keydown', kd); addEventListener('keyup', ku);
+      desenha();
+    });
+  },
+  // v35: olhar sem ser visto. Dois olhares no tempo de uma respiração de Gromm; segurar um ponto é olhar.
+  olhar(p) {
+    return new Promise((resolve) => {
+      const ex = p.olhar, o = abreOverlay('explorar olhar');
+      const pts = ex.pontos.filter((pt) => !pt.soSe || pt.soSe(st));
+      o.innerHTML = `<div class="ex-rolo"><div class="ex-caixa" style="--r:${ex.proporcao};background-image:url('${ex.img}')"></div></div>
+        <p class="ex-instr"></p><div class="ol-resp"><i></i></div>
+        <div class="ex-texto"><div class="ex-corpo"></div><div class="ex-acoes"></div></div>`;
+      const caixa = o.querySelector('.ex-caixa'), corpo = o.querySelector('.ex-corpo'), acoes = o.querySelector('.ex-acoes'), instr = o.querySelector('.ex-instr'), barra = o.querySelector('.ol-resp i'), rolo = o.querySelector('.ex-rolo');
+      const dur = (aceso(st) ? ex.janelaAceso : ex.janela) * 1000; let vistos = 0, fim = false, t0 = 0;
+      const mostra = (t) => { corpo.innerHTML = `<p>${esc(tr(t))}</p>`; corpo.classList.remove('novo'); void corpo.offsetWidth; corpo.classList.add('novo'); };
+      const conta = () => { instr.textContent = `${tr(ex.instrucao)} · ${vistos}/${ex.max}`; };
+      const encerra = () => {
+        if (fim) return; fim = true; o.classList.add('fim');
+        caixa.querySelectorAll('.ex-pt').forEach((b) => { b.disabled = true; });
+        if (!vistos) mostra(ex.nada);
+        if (A.ctx) A.respira();
+        acoes.innerHTML = `<button class="cta">${esc(tr(ex.fechaBtn))}</button>`;
+        acoes.querySelector('button').onclick = () => { fechaOverlay(); resolve(); };
+      };
+      const olha = (pt, b) => {
+        if (fim || b.classList.contains('visto')) return;
+        b.classList.remove('segura'); b.classList.add('visto'); vistos++;
+        st.f[pt.flag] = true; (pt.flags || []).forEach((f) => { st.f[f] = true; }); registrar('olhar', pt.id); salvar();
+        mudaLuz(ex.luz); mostra(pt.texto); conta();
+        if (vistos >= ex.max) timers.push(setTimeout(encerra, 900));
+      };
+      pts.forEach((pt) => {
+        const b = document.createElement('button'); b.className = 'ex-pt ol-pt';
+        Object.assign(b.style, { left: (pt.x - pt.w / 2) + '%', top: (pt.y - pt.h / 2) + '%', width: pt.w + '%', height: pt.h + '%' });
+        b.setAttribute('aria-label', tr(pt.rotulo)); b.innerHTML = `<i></i><span>${esc(tr(pt.rotulo))}</span>`;
+        let raf = 0, h0 = 0;
+        const anda = () => { const k = Math.min(1, (performance.now() - h0) / 1200); b.style.setProperty('--k', k.toFixed(3)); if (k >= 1) return olha(pt, b); raf = requestAnimationFrame(anda); };
+        b.addEventListener('pointerdown', (ev) => { if (fim || b.classList.contains('visto')) return; ev.preventDefault(); h0 = performance.now(); b.classList.add('segura'); raf = requestAnimationFrame(anda); });
+        const solta = () => { cancelAnimationFrame(raf); b.classList.remove('segura'); if (!b.classList.contains('visto')) b.style.setProperty('--k', '0'); };
+        ['pointerup', 'pointerleave', 'pointercancel'].forEach((ev) => b.addEventListener(ev, solta));
+        b.addEventListener('contextmenu', (ev) => ev.preventDefault());
+        b.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); olha(pt, b); } });
+        caixa.appendChild(b);
+      });
+      conta(); mostra(paras(p.texto)[0] || '');
+      // a janela começa no primeiro respiro de Gromm. Na tela vertical a imagem rola: aí o respiro só começa no primeiro olhar (ou depois de um tempo parado)
+      let comecou = false;
+      const inicia = () => {
+        if (comecou || fim) return; comecou = true;
+        if (A.ctx) A.respira(); t0 = performance.now();
+        const tick = (now) => { if (fim || !o.classList.contains('olhar')) return; const q = Math.max(0, 1 - (now - t0) / dur); barra.style.transform = `scaleX(${q.toFixed(3)})`; if (q <= 0) return encerra(); requestAnimationFrame(tick); };
+        requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(() => {
+        rolo.scrollLeft = (rolo.scrollWidth - rolo.clientWidth) / 2;
+        const rola = rolo.scrollWidth > rolo.clientWidth + 20;
+        if (rola) {
+          const d = document.createElement('p'); d.className = 'ex-deslize'; d.textContent = '‹  ' + U('ex').deslizeOlhar + '  ›'; o.appendChild(d);
+          rolo.addEventListener('scroll', () => d.classList.add('some'), { once: true });
+          caixa.addEventListener('pointerdown', inicia, { once: true }); timers.push(setTimeout(inicia, 9000));
+        } else timers.push(setTimeout(inicia, 900));
+      });
+    });
+  },
   cabana(p) { return explorar(p, 'cabana'); },
   despedida(p) { return explorar(p, 'despedida'); },
   // ---------- acompanhar Nuuk: o túnel corre, Nuuk vai à frente; pise nas pegadas dele alternando os pés
@@ -1015,6 +1143,16 @@ const MG = {
         { id: 'magia', t: 'Todas as magias que sei lançar.', voz: 'gole-magia' }, { id: 'gelunah', t: st.gelunah >= 1 ? 'O olhar dela, hoje, sobre a montanha.' : 'Um dragão triste, a oeste.', voz: st.gelunah >= 1 ? 'gole-gelunah-vivo' : 'gole-gelunah-fraco' },
         { id: 'gromm', t: st.f.pulou_gromm ? 'O gigante que eu não fui ver.' : 'O sangue de Gromm no chão.', voz: st.f.pulou_gromm ? 'gole-gromm-pulou' : 'gole-gromm-sangue' },
       ].concat(st.f.matouCacadores ? [{ id: 'cacadores', t: 'O homem da besta, caindo de costas.', forte: 2, voz: 'gole-besta' }] : []);
+      // v35: só volta à noite o que ele segurou de manhã; o que segurou duas vezes resiste a mais um gole
+      if (st.feitos['dias:abertura']) {
+        const seg = (n) => (st.feitos['pe:dia' + n] === 'seguiu' ? 1 : 0);
+        const grupos = { seculo: [3, 7], lumae: [1, 4], heroi: [5, 8], magia: [6, 9] };
+        for (let i = pens.length - 1; i >= 0; i--) {
+          const q = pens[i], d = grupos[q.id];
+          if (d) { const n = seg(d[0]) + seg(d[1]); if (!n) { pens.splice(i, 1); continue; } q.forte = n >= 2 ? 2 : 1; if (q.forte < 2) delete q.vozResiste; }
+          else if (q.id === 'gelunah' && !seg(2) && st.escolhas.gelunah !== 'sentir') pens.splice(i, 1);
+        }
+      }
       o.innerHTML = `<p class="mgt">${U('golesT')}</p><div class="campo"></div><p class="mgsub">${U('golesSub')}</p><button class="parar" disabled>${U('parar')}</button>`;
       const campo = o.querySelector('.campo'), parar = o.querySelector('.parar'); let goles = 0, fim = false;
       const limite = st.f.deuPinguins ? 4 : 99; // menos pinguins, menos destilado
@@ -1103,13 +1241,14 @@ const MG = {
 
 // ----- goles: o texto canônico avança a cada gole
 function golesTexto(g) {
+  const pre = st.f.diasContidos ? ['Restava pouco para afogar. Eu tinha feito quase todo o trabalho de manhã, sem frasco.'] : []; // v35
   const seq = ['Bebi.',
     'O líquido era espesso na boca. Gosto de ferro primeiro, depois uma doçura enjoativa, de coisa que fermentou tempo demais, e por fim um amargo de terra e de carne crua. Uma gordura cobria a língua e deixava atrás um sal de bicho. Bebida de quem vive entre a vida e a podridão. Era repugnante, e eu não conseguia parar.',
     'Bebi de novo, e foi um pensamento de menos.',
     'Há noites em que a vontade de pensar é mais forte, de voltar ao século passado e às memórias boas. Quando os Lúmae existiam, quando eu era o herói do meu povo.',
     'Mais um gole, e mais um pensamento se foi.',
     'Naquela noite me perguntei outra vez quanto tempo eu ia aguentar viver assim, antes de erguer as mãos e lançar todas as magias e maldições que sei lançar.'];
-  return seq.slice(0, g + 1).map(tr);
+  return pre.concat(seq.slice(0, g + 1)).map(tr);
 }
 function atualizaTexto(g) {
   const lines = golesTexto(g), have = txt.querySelectorAll('p').length;
@@ -1176,7 +1315,7 @@ async function resumo() {
   // só o que mais pesa: a pedra (e o nome que ganhou) e o diário
   const joia = st.escolhas.joia, razao = L.pedra.razoes.find((x) => x.id === joia);
   // todas as escolhas do capítulo, na ordem da história, cada uma com a porcentagem de quem escolheu igual
-  const linhas = [], COMPARA = ['armadilha', 'mente', 'cacadores', 'proibido'];
+  const linhas = [], COMPARA = ['armadilha', 'mente', 'cacadores', 'dicaGromm', 'proibido', 'adeusNuuk'];
   P.forEach((pg) => { const e = pg.escolha || pg.pensamento || pg.resumoEsc; if (!e || !COMPARA.includes(e.id) || !st.escolhas[e.id]) return;
     const o = e.opcoes.find((x) => x.id === st.escolhas[e.id]); if (!o) return;
     linhas.push({ id: e.id, op: o.id, q: (U('rsQ') || {})[e.id] || U('oque'), a: tr(o.rs || o.txt) }); });
