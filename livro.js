@@ -374,20 +374,25 @@ function sobePensa(th, k, cb) {
   if (ensina) { st.feitos.dicaPensa = 1; salvar(); }
   const pos = posPensa(k + th.id.length * 7); el.style.left = pos.x + '%'; el.style.top = pos.y + '%';
   camada.appendChild(el); A.ctx && A.sobe();
+  // v36: nunca nascer em cima de outro pensamento ainda na tela
+  const outros = [...camada.querySelectorAll('.pensa')].filter((o) => o !== el && !o.classList.contains('contido') && !o.classList.contains('seguido'));
+  const bate = () => { const a = el.getBoundingClientRect(); return outros.some((o) => { const b = o.getBoundingClientRect(); return a.left < b.right + 12 && b.left < a.right + 12 && a.top < b.bottom + 12 && b.top < a.bottom + 12; }); };
+  for (let n = 1; n <= 24 && outros.length && bate(); n++) { const q = posPensa(k + th.id.length * 7 + n * 13); el.style.left = q.x + '%'; el.style.top = q.y + '%'; }
   let raf = 0, t0 = 0, fim = false;
   const vida = th.vida || 7500;
   if (th.voz) fala(th.voz);
-  const morre = setTimeout(() => { if (fim) return; fim = true; el.classList.add('contido'); st.feitos['pe:' + th.id] = 'conteve'; salvar(); if (th.luzSolta) { mudaLuz(th.luzSolta); A.ctx && A.apaga(); } if (th.vozCortar) fala(th.vozCortar); setTimeout(() => el.remove(), 1600); cb && cb('conteve'); }, vida);
+  const morre = setTimeout(() => { if (fim || !el.isConnected) return; fim = true; el.classList.add('contido'); st.feitos['pe:' + th.id] = 'conteve'; salvar(); if (th.luzSolta) { mudaLuz(th.luzSolta); A.ctx && A.apaga(); } if (th.vozCortar) fala(th.vozCortar); setTimeout(() => el.remove(), 1600); fimCb('conteve'); }, vida);
+  let avisou = false; const fimCb = (r) => { if (avisou) return; avisou = true; cb && cb(r); };
   const segue = () => {
-    fim = true; clearTimeout(morre); cancelAnimationFrame(raf); el.classList.add('seguido');
+    if (fim) return; fim = true; clearTimeout(morre); cancelAnimationFrame(raf); el.classList.add('seguido');
     st.feitos['pe:' + th.id] = 'seguiu'; registrar('pensa:' + th.id, 'seguiu'); salvar(); if (th.vozSeguir) fala(th.vozSeguir);
     mudaLuz(th.luz || 4);
     if (th.mais) setTimeout(() => { txt.insertAdjacentHTML('beforeend', pHTML(tr(th.mais), 'novo pensado')); panel.scrollTop = panel.scrollHeight; }, 700);
     if (th.prende) setTimeout(() => { document.body.classList.add('prende'); A.ctx && A.prende(); setTimeout(() => document.body.classList.remove('prende'), 2400); }, 1500);
-    setTimeout(() => el.remove(), 1500); cb && cb('seguiu');
+    setTimeout(() => el.remove(), 1500); fimCb('seguiu');
   };
   const anda = () => { const q = Math.min(1, (performance.now() - t0) / 1100); el.style.setProperty('--k', q.toFixed(3)); if (q >= 1) return segue(); raf = requestAnimationFrame(anda); };
-  el.addEventListener('pointerdown', (ev) => { if (fim) return; ev.preventDefault(); t0 = performance.now(); el.classList.add('segura'); raf = requestAnimationFrame(anda); });
+  el.addEventListener('pointerdown', (ev) => { if (fim) return; ev.preventDefault(); cancelAnimationFrame(raf); t0 = performance.now(); el.classList.add('segura'); raf = requestAnimationFrame(anda); });
   const solta = () => { if (fim) return; cancelAnimationFrame(raf); el.classList.remove('segura');
     // v29: o toque curto responde (o anel enche um pouco e volta), para o jogador descobrir que segurar faz alguma coisa
     const k0 = parseFloat(el.style.getPropertyValue('--k')) || 0; el.style.setProperty('--k', Math.max(k0, .33).toFixed(2)); clearTimeout(el._volta); el._volta = setTimeout(() => { if (!fim) el.style.setProperty('--k', '0'); }, 280); };
@@ -399,9 +404,9 @@ function sobePensa(th, k, cb) {
 function dias(p) {
   const D = p.dias, rs = document.createElement('div'); rs.className = 'riscos';
   rs.innerHTML = D.lista.map(() => '<i></i>').join(''); camada.appendChild(rs);
-  let k = 0;
+  let k = 0, fechou = false; const vez = (dias.vez = (dias.vez || 0) + 1); // v36: se a página renderizar de novo, a fila antiga para
   const proximo = () => {
-    if (P[st.i] !== p) return;
+    if (P[st.i] !== p || fechou || dias.vez !== vez) return;
     if (k >= D.lista.length) return fecha();
     const th = D.lista[k]; rs.children[k].classList.add('on'); k++;
     if (A.ctx) A.tone(660, .25, 'sine', .025, 0, .9);
@@ -412,12 +417,13 @@ function dias(p) {
     timers.push(setTimeout(() => { if (P[st.i] === p) sobePensa(th2, k * 3, () => timers.push(setTimeout(proximo, parado ? 300 : 500))); }, 350));
   };
   const fecha = () => {
+    if (fechou) return; fechou = true;
     const contidos = D.lista.filter((t) => st.feitos['pe:' + t.id] === 'conteve').length;
     st.feitos['dias:' + p.id] = 1; st.f.diasContidos = contidos === D.lista.length; st.f.diasSeguidos = D.lista.length - contidos;
     registrar('dias', String(D.lista.length - contidos)); salvar();
     timers.push(setTimeout(() => A.ctx && A.frasco(), 500));
     timers.push(setTimeout(() => { if (P[st.i] === p) mostraTitulo(1); }, 1500));
-    timers.push(setTimeout(() => { if (P[st.i] !== p) return; rs.classList.add('sai'); appendParas(D.saida); setNext(true); }, 4200));
+    timers.push(setTimeout(() => { if (P[st.i] !== p || dias.vez !== vez) return; rs.classList.add('sai'); appendParas(D.saida); setNext(true); }, 4200));
   };
   timers.push(setTimeout(proximo, D.atraso || 2000));
 }
