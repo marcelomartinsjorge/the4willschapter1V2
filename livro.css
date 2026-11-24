@@ -724,3 +724,13 @@ body.escuro #ptext > p { font-size: clamp(18px, 1.6vw, 22px); }
 @keyframes frTreme { 50% { transform: translateX(1px); } }
 #mg.frascos .fr-fila b.cheio { border-color: rgba(221,231,235,.55); opacity: .85; }
 #mg.frascos .fr-fila b.vazio { opacity: .25; }
+
+/* v37: a luz escapa na abertura */
+#escapa { position: fixed; inset: 0; pointer-events: none; z-index: 3; opacity: 0;
+  background: radial-gradient(ellipse 70% 55% at 50% 78%, rgba(255,246,214,.95) 0%, rgba(255,214,120,.7) 22%, rgba(241,170,60,.32) 48%, rgba(241,170,60,0) 75%); }
+body.escapa #escapa { animation: escapaLuz 4.2s ease-out both; }
+@keyframes escapaLuz { 0% { opacity: 0; } 5% { opacity: 1; } 14% { opacity: .82; } 30% { opacity: .5; } 60% { opacity: .2; } 100% { opacity: 0; } }
+body.escapa #page { animation: escapaTreme .5s ease-out; }
+@keyframes escapaTreme { 0%, 100% { transform: translateX(-50%); } 20% { transform: translateX(calc(-50% - 3px)); } 45% { transform: translateX(calc(-50% + 2px)); } 70% { transform: translateX(calc(-50% - 1px)); } }
+body.escapa #veias { opacity: 1 !important; }
+@media (prefers-reduced-motion: reduce) { body.escapa #page { animation: none; } body.escapa #escapa { animation-duration: 3s; } }

@@ -145,6 +145,18 @@ const A = {
   luzSobe() { this.sfx('luz', .5); },
   luzDesce() { this.tone(330, .7, 'sine', .05, 0, .6); },
   aviso() { this.tone(523, .9, 'triangle', .03); this.tone(784, 1.1, 'sine', .025, .1); },
+  // v37: o louvor ao longe, abafado (o Título que ele ouve sem querer). ini/dur em segundos do louvor.mp3
+  async eco(url, o = {}) {
+    if (!this.ctx) return; const b = await this.buf(url); if (!b) return; this.ecoStop(.2);
+    const t = this.ctx.currentTime, d = o.dur || 6, v = o.vol || .16, s = this.ctx.createBufferSource(); s.buffer = b;
+    const f = this.ctx.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = o.lp || 900; const g = this.ctx.createGain();
+    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(v, t + 1.2); g.gain.setValueAtTime(v, t + Math.max(1.3, d - 2.5)); g.gain.exponentialRampToValueAtTime(.0001, t + d);
+    s.connect(f); f.connect(g); g.connect(this.fx); s.start(t, o.ini || 0, d + .1); this.ecoH = { s, g };
+  },
+  ecoStop(fade = 1.5) { const h = this.ecoH; if (!h || !this.ctx) return; this.ecoH = null; const t = this.ctx.currentTime; try { h.g.gain.cancelScheduledValues(t); h.g.gain.setValueAtTime(Math.max(h.g.gain.value, .0001), t); h.g.gain.exponentialRampToValueAtTime(.0001, t + fade); h.s.stop(t + fade + .05); } catch (e) {} },
+  // v37: o mundo para por um instante (o ambiente some e volta)
+  silencio(ms) { if (!this.ctx) return; const t = this.ctx.currentTime; this.bed.gain.cancelScheduledValues(t); this.bed.gain.setTargetAtTime(.0001, t, .06); clearTimeout(this.silT); this.silT = setTimeout(() => this.duck(!!this.narr), ms); },
+  escapa() { this.tone(98, 2.8, 'sawtooth', .035, 0, 2.2); this.tone(392, 1.8, 'sine', .04, .05, 1.5); this.hiss(1.6, 2400, .6, .12, 0); this.sfx('luz', .9); this.tone(294, 1.6, 'sine', .04, 1.9, .55); },
   gole() { this.sfx('gole', .8); golesN++; document.documentElement.style.setProperty('--goles', Math.min(1, golesN / 6).toFixed(2)); },
   filtro(f) { if (this.lp) this.lp.frequency.setTargetAtTime(f, this.ctx.currentTime, .8); },
   // sons da cabeça e do mundo, sintetizados
@@ -421,11 +433,25 @@ function dias(p) {
     const contidos = D.lista.filter((t) => st.feitos['pe:' + t.id] === 'conteve').length;
     st.feitos['dias:' + p.id] = 1; st.f.diasContidos = contidos === D.lista.length; st.f.diasSeguidos = D.lista.length - contidos;
     registrar('dias', String(D.lista.length - contidos)); salvar();
-    timers.push(setTimeout(() => A.ctx && A.frasco(), 500));
-    timers.push(setTimeout(() => { if (P[st.i] === p) mostraTitulo(1); }, 1500));
-    timers.push(setTimeout(() => { if (P[st.i] !== p || dias.vez !== vez) return; rs.classList.add('sai'); appendParas(D.saida); setNext(true); }, 4200));
+    const ok = () => P[st.i] === p && dias.vez === vez;
+    // v37: no nono dia a luz escapa, para todo jogador. É ela que traz os Tacets até o Glaciar.
+    const E = D.escapa ? 4200 : 0;
+    if (D.escapa) {
+      timers.push(setTimeout(() => { if (ok()) escapaLuz(); }, 500));
+      timers.push(setTimeout(() => { if (ok()) appendParas([D.escapa]); }, 1700));
+    }
+    timers.push(setTimeout(() => A.ctx && A.frasco(), 500 + E));
+    timers.push(setTimeout(() => { if (ok()) { mostraTitulo(1); if (D.eco) A.eco(D.eco.src, D.eco); } }, 1500 + E));
+    timers.push(setTimeout(() => { if (!ok()) return; rs.classList.add('sai'); appendParas(D.saida); setNext(true); }, 4200 + E));
   };
   timers.push(setTimeout(proximo, D.atraso || 2000));
+}
+// v37: a luz escapa (abertura). Um clarão dourado no escuro, as veias no máximo, e a luz descendo devagar.
+function escapaLuz() {
+  let el = document.getElementById('escapa'); if (!el) { el = document.createElement('div'); el.id = 'escapa'; document.body.appendChild(el); }
+  const cl = document.body.classList; cl.remove('escapa', 'trai'); void document.body.offsetWidth; cl.add('escapa', 'trai');
+  A.ctx && A.escapa(); if (navigator.vibrate) try { navigator.vibrate([40, 60, 120]); } catch (e) {}
+  setTimeout(() => cl.remove('trai'), 2600); setTimeout(() => cl.remove('escapa'), 4200);
 }
 // o corpo trai: as veias sobem sem o leitor fazer nada
 function traicao(t) {
@@ -589,6 +615,9 @@ function render(dir = 1) {
     A.setZone(p.zona);
     if (p.som && dir > 0) A.once(p.som, .55);
     if (p.musicaSai) A.musicOut();
+    if (!p.eco) A.ecoStop();
+    { const sl = typeof p.silencio === 'function' ? p.silencio(st) : p.silencio; if (sl && dir > 0) A.silencio(sl); }
+    if (p.eco && dir > 0) timers.push(setTimeout(() => { if (P[st.i] === p) A.eco(p.eco.src, p.eco); }, p.eco.ms || 0));
     if (p.passos) A.stepsOn(); else A.stepsOff();
   }
   document.body.dataset.zona = p.zona;
