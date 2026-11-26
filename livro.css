@@ -734,3 +734,63 @@ body.escapa #page { animation: escapaTreme .5s ease-out; }
 @keyframes escapaTreme { 0%, 100% { transform: translateX(-50%); } 20% { transform: translateX(calc(-50% - 3px)); } 45% { transform: translateX(calc(-50% + 2px)); } 70% { transform: translateX(calc(-50% - 1px)); } }
 body.escapa #veias { opacity: 1 !important; }
 @media (prefers-reduced-motion: reduce) { body.escapa #page { animation: none; } body.escapa #escapa { animation-duration: 3s; } }
+
+/* ---------------- v38: biblioteca de efeitos ---------------- */
+/* geada: o frio de Gelunah nas bordas */
+#geada { position: fixed; inset: 0; pointer-events: none; z-index: 3; opacity: 0; transition: opacity 1.6s ease;
+  background:
+    radial-gradient(ellipse 115% 85% at 50% 50%, rgba(210,230,255,0) 48%, rgba(215,233,255,.55) 74%, rgba(245,250,255,.92) 100%),
+    radial-gradient(circle at 8% 12%, rgba(255,255,255,.35) 0 1.5%, transparent 9%), radial-gradient(circle at 93% 20%, rgba(255,255,255,.3) 0 1%, transparent 8%),
+    radial-gradient(circle at 12% 88%, rgba(255,255,255,.3) 0 1.2%, transparent 10%), radial-gradient(circle at 90% 85%, rgba(255,255,255,.35) 0 1.5%, transparent 9%);
+  -webkit-mask: radial-gradient(ellipse 115% 85% at 50% 50%, transparent 44%, #000 80%); mask: radial-gradient(ellipse 115% 85% at 50% 50%, transparent 44%, #000 80%); }
+body.geada #geada { opacity: 1; }
+body.geada-recua #geada { opacity: .35; transition: opacity 2.4s ease; }
+body.geada-some #geada { opacity: 0; transition: opacity .5s ease; }
+body.geada-passa #geada { animation: geadaPassa 3.2s ease-in-out both; }
+@keyframes geadaPassa { 0% { opacity: 0; transform: translateX(-30%); } 35% { opacity: .9; } 65% { opacity: .9; } 100% { opacity: 0; transform: translateX(30%); } }
+body.geada-recua #veias { opacity: 1 !important; }
+
+/* golpe: impacto curto */
+body.golpe #page, body.golpe .bgl { animation: golpeT .4s cubic-bezier(.3,.7,.4,1); }
+@keyframes golpeT { 0%,100% { translate: 0 0; } 15% { translate: -5px 3px; } 35% { translate: 4px -2px; } 60% { translate: -2px 1px; } }
+
+/* pensamento interrompido */
+.corta-b { display: none; }
+p.cortado .corta-a { opacity: .22; filter: blur(1.2px); transition: opacity 1.1s ease, filter 1.1s ease; }
+p.cortado .corta-b { display: inline; }
+
+/* a memória que não confere */
+.oscila.troca { color: #ffd48a; text-shadow: 0 0 8px rgba(255,212,138,.6); }
+
+/* frestas douradas no hino */
+#page ~ #frestas, #frestas { display: none; }
+body.frestas::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 1; mix-blend-mode: screen;
+  background: repeating-linear-gradient(90deg, rgba(255,200,110,0) 0 7.5%, rgba(255,205,120,.28) 7.5% 7.9%, rgba(255,200,110,0) 7.9% 12%);
+  animation: frestas 9s ease-in-out infinite alternate; }
+@keyframes frestas { 0% { opacity: .55; } 50% { opacity: 1; } 100% { opacity: .7; } }
+
+/* opção que se escolhe segurando */
+.opt.segurar { position: relative; overflow: hidden; }
+.opt.segurar::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,205,120,.35), rgba(255,205,120,.12)); transform-origin: left; transform: scaleX(var(--k, 0)); pointer-events: none; }
+.opt .seg-dica { display: block; font-size: .72em; opacity: .55; letter-spacing: .12em; text-transform: uppercase; margin-top: .2em; }
+
+/* minijogo: ouvir pelo frio */
+#mg.escuta { background: radial-gradient(ellipse at 50% 60%, #0b0f16 0%, #030407 80%); display: flex; align-items: center; justify-content: center; }
+#mg.escuta .es-wrap { text-align: center; max-width: 34rem; padding: 2rem 1.4rem; }
+#mg.escuta .es-instr { opacity: .7; font-style: italic; margin-bottom: 2.2rem; }
+#mg.escuta .es-orb { width: 9.5rem; height: 9.5rem; border-radius: 50%; border: 1px solid rgba(255,212,138,.35); background: radial-gradient(circle, rgba(255,212,138,.08), rgba(0,0,0,0) 70%);
+  color: #e9dcc4; display: inline-flex; align-items: center; justify-content: center; position: relative; touch-action: none; user-select: none; -webkit-user-select: none; cursor: pointer; transition: box-shadow .6s, border-color .6s; }
+#mg.escuta .es-orb i { position: absolute; inset: -1px; border-radius: 50%; box-shadow: 0 0 0 0 rgba(255,212,138,0); }
+#mg.escuta.ouvindo .es-orb { border-color: rgba(255,212,138,.9); box-shadow: 0 0 60px rgba(255,200,110,.35) inset, 0 0 40px rgba(255,200,110,.25); }
+#mg.escuta .es-conta { min-height: 1.6em; margin-top: 1.4rem; letter-spacing: .6em; color: #ffd48a; font-size: 1.1rem; }
+#mg.escuta .es-res p { margin: 1rem 0 1.4rem; line-height: 1.55; }
+#mg.escuta.pulso::before, #mg.escuta.pulso-f::before { content: ''; position: fixed; inset: 0; pointer-events: none; box-shadow: inset 0 0 90px rgba(255,212,138,.35); animation: esPulso .45s ease-out both; }
+#mg.escuta.pulso-f::before { box-shadow: inset 0 0 220px rgba(170,200,255,.28); animation-duration: 1.6s; }
+@keyframes esPulso { from { opacity: 1; } to { opacity: 0; } }
+#mg.escuta.fim .es-orb { opacity: .25; }
+
+@media (prefers-reduced-motion: reduce) {
+  body.golpe #page, body.golpe .bgl { animation: none; }
+  body.frestas::after { animation: none; }
+  body.geada-passa #geada { animation-duration: .01s; }
+}
